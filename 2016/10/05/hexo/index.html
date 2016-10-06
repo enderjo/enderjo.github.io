@@ -3,7 +3,7 @@
         <meta charset="utf-8">
             
             <title>
-                使用Github Pages和Hexo搭建个人博客 | 自我成长
+                使用Github Pages和Hexo搭建个人博客 | CrazyAirhead
             </title>
             <meta content="width=device-width, initial-scale=1" name="viewport">
             <meta name="theme-color" content="#4184f3">
@@ -39,7 +39,7 @@
         <nav>
             <div class="logo wave">
                 <a href="/" id="logo">
-                    自我成长
+                    CrazyAirhead
                 </a>
             </div>
             <div class="nav-toggle-icon" >
@@ -111,15 +111,36 @@
           </section>
 
           <section class="post-content">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="/2016/10/05/hexo/#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="/2016/10/05/hexo/#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo <span class="built_in">new</span> <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="/2016/10/05/hexo/#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="/2016/10/05/hexo/#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="/2016/10/05/hexo/#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <p>本文是自己在使用Github Pages和Hexo搭建个人博客时的一些经验记录和总结，并非手把手搭建的过程。</p>
+<h2 id="为什么"><a href="/2016/10/05/hexo/#为什么" class="headerlink" title="为什么"></a>为什么</h2><p>之前在博客大巴上是有写一些博客的，不过因为己写作能力的一些原因，实际上写的也不多，后面也基本上就断了。最近跳槽到一家互联网公司，语言也转了Java，又学习了一些Web知识，所以也就想多试一些东西。</p>
+<p>选Github Pages呢，是因为自己在搜索一些资料时时常会到Github上，当时也不知道这是Github Pages，虽然有使用Github，是有点Out了。后面又机缘巧合的看到了一些使用Github Pages搭建个人博客的文章，也就来了兴趣。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Usage limits</div><div class="line"></div><div class="line">GitHub Pages sites are subject to the following usage limits:</div><div class="line"></div><div class="line">GitHub Pages source repositories have a recommended limit of 1GB .</div><div class="line">Published GitHub Pages sites may be no larger than 1 GB.</div><div class="line"></div><div class="line">GitHub Pages sites have a bandwidth limit of 100GB or 100,000 requests per month.</div><div class="line"></div><div class="line">GitHub Pages sites have a limit of 10 builds per hour.</div></pre></td></tr></table></figure>
+<p>对于我来说，这些应该都不是大问题。</p>
+<h2 id="创建Github-Pages仓库"><a href="/2016/10/05/hexo/#创建Github-Pages仓库" class="headerlink" title="创建Github Pages仓库"></a>创建Github Pages仓库</h2><p>创建以<code>&lt;username&gt;.github.io</code>为名的仓库，对于我来说是<em>enderjo.github.io</em>。一开始看博文是没看懂，以为是用户名的仓库。后面也多搜了几篇，多看了几遍才明白，也可以直接看<a href="https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/" target="_blank" rel="external">Configuring a publishing source for GitHub Pages</a><br>除了仓库名，也就没有什么特别的注意点了，从推荐的几个模板中选择一个模板。要不了几分钟，就可以使用<a href="https://enderjo.github.io" target="_blank" rel="external">https://enderjo.github.io</a>来访问页面了。</p>
+<h2 id="绑定域名"><a href="/2016/10/05/hexo/#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>对于Github来说，绑定域名是非常简单的。创建一个<code>CNAME</code>的文件，写上域名上传就可以了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">l4qiang.me</div></pre></td></tr></table></figure>
+<p>对我来说，还有些没有触过的东西就是域名解析配置。上阿里云买了<code>l4qiang.me</code>的域名，这个没有什么特别好说的。</p>
+<h3 id="域名解析"><a href="/2016/10/05/hexo/#域名解析" class="headerlink" title="域名解析"></a>域名解析</h3><p>注册DNSpod，添加域名，在没有配置CNAME之前可以之接填写<em>enderjo.github.io</em>的域名，会自动解析。<br>可以看到一条A记录和两条NS记录，记录下NS记录，修改DNS时会用到。</p>
+<p>如博客不能登录，有可能是github更改了空间服务的ip地址，需要及时更新。</p>
+<h3 id="DNS设置"><a href="/2016/10/05/hexo/#DNS设置" class="headerlink" title="DNS设置"></a>DNS设置</h3><p>个人感觉，阿里云的管理页太杂了，好几次都找不到配置页面。</p>
+<p>登录后，进控制台，选产品与服务中的域名。可以看到自己已经购买的域名，点击管理，在DNS服务器选项中，修改DNS。<br>设置为：</p>
+<pre><code>* f1g1ns1.dnspod.net
+* f1g1ns2.dnspod.net
+</code></pre><p>以上已经能通过域名正常访问博客了。</p>
+<h2 id="Hexo"><a href="/2016/10/05/hexo/#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>Github推荐使用的是Jekyll做为静态网站生成器，但是因为用的是Ruby，没怎么接触，就找到了Hexo做为替代。</p>
+<h3 id="安装Nodejs"><a href="/2016/10/05/hexo/#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h3><p>下载<a href="https://nodejs.org/dist/v6.7.0/node-v6.7.0-x64.msi" target="_blank" rel="external">Nodejs 6.7</a>，默认安装就可以了。</p>
+<h3 id="安装hexo"><a href="/2016/10/05/hexo/#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div><div class="line">hexo init blog</div><div class="line"><span class="built_in">cd</span> blog</div><div class="line">npm install</div><div class="line">hexo server</div></pre></td></tr></table></figure>
+<h3 id="Hexo配置"><a href="/2016/10/05/hexo/#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h3><p>在blog的根目录可以看到Hexo配置文件<code>_config.yml</code>，基本上的配置都是修改这个文件。</p>
+<p>需要修改内容如下，其他内容可以不修改：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Site</span></div><div class="line"><span class="attr">title:</span> CrazyAirhead</div><div class="line"><span class="attr">subtitle:</span> 疯狂的傻瓜，傻瓜也疯狂————傻方能执著，疯狂才专注!</div><div class="line"><span class="attr">description:</span> 记录点滴，注重积累。</div><div class="line"><span class="attr">author:</span> L4qiang</div><div class="line"><span class="attr">email:</span> L4qiang@gmail.com</div><div class="line"><span class="attr">language:</span> zh-CN</div><div class="line"><span class="attr">timezone:</span> </div><div class="line"></div><div class="line"><span class="comment"># URL</span></div><div class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></div><div class="line"><span class="attr">url:</span> http://l4qiang.me</div><div class="line"><span class="attr">root:</span> /</div><div class="line"></div><div class="line"><span class="comment"># Extensions</span></div><div class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></div><div class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></div><div class="line"><span class="attr">theme:</span> gstyle</div><div class="line"></div><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  repo:</span> https://github.com/enderjo/enderjo.github.io.git</div><div class="line"><span class="attr">  branch:</span> master</div></pre></td></tr></table></figure>
+<h3 id="选择模板与配置"><a href="/2016/10/05/hexo/#选择模板与配置" class="headerlink" title="选择模板与配置"></a>选择模板与配置</h3><p>根据选择的模板，修改配置。我选择了<a href="https://github.com/wayou/hexo-theme-gstyle" target="_blank" rel="external">gstyle</a>，下载后解压到themes文件夹下（一般文件名比较长，需重命名）。</p>
+<p>需要修改Hexo<code>_config.yml</code>的内容有:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment"># add caption for iamges</span></div><div class="line"><span class="attr">image_caption:</span></div><div class="line"><span class="attr">  enable:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  class_name:</span></div><div class="line"></div><div class="line"><span class="attr">prism_plugin:</span></div><div class="line"><span class="attr">  mode:</span> <span class="string">'preprocess'</span>    <span class="comment"># realtime/preprocess </span></div><div class="line"><span class="attr">  theme:</span> <span class="string">'default'</span></div><div class="line"></div><div class="line"><span class="attr">active_nav:</span> <span class="literal">false</span></div></pre></td></tr></table></figure>
+<p>需要修改themes配置文件，在对应的模板目录下，也是<code>_config.yml</code>。</p>
+<p>这里使用了多说，需要修改配置：</p>
+<pre class="language-yml"><span class="attr"><code class="language-yml"><span class="attr">duoshuo_shortname:</span> enderjo
+</code></pre>
+<p>需要注册并<a href="http://duoshuo.com/create-site/" target="_blank" rel="external">创建站点</a>，<code>duoshuo_shortname</code>中填写的就是多说站点的二级域名需要填写的部分。</p>
 <link href="/css/prism.css" rel="stylesheet">
           </section>
         </article>
