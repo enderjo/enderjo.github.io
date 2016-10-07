@@ -114,9 +114,14 @@
             <p>本文是自己在使用Github Pages和Hexo搭建个人博客时的一些经验记录和总结，并非手把手搭建的过程。</p>
 <h2 id="为什么"><a href="/2016/10/05/hexo/#为什么" class="headerlink" title="为什么"></a>为什么</h2><p>之前在博客大巴上是有写一些博客的，不过因为己写作能力的一些原因，实际上写的也不多，后面也基本上就断了。最近跳槽到一家互联网公司，语言也转了Java，又学习了一些Web知识，所以也就想多试一些东西。</p>
 <p>选Github Pages呢，是因为自己在搜索一些资料时时常会到Github上，当时也不知道这是Github Pages，虽然有使用Github，是有点Out了。后面又机缘巧合的看到了一些使用Github Pages搭建个人博客的文章，也就来了兴趣。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Usage limits</div><div class="line"></div><div class="line">GitHub Pages sites are subject to the following usage limits:</div><div class="line"></div><div class="line">GitHub Pages source repositories have a recommended limit of 1GB .</div><div class="line">Published GitHub Pages sites may be no larger than 1 GB.</div><div class="line"></div><div class="line">GitHub Pages sites have a bandwidth limit of 100GB or 100,000 requests per month.</div><div class="line"></div><div class="line">GitHub Pages sites have a limit of 10 builds per hour.</div></pre></td></tr></table></figure>
-<p>对于我来说，这些应该都不是大问题。</p>
-<h2 id="创建Github-Pages仓库"><a href="/2016/10/05/hexo/#创建Github-Pages仓库" class="headerlink" title="创建Github Pages仓库"></a>创建Github Pages仓库</h2><p>创建以<code>&lt;username&gt;.github.io</code>为名的仓库，对于我来说是<em>enderjo.github.io</em>。一开始看博文是没看懂，以为是用户名的仓库。后面也多搜了几篇，多看了几遍才明白，也可以直接看<a href="https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/" target="_blank" rel="external">Configuring a publishing source for GitHub Pages</a><br>除了仓库名，也就没有什么特别的注意点了，从推荐的几个模板中选择一个模板。要不了几分钟，就可以使用<a href="https://enderjo.github.io" target="_blank" rel="external">https://enderjo.github.io</a>来访问页面了。</p>
+<blockquote>
+<p>GitHub Pages sites are subject to the following usage limits:</p>
+<p>GitHub Pages source repositories have a recommended limit of 1GB .<br>Published GitHub Pages sites may be no larger than 1 GB.</p>
+<p>GitHub Pages sites have a bandwidth limit of 100GB or 100,000 requests per month.</p>
+<p>GitHub Pages sites have a limit of 10 builds per hour.</p>
+</blockquote>
+<p>这些限制对我来说，都不是大问题，没有这么大的访问量。</p>
+<h2 id="创建Github-Pages仓库"><a href="/2016/10/05/hexo/#创建Github-Pages仓库" class="headerlink" title="创建Github Pages仓库"></a>创建Github Pages仓库</h2><p>因为本身有使用过Github，所以直接从创建仓库开始，如果是完全的新手建议看这篇<a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="external">如何搭建一个独立博客——简明Github Pages与Hexo教程</a>，我也基本上是参考这篇来搭建的。创建以<code>&lt;username&gt;.github.io</code>为名的仓库，对于我来说是<em>enderjo.github.io</em>。一开始看博文是没看懂，以为是用户名的仓库。后面也多搜了几篇，多看了几遍才明白，也可以直接看<a href="https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/" target="_blank" rel="external">Configuring a publishing source for GitHub Pages</a><br>除了仓库名，也就没有什么特别的注意点了，从推荐的几个模板中选择一个模板。要不了几分钟，就可以使用<a href="https://enderjo.github.io" target="_blank" rel="external">https://enderjo.github.io</a>来访问页面了。</p>
 <h2 id="绑定域名"><a href="/2016/10/05/hexo/#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>对于Github来说，绑定域名是非常简单的。创建一个<code>CNAME</code>的文件，写上域名上传就可以了。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">l4qiang.me</div></pre></td></tr></table></figure>
 <p>对我来说，还有些没有触过的东西就是域名解析配置。上阿里云买了<code>l4qiang.me</code>的域名，这个没有什么特别好说的。</p>
@@ -127,7 +132,7 @@
 <pre><code>* f1g1ns1.dnspod.net
 * f1g1ns2.dnspod.net
 </code></pre><p>以上已经能通过域名正常访问博客了。</p>
-<h2 id="Hexo"><a href="/2016/10/05/hexo/#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>Github推荐使用的是Jekyll做为静态网站生成器，但是因为用的是Ruby，没怎么接触，就找到了Hexo做为替代。</p>
+<h2 id="使用Hexo"><a href="/2016/10/05/hexo/#使用Hexo" class="headerlink" title="使用Hexo"></a>使用Hexo</h2><p>Github推荐使用的是Jekyll做为静态网站生成器，但是因为用的是Ruby，没怎么接触，就找到了Hexo做为替代。</p>
 <h3 id="安装Nodejs"><a href="/2016/10/05/hexo/#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h3><p>下载<a href="https://nodejs.org/dist/v6.7.0/node-v6.7.0-x64.msi" target="_blank" rel="external">Nodejs 6.7</a>，默认安装就可以了。</p>
 <h3 id="安装hexo"><a href="/2016/10/05/hexo/#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div><div class="line">hexo init blog</div><div class="line"><span class="built_in">cd</span> blog</div><div class="line">npm install</div><div class="line">hexo server</div></pre></td></tr></table></figure>
 <h3 id="Hexo配置"><a href="/2016/10/05/hexo/#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h3><p>在blog的根目录可以看到Hexo配置文件<code>_config.yml</code>，基本上的配置都是修改这个文件。</p>
@@ -141,6 +146,8 @@
 <pre class="language-yml"><span class="attr"><code class="language-yml"><span class="attr">duoshuo_shortname:</span> enderjo
 </code></pre>
 <p>需要注册并<a href="http://duoshuo.com/create-site/" target="_blank" rel="external">创建站点</a>，<code>duoshuo_shortname</code>中填写的就是多说站点的二级域名需要填写的部分。</p>
+<h3 id="图床"><a href="/2016/10/05/hexo/#图床" class="headerlink" title="图床"></a>图床</h3><p>使用了七牛的空间，使用<code>qrsbox</code>进行同步。</p>
+<h2 id="总结"><a href="/2016/10/05/hexo/#总结" class="headerlink" title="总结"></a>总结</h2><p>对于使用Github Pages和Hexo搭建个人博客，整体配置下来是难度不会大，主要是因为有些东西没有接触过会多花一些时间来理解。另外就是一些博文不一定会有及时的更新，一些操作也是会不一样的，所有对自己来说，能找到原始出处的就尽量用原始内容。</p>
 <link href="/css/prism.css" rel="stylesheet">
           </section>
         </article>
