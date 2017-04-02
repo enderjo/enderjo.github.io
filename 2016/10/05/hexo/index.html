@@ -142,10 +142,13 @@
 <p>需要修改Hexo<code>_config.yml</code>的内容有:</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment"># add caption for iamges</span></div><div class="line"><span class="attr">image_caption:</span></div><div class="line"><span class="attr">  enable:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  class_name:</span></div><div class="line"></div><div class="line"><span class="attr">prism_plugin:</span></div><div class="line"><span class="attr">  mode:</span> <span class="string">'preprocess'</span>    <span class="comment"># realtime/preprocess </span></div><div class="line"><span class="attr">  theme:</span> <span class="string">'default'</span></div><div class="line"></div><div class="line"><span class="attr">active_nav:</span> <span class="literal">false</span></div></pre></td></tr></table></figure>
 <p>需要修改themes配置文件，在对应的模板目录下，也是<code>_config.yml</code>。</p>
-<p>这里使用了多说，需要修改配置：</p>
-<pre class="language-yml"><span class="attr"><code class="language-yml"><span class="attr">duoshuo_shortname:</span> enderjo
-</code></pre>
-<p>需要注册并<a href="http://duoshuo.com/create-site/" target="_blank" rel="external">创建站点</a>，<code>duoshuo_shortname</code>中填写的就是多说站点的二级域名需要填写的部分。</p>
+<p>这里使用了多说，需要修改配置：<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attr">duoshuo_shortname:</span> enderjo</div><div class="line">``` </div><div class="line"></div><div class="line">需要注册并[创建站点](http://duoshuo.com/create-site/)，`duoshuo_shortname`中填写的就是多说站点的二级域名需要填写的部分。</div><div class="line"></div><div class="line"><span class="comment">### hexo基本操作</span></div></pre></td></tr></table></figure></p>
+<p>hexo help<br>Usage: hexo <command></p>
+<p>Commands:<br>  clean     Removed generated files and cache.<br>  config    Get or set configurations.<br>  deploy    Deploy your website.<br>  generate  Generate static files.<br>  help      Get help on a command.<br>  init      Create a new Hexo folder.<br>  list      List the information of the site<br>  migrate   Migrate your site from other system to Hexo.<br>  new       Create a new post.<br>  publish   Moves a draft post from _drafts to _posts folder.<br>  render    Render files with renderer plugins.<br>  server    Start the server.<br>  version   Display version information.</p>
+<p>Global Options:<br>  –config  Specify config file instead of using _config.yml<br>  –cwd     Specify the CWD<br>  –debug   Display all verbose messages in the terminal<br>  –draft   Display draft posts<br>  –safe    Disable all plugins and scripts<br>  –silent  Hide output on console</p>
+<p>For more help, you can use ‘hexo help [command]’ for the detailed information<br>or you can check the docs: <a href="http://hexo.io/docs/" target="_blank" rel="external">http://hexo.io/docs/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#### 写作</div><div class="line">```bash</div><div class="line">$ hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="生成与发布"><a href="/2016/10/05/hexo/#生成与发布" class="headerlink" title="生成与发布"></a>生成与发布</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate --deploy</div><div class="line">$ hexo deploy --generate</div></pre></td></tr></table></figure>
+<p>简写<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g <span class="_">-d</span></div><div class="line">$ hexo d -g</div></pre></td></tr></table></figure></p>
 <h3 id="图床"><a href="/2016/10/05/hexo/#图床" class="headerlink" title="图床"></a>图床</h3><p>使用了七牛的空间，使用<code>qrsbox</code>进行同步。</p>
 <h2 id="总结"><a href="/2016/10/05/hexo/#总结" class="headerlink" title="总结"></a>总结</h2><p>对于使用Github Pages和Hexo搭建个人博客，整体配置下来是难度不会大，主要是因为有些东西没有接触过会多花一些时间来理解。另外就是一些博文不一定会有及时的更新，一些操作也是会不一样的，所有对自己来说，能找到原始出处的就尽量用原始内容。</p>
 <link href="/css/prism.css" rel="stylesheet">
@@ -207,7 +210,7 @@
         <footer class="footer">
     <p>由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动，搭载<a href="https://github.com/wayou/hexo-theme-gstyle">gstyle</a>主题</p>
     <p>
-        &copy; 2016 L4qiang
+        &copy; 2017 L4qiang
     </p>
 </footer>
 <script src="/lib/jquery.js"></script>
