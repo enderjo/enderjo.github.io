@@ -113,7 +113,7 @@
 <p>在不需要修改项目文件的情况下，qmake也可以生成Microsoft Visual studio的项目。</p>
 <h1 id="目录"><a href="/2017/04/30/qmake/#目录" class="headerlink" title="目录"></a>目录</h1><ul>
 <li>概述</li>
-<li>Getting Started</li>
+<li>入门</li>
 <li>Creating Project Files</li>
 <li>Building Common </li>
 <li>Project Types</li>
@@ -176,7 +176,10 @@
 <p><code>!</code>是判断表达式取反。也就是说如果exists(main.cpp)为真时文件存在，那么!exists(main.cpp)为真时，就是文件不存在。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">CONFIG += debug</div><div class="line">HEADERS += hello.h</div><div class="line">SOURCES += hello.cpp</div><div class="line">SOURCES += main.cpp</div><div class="line">win32 &#123;</div><div class="line">    SOURCES += hellowin.cpp</div><div class="line">  &#125;</div><div class="line">unix &#123;</div><div class="line">    SOURCES += hellounix.cpp</div><div class="line">  &#125;</div><div class="line">!exists( main.cpp ) &#123;</div><div class="line">    error( &quot;No main.cpp file found&quot; )</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>和之前一样用qmake来生成Makefile。如果你临时重命名了main.cpp，你就会看到qmake停止执行的信息。</p>
-<h2 id="多条件检测"><a href="/2017/04/30/qmake/#多条件检测" class="headerlink" title="多条件检测"></a>多条件检测</h2><link href="/css/prism.css" rel="stylesheet">
+<h2 id="多条件检测"><a href="/2017/04/30/qmake/#多条件检测" class="headerlink" title="多条件检测"></a>多条件检测</h2><p>假设你使用Windows并且希望在命令行中运行程序的时候用qDebug()来看表达示的输出。为了看输出，必须使用合适的控制台设置来编译程序。我们只要简单地将<code>console</code>设置到<code>CONFIG</code>中可以。现在我们来说说，我们运行在Windows上添加了<code>CONFIG</code>并且设置为<code>debug</code>的情况，此时需要用到两个域嵌套。首先创建一个域，然后在里面创建另一个。在第二个域中做如下的设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">win32 &#123;</div><div class="line">    debug &#123;</div><div class="line">        CONFIG += console</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>嵌套域可以冒号来连接，所以最终的项目文件是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">CONFIG += debug</div><div class="line">HEADERS += hello.h</div><div class="line">SOURCES += hello.cpp</div><div class="line">SOURCES += main.cpp</div><div class="line"></div><div class="line">win32 &#123;</div><div class="line">    SOURCES += hellowin.cpp</div><div class="line">&#125;</div><div class="line"></div><div class="line">unix &#123;</div><div class="line">    SOURCES += hellounix.cpp</div><div class="line">&#125;</div><div class="line"></div><div class="line">!exists(main.cpp) &#123;</div><div class="line">    error(&quot;No main.cpp file found&quot;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">win32:debug &#123;</div><div class="line">    CONFIG += console</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>就这些了！你已经完成了qmake的教程，现在开始写你自己项目的项目文件吧。</p>
+<link href="/css/prism.css" rel="stylesheet">
           </section>
         </article>
         
