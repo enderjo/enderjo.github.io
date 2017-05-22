@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+          <head>
+        <meta charset="utf-8">
+            
+            <title>
+                qmake-1 | CrazyAirhead
+            </title>
+            <meta content="width=device-width, initial-scale=1" name="viewport">
+            <meta name="theme-color" content="#4184f3">
+            
+            
+            <link href="/favicon.ico" rel="icon"/>
+            
+
+            <link rel="stylesheet" href="/css/highlight.light.css">
+            <link rel="stylesheet" href="/css/prism-customize.css">
+            <link rel="stylesheet" href="/css/nav-icon.css">
+            <link rel="stylesheet" href="/css/waves.min.css">
+            <link rel="stylesheet" href="/css/jquery.tocify.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/nav-indicator.css">
+            
+  
+
+  
+            </meta>
+        </meta>
+    </head>
+
+    <body>
+        <header>
+            <!-- cover image or sth. -->
+        </header>
+        <div id="main" class="m-scene">
+            
+<div class="nav-wrapper">
+
+    <div class="container">
+        <nav>
+            <div class="logo wave">
+                <a href="/" id="logo">
+                    CrazyAirhead
+                </a>
+            </div>
+            <div class="nav-toggle-icon" >
+                <div class="material-hamburger">
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </div>
+            </div>
+            <div class="menu-wrapper">
+                <div class="nav-indicator">
+                </div>
+                <ul class="menus">
+                    
+                     
+                        <li>
+                            <a class="wave " href="/">
+                                首页
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/archives">
+                                归档
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/about">
+                                关于
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave no-smoothstate" href="/atom.xml">
+                                订阅
+                            </a>
+                        </li>
+                     
+                    
+                   
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+            <div class="container content">
+                <div class="scene_element scene_element--fadein">
+                    <div class="row">
+    <div class="main">
+        <article>
+          
+          <header class="post-header">
+          
+          </header>
+          <h1 class="post-title">qmake-1</h1>
+
+          <section class="post-info">
+            <span class="post-date">2017/05/22</span>
+            
+            
+          </section>
+
+          <section class="post-content">
+            <h1 id="入门"><a href="/2017/05/22/qmake-1/#入门" class="headerlink" title="入门"></a>入门</h1><p>本教程向介绍qmake的基本知识。本手册的其他主题包含了更多的qmake使用细节。</p>
+<h2 id="从简单开始"><a href="/2017/05/22/qmake-1/#从简单开始" class="headerlink" title="从简单开始"></a>从简单开始</h2><p>假设你已经完成了项目的基本实现，并且你创建了如下的文件：</p>
+<ul>
+<li>hello.cpp</li>
+<li>hello.h</li>
+<li>main.cpp<br>你可以在Qt发布包的<code>examples/qmake/tutorial</code>目录下找到这些文件。剩下的唯一一件事就是使用Qt来写应用配置。首先，用你最喜欢的文本编辑器，在<code>examples/qmake/tutorial</code>目录下创建一个<code>hello.pro</code>的文件。第一件要做的事情就是该文件中增加构成你开发项目的头文件和源文件的说明。</li>
+</ul>
+<p>我们先添加源文件。通过<code>SOURCES</code>变量可以完成这个事情。只要创建一行<code>SOURCES +=</code>,后面紧跟hello.pp就可以了。你的文件应该像这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SOURCES += hello.cpp</div></pre></td></tr></table></figure></p>
+<p>其他文件也这样做：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SOURCES += hello.cpp</div><div class="line">SOURCES += main.cpp</div></pre></td></tr></table></figure></p>
+<p>如果你喜欢Make风格的语法，我们也可以在一行中写所有的文件列表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SOURCES = hello.cpp \</div><div class="line">        main.cpp</div></pre></td></tr></table></figure></p>
+<p>接下来我们来添加头文件。除了使用了<code>HEADERS</code>变量，其它和源文件的添加方式是一样的。</p>
+<p>如果头文件也添加完成，你的项目文件应该是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">HEADERS += hello.h</div><div class="line">SOURCES += hello.cpp</div><div class="line">SOURCES += main.cpp</div></pre></td></tr></table></figure></p>
+<p>目标名是自动设置的。它和项目文件名相同，只不过包含了适应平台的后缀。例如，如果项目文件是<code>hello.pro</code>，那是在Window上是<code>hello.exe</code>，在Unix上是<code>hello</code>。如果你想要不同的名称，可以使用下面的方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TARGET = helloworld</div></pre></td></tr></table></figure></p>
+<p>最终的项目文件是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">HEADERS += hello.h</div><div class="line">SOURCES += hello.cpp</div><div class="line">SOURCES += main.cpp</div></pre></td></tr></table></figure></p>
+<p>你可以用qmake来生成项目的Makefile。在你的项目目录下，使用如下的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">qmake -o Makefile hello.pro</div></pre></td></tr></table></figure></p>
+<p>然后根据你使用的编辑器来输入<code>make</code>或者<code>nmake</code>。<br>对于Visual Studio的用户来说，qmake一样可以生成Visual Studio的项目文件。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">qmake -tp vc hello.pro</div></pre></td></tr></table></figure></p>
+<h2 id="增加调试"><a href="/2017/05/22/qmake-1/#增加调试" class="headerlink" title="增加调试"></a>增加调试</h2><p>应用程序的发布版本不包含任何调试符号和调试信息。但是在开发过程中生成调试信息是非常有用的。在<code>CONFIG</code>变量中增加<code>debug</code>就可以。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CONFIG += debug</div><div class="line">HEADERS += hello.h</div><div class="line">SOURCES += hello.cpp</div><div class="line">SOURCES += main.cpp</div></pre></td></tr></table></figure></p>
+<p>使用qmake重新生成Makefile。这样你在调试环境下运行应用程序就可获得有用的信息。</p>
+<h2 id="添加指定平台源文件"><a href="/2017/05/22/qmake-1/#添加指定平台源文件" class="headerlink" title="添加指定平台源文件"></a>添加指定平台源文件</h2><p>经过几个小时的编码，你产生了一些平台相关应用程序，并且你希望保持平台的独立性。所以你在你的项目中有两个新一文件：<code>hellowin.cpp</code>和<code>hellounix.cpp</code>。我们不能简单的用<code>SOURCES</code>将这两个文件添加到项目文件当中。所以我们增加了一个作用域来处理不同的编译平台。</p>
+<p>Windows平台的域是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">win32 &#123;</div><div class="line">    SOURCES += hellowin.cpp</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当编译Windows版本时，qmake添加<code>hellowin.cpp</code>到文件列表中。当编译其他平台时，qmake会忽略掉。那剩下的就是如何创建Unix的域了。</p>
+<p>如果你都做完了，你的项目文件应该是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">CONFIG += debug</div><div class="line">HEADERS += hello.h</div><div class="line">SOURCES += hello.cpp</div><div class="line">SOURCES += main.cpp</div><div class="line">win32 &#123;</div><div class="line">    SOURCES += hellowin.cpp</div><div class="line">  &#125;</div><div class="line">unix &#123;</div><div class="line">    SOURCES += hellounix.cpp</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>和之前一样用qmake来生成Makefile。</p>
+<h2 id="如果文件不存在就停止qmake"><a href="/2017/05/22/qmake-1/#如果文件不存在就停止qmake" class="headerlink" title="如果文件不存在就停止qmake"></a>如果文件不存在就停止qmake</h2><p>如果确定某个文件不存在时你可能不想生成Makefile。你可以通过<code>exists()</code>函数来确定某个文件是否存在。我们可以通过<code>error()</code>函数来结束qmake的进程。在域下也同样适用。简单的替换域条件就可以了。检查main.cpp文件的判断如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">!exists( main.cpp ) &#123;</div><div class="line">    error( &quot;No main.cpp file found&quot; )</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p><code>!</code>是判断表达式取反。也就是说如果exists(main.cpp)为真时文件存在，那么!exists(main.cpp)为真时，就是文件不存在。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">CONFIG += debug</div><div class="line">HEADERS += hello.h</div><div class="line">SOURCES += hello.cpp</div><div class="line">SOURCES += main.cpp</div><div class="line">win32 &#123;</div><div class="line">    SOURCES += hellowin.cpp</div><div class="line">  &#125;</div><div class="line">unix &#123;</div><div class="line">    SOURCES += hellounix.cpp</div><div class="line">  &#125;</div><div class="line">!exists( main.cpp ) &#123;</div><div class="line">    error( &quot;No main.cpp file found&quot; )</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>和之前一样用qmake来生成Makefile。如果你临时重命名了main.cpp，你就会看到qmake停止执行的信息。</p>
+<h2 id="多条件检测"><a href="/2017/05/22/qmake-1/#多条件检测" class="headerlink" title="多条件检测"></a>多条件检测</h2><p>假设你使用Windows并且希望在命令行中运行程序的时候用qDebug()来看表达示的输出。为了看输出，必须使用合适的控制台设置来编译程序。我们只要简单地将<code>console</code>设置到<code>CONFIG</code>中可以。现在我们来说说，我们运行在Windows上添加了<code>CONFIG</code>并且设置为<code>debug</code>的情况，此时需要用到两个域嵌套。首先创建一个域，然后在里面创建另一个。在第二个域中做如下的设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">win32 &#123;</div><div class="line">    debug &#123;</div><div class="line">        CONFIG += console</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>嵌套域可以冒号来连接，所以最终的项目文件是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">CONFIG += debug</div><div class="line">HEADERS += hello.h</div><div class="line">SOURCES += hello.cpp</div><div class="line">SOURCES += main.cpp</div><div class="line"></div><div class="line">win32 &#123;</div><div class="line">    SOURCES += hellowin.cpp</div><div class="line">&#125;</div><div class="line"></div><div class="line">unix &#123;</div><div class="line">    SOURCES += hellounix.cpp</div><div class="line">&#125;</div><div class="line"></div><div class="line">!exists(main.cpp) &#123;</div><div class="line">    error(&quot;No main.cpp file found&quot;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">win32:debug &#123;</div><div class="line">    CONFIG += console</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>就这些了！你已经完成了qmake的教程，现在开始写你自己项目的项目文件吧。</p>
+<h1 id="创建项目文件"><a href="/2017/05/22/qmake-1/#创建项目文件" class="headerlink" title="创建项目文件"></a>创建项目文件</h1><p>项目文件包含了所有qmake用于构建应用程序，类库和插件的信息。通常，您使用一系列声明来指定项目中的资源，但是对简单编程结构的支持使您可以为不同的平台和环境描述不同的构建过程。</p>
+<link href="/css/prism.css" rel="stylesheet">
+          </section>
+        </article>
+        
+
+       
+        <div class="pager">
+          
+          
+            <a class="post-next pager-item" href="/2017/05/22/qmake-0/">
+              <strong class="article-nav-caption">下一篇</strong>
+              <p class="post-nav-title">qmake-0</p>
+            </a>
+          
+        </div>
+        
+
+         <!-- comments -->
+        <div class="comment-section">
+  
+    
+
+    <!-- 多说评论框 start -->
+      <div class="ds-thread" data-thread-key="_posts/qmake-1.md" data-title="qmake-1" data-url="http://l4qiang.me/2017/05/22/qmake-1/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+      <script type="text/javascript">
+      var duoshuoQuery = {short_name:"wayouliu"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+
+  
+
+
+</div>
+
+    </div>
+    
+</div>
+
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+    <p>由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动，搭载<a href="https://github.com/wayou/hexo-theme-gstyle">gstyle</a>主题</p>
+    <p>
+        &copy; 2017 L4qiang
+    </p>
+</footer>
+<script src="/lib/jquery.js"></script>
+<script src="/lib/waves.js"></script>
+<script src="/lib/jquery-ui.js"></script>
+<script src="/lib/jquery.tocify.js"></script>
+<script src="/js/main.js"></script>
+
+    </body>
+</html>
