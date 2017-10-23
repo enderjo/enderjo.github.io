@@ -107,12 +107,12 @@
           </section>
 
           <section class="post-content">
-            <h1 id="ZeroNet是什么"><a href="/2017/10/22/zeronet-0/#ZeroNet是什么" class="headerlink" title="ZeroNet是什么?"></a>ZeroNet是什么?</h1><p>ZeroNet是使用比特币加密技术和BitTorrent网络协议构建的一个去中心化的无审查网络。</p>
+            <h2 id="ZeroNet是什么"><a href="/2017/10/22/zeronet-0/#ZeroNet是什么" class="headerlink" title="ZeroNet是什么?"></a>ZeroNet是什么?</h2><p>ZeroNet是使用比特币加密技术和BitTorrent网络协议构建的一个去中心化的无审查网络。</p>
 <p>用户可以在ZeroNet上发布静态或者动态的站点。访问者可以决定是否成为服务节点。只要还有一个服务节点站点就会在线。</p>
 <p>当站点的所有者更新站点的时候，所有服务的节点（以前的访问者）就会增量更新站点内容。</p>
 <p>ZeroNet comes with a built-in SQL database. This makes content-heavy site development easy. The DB is also synced with hosting nodes with incremental updates.</p>
 <p>ZeroNet自带内置数据库，这使得重内容的站点的开发更容易。数据库也会在节点增量更新。</p>
-<h1 id="为什么？"><a href="/2017/10/22/zeronet-0/#为什么？" class="headerlink" title="为什么？"></a>为什么？</h1><ul>
+<h2 id="为什么？"><a href="/2017/10/22/zeronet-0/#为什么？" class="headerlink" title="为什么？"></a>为什么？</h2><ul>
 <li>我们相信开放的，自由的，无审查的网络。</li>
 <li>去中心化：只要一发布就无法删除。</li>
 <li>无单点故障：只要还有一个服务节点，内容就会一直在线。</li>
@@ -133,21 +133,21 @@
 <li>插件和多用户 (开放式代理) 支持</li>
 <li>跨平台，支持任何浏览器和系统</li>
 </ul>
-<h1 id="原理"><a href="/2017/10/22/zeronet-0/#原理" class="headerlink" title="原理"></a>原理</h1><ul>
+<h2 id="原理"><a href="/2017/10/22/zeronet-0/#原理" class="headerlink" title="原理"></a>原理</h2><ul>
 <li>在你运行ZeroNet后,你可以通过<code>http://127.0.0.1:43110/{zeronet_site_address}</code> (比如:<code>http://127.0.0.1:43110/1HeLLo4uzjaLetFx6NH3PMwFP3qbRbTf3D</code>)来访问网站。</li>
 <li>ZeroNet会通过BitTorrent网络来查找可用的节点，并下载需要的文件 (html, css, js…)。</li>
 <li>你会托管理每一个你访问过的网站。</li>
 <li>每个网站都有一个列表文件，存储了网站所有文件的SHA512哈希值和网站所有者的私钥生成的签名。</li>
 <li>如果站点的所有者 (拥有私钥的那个人) 修改了站点, 并且他/她签名了新的列表文件，然后推送给其他节点， 那么所有节点将会在验证列表的真实性(使用签名)后, 下载修改后的文件并推送给其他节点。</li>
 </ul>
-<h1 id="截图"><a href="/2017/10/22/zeronet-0/#截图" class="headerlink" title="截图"></a>截图</h1><p><img src="http://zeronet.readthedocs.io/en/latest/img/zerohello.png" alt="Screenshot"><span class="image-caption">Screenshot</span></p>
+<h2 id="截图"><a href="/2017/10/22/zeronet-0/#截图" class="headerlink" title="截图"></a>截图</h2><p><img src="http://zeronet.readthedocs.io/en/latest/img/zerohello.png" alt="Screenshot"><span class="image-caption">Screenshot</span></p>
 <p><img src="http://zeronet.readthedocs.io/en/latest/img/zerotalk.png" alt="ZeroTalk"><span class="image-caption">ZeroTalk</span></p>
-<h1 id="限制"><a href="/2017/10/22/zeronet-0/#限制" class="headerlink" title="限制"></a>限制</h1><ul>
+<h2 id="限制"><a href="/2017/10/22/zeronet-0/#限制" class="headerlink" title="限制"></a>限制</h2><ul>
 <li>不支持大文件拆分</li>
 <li>文件传输未压缩</li>
 <li>不支持私有站点</li>
 </ul>
-<h1 id="赞助"><a href="/2017/10/22/zeronet-0/#赞助" class="headerlink" title="赞助"></a>赞助</h1><p>Bitcoin: 1QDhxQ6PraUZa21ET5fYUCPgdrwBomnFgX</p>
+<h2 id="赞助"><a href="/2017/10/22/zeronet-0/#赞助" class="headerlink" title="赞助"></a>赞助</h2><p>Bitcoin: 1QDhxQ6PraUZa21ET5fYUCPgdrwBomnFgX</p>
 <p>谢谢！</p>
 <link href="/css/prism.css" rel="stylesheet">
           </section>
