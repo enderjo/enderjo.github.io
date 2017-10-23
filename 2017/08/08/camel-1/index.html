@@ -119,8 +119,11 @@
 <p>通常情况下，一个外部系统会通过Camel的一个组件来触发消息或者事件到Camel中，但是我们要用<code>ProducerTemplate</code>这种非简单的方式来测试我们的配置：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ProducerTemplate template = context.createProducerTemplate();</div></pre></td></tr></table></figure></p>
 <p>接下来你必须启动Camel Context。如果你使用Spring的配置方式，Camel Context已经自动启动了。但是如果你使用纯Java的方式，你也只需要调用下start()方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">camleContext.start();</div></pre></td></tr></table></figure></p>
 <p>这会启动所有已经配置好的流程。<br>所以当CamelContext启动以后，我们就可以触发对象到Camel中了：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">    template.sendBody(<span class="string">"test-jms:queue:test.queue"</span>, <span class="string">"Test Message: "</span> + i);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="发生了什么？"><a href="/2017/08/08/camel-1/#发生了什么？" class="headerlink" title="发生了什么？"></a>发生了什么？</h2><p>我们使用生产者模板来发送对象（这里是文本）到CamelContext中，到组件test-jms:queue:test.queue.这些文本对象会被自动转换为JMS的消息并推送到test.queue的消息列中。当我们设置一个路由时，我们指定文件组件来监听test.queue.</p>
-<link href="/css/prism.css" rel="stylesheet">
+<h2 id="发生了什么？"><a href="/2017/08/08/camel-1/#发生了什么？" class="headerlink" title="发生了什么？"></a>发生了什么？</h2><p>我们使用生产者模板来发送对象（这里是文本）到CamelContext中，到组件test-jms:queue:test.queue.这些文本对象会被自动转换为JMS的消息并推送到test.queue的消息列中。当我们设置一个路由时，我们指定文件组件来监听test.queue。</p>
+<p>文件组件会把文件从消息队列中取出，然后保存在名为<code>test</code>的目录中。每个消息会根据目标地址和消息ID重生成文件。</p>
+<p>最后，我们设置我们的路由，通知文件组件并打印成文本。</p>
+<h2 id="结束"><a href="/2017/08/08/camel-1/#结束" class="headerlink" title="结束"></a>结束</h2><p>如果你还有时间，你可能花上5分钟来过一遍使用Spring DSL（基于XML）的例子。</p>
+<h2 id="另一个列子"><a href="/2017/08/08/camel-1/#另一个列子" class="headerlink" title="另一个列子"></a>另一个列子</h2><link href="/css/prism.css" rel="stylesheet">
           </section>
         </article>
         
