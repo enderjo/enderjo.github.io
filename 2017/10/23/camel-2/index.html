@@ -3,7 +3,7 @@
         <meta charset="utf-8">
             
             <title>
-                ZeroNet介绍 | CrazyAirhead
+                Camel-第3章 入门 | CrazyAirhead
             </title>
             <meta content="width=device-width, initial-scale=1" name="viewport">
             <meta name="theme-color" content="#4184f3">
@@ -98,60 +98,20 @@
           <header class="post-header">
           
           </header>
-          <h1 class="post-title">ZeroNet介绍</h1>
+          <h1 class="post-title">Camel-第3章 入门</h1>
 
           <section class="post-info">
-            <span class="post-date">2017/10/22</span>
+            <span class="post-date">2017/10/23</span>
             
             
             <span class="post-tags">
-              <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/ZeroNet/">ZeroNet</a></li></ul>
+              <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/Camel/">Camel</a></li></ul>
             </span>
             
           </section>
 
           <section class="post-content">
-            <h2 id="ZeroNet是什么"><a href="/2017/10/22/zeronet-0/#ZeroNet是什么" class="headerlink" title="ZeroNet是什么?"></a>ZeroNet是什么?</h2><p>ZeroNet是使用比特币加密技术和BitTorrent网络协议构建的一个去中心化的无审查网络。</p>
-<p>用户可以在ZeroNet上发布静态或者动态的站点。访问者可以决定是否成为服务节点。只要还有一个服务节点站点就会在线。</p>
-<p>当站点的所有者更新站点的时候，所有服务的节点（以前的访问者）就会增量更新站点内容。</p>
-<p>ZeroNet comes with a built-in SQL database. This makes content-heavy site development easy. The DB is also synced with hosting nodes with incremental updates.</p>
-<p>ZeroNet自带内置数据库，这使得重内容的站点的开发更容易。数据库也会在节点增量更新。</p>
-<h2 id="为什么？"><a href="/2017/10/22/zeronet-0/#为什么？" class="headerlink" title="为什么？"></a>为什么？</h2><ul>
-<li>我们相信开放的，自由的，无审查的网络。</li>
-<li>去中心化：只要一发布就无法删除。</li>
-<li>无单点故障：只要还有一个服务节点，内容就会一直在线。</li>
-<li>不法关闭：无处不在。内容会被访问者进行托管。</li>
-<li>高速：ZeroNet使用BitTorrent技术比中心化服务器快。</li>
-<li>离线访问：在没有互联网连接的情况下也可以浏览保存过的站点。</li>
-<li>安全：使用与比特币钱包相同的加密方法来保护内容所有权。</li>
-</ul>
-<h2 id="特性"><a href="/2017/10/22/zeronet-0/#特性" class="headerlink" title="特性"></a>特性</h2><ul>
-<li>简单，零配置。</li>
-<li>基于BIP32的无密码授权，使用与比特币钱包相同的加密方法来保护你的账户。</li>
-<li>实时更新</li>
-<li>支持Namecoin的.bit域名</li>
-<li>数据库支持：更简单的站点开发和更快的页面加载速度。</li>
-<li>匿名：全面支持Tor网络，支持通过.onion隐藏服务相互连接，而不是通过IPv4地址。</li>
-<li>TLS加密连接</li>
-<li>自动打开uPnP端口。</li>
-<li>插件和多用户 (开放式代理) 支持</li>
-<li>跨平台，支持任何浏览器和系统</li>
-</ul>
-<h2 id="原理"><a href="/2017/10/22/zeronet-0/#原理" class="headerlink" title="原理"></a>原理</h2><ul>
-<li>在你运行ZeroNet后,你可以通过<code>http://127.0.0.1:43110/{zeronet_site_address}</code> (比如:<code>http://127.0.0.1:43110/1HeLLo4uzjaLetFx6NH3PMwFP3qbRbTf3D</code>)来访问网站。</li>
-<li>ZeroNet会通过BitTorrent网络来查找可用的节点，并下载需要的文件 (html, css, js…)。</li>
-<li>你会托管理每一个你访问过的网站。</li>
-<li>每个网站都有一个列表文件，存储了网站所有文件的SHA512哈希值和网站所有者的私钥生成的签名。</li>
-<li>如果站点的所有者 (拥有私钥的那个人) 修改了站点, 并且他/她签名了新的列表文件，然后推送给其他节点， 那么所有节点将会在验证列表的真实性(使用签名)后, 下载修改后的文件并推送给其他节点。</li>
-</ul>
-<h2 id="限制"><a href="/2017/10/22/zeronet-0/#限制" class="headerlink" title="限制"></a>限制</h2><ul>
-<li>不支持大文件拆分</li>
-<li>文件传输未压缩</li>
-<li>不支持私有站点</li>
-</ul>
-<h2 id="赞助"><a href="/2017/10/22/zeronet-0/#赞助" class="headerlink" title="赞助"></a>赞助</h2><p>Bitcoin: 1QDhxQ6PraUZa21ET5fYUCPgdrwBomnFgX</p>
-<p>谢谢！</p>
-<link href="/css/prism.css" rel="stylesheet">
+            <link href="/css/prism.css" rel="stylesheet">
           </section>
         </article>
         
@@ -159,15 +119,10 @@
        
         <div class="pager">
           
-            <a class="post-prev pager-item" href="/2017/10/23/camel-2/" >
-              <strong class="article-nav-caption">上一篇</strong>
-              <p class="post-nav-title">Camel-第3章 入门</p>
-            </a>
           
-          
-            <a class="post-next pager-item" href="/2017/08/08/camel-1/">
+            <a class="post-next pager-item" href="/2017/10/22/zeronet-0/">
               <strong class="article-nav-caption">下一篇</strong>
-              <p class="post-nav-title">Camel 第2章 快速入门</p>
+              <p class="post-nav-title">ZeroNet介绍</p>
             </a>
           
         </div>
@@ -179,7 +134,7 @@
     
 
     <!-- 多说评论框 start -->
-      <div class="ds-thread" data-thread-key="_posts/zeronet-0.md" data-title="ZeroNet介绍" data-url="http://l4qiang.me/2017/10/22/zeronet-0/"></div>
+      <div class="ds-thread" data-thread-key="_posts/camel-2.md" data-title="Camel-第3章 入门" data-url="http://l4qiang.me/2017/10/23/camel-2/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
       <script type="text/javascript">
