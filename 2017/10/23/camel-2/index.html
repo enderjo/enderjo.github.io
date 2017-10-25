@@ -115,7 +115,11 @@
 <p>其中最出名的模式书籍是《设计模式：可复用面向对象软件的基础》，本书由Erich Gamma, Richard Helm, Ralph Johnson 和John Vlissides四人帮其同完成。自从设计模式出版以来，非常多各种模式的书籍出版，质量参差不齐。其中一本非常出名由Gregor Hohpe和Bobby Woolf《企业集成模式.设计、构建及部署消息传递解决方案》的书。大家通常叫这本书EIP。作为EIP的副标题，该书着重介绍异步消息传递系统的设计模式。这本书讨论65种模式。每个模式都有一个名称，大多数也给出了一个<br>图形符号，意在在架构图中使用。</p>
 <h2 id="Camel项目"><a href="/2017/10/23/camel-2/#Camel项目" class="headerlink" title="Camel项目"></a>Camel项目</h2><p>Camel(<a href="http://camle.apache.org" target="_blank" rel="external">http://camle.apache.org</a>)是一个基于Java的开源项目，实现了许多EIP书中的设计模式。因此如果使用Camel，有一本EIP来作参考是一个好主意。</p>
 <h2 id="Camel在线文档"><a href="/2017/10/23/camel-2/#Camel在线文档" class="headerlink" title="Camel在线文档"></a>Camel在线文档</h2><p>在Camle官网的右侧的文档分类菜单中有相关的文档（包含PDF格式）。Camel相关的书也列出来了，尤其是Camel实践（这本书有一个免费的章节）强烈推荐阅读，以便更好的熟悉Camel。</p>
-<h3 id="提示"><a href="/2017/10/23/camel-2/#提示" class="headerlink" title="提示"></a>提示</h3><h2 id="在线JavaDoc"><a href="/2017/10/23/camel-2/#在线JavaDoc" class="headerlink" title="在线JavaDoc"></a>在线JavaDoc</h2><h2 id="Camel的基本概念和术语"><a href="/2017/10/23/camel-2/#Camel的基本概念和术语" class="headerlink" title="Camel的基本概念和术语"></a>Camel的基本概念和术语</h2><link href="/css/prism.css" rel="stylesheet">
+<h3 id="提示"><a href="/2017/10/23/camel-2/#提示" class="headerlink" title="提示"></a>提示</h3><p>可以通过面包屑进行导航。</p>
+<h2 id="在线JavaDoc"><a href="/2017/10/23/camel-2/#在线JavaDoc" class="headerlink" title="在线JavaDoc"></a>在线JavaDoc</h2><p>Apache Camel提供了Javadoc文档。核心API一个文档，每个组件是都有独立的文档。</p>
+<h2 id="Camel的基本概念和术语"><a href="/2017/10/23/camel-2/#Camel的基本概念和术语" class="headerlink" title="Camel的基本概念和术语"></a>Camel的基本概念和术语</h2><p>在这一章节会解释一些Camel的概念和术语。本节不是一个完整的Camel教程，只是第一步。</p>
+<h3 id="端点"><a href="/2017/10/23/camel-2/#端点" class="headerlink" title="端点"></a>端点</h3><p>端点在进程间通讯是被经常提到。比如，在客户端/服务器通讯中，客户端就是一个端点，服务器就是另一个端点。w依赖于上下文，端点可能包含一个地址，比如基于TCP通讯的主机和端口号，或者是一个软件入口地址。例如：“www.example.com:80”就是一个端点，他可以指向一个真实的主机名（这是个地址），或者指向一个Web服务器（这是一个软件连接地址）。通常，地址和软件连接地址之间的区别并不重要。<br>一些中间件技术可以将多个软件入口连接到一个相同的物理地址上。比如：CORBA是一个面向对象和远程处理（RPC）中间件标准。</p>
+<link href="/css/prism.css" rel="stylesheet">
           </section>
         </article>
         
