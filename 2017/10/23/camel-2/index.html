@@ -118,7 +118,13 @@
 <h3 id="提示"><a href="/2017/10/23/camel-2/#提示" class="headerlink" title="提示"></a>提示</h3><p>可以通过面包屑进行导航。</p>
 <h2 id="在线JavaDoc"><a href="/2017/10/23/camel-2/#在线JavaDoc" class="headerlink" title="在线JavaDoc"></a>在线JavaDoc</h2><p>Apache Camel提供了Javadoc文档。核心API一个文档，每个组件是都有独立的文档。</p>
 <h2 id="Camel的基本概念和术语"><a href="/2017/10/23/camel-2/#Camel的基本概念和术语" class="headerlink" title="Camel的基本概念和术语"></a>Camel的基本概念和术语</h2><p>在这一章节会解释一些Camel的概念和术语。本节不是一个完整的Camel教程，只是第一步。</p>
-<h3 id="端点"><a href="/2017/10/23/camel-2/#端点" class="headerlink" title="端点"></a>端点</h3><p>端点在进程间通讯是被经常提到。比如，在客户端/服务器通讯中，客户端就是一个端点，服务器就是另一个端点。w依赖于上下文，端点可能包含一个地址，比如基于TCP通讯的主机和端口号，或者是一个软件入口地址。例如：“www.example.com:80”就是一个端点，他可以指向一个真实的主机名（这是个地址），或者指向一个Web服务器（这是一个软件连接地址）。通常，地址和软件连接地址之间的区别并不重要。<br>一些中间件技术可以将多个软件入口连接到一个相同的物理地址上。比如：CORBA是一个面向对象和远程处理（RPC）中间件标准。</p>
+<h3 id="端点"><a href="/2017/10/23/camel-2/#端点" class="headerlink" title="端点"></a>端点</h3><p>端点在进程间通讯时经常被提到。比如，在客户端/服务器通讯中，客户端就是一个端点，服务器就是另一个端点。w依赖于上下文，端点可能包含一个地址，比如基于TCP通讯的主机和端口号，或者是一个软件入口地址。例如：“www.example.com:80”就是一个端点，他可以指向一个真实的主机名（这是个地址），或者指向一个Web服务器（这是一个软件连接地址）。通常，地址和软件连接地址之间的区别并不重要。<br>一些中间件技术可以将多个软件入口连接到一个相同的物理地址上。比如：CORBA是一个面向对象和远程处理（RPC）中间件标准。CORBA服务进程包含了多个对象，客户端使用同一个物理地址（主机名:端口）和这些对象通讯。但客户端和一个指定的对象通讯时，就需要使用对象的逻辑地址（在CORBA中就叫IOR），这个地址包含了物理地址（主机名:端口）和一个进程内对象的唯一标识。（IOR还包含一些其他信息，但不影响这里的讨论。）当讨论CORBA的时候，有人喜欢用端点来指CORBA服务器的物理地址，而另一些人用它来指CORBA对象的物理地址，其他一些人可以用这它来指定下面的内容：</p>
+<ul>
+<li>CORBA服务进程的物理地址</li>
+<li>CORBA对象的逻辑地址</li>
+<li>CORBA服务进程（重量软件入口）</li>
+<li>CORBA对象（轻量软件入口）</li>
+</ul>
 <link href="/css/prism.css" rel="stylesheet">
           </section>
         </article>
@@ -126,6 +132,11 @@
 
        
         <div class="pager">
+          
+            <a class="post-prev pager-item" href="/2017/10/26/zeronet-1/" >
+              <strong class="article-nav-caption">上一篇</strong>
+              <p class="post-nav-title">ZeroNet常见问题</p>
+            </a>
           
           
             <a class="post-next pager-item" href="/2017/10/22/zeronet-0/">
