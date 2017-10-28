@@ -104,6 +104,10 @@
             <span class="post-date">2017/10/26</span>
             
             
+            <span class="post-tags">
+              <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/ZeroNet/">ZeroNet</a></li></ul>
+            </span>
+            
           </section>
 
           <section class="post-content">
@@ -111,28 +115,25 @@
 <li>下载ZeroNet安装包：<a href="https://github.com/HelloZeroNet/ZeroNet-win/archive/dist/ZeroNet-win.zip" target="_blank" rel="external">Microsoft Windows</a>,<a href="https://github.com/HelloZeroNet/ZeroNet-mac/archive/dist/ZeroNet-mac.zip" target="_blank" rel="external">Apple macOS</a>, <a href="https://github.com/HelloZeroNet/ZeroBundle/raw/master/dist/ZeroBundle-linux64.tar.gz" target="_blank" rel="external">Linux 64bit</a>,<a href="https://github.com/HelloZeroNet/ZeroBundle/raw/master/dist/ZeroBundle-linux32.tar.gz" target="_blank" rel="external">Linux 32bit</a></li>
 <li>解压</li>
 <li>运行 <code>ZeroNet.exe</code> (win), <code>ZeroNet(.app)</code>(macOS), <code>ZeroNet.sh</code>(linux)<h2 id="Debian-Linux手动安装"><a href="/2017/10/26/zeronet-2/#Debian-Linux手动安装" class="headerlink" title="Debian Linux手动安装"></a>Debian Linux手动安装</h2></li>
-<li><figure class="highlight plain"><figcaption><span>apt-get update```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- ```sudo apt-get install msgpack-python python-gevent</div></pre></td></tr></table></figure>
-</li>
-<li><figure class="highlight plain"><figcaption><span>https://github.com/HelloZeroNet/ZeroNet/archive/master.tar.gz```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- ```tar xvpfz master.tar.gz</div></pre></td></tr></table></figure>
-</li>
-<li><figure class="highlight plain"><figcaption><span>ZeroNet-Master```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 运行```python zeronet.py</div></pre></td></tr></table></figure>
-</li>
-<li><p>浏览器中打开<code>http://127.0.0.1:43110</code></p>
-</li>
+<li><code>sudo apt-get update</code></li>
+<li><code>sudo apt-get install msgpack-python python-gevent</code></li>
+<li><code>wget https://github.com/HelloZeroNet/ZeroNet/archive/master.tar.gz</code></li>
+<li><code>tar xvpfz master.tar.gz</code></li>
+<li><code>cd ZeroNet-Master</code></li>
+<li>运行<code>python zeronet.py</code></li>
+<li>浏览器中打开<code>http://127.0.0.1:43110</code></li>
 </ul>
 <h2 id="Vagrant"><a href="/2017/10/26/zeronet-2/#Vagrant" class="headerlink" title="Vagrant"></a>Vagrant</h2><ul>
-<li><figure class="highlight plain"><figcaption><span>up```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 访问VM```vagrant sh</div></pre></td></tr></table></figure>
-</li>
-<li><figure class="highlight plain"><figcaption><span>/vagrant```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 运行```python zeronet.py --ui_ip 0.0.0.0</div></pre></td></tr></table></figure>
-</li>
-<li><p>浏览器中打开<code>http://127.0.0.1:43110</code></p>
-</li>
+<li><code>vagrant up</code></li>
+<li>访问VM<code>vagrant sh</code></li>
+<li><code>cd /vagrant</code></li>
+<li>运行<code>python zeronet.py --ui_ip 0.0.0.0</code></li>
+<li>浏览器中打开<code>http://127.0.0.1:43110</code></li>
 </ul>
 <h2 id="Docker"><a href="/2017/10/26/zeronet-2/#Docker" class="headerlink" title="Docker"></a>Docker</h2><ul>
-<li><figure class="highlight docker"><figcaption><span>run -d -v <local_data_folder>:/root/data -p 15441:15441 -p 43110:43110 nofish/zeronet```</local_data_folder></span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- 这个Docker镜像包含了Tor代理，默认是关闭的。注意有些节点不允许在你运行Tor。如果你需要开启，将环境变量`ENABLE_TOR`设置为`true`(默认是`false`)。比如：</div><div class="line">```docker <span class="keyword">run</span> -d -e "ENABLE_TOR=true" -v &lt;local_data_folder&gt;:/root/data -p 15441:15441 -p 127.0.0.1:43110:43110 nofish/zeronet</div></pre></td></tr></table></figure>
-</li>
-<li><p>浏览器中打开<code>http://127.0.0.1:43110</code></p>
-</li>
+<li><code>docker run -d -v &lt;local_data_folder&gt;:/root/data -p 15441:15441 -p 43110:43110 nofish/zeronet</code></li>
+<li>这个Docker镜像包含了Tor代理，默认是关闭的。注意有些节点不允许在你运行Tor。如果你需要开启，将环境变量<code>ENABLE_TOR</code>设置为<code>true</code>(默认是<code>false</code>)。比如：<br><code>docker run -d -e &quot;ENABLE_TOR=true&quot; -v &lt;local_data_folder&gt;:/root/data -p 15441:15441 -p 127.0.0.1:43110:43110 nofish/zeronet</code></li>
+<li>浏览器中打开<code>http://127.0.0.1:43110</code></li>
 </ul>
 <link href="/css/prism.css" rel="stylesheet">
           </section>
