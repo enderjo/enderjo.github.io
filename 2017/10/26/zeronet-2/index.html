@@ -135,6 +135,13 @@
 <li>这个Docker镜像包含了Tor代理，默认是关闭的。注意有些节点不允许在你运行Tor。如果你需要开启，将环境变量<code>ENABLE_TOR</code>设置为<code>true</code>(默认是<code>false</code>)。比如：<br><code>docker run -d -e &quot;ENABLE_TOR=true&quot; -v &lt;local_data_folder&gt;:/root/data -p 15441:15441 -p 127.0.0.1:43110:43110 nofish/zeronet</code></li>
 <li>浏览器中打开<code>http://127.0.0.1:43110</code></li>
 </ul>
+<h2 id="Virtualenv"><a href="/2017/10/26/zeronet-2/#Virtualenv" class="headerlink" title="Virtualenv"></a>Virtualenv</h2><ul>
+<li><code>virtualenv env</code></li>
+<li><code>source env/bin/activate</code></li>
+<li><code>pip install msgpack-python gevent</code></li>
+<li><code>python zeronet.py</code></li>
+<li>浏览器中打开<code>http://127.0.0.1:43110</code></li>
+</ul>
 <link href="/css/prism.css" rel="stylesheet">
           </section>
         </article>
