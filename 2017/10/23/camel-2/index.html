@@ -1,119 +1,318 @@
 <!DOCTYPE html>
-          <head>
-        <meta charset="utf-8">
-            
-            <title>
-                Camel-第3章 入门 | CrazyAirhead
-            </title>
-            <meta content="width=device-width, initial-scale=1" name="viewport">
-            <meta name="theme-color" content="#4184f3">
-            
-            
-            <link href="/favicon.ico" rel="icon"/>
-            
 
-            <link rel="stylesheet" href="/css/highlight.light.css">
-            <link rel="stylesheet" href="/css/prism-customize.css">
-            <link rel="stylesheet" href="/css/nav-icon.css">
-            <link rel="stylesheet" href="/css/waves.min.css">
-            <link rel="stylesheet" href="/css/jquery.tocify.css">
-            <link rel="stylesheet" href="/css/main.css">
-            <link rel="stylesheet" href="/css/nav-indicator.css">
-            
-  
+
 
   
-            </meta>
-        </meta>
-    </head>
 
-    <body>
-        <header>
-            <!-- cover image or sth. -->
-        </header>
-        <div id="main" class="m-scene">
-            
-<div class="nav-wrapper">
 
-    <div class="container">
-        <nav>
-            <div class="logo wave">
-                <a href="/" id="logo">
-                    CrazyAirhead
-                </a>
-            </div>
-            <div class="nav-toggle-icon" >
-                <div class="material-hamburger">
-                    <span>
-                    </span>
-                    <span>
-                    </span>
-                    <span>
-                    </span>
-                </div>
-            </div>
-            <div class="menu-wrapper">
-                <div class="nav-indicator">
-                </div>
-                <ul class="menus">
-                    
-                     
-                        <li>
-                            <a class="wave " href="/">
-                                首页
-                            </a>
-                        </li>
-                     
-                        <li>
-                            <a class="wave " href="/archives">
-                                归档
-                            </a>
-                        </li>
-                     
-                        <li>
-                            <a class="wave " href="/about">
-                                关于
-                            </a>
-                        </li>
-                     
-                        <li>
-                            <a class="wave no-smoothstate" href="/atom.xml">
-                                订阅
-                            </a>
-                        </li>
-                     
-                    
-                   
-                </ul>
-            </div>
-        </nav>
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Camel," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="企业集成模式(EIP)“模式”这类书籍的目的不是提倡作者发明的新技术，而是记录特定领域内现有的最佳实践。借此，作者希望传播最佳实践的知识并形成架构设计模式的术语。 其中最出名的模式书籍是《设计模式：可复用面向对象软件的基础》，本书由Erich Gamma, Richard Helm, Ralph Johnson 和John Vlissides四人帮其同完成。自从设计模式出版以来，非常多各种模式的书">
+<meta name="keywords" content="Camel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Camel-第3章 入门">
+<meta property="og:url" content="http://l4qiang.me/2017/10/23/camel-2/index.html">
+<meta property="og:site_name" content="CrazyAirhead">
+<meta property="og:description" content="企业集成模式(EIP)“模式”这类书籍的目的不是提倡作者发明的新技术，而是记录特定领域内现有的最佳实践。借此，作者希望传播最佳实践的知识并形成架构设计模式的术语。 其中最出名的模式书籍是《设计模式：可复用面向对象软件的基础》，本书由Erich Gamma, Richard Helm, Ralph Johnson 和John Vlissides四人帮其同完成。自从设计模式出版以来，非常多各种模式的书">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-13T11:09:43.778Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Camel-第3章 入门">
+<meta name="twitter:description" content="企业集成模式(EIP)“模式”这类书籍的目的不是提倡作者发明的新技术，而是记录特定领域内现有的最佳实践。借此，作者希望传播最佳实践的知识并形成架构设计模式的术语。 其中最出名的模式书籍是《设计模式：可复用面向对象软件的基础》，本书由Erich Gamma, Richard Helm, Ralph Johnson 和John Vlissides四人帮其同完成。自从设计模式出版以来，非常多各种模式的书">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://l4qiang.me/2017/10/23/camel-2/"/>
+
+
+
+
+
+  <title>Camel-第3章 入门 | CrazyAirhead</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CrazyAirhead</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <p class="site-subtitle">疯狂的傻瓜，傻瓜也疯狂————傻方能执著，疯狂才专注!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
-            <div class="container content">
-                <div class="scene_element scene_element--fadein">
-                    <div class="row">
-    <div class="main">
-        <article>
-          
-          <header class="post-header">
-          
-          </header>
-          <h1 class="post-title">Camel-第3章 入门</h1>
 
-          <section class="post-info">
-            <span class="post-date">2017/10/23</span>
-            
-            
-            <span class="post-tags">
-              <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/Camel/">Camel</a></li></ul>
-            </span>
-            
-          </section>
+<nav class="site-nav">
+  
 
-          <section class="post-content">
-            <h2 id="企业集成模式-EIP"><a href="/2017/10/23/camel-2/#企业集成模式-EIP" class="headerlink" title="企业集成模式(EIP)"></a>企业集成模式(EIP)</h2><p>“模式”这类书籍的目的不是提倡作者发明的新技术，而是记录特定领域内现有的最佳实践。借此，作者希望传播最佳实践的知识并形成架构设计模式的术语。</p>
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2017/10/23/camel-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="L4qiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CrazyAirhead">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Camel-第3章 入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-23T22:34:28+08:00">
+                2017-10-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="企业集成模式-EIP"><a href="/2017/10/23/camel-2/#企业集成模式-EIP" class="headerlink" title="企业集成模式(EIP)"></a>企业集成模式(EIP)</h2><p>“模式”这类书籍的目的不是提倡作者发明的新技术，而是记录特定领域内现有的最佳实践。借此，作者希望传播最佳实践的知识并形成架构设计模式的术语。</p>
 <p>其中最出名的模式书籍是《设计模式：可复用面向对象软件的基础》，本书由Erich Gamma, Richard Helm, Ralph Johnson 和John Vlissides四人帮其同完成。自从设计模式出版以来，非常多各种模式的书籍出版，质量参差不齐。其中一本非常出名由Gregor Hohpe和Bobby Woolf《企业集成模式.设计、构建及部署消息传递解决方案》的书。大家通常叫这本书EIP。作为EIP的副标题，该书着重介绍异步消息传递系统的设计模式。这本书讨论65种模式。每个模式都有一个名称，大多数也给出了一个<br>图形符号，意在在架构图中使用。</p>
-<h2 id="Camel项目"><a href="/2017/10/23/camel-2/#Camel项目" class="headerlink" title="Camel项目"></a>Camel项目</h2><p>Camel(<a href="http://camle.apache.org" target="_blank" rel="external">http://camle.apache.org</a>)是一个基于Java的开源项目，实现了许多EIP书中的设计模式。因此如果使用Camel，有一本EIP来作参考是一个好主意。</p>
+<h2 id="Camel项目"><a href="/2017/10/23/camel-2/#Camel项目" class="headerlink" title="Camel项目"></a>Camel项目</h2><p>Camel(<a href="http://camle.apache.org" target="_blank" rel="noopener">http://camle.apache.org</a>)是一个基于Java的开源项目，实现了许多EIP书中的设计模式。因此如果使用Camel，有一本EIP来作参考是一个好主意。</p>
 <h2 id="Camel在线文档"><a href="/2017/10/23/camel-2/#Camel在线文档" class="headerlink" title="Camel在线文档"></a>Camel在线文档</h2><p>在Camle官网的右侧的文档分类菜单中有相关的文档（包含PDF格式）。Camel相关的书也列出来了，尤其是Camel实践（这本书有一个免费的章节）强烈推荐阅读，以便更好的熟悉Camel。</p>
 <h3 id="提示"><a href="/2017/10/23/camel-2/#提示" class="headerlink" title="提示"></a>提示</h3><p>可以通过面包屑进行导航。</p>
 <h2 id="在线JavaDoc"><a href="/2017/10/23/camel-2/#在线JavaDoc" class="headerlink" title="在线JavaDoc"></a>在线JavaDoc</h2><p>Apache Camel提供了Javadoc文档。核心API一个文档，每个组件是都有独立的文档。</p>
@@ -132,72 +331,392 @@
 <li>POJO(普通Java对象)<br>在基于Camel的应用中，你可以通过<code>routes</code>（会在4.8章节“路由，路由构造器和Java DSL”中讨论）来创建和连接这些端点。Camel定义了一个“EndPoint”接口。Camel支持的端点都需要实现“EndPoint”接口。就如我在3.3章节中说的一样。</li>
 </ul>
 <link href="/css/prism.css" rel="stylesheet">
-          </section>
-        </article>
-        
-
-       
-        <div class="pager">
-          
-            <a class="post-prev pager-item" href="/2017/10/26/zeronet-1/" >
-              <strong class="article-nav-caption">上一篇</strong>
-              <p class="post-nav-title">ZeroNet常见问题</p>
-            </a>
-          
-          
-            <a class="post-next pager-item" href="/2017/10/22/zeronet-0/">
-              <strong class="article-nav-caption">下一篇</strong>
-              <p class="post-nav-title">ZeroNet介绍</p>
-            </a>
-          
-        </div>
-        
-
-         <!-- comments -->
-        <div class="comment-section">
-  
-    
-
-    <!-- 多说评论框 start -->
-      <div class="ds-thread" data-thread-key="_posts/camel-2.md" data-title="Camel-第3章 入门" data-url="http://l4qiang.me/2017/10/23/camel-2/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-      <script type="text/javascript">
-      var duoshuoQuery = {short_name:"wayouliu"};
-      (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-      </script>
-    <!-- 多说公共JS代码 end -->
-
-  
-
-
-</div>
-
+      
     </div>
     
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="L4qiang 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
 </div>
 
-                </div>
-            </div>
-        </div>
-        <footer class="footer">
-    <p>由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动，搭载<a href="https://github.com/wayou/hexo-theme-gstyle">gstyle</a>主题</p>
-    <p>
-        &copy; 2017 L4qiang
-    </p>
-</footer>
-<script src="/lib/jquery.js"></script>
-<script src="/lib/waves.js"></script>
-<script src="/lib/jquery-ui.js"></script>
-<script src="/lib/jquery.tocify.js"></script>
-<script src="/js/main.js"></script>
+      </div>
+    
 
-    </body>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Camel/" rel="tag"># Camel</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/22/zeronet-0/" rel="next" title="ZeroNet介绍">
+                <i class="fa fa-chevron-left"></i> ZeroNet介绍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/26/zeronet-1/" rel="prev" title="ZeroNet常见问题">
+                ZeroNet常见问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">L4qiang</p>
+              <p class="site-description motion-element" itemprop="description">记录点滴，注重积累。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/enderjo" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#企业集成模式-EIP"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2017/10/23/camel-2/#&#x4F01;&#x4E1A;&#x96C6;&#x6210;&#x6A21;&#x5F0F;-EIP" class="headerlink" title="&#x4F01;&#x4E1A;&#x96C6;&#x6210;&#x6A21;&#x5F0F;(EIP)"></a>&#x4F01;&#x4E1A;&#x96C6;&#x6210;&#x6A21;&#x5F0F;(EIP)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Camel项目"><span class="nav-number">2.</span> <span class="nav-text"><a href="/2017/10/23/camel-2/#Camel&#x9879;&#x76EE;" class="headerlink" title="Camel&#x9879;&#x76EE;"></a>Camel&#x9879;&#x76EE;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Camel在线文档"><span class="nav-number">3.</span> <span class="nav-text"><a href="/2017/10/23/camel-2/#Camel&#x5728;&#x7EBF;&#x6587;&#x6863;" class="headerlink" title="Camel&#x5728;&#x7EBF;&#x6587;&#x6863;"></a>Camel&#x5728;&#x7EBF;&#x6587;&#x6863;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#提示"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="/2017/10/23/camel-2/#&#x63D0;&#x793A;" class="headerlink" title="&#x63D0;&#x793A;"></a>&#x63D0;&#x793A;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在线JavaDoc"><span class="nav-number">4.</span> <span class="nav-text"><a href="/2017/10/23/camel-2/#&#x5728;&#x7EBF;JavaDoc" class="headerlink" title="&#x5728;&#x7EBF;JavaDoc"></a>&#x5728;&#x7EBF;JavaDoc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Camel的基本概念和术语"><span class="nav-number">5.</span> <span class="nav-text"><a href="/2017/10/23/camel-2/#Camel&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#x548C;&#x672F;&#x8BED;" class="headerlink" title="Camel&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#x548C;&#x672F;&#x8BED;"></a>Camel&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#x548C;&#x672F;&#x8BED;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#端点"><span class="nav-number">5.1.</span> <span class="nav-text"><a href="/2017/10/23/camel-2/#&#x7AEF;&#x70B9;" class="headerlink" title="&#x7AEF;&#x70B9;"></a>&#x7AEF;&#x70B9;</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">L4qiang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>
