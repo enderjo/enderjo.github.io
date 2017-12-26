@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="安装ZeroNet 下载ZeroNet安装包：Microsoft Windows,Apple macOS, Linux 64bit,Linux 32bit 解压 运行 ZeroNet.exe (win), ZeroNet(.app)(macOS), ZeroNet.sh(linux)Debian Linux手动安装 sudo apt-get update sudo apt-get install">
+<meta name="description" content="概述你可以在ZeroNet上发布静态和动态的网站。虽然ZeroNet不能运行像PHP或者Ruby这样的脚本语言，你可以通过ZeroNet的API（叫做ZeroFrame），和JavaScript（或者CoffeScript）及内置的SQL数据库来创建动态网站。">
 <meta name="keywords" content="ZeroNet">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ZeroNet安装">
-<meta property="og:url" content="http://l4qiang.me/2017/10/26/zeronet-2/index.html">
+<meta property="og:title" content="站点开发入门">
+<meta property="og:url" content="http://l4qiang.me/2017/12/26/zeronet-5/index.html">
 <meta property="og:site_name" content="CrazyAirhead">
-<meta property="og:description" content="安装ZeroNet 下载ZeroNet安装包：Microsoft Windows,Apple macOS, Linux 64bit,Linux 32bit 解压 运行 ZeroNet.exe (win), ZeroNet(.app)(macOS), ZeroNet.sh(linux)Debian Linux手动安装 sudo apt-get update sudo apt-get install">
+<meta property="og:description" content="概述你可以在ZeroNet上发布静态和动态的网站。虽然ZeroNet不能运行像PHP或者Ruby这样的脚本语言，你可以通过ZeroNet的API（叫做ZeroFrame），和JavaScript（或者CoffeScript）及内置的SQL数据库来创建动态网站。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-29T06:50:16.004Z">
+<meta property="og:updated_time" content="2017-12-26T13:01:54.342Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZeroNet安装">
-<meta name="twitter:description" content="安装ZeroNet 下载ZeroNet安装包：Microsoft Windows,Apple macOS, Linux 64bit,Linux 32bit 解压 运行 ZeroNet.exe (win), ZeroNet(.app)(macOS), ZeroNet.sh(linux)Debian Linux手动安装 sudo apt-get update sudo apt-get install">
+<meta name="twitter:title" content="站点开发入门">
+<meta name="twitter:description" content="概述你可以在ZeroNet上发布静态和动态的网站。虽然ZeroNet不能运行像PHP或者Ruby这样的脚本语言，你可以通过ZeroNet的API（叫做ZeroFrame），和JavaScript（或者CoffeScript）及内置的SQL数据库来创建动态网站。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://l4qiang.me/2017/10/26/zeronet-2/"/>
+  <link rel="canonical" href="http://l4qiang.me/2017/12/26/zeronet-5/"/>
 
 
 
 
 
-  <title>ZeroNet安装 | CrazyAirhead</title>
+  <title>站点开发入门 | CrazyAirhead</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2017/10/26/zeronet-2/">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2017/12/26/zeronet-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="L4qiang">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ZeroNet安装</h1>
+          <h1 class="post-title" itemprop="name headline">站点开发入门</h1>
         
 
         <div class="post-meta">
@@ -262,8 +262,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-26T08:23:47+08:00">
-                2017-10-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-26T20:55:53+08:00">
+                2017-12-26
               </time>
             
 
@@ -300,37 +300,7 @@
       
 
       
-        <h2 id="安装ZeroNet"><a href="/2017/10/26/zeronet-2/#安装ZeroNet" class="headerlink" title="安装ZeroNet"></a>安装ZeroNet</h2><ul>
-<li>下载ZeroNet安装包：<a href="https://github.com/HelloZeroNet/ZeroNet-win/archive/dist/ZeroNet-win.zip" target="_blank" rel="noopener">Microsoft Windows</a>,<a href="https://github.com/HelloZeroNet/ZeroNet-mac/archive/dist/ZeroNet-mac.zip" target="_blank" rel="noopener">Apple macOS</a>, <a href="https://github.com/HelloZeroNet/ZeroBundle/raw/master/dist/ZeroBundle-linux64.tar.gz" target="_blank" rel="noopener">Linux 64bit</a>,<a href="https://github.com/HelloZeroNet/ZeroBundle/raw/master/dist/ZeroBundle-linux32.tar.gz" target="_blank" rel="noopener">Linux 32bit</a></li>
-<li>解压</li>
-<li>运行 <code>ZeroNet.exe</code> (win), <code>ZeroNet(.app)</code>(macOS), <code>ZeroNet.sh</code>(linux)<h2 id="Debian-Linux手动安装"><a href="/2017/10/26/zeronet-2/#Debian-Linux手动安装" class="headerlink" title="Debian Linux手动安装"></a>Debian Linux手动安装</h2></li>
-<li><code>sudo apt-get update</code></li>
-<li><code>sudo apt-get install msgpack-python python-gevent</code></li>
-<li><code>wget https://github.com/HelloZeroNet/ZeroNet/archive/master.tar.gz</code></li>
-<li><code>tar xvpfz master.tar.gz</code></li>
-<li><code>cd ZeroNet-Master</code></li>
-<li>运行<code>python zeronet.py</code></li>
-<li>浏览器中打开<code>http://127.0.0.1:43110</code></li>
-</ul>
-<h2 id="Vagrant"><a href="/2017/10/26/zeronet-2/#Vagrant" class="headerlink" title="Vagrant"></a>Vagrant</h2><ul>
-<li><code>vagrant up</code></li>
-<li>访问VM<code>vagrant sh</code></li>
-<li><code>cd /vagrant</code></li>
-<li>运行<code>python zeronet.py --ui_ip 0.0.0.0</code></li>
-<li>浏览器中打开<code>http://127.0.0.1:43110</code></li>
-</ul>
-<h2 id="Docker"><a href="/2017/10/26/zeronet-2/#Docker" class="headerlink" title="Docker"></a>Docker</h2><ul>
-<li><code>docker run -d -v &lt;local_data_folder&gt;:/root/data -p 15441:15441 -p 43110:43110 nofish/zeronet</code></li>
-<li>这个Docker镜像包含了Tor代理，默认是关闭的。注意有些节点不允许在你运行Tor。如果你需要开启，将环境变量<code>ENABLE_TOR</code>设置为<code>true</code>(默认是<code>false</code>)。比如：<br><code>docker run -d -e &quot;ENABLE_TOR=true&quot; -v &lt;local_data_folder&gt;:/root/data -p 15441:15441 -p 127.0.0.1:43110:43110 nofish/zeronet</code></li>
-<li>浏览器中打开<code>http://127.0.0.1:43110</code></li>
-</ul>
-<h2 id="Virtualenv"><a href="/2017/10/26/zeronet-2/#Virtualenv" class="headerlink" title="Virtualenv"></a>Virtualenv</h2><ul>
-<li><code>virtualenv env</code></li>
-<li><code>source env/bin/activate</code></li>
-<li><code>pip install msgpack-python gevent</code></li>
-<li><code>python zeronet.py</code></li>
-<li>浏览器中打开<code>http://127.0.0.1:43110</code></li>
-</ul>
+        <h2 id="概述"><a href="/2017/12/26/zeronet-5/#概述" class="headerlink" title="概述"></a>概述</h2><p>你可以在ZeroNet上发布静态和动态的网站。<br>虽然ZeroNet不能运行像PHP或者Ruby这样的脚本语言，你可以通过ZeroNet的API（叫做ZeroFrame），和JavaScript（或者CoffeScript）及内置的SQL数据库来创建动态网站。</p>
 <link href="/css/prism.css" rel="stylesheet">
       
     </div>
@@ -385,8 +355,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/26/zeronet-1/" rel="next" title="ZeroNet常见问题">
-                <i class="fa fa-chevron-left"></i> ZeroNet常见问题
+              <a href="/2017/12/12/springcloud-0/" rel="next" title="SpringCloud基础概念">
+                <i class="fa fa-chevron-left"></i> SpringCloud基础概念
               </a>
             
           </div>
@@ -394,10 +364,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/11/zeronet-3/" rel="prev" title="简易ZeroNet站点">
-                简易ZeroNet站点 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -530,7 +496,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装ZeroNet"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2017/10/26/zeronet-2/#&#x5B89;&#x88C5;ZeroNet" class="headerlink" title="&#x5B89;&#x88C5;ZeroNet"></a>&#x5B89;&#x88C5;ZeroNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian-Linux手动安装"><span class="nav-number">2.</span> <span class="nav-text"><a href="/2017/10/26/zeronet-2/#Debian-Linux&#x624B;&#x52A8;&#x5B89;&#x88C5;" class="headerlink" title="Debian Linux&#x624B;&#x52A8;&#x5B89;&#x88C5;"></a>Debian Linux&#x624B;&#x52A8;&#x5B89;&#x88C5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vagrant"><span class="nav-number">3.</span> <span class="nav-text"><a href="/2017/10/26/zeronet-2/#Vagrant" class="headerlink" title="Vagrant"></a>Vagrant</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker"><span class="nav-number">4.</span> <span class="nav-text"><a href="/2017/10/26/zeronet-2/#Docker" class="headerlink" title="Docker"></a>Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Virtualenv"><span class="nav-number">5.</span> <span class="nav-text"><a href="/2017/10/26/zeronet-2/#Virtualenv" class="headerlink" title="Virtualenv"></a>Virtualenv</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2017/12/26/zeronet-5/#&#x6982;&#x8FF0;" class="headerlink" title="&#x6982;&#x8FF0;"></a>&#x6982;&#x8FF0;</span></a></li></ol></div>
             
 
           </div>
