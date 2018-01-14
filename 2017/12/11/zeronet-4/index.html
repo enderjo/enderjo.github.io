@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="CrazyAirhead">
 <meta property="og:description" content="最简单的方式：使用页面 在ZeroHello站点时，点击左边栏的“⋮ ”&amp;gt;”创建新的空站点”菜单 你会跳转到一个只有你可以修改的全新站点You can find and modify your site’s content in data/[yoursiteaddress] directory 你可以在data/[你的地址]目录找到和修改你的站点内容After the modificatio">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-11T13:06:42.433Z">
+<meta property="og:updated_time" content="2018-01-14T08:42:55.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建ZeroNet站点">
 <meta name="twitter:description" content="最简单的方式：使用页面 在ZeroHello站点时，点击左边栏的“⋮ ”&amp;gt;”创建新的空站点”菜单 你会跳转到一个只有你可以修改的全新站点You can find and modify your site’s content in data/[yoursiteaddress] directory 你可以在data/[你的地址]目录找到和修改你的站点内容After the modificatio">
@@ -314,7 +314,43 @@
 <li>在ZeroHello站点时，点击左边栏的“⋮ ”&gt;”创建新的空站点”菜单</li>
 <li>你会跳转到一个只有你可以修改的全新站点<br>You can find and modify your site’s content in data/[yoursiteaddress] directory</li>
 <li>你可以在<code>data/[你的地址]</code>目录找到和修改你的站点内容<br>After the modifications open your site, drag the topright “0” button to left, then press sign and publish buttons on the bottom</li>
-<li>当你修改好你的站点后，拖动右上的”0”按钮到左边，然后点击底部的签名和发布按钮。</li>
+<li>当你修改好你的站点后，拖动右上的”0”按钮到左边，然后点击底部的签名和发布按钮。<h2 id="手动方式：使用命令行"><a href="/2017/12/11/zeronet-4/#手动方式：使用命令行" class="headerlink" title="手动方式：使用命令行"></a>手动方式：使用命令行</h2></li>
+</ul>
+<ol>
+<li>创建站点结构</li>
+</ol>
+<ul>
+<li>如果ZeroNet在运行需要关闭</li>
+<li><p>进入ZeroNet的安装目录，然后运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ zeronet.py siteCreate</span><br><span class="line">...</span><br><span class="line">- Site private key: 23DKQpzxhbVBrAtvLEc2uvk7DZweh4qL3fn3jpM3LgHDczMK2TtYUq</span><br><span class="line">- Site address: 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2</span><br><span class="line">...</span><br><span class="line">- Site created!</span><br><span class="line">$ zeronet.py</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这样会创建你的站点的初始文件<br><code>data/13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2</code></p>
+<blockquote>
+<p>注意：使用bundle版本的Windows的用户需要进入ZeroBudle/ZeroNet目录，然后执行<code>&quot;../Python/python.exe&quot; zeronet.py siteCreate</code></p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>创建/修改站点</li>
+</ol>
+<ul>
+<li>更新<code>data/[your site address key]</code>目录下的网站文件（比如：13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2）</li>
+<li><p>当你的站点准备好时运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ zeronet.py siteSign 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2</span><br><span class="line">- Signing site: 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2...</span><br><span class="line">Private key (input hidden):</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入你创建网站时的私钥。这一步会对所有的文件进行签名，所以节点可以验证网站所有者的身份</p>
+</li>
+</ul>
+<ol>
+<li>发布网站更新</li>
+</ol>
+<ul>
+<li><p>为了通知节点你修改了站点内容，你需要运行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ zeronet.py sitePublish 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2</span><br><span class="line">...</span><br><span class="line">Site:13DNDk..bhC2 Publishing to 3/10 peers...</span><br><span class="line">Site:13DNDk..bhC2 Successfuly published to 3 peers</span><br><span class="line">- Serving files....</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这样就好了，你已经成功的将你的修改签名和发布出去了。</p>
+</li>
+<li>你的站点可以通过这个网址访问：<br><code>http://localhost:43110/13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2</code>。</li>
 </ul>
 <link href="/css/prism.css" rel="stylesheet">
       
@@ -515,7 +551,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的方式：使用页面"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2017/12/11/zeronet-4/#&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;&#x4F7F;&#x7528;&#x9875;&#x9762;" class="headerlink" title="&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;&#x4F7F;&#x7528;&#x9875;&#x9762;"></a>&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;&#x4F7F;&#x7528;&#x9875;&#x9762;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的方式：使用页面"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2017/12/11/zeronet-4/#&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;&#x4F7F;&#x7528;&#x9875;&#x9762;" class="headerlink" title="&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;&#x4F7F;&#x7528;&#x9875;&#x9762;"></a>&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;&#x4F7F;&#x7528;&#x9875;&#x9762;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动方式：使用命令行"><span class="nav-number">2.</span> <span class="nav-text"><a href="/2017/12/11/zeronet-4/#&#x624B;&#x52A8;&#x65B9;&#x5F0F;&#xFF1A;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;" class="headerlink" title="&#x624B;&#x52A8;&#x65B9;&#x5F0F;&#xFF1A;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;"></a>&#x624B;&#x52A8;&#x65B9;&#x5F0F;&#xFF1A;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;</span></a></li></ol></div>
             
 
           </div>
