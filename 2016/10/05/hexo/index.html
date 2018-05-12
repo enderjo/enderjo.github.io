@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="CrazyAirhead">
 <meta property="og:description" content="本文是自己在使用Github Pages和Hexo搭建个人博客时的一些经验记录和总结，并非手把手搭建的过程。 为什么之前在博客大巴上是有写一些博客的，不过因为己写作能力的一些原因，实际上写的也不多，后面也基本上就断了。最近跳槽到一家互联网公司，语言也转了Java，又学习了一些Web知识，所以也就想多试一些东西。 选Github Pages呢，是因为自己在搜索一些资料时时常会到Github上，当时也">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-23T13:58:51.945Z">
+<meta property="og:updated_time" content="2018-05-12T03:55:31.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Github Pages和Hexo搭建个人博客">
 <meta name="twitter:description" content="本文是自己在使用Github Pages和Hexo搭建个人博客时的一些经验记录和总结，并非手把手搭建的过程。 为什么之前在博客大巴上是有写一些博客的，不过因为己写作能力的一些原因，实际上写的也不多，后面也基本上就断了。最近跳槽到一家互联网公司，语言也转了Java，又学习了一些Web知识，所以也就想多试一些东西。 选Github Pages呢，是因为自己在搜索一些资料时时常会到Github上，当时也">
@@ -348,6 +348,7 @@
 <p>For more help, you can use ‘hexo help [command]’ for the detailed information<br>or you can check the docs: <a href="http://hexo.io/docs/" target="_blank" rel="noopener">http://hexo.io/docs/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#### 写作</span><br><span class="line">```bash</span><br><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></p>
 <h4 id="生成与发布"><a href="/2016/10/05/hexo/#生成与发布" class="headerlink" title="生成与发布"></a>生成与发布</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate --deploy</span><br><span class="line">$ hexo deploy --generate</span><br></pre></td></tr></table></figure>
 <p>简写<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g -d</span><br><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure></p>
+<p>生成发布时可能会出现找不到用户名的问题，可以修改git配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper wincred</span><br></pre></td></tr></table></figure></p>
 <h3 id="图床"><a href="/2016/10/05/hexo/#图床" class="headerlink" title="图床"></a>图床</h3><p>使用了七牛的空间，使用<code>qrsbox</code>进行同步。</p>
 <h3 id="源码托管"><a href="/2016/10/05/hexo/#源码托管" class="headerlink" title="源码托管"></a>源码托管</h3><p>使用了git@osc，这样将整个Hexo的站点版本管理起来。</p>
 <h2 id="总结"><a href="/2016/10/05/hexo/#总结" class="headerlink" title="总结"></a>总结</h2><p>对于使用Github Pages和Hexo搭建个人博客，整体配置下来是难度不会大，主要是因为有些东西没有接触过会多花一些时间来理解。另外就是一些博文不一定会有及时的更新，一些操作也是会不一样的，所有对自己来说，能找到原始出处的就尽量用原始内容。</p>
