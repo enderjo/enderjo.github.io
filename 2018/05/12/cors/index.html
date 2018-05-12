@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="CrazyAirhead, L4qiang" />
+  <meta name="keywords" content="CORS," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="分布式/版本化配置 服务注册和发现 服务网关 负载均衡 服务调用方式规范 断路器 分布式消息传递 链路跟踪 接口文档自动化与安全">
+<meta name="description" content="原因因为使用Angular来调用ipfs的API时出现403禁止访问错误，首先判断的是跨域问题，尝试如下内容：直接在浏览器中输入URL访问可以，通过代理或浏览器的允许跨域设置依然是403错误。通过查看ipfs的文档（https://github.com/ipfs/js-ipfs-api），IPFS服务器默认不支持跨域请求，需要修改配置文件。123$ ipfs config --json API.H">
+<meta name="keywords" content="CORS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringCloud基础概念">
-<meta property="og:url" content="http://l4qiang.me/2017/12/12/springcloud-0/index.html">
+<meta property="og:title" content="CORS 跨域资源共享">
+<meta property="og:url" content="http://l4qiang.me/2018/05/12/cors/index.html">
 <meta property="og:site_name" content="CrazyAirhead">
-<meta property="og:description" content="分布式/版本化配置 服务注册和发现 服务网关 负载均衡 服务调用方式规范 断路器 分布式消息传递 链路跟踪 接口文档自动化与安全">
+<meta property="og:description" content="原因因为使用Angular来调用ipfs的API时出现403禁止访问错误，首先判断的是跨域问题，尝试如下内容：直接在浏览器中输入URL访问可以，通过代理或浏览器的允许跨域设置依然是403错误。通过查看ipfs的文档（https://github.com/ipfs/js-ipfs-api），IPFS服务器默认不支持跨域请求，需要修改配置文件。123$ ipfs config --json API.H">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-12T13:07:56.422Z">
+<meta property="og:updated_time" content="2018-05-12T03:31:37.107Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringCloud基础概念">
-<meta name="twitter:description" content="分布式/版本化配置 服务注册和发现 服务网关 负载均衡 服务调用方式规范 断路器 分布式消息传递 链路跟踪 接口文档自动化与安全">
+<meta name="twitter:title" content="CORS 跨域资源共享">
+<meta name="twitter:description" content="原因因为使用Angular来调用ipfs的API时出现403禁止访问错误，首先判断的是跨域问题，尝试如下内容：直接在浏览器中输入URL访问可以，通过代理或浏览器的允许跨域设置依然是403错误。通过查看ipfs的文档（https://github.com/ipfs/js-ipfs-api），IPFS服务器默认不支持跨域请求，需要修改配置文件。123$ ipfs config --json API.H">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://l4qiang.me/2017/12/12/springcloud-0/"/>
+  <link rel="canonical" href="http://l4qiang.me/2018/05/12/cors/"/>
 
 
 
 
 
-  <title>SpringCloud基础概念 | CrazyAirhead</title>
+  <title>CORS 跨域资源共享 | CrazyAirhead</title>
   
 
 
@@ -242,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2017/12/12/springcloud-0/">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2018/05/12/cors/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="L4qiang">
@@ -259,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SpringCloud基础概念</h1>
+          <h1 class="post-title" itemprop="name headline">CORS 跨域资源共享</h1>
         
 
         <div class="post-meta">
@@ -271,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-12T21:06:10+08:00">
-                2017-12-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-12T11:09:50+08:00">
+                2018-05-12
               </time>
             
 
@@ -309,17 +310,27 @@
       
 
       
-        <ul>
-<li>分布式/版本化配置</li>
-<li>服务注册和发现</li>
-<li>服务网关</li>
-<li>负载均衡</li>
-<li>服务调用方式规范</li>
-<li>断路器</li>
-<li>分布式消息传递</li>
-<li>链路跟踪</li>
-<li>接口文档自动化与安全</li>
+        <h1 id="原因"><a href="/2018/05/12/cors/#原因" class="headerlink" title="原因"></a>原因</h1><p>因为使用Angular来调用ipfs的API时出现403禁止访问错误，首先判断的是跨域问题，尝试如下内容：直接在浏览器中输入URL访问可以，通过代理或浏览器的允许跨域设置依然是403错误。<br>通过查看ipfs的文档（<a href="https://github.com/ipfs/js-ipfs-api），IPFS服务器默认不支持跨域请求，需要修改配置文件。" target="_blank" rel="noopener">https://github.com/ipfs/js-ipfs-api），IPFS服务器默认不支持跨域请求，需要修改配置文件。</a><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin "[\"http://example.com\"]"</span><br><span class="line"><span class="meta">$</span> ipfs config --json API.HTTPHeaders.Access-Control-Allow-Credentials "[\"true\"]"</span><br><span class="line"><span class="meta">$</span> ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods "[\"PUT\", \"POST\", \"GET\"]"</span><br></pre></td></tr></table></figure></p>
+<p>修改配置，重启IPFS之后正常访问IPFS的API。</p>
+<h1 id="分析"><a href="/2018/05/12/cors/#分析" class="headerlink" title="分析"></a>分析</h1><p>对于CORS没有理解，通过查看Wiki整理下对CORS，加深理解。为什么浏览器中可以访问而前端调用不行？<br>直接在浏览器中可以直接访问是因为他是第一下资源地址，是一个GET请求，不是跨域请求。<br>Angular中请求时，是一个XHR请求，且与第一个资源地址不同，是跨域请求。</p>
+<h1 id="跨域资源共享"><a href="/2018/05/12/cors/#跨域资源共享" class="headerlink" title="跨域资源共享"></a>跨域资源共享</h1><p>跨域资源共享是一种机制，它允许受限的访问第一个访问资源域以外的资源（如字体）的机制。一张网页通常包含了很多跨域的图片，样式，脚本，iframes，或者视频。一些跨域请求，尤其是Ajax请求，会因为默认的<a href="https://en.wikipedia.org/wiki/Same-origin_policy" target="_blank" rel="noopener">同源安全策略</a>而被禁止访问。</p>
+<p>CORS定义了浏览器和服务器如何来决定一个跨域请求是安全的。它比完全同源请求有更多的自由和功能，但不要只是简单地允许所有跨源请求。CORS规范最初是作为W3C推荐标准发布的，但该文档已经过时。 <a href="https://fetch.spec.whatwg.org/" target="_blank" rel="noopener">Fetch Living Standard</a>是当前维护活跃的规范。</p>
+<h2 id="同源判断规则"><a href="/2018/05/12/cors/#同源判断规则" class="headerlink" title="同源判断规则"></a>同源判断规则</h2><p>绝对路径，需要是协议，域名，端口号三者与第一个访问的资源（浏览器中输入的URL）相同，才被认为是同源。</p>
+<h2 id="CORS工作机制"><a href="/2018/05/12/cors/#CORS工作机制" class="headerlink" title="CORS工作机制"></a>CORS工作机制</h2><p>CORS标准新增了一组HTTP消息头，它为浏览器和服务器之间提供了一种有权限时才请求远程URL的方法。虽然服务器可以执行一些验证和授权，但浏览器通常有责任支持这些消息头并执行相关限制。</p>
+<p>对于可以修改数据的Ajax和HTTP请求方法(通常是GET以外的HTTP方法，或者用于某些MIME类型的POST使用)，规范要求浏览器“预先执行”请求，使用HTTP的OPTIONS方法从服务器请求受支持的方法，然后在服务器“批准”后，使用实际的HTTP请求方法发送实际请求。服务器还可以通知客户端是否应该通过请求发送“凭据”(包括Cookies和HTTP身份验证数据)。<br><a href="https://en.wikipedia.org/wiki/File:Flowchart_showing_Simple_and_Preflight_XHR.svg" target="_blank" rel="noopener">cors</a></p>
+<h2 id="CORS相关消息头"><a href="/2018/05/12/cors/#CORS相关消息头" class="headerlink" title="CORS相关消息头"></a>CORS相关消息头</h2><h3 id="请求头"><a href="/2018/05/12/cors/#请求头" class="headerlink" title="请求头"></a>请求头</h3><ul>
+<li>Origin</li>
+<li>Access-Control-Request-Method</li>
+<li>Access-Control-Request-Headers<h3 id="响应头"><a href="/2018/05/12/cors/#响应头" class="headerlink" title="响应头"></a>响应头</h3></li>
+<li>Access-Control-Allow-Origin</li>
+<li>Access-Control-Allow-Credentials</li>
+<li>Access-Control-Expose-Headers</li>
+<li>Access-Control-Max-Age</li>
+<li>Access-Control-Allow-Methods</li>
+<li>Access-Control-Allow-Headers</li>
 </ul>
+<p>Access-Control-Allow-Origin: *</p>
+<p>“*”的值是特殊的，因为它不允许请求提供凭据，这意味着不允许发送HTTP身份验证、客户端SSL证书和Cookie等原因。</p>
 <link href="/css/prism.css" rel="stylesheet">
       
     </div>
@@ -359,6 +370,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/CORS/" rel="tag"># CORS</a>
+          
+        </div>
+      
 
       
       
@@ -368,8 +385,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/11/zeronet-4/" rel="next" title="创建ZeroNet站点">
-                <i class="fa fa-chevron-left"></i> 创建ZeroNet站点
+              <a href="/2018/01/30/critical-thinking-1/" rel="next" title="批判性思考读书笔记1">
+                <i class="fa fa-chevron-left"></i> 批判性思考读书笔记1
               </a>
             
           </div>
@@ -377,10 +394,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/26/zeronet-5/" rel="prev" title="站点开发入门">
-                站点开发入门 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -432,8 +445,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -494,6 +516,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原因"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2018/05/12/cors/#&#x539F;&#x56E0;" class="headerlink" title="&#x539F;&#x56E0;"></a>&#x539F;&#x56E0;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分析"><span class="nav-number">2.</span> <span class="nav-text"><a href="/2018/05/12/cors/#&#x5206;&#x6790;" class="headerlink" title="&#x5206;&#x6790;"></a>&#x5206;&#x6790;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跨域资源共享"><span class="nav-number">3.</span> <span class="nav-text"><a href="/2018/05/12/cors/#&#x8DE8;&#x57DF;&#x8D44;&#x6E90;&#x5171;&#x4EAB;" class="headerlink" title="&#x8DE8;&#x57DF;&#x8D44;&#x6E90;&#x5171;&#x4EAB;"></a>&#x8DE8;&#x57DF;&#x8D44;&#x6E90;&#x5171;&#x4EAB;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#同源判断规则"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="/2018/05/12/cors/#&#x540C;&#x6E90;&#x5224;&#x65AD;&#x89C4;&#x5219;" class="headerlink" title="&#x540C;&#x6E90;&#x5224;&#x65AD;&#x89C4;&#x5219;"></a>&#x540C;&#x6E90;&#x5224;&#x65AD;&#x89C4;&#x5219;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS工作机制"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="/2018/05/12/cors/#CORS&#x5DE5;&#x4F5C;&#x673A;&#x5236;" class="headerlink" title="CORS&#x5DE5;&#x4F5C;&#x673A;&#x5236;"></a>CORS&#x5DE5;&#x4F5C;&#x673A;&#x5236;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS相关消息头"><span class="nav-number">3.3.</span> <span class="nav-text"><a href="/2018/05/12/cors/#CORS&#x76F8;&#x5173;&#x6D88;&#x606F;&#x5934;" class="headerlink" title="CORS&#x76F8;&#x5173;&#x6D88;&#x606F;&#x5934;"></a>CORS&#x76F8;&#x5173;&#x6D88;&#x606F;&#x5934;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求头"><span class="nav-number">3.3.1.</span> <span class="nav-text"><a href="/2018/05/12/cors/#&#x8BF7;&#x6C42;&#x5934;" class="headerlink" title="&#x8BF7;&#x6C42;&#x5934;"></a>&#x8BF7;&#x6C42;&#x5934;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应头"><span class="nav-number">3.3.2.</span> <span class="nav-text"><a href="/2018/05/12/cors/#&#x54CD;&#x5E94;&#x5934;" class="headerlink" title="&#x54CD;&#x5E94;&#x5934;"></a>&#x54CD;&#x5E94;&#x5934;</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
