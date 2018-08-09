@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Camel," />
+  <meta name="keywords" content="ipfs,private network," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="快速入门通过阅读本章的一些简单的例子，你可以快速的开始使用Apache Camel。对于想全面了解的读者来说，可以跳到时第3章。 从例子开始通过源码我们来看一个例子。Camel可以用Spring，或者直接用Java来配置。本例就是用Java的。这个例子在Camel的发布包的examples\camel\example-jms-file目录下可以找到。首来我们来创建一个CamelContex，这个C">
-<meta name="keywords" content="Camel">
+<meta name="description" content="本文来源Private Networks 私有网络（Private Networks）Allows ipfs to only connect to other peers who have a shared secret key. IPFS只有共享密钥的节点才可互相连接。 状态（State）Experimental  实验性 In Versionmaster, 0.4.7 如何启用（How to">
+<meta name="keywords" content="ipfs,private network">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Camel-第2章 快速入门">
-<meta property="og:url" content="http://l4qiang.me/2017/08/08/camel-1/index.html">
+<meta property="og:title" content="IPFS私有网络">
+<meta property="og:url" content="http://l4qiang.me/2018/08/09/ipfs-1/index.html">
 <meta property="og:site_name" content="CrazyAirhead">
-<meta property="og:description" content="快速入门通过阅读本章的一些简单的例子，你可以快速的开始使用Apache Camel。对于想全面了解的读者来说，可以跳到时第3章。 从例子开始通过源码我们来看一个例子。Camel可以用Spring，或者直接用Java来配置。本例就是用Java的。这个例子在Camel的发布包的examples\camel\example-jms-file目录下可以找到。首来我们来创建一个CamelContex，这个C">
+<meta property="og:description" content="本文来源Private Networks 私有网络（Private Networks）Allows ipfs to only connect to other peers who have a shared secret key. IPFS只有共享密钥的节点才可互相连接。 状态（State）Experimental  实验性 In Versionmaster, 0.4.7 如何启用（How to">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-12T07:53:16.712Z">
+<meta property="og:updated_time" content="2018-08-09T15:23:57.721Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Camel-第2章 快速入门">
-<meta name="twitter:description" content="快速入门通过阅读本章的一些简单的例子，你可以快速的开始使用Apache Camel。对于想全面了解的读者来说，可以跳到时第3章。 从例子开始通过源码我们来看一个例子。Camel可以用Spring，或者直接用Java来配置。本例就是用Java的。这个例子在Camel的发布包的examples\camel\example-jms-file目录下可以找到。首来我们来创建一个CamelContex，这个C">
+<meta name="twitter:title" content="IPFS私有网络">
+<meta name="twitter:description" content="本文来源Private Networks 私有网络（Private Networks）Allows ipfs to only connect to other peers who have a shared secret key. IPFS只有共享密钥的节点才可互相连接。 状态（State）Experimental  实验性 In Versionmaster, 0.4.7 如何启用（How to">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://l4qiang.me/2017/08/08/camel-1/"/>
+  <link rel="canonical" href="http://l4qiang.me/2018/08/09/ipfs-1/"/>
 
 
 
 
 
-  <title>Camel-第2章 快速入门 | CrazyAirhead</title>
+  <title>IPFS私有网络 | CrazyAirhead</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2017/08/08/camel-1/">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2018/08/09/ipfs-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="L4qiang">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Camel-第2章 快速入门</h1>
+          <h1 class="post-title" itemprop="name headline">IPFS私有网络</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T20:04:24+08:00">
-                2017-08-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-09T22:53:13+08:00">
+                2018-08-09
               </time>
             
 
@@ -310,19 +310,35 @@
       
 
       
-        <h2 id="快速入门"><a href="/2017/08/08/camel-1/#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p>通过阅读本章的一些简单的例子，你可以快速的开始使用Apache Camel。对于想全面了解的读者来说，可以跳到时第3章。</p>
-<h2 id="从例子开始"><a href="/2017/08/08/camel-1/#从例子开始" class="headerlink" title="从例子开始"></a>从例子开始</h2><p>通过源码我们来看一个例子。<br>Camel可以用Spring，或者直接用Java来配置。本例就是用Java的。<br>这个例子在Camel的发布包的<code>examples\camel\example-jms-file</code>目录下可以找到。<br>首来我们来创建一个CamelContex，这个CamelContext可以装载组件和路由等。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CamelContext context= <span class="keyword">new</span> DefaultCamelContext();</span><br></pre></td></tr></table></figure></p>
-<p>有很多中方式将组件添加到CamelContext中。你可以在设置路由隐式的添加组件，就像我们这里添加FileCompnent一样：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">context.addRoutes(<span class="keyword">new</span> RouteBuilder()) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        from(<span class="string">"test-jms:queue:test.queue"</span>).to(<span class="string">"file://test"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>也可就显示的添加，就像们这里添加JMS Component一样：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ConnectionFactroy connectionFactory = <span class="keyword">new</span> ActiveMQConnectionFactory(<span class="string">"vm://localhost?broker.persistent=false"</span>);</span><br><span class="line"><span class="comment">// Note we can explicit name the component</span></span><br><span class="line">context.addComponent(<span class="string">"test-jms"</span>, JmsComponent.jmsComponentAutoAcknowledge(connectionFactory));</span><br></pre></td></tr></table></figure></p>
-<p>上面的代码对所有的JMS提供者都是可用的。如果我们知道我们使用的是ActiveMQ，我们可以使用<code>activeMQComponent</code>方法来指定服务地址，连接到ActiveMQ。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">camelContext.addComponent(<span class="string">"activemq"</span>, activeMQComponent(<span class="string">"vm://localhost?broker.persistent=false"</span>));</span><br></pre></td></tr></table></figure></p>
-<p>通常情况下，一个外部系统会通过Camel的一个组件来触发消息或者事件到Camel中，但是我们要用<code>ProducerTemplate</code>这种非简单的方式来测试我们的配置：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ProducerTemplate template = context.createProducerTemplate();</span><br></pre></td></tr></table></figure></p>
-<p>接下来你必须启动Camel Context。如果你使用Spring的配置方式，Camel Context已经自动启动了。但是如果你使用纯Java的方式，你也只需要调用下start()方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">camleContext.start();</span><br></pre></td></tr></table></figure></p>
-<p>这会启动所有已经配置好的流程。<br>所以当CamelContext启动以后，我们就可以触发对象到Camel中了：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    template.sendBody(<span class="string">"test-jms:queue:test.queue"</span>, <span class="string">"Test Message: "</span> + i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="发生了什么？"><a href="/2017/08/08/camel-1/#发生了什么？" class="headerlink" title="发生了什么？"></a>发生了什么？</h2><p>我们使用生产者模板来发送对象（这里是文本）到CamelContext中，到组件test-jms:queue:test.queue.这些文本对象会被自动转换为JMS的消息并推送到test.queue的消息列中。当我们设置一个路由时，我们指定文件组件来监听test.queue。</p>
-<p>文件组件会把文件从消息队列中取出，然后保存在名为<code>test</code>的目录中。每个消息会根据目标地址和消息ID重生成文件。</p>
-<p>最后，我们设置我们的路由，通知文件组件并打印成文本。</p>
-<h2 id="结束"><a href="/2017/08/08/camel-1/#结束" class="headerlink" title="结束"></a>结束</h2><p>如果你还有时间，你可能花上5分钟来过一遍使用Spring DSL（基于XML）的例子。</p>
-<h2 id="另一个列子"><a href="/2017/08/08/camel-1/#另一个列子" class="headerlink" title="另一个列子"></a>另一个列子</h2><link href="/css/prism.css" rel="stylesheet">
+        <p>本文来源<a href="https://github.com/ipfs/go-ipfs/blob/master/docs/experimental-features.md#private-networks" target="_blank" rel="noopener">Private Networks</a></p>
+<h2 id="私有网络（Private-Networks）"><a href="/2018/08/09/ipfs-1/#私有网络（Private-Networks）" class="headerlink" title="私有网络（Private Networks）"></a>私有网络（Private Networks）</h2><p>Allows ipfs to only connect to other peers who have a shared secret key.</p>
+<p>IPFS只有共享密钥的节点才可互相连接。</p>
+<h2 id="状态（State）"><a href="/2018/08/09/ipfs-1/#状态（State）" class="headerlink" title="状态（State）"></a>状态（State）</h2><p>Experimental</p>
+<p> 实验性</p>
+<h2 id="In-Version"><a href="/2018/08/09/ipfs-1/#In-Version" class="headerlink" title="In Version"></a>In Version</h2><p>master, 0.4.7</p>
+<h2 id="如何启用（How-to-enable）"><a href="/2018/08/09/ipfs-1/#如何启用（How-to-enable）" class="headerlink" title="如何启用（How to enable）"></a>如何启用（How to enable）</h2><p>Generate a pre-shared-key using <a href="https://github.com/Kubuxu/go-ipfs-swarm-key-gen" target="_blank" rel="noopener">ipfs-swarm-key-gen</a>:</p>
+<p>通过<a href="https://github.com/Kubuxu/go-ipfs-swarm-key-gen" target="_blank" rel="noopener">ipfs-swarm-key-gen</a>生成一个共享密钥：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/Kubuxu/go-ipfs-swarm-key-gen/ipfs-swarm-key-gen</span><br><span class="line">ipfs-swarm-key-gen &gt; ~/.ipfs/swarm.key</span><br></pre></td></tr></table></figure>
+<p>To join a given private network, get the key file from someone in the network and save it to ~/.ipfs/swarm.key (If you are using a custom $IPFS_PATH, put it in there instead).</p>
+<p>加入私有网络，需要从网络中的其他人中获取密钥文件并把它保存为<code>~/.ipfs/swarm.key</code>（如果你设置了$IPFS_PATH，替换为设置的目录）。</p>
+<p>When using this feature, you will not be able to connect to the default bootstrap nodes (Since we aren’t part of your private network) so you will need to set up your own bootstrap nodes.</p>
+<p>当你使用这个功能的时候，你不可以使用默认的启动节点（因为不是私有网络的一部分），因此你需要设置你自己的启动节点。</p>
+<p>First, to prevent your node from even trying to connect to the default bootstrap nodes, run:</p>
+<p>首先为了防止你的节点尝试连接默认的启动节点，你需要运行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipfs bootstrap rm --all</span><br></pre></td></tr></table></figure>
+<p><strong>注意，这里有个BUG，可能会导致当前节点也被移除，而启动错误，需要手动重新添加。</strong></p>
+<p>Then add your own bootstrap peers with:</p>
+<p>然后添加你自己的启动节点</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipfs bootstrap add &lt;multiaddr&gt;</span><br></pre></td></tr></table></figure>
+<p>For example:</p>
+<p>例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipfs bootstrap add /ip4/104.236.76.40/tcp/4001/ipfs/QmSoLV4Bbm51jM9C4gDYZQ9Cy3U6aXMJDAbzgu2fzaDs64</span><br></pre></td></tr></table></figure>
+<p>Bootstrap nodes are no different from all other nodes in the network apart from the function they serve.</p>
+<p>除了提供启动功能外，启动节点和网络中的其他节点没有什么不同。</p>
+<p>To be extra cautious, You can also set the LIBP2P_FORCE_PNET environment variable to 1 to force the usage of private networks. If no private network is configured, the daemon will fail to start.</p>
+<p>为了更安全，你也可以设置LIBP2P_FORCE_PNET环境变量为1来强制使用私用网络。如果没有配置私有网络，ipfs守护进程就会无法启动。</p>
+<h2 id="参考链接"><a href="/2018/08/09/ipfs-1/#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p> <a href="https://zhuanlan.zhihu.com/p/35141862" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35141862</a></p>
+<link href="/css/prism.css" rel="stylesheet">
       
     </div>
     
@@ -363,7 +379,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Camel/" rel="tag"># Camel</a>
+            <a href="/tags/ipfs/" rel="tag"># ipfs</a>
+          
+            <a href="/tags/private-network/" rel="tag"># private network</a>
           
         </div>
       
@@ -376,8 +394,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/02/camel-0/" rel="next" title="Camel-第1章 camel简介">
-                <i class="fa fa-chevron-left"></i> Camel-第1章 camel简介
+              <a href="/2018/08/09/android-1/" rel="next" title="Hbuilder 5+SDKAndroid原生工程">
+                <i class="fa fa-chevron-left"></i> Hbuilder 5+SDKAndroid原生工程
               </a>
             
           </div>
@@ -385,10 +403,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/22/zeronet-0/" rel="prev" title="ZeroNet介绍">
-                ZeroNet介绍 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -521,7 +535,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速入门"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2017/08/08/camel-1/#&#x5FEB;&#x901F;&#x5165;&#x95E8;" class="headerlink" title="&#x5FEB;&#x901F;&#x5165;&#x95E8;"></a>&#x5FEB;&#x901F;&#x5165;&#x95E8;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从例子开始"><span class="nav-number">2.</span> <span class="nav-text"><a href="/2017/08/08/camel-1/#&#x4ECE;&#x4F8B;&#x5B50;&#x5F00;&#x59CB;" class="headerlink" title="&#x4ECE;&#x4F8B;&#x5B50;&#x5F00;&#x59CB;"></a>&#x4ECE;&#x4F8B;&#x5B50;&#x5F00;&#x59CB;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发生了什么？"><span class="nav-number">3.</span> <span class="nav-text"><a href="/2017/08/08/camel-1/#&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;" class="headerlink" title="&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;"></a>&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束"><span class="nav-number">4.</span> <span class="nav-text"><a href="/2017/08/08/camel-1/#&#x7ED3;&#x675F;" class="headerlink" title="&#x7ED3;&#x675F;"></a>&#x7ED3;&#x675F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#另一个列子"><span class="nav-number">5.</span> <span class="nav-text"><a href="/2017/08/08/camel-1/#&#x53E6;&#x4E00;&#x4E2A;&#x5217;&#x5B50;" class="headerlink" title="&#x53E6;&#x4E00;&#x4E2A;&#x5217;&#x5B50;"></a>&#x53E6;&#x4E00;&#x4E2A;&#x5217;&#x5B50;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#私有网络（Private-Networks）"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2018/08/09/ipfs-1/#&#x79C1;&#x6709;&#x7F51;&#x7EDC;&#xFF08;Private-Networks&#xFF09;" class="headerlink" title="&#x79C1;&#x6709;&#x7F51;&#x7EDC;&#xFF08;Private Networks&#xFF09;"></a>&#x79C1;&#x6709;&#x7F51;&#x7EDC;&#xFF08;Private Networks&#xFF09;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态（State）"><span class="nav-number">2.</span> <span class="nav-text"><a href="/2018/08/09/ipfs-1/#&#x72B6;&#x6001;&#xFF08;State&#xFF09;" class="headerlink" title="&#x72B6;&#x6001;&#xFF08;State&#xFF09;"></a>&#x72B6;&#x6001;&#xFF08;State&#xFF09;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#In-Version"><span class="nav-number">3.</span> <span class="nav-text"><a href="/2018/08/09/ipfs-1/#In-Version" class="headerlink" title="In Version"></a>In Version</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何启用（How-to-enable）"><span class="nav-number">4.</span> <span class="nav-text"><a href="/2018/08/09/ipfs-1/#&#x5982;&#x4F55;&#x542F;&#x7528;&#xFF08;How-to-enable&#xFF09;" class="headerlink" title="&#x5982;&#x4F55;&#x542F;&#x7528;&#xFF08;How to enable&#xFF09;"></a>&#x5982;&#x4F55;&#x542F;&#x7528;&#xFF08;How to enable&#xFF09;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text"><a href="/2018/08/09/ipfs-1/#&#x53C2;&#x8003;&#x94FE;&#x63A5;" class="headerlink" title="&#x53C2;&#x8003;&#x94FE;&#x63A5;"></a>&#x53C2;&#x8003;&#x94FE;&#x63A5;</span></a></li></ol></div>
             
 
           </div>
