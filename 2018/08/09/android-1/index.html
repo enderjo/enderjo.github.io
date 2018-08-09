@@ -79,14 +79,15 @@
 
 
 
-<meta name="description" content="准备本文主要参考使用新版本5+SDK创建最简Android原生工程（Android studio）和 Android离线打包。如有未说明清楚之处，参看官方文档。 下载最新版本5+SDK,下载地址， 将SDK解压到任意目录，目录结构如下，以下统称为5+SDK目录。 新建Android工程从欢迎界面或者文件&amp;gt;新建工程，选择Android类型的项目，使用默认配置或者根据需要做相关调整。创建Anro">
+<meta name="description" content="准备本文主要参考使用新版本5+SDK创建最简Android原生工程（Android studio）和 Android离线打包。如有未说明清楚之处，参看官方文档。 下载最新版本5+SDK,下载地址， 将SDK解压到任意目录，目录结构如下，以下统称为5+SDK目录。  新建Android工程从欢迎界面或者文件&amp;gt;新建工程，选择Android类型的项目，使用默认配置或者根据需要做相关调整。创建Anr">
 <meta name="keywords" content="android,hbuilder">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hbuilder 5+SDKAndroid原生工程">
 <meta property="og:url" content="http://l4qiang.me/2018/08/09/android-1/index.html">
 <meta property="og:site_name" content="CrazyAirhead">
-<meta property="og:description" content="准备本文主要参考使用新版本5+SDK创建最简Android原生工程（Android studio）和 Android离线打包。如有未说明清楚之处，参看官方文档。 下载最新版本5+SDK,下载地址， 将SDK解压到任意目录，目录结构如下，以下统称为5+SDK目录。 新建Android工程从欢迎界面或者文件&amp;gt;新建工程，选择Android类型的项目，使用默认配置或者根据需要做相关调整。创建Anro">
+<meta property="og:description" content="准备本文主要参考使用新版本5+SDK创建最简Android原生工程（Android studio）和 Android离线打包。如有未说明清楚之处，参看官方文档。 下载最新版本5+SDK,下载地址， 将SDK解压到任意目录，目录结构如下，以下统称为5+SDK目录。  新建Android工程从欢迎界面或者文件&amp;gt;新建工程，选择Android类型的项目，使用默认配置或者根据需要做相关调整。创建Anr">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder12.png">
 <meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/android%20project.png">
 <meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder1.png">
 <meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder2.png">
@@ -99,11 +100,11 @@
 <meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder9.png">
 <meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder11.png">
 <meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder10.png">
-<meta property="og:updated_time" content="2018-08-09T14:16:00.599Z">
+<meta property="og:updated_time" content="2018-08-09T14:19:40.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hbuilder 5+SDKAndroid原生工程">
-<meta name="twitter:description" content="准备本文主要参考使用新版本5+SDK创建最简Android原生工程（Android studio）和 Android离线打包。如有未说明清楚之处，参看官方文档。 下载最新版本5+SDK,下载地址， 将SDK解压到任意目录，目录结构如下，以下统称为5+SDK目录。 新建Android工程从欢迎界面或者文件&amp;gt;新建工程，选择Android类型的项目，使用默认配置或者根据需要做相关调整。创建Anro">
-<meta name="twitter:image" content="http://of73u2ed9.bkt.clouddn.com/android%20project.png">
+<meta name="twitter:description" content="准备本文主要参考使用新版本5+SDK创建最简Android原生工程（Android studio）和 Android离线打包。如有未说明清楚之处，参看官方文档。 下载最新版本5+SDK,下载地址， 将SDK解压到任意目录，目录结构如下，以下统称为5+SDK目录。  新建Android工程从欢迎界面或者文件&amp;gt;新建工程，选择Android类型的项目，使用默认配置或者根据需要做相关调整。创建Anr">
+<meta name="twitter:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder12.png">
 
 
 
@@ -325,6 +326,7 @@
       
         <h2 id="准备"><a href="/2018/08/09/android-1/#准备" class="headerlink" title="准备"></a>准备</h2><p>本文主要参考<a href="http://ask.dcloud.net.cn/article/13232" target="_blank" rel="noopener">使用新版本5+SDK创建最简Android原生工程（Android studio）</a>和 <a href="http://ask.dcloud.net.cn/article/38" target="_blank" rel="noopener">Android离线打包</a>。如有未说明清楚之处，参看官方文档。</p>
 <p>下载最新版本5+SDK,<a href="http://ask.dcloud.net.cn/article/103" target="_blank" rel="noopener">下载地址</a>， 将SDK解压到任意目录，目录结构如下，以下统称为5+SDK目录。</p>
+<p><img src="http://of73u2ed9.bkt.clouddn.com/hbuilder12.png" alt=""></p>
 <h2 id="新建Android工程"><a href="/2018/08/09/android-1/#新建Android工程" class="headerlink" title="新建Android工程"></a>新建Android工程</h2><p>从欢迎界面或者文件&gt;新建工程，选择Android类型的项目，使用默认配置或者根据需要做相关调整。创建Anroid应用本身不是本文重点。如果有问题可以删了重来，建个一两次基本没问题了。<br><img src="http://of73u2ed9.bkt.clouddn.com/android%20project.png" alt="新建Android工程"><span class="image-caption">新建Android工程</span></p>
 <h2 id="配置Hbuilder"><a href="/2018/08/09/android-1/#配置Hbuilder" class="headerlink" title="配置Hbuilder"></a>配置Hbuilder</h2><p><strong>注意将项目树使用Project方式显示，以便说明内容不引起误解</strong>。</p>
 <ul>
