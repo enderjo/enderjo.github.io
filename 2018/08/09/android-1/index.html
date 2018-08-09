@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="android,hbuilder," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="准备本文主要参考使用新版本5+SDK创建最简Android原生工程（Android studio）和 Android离线打包。如有未说明清楚之处，参看官方文档。 下载最新版本5+SDK,下载地址， 将SDK解压到任意目录，目录结构如下，以下统称为5+SDK目录。 新建Android工程从欢迎界面或者文件&amp;gt;新建工程，选择Android类型的项目，使用默认配置或者根据需要做相关调整。创建Anro">
+<meta name="keywords" content="android,hbuilder">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hbuilder 5+SDKAndroid原生工程">
+<meta property="og:url" content="http://l4qiang.me/2018/08/09/android-1/index.html">
+<meta property="og:site_name" content="CrazyAirhead">
+<meta property="og:description" content="准备本文主要参考使用新版本5+SDK创建最简Android原生工程（Android studio）和 Android离线打包。如有未说明清楚之处，参看官方文档。 下载最新版本5+SDK,下载地址， 将SDK解压到任意目录，目录结构如下，以下统称为5+SDK目录。 新建Android工程从欢迎界面或者文件&amp;gt;新建工程，选择Android类型的项目，使用默认配置或者根据需要做相关调整。创建Anro">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/android%20project.png">
+<meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder1.png">
+<meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder2.png">
+<meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder4.png">
+<meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder5.png">
+<meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder6.png">
+<meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder7.png">
+<meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder8.png">
+<meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder11.png">
+<meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder9.png">
+<meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder11.png">
+<meta property="og:image" content="http://of73u2ed9.bkt.clouddn.com/hbuilder10.png">
+<meta property="og:updated_time" content="2018-08-09T14:16:00.599Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hbuilder 5+SDKAndroid原生工程">
+<meta name="twitter:description" content="准备本文主要参考使用新版本5+SDK创建最简Android原生工程（Android studio）和 Android离线打包。如有未说明清楚之处，参看官方文档。 下载最新版本5+SDK,下载地址， 将SDK解压到任意目录，目录结构如下，以下统称为5+SDK目录。 新建Android工程从欢迎界面或者文件&amp;gt;新建工程，选择Android类型的项目，使用默认配置或者根据需要做相关调整。创建Anro">
+<meta name="twitter:image" content="http://of73u2ed9.bkt.clouddn.com/android%20project.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://l4qiang.me/2018/08/09/android-1/"/>
+
+
+
+
+
+  <title>Hbuilder 5+SDKAndroid原生工程 | CrazyAirhead</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c3ed9d534576a67e94ff8be03a704994";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CrazyAirhead</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">疯狂的傻瓜，傻瓜也疯狂————傻方能执著，疯狂才专注!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2018/08/09/android-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="L4qiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CrazyAirhead">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hbuilder 5+SDKAndroid原生工程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-09T21:32:12+08:00">
+                2018-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="准备"><a href="/2018/08/09/android-1/#准备" class="headerlink" title="准备"></a>准备</h2><p>本文主要参考<a href="http://ask.dcloud.net.cn/article/13232" target="_blank" rel="noopener">使用新版本5+SDK创建最简Android原生工程（Android studio）</a>和 <a href="http://ask.dcloud.net.cn/article/38" target="_blank" rel="noopener">Android离线打包</a>。如有未说明清楚之处，参看官方文档。</p>
+<p>下载最新版本5+SDK,<a href="http://ask.dcloud.net.cn/article/103" target="_blank" rel="noopener">下载地址</a>， 将SDK解压到任意目录，目录结构如下，以下统称为5+SDK目录。</p>
+<h2 id="新建Android工程"><a href="/2018/08/09/android-1/#新建Android工程" class="headerlink" title="新建Android工程"></a>新建Android工程</h2><p>从欢迎界面或者文件&gt;新建工程，选择Android类型的项目，使用默认配置或者根据需要做相关调整。创建Anroid应用本身不是本文重点。如果有问题可以删了重来，建个一两次基本没问题了。<br><img src="http://of73u2ed9.bkt.clouddn.com/android%20project.png" alt="新建Android工程"><span class="image-caption">新建Android工程</span></p>
+<h2 id="配置Hbuilder"><a href="/2018/08/09/android-1/#配置Hbuilder" class="headerlink" title="配置Hbuilder"></a>配置Hbuilder</h2><p><strong>注意将项目树使用Project方式显示，以便说明内容不引起误解</strong>。</p>
+<ul>
+<li>删除原生工程中java目录下系统默认创建的源代码</li>
+</ul>
+<p><img src="http://of73u2ed9.bkt.clouddn.com/hbuilder1.png" alt=""></p>
+<ul>
+<li>复制5+SDK目录下的SDK-&gt;libs-&gt;lib.5plus.base-release.aar文件到原生工程工程的app-&gt;libs目录下</li>
+</ul>
+<p><img src="http://of73u2ed9.bkt.clouddn.com/hbuilder2.png" alt=""></p>
+<ul>
+<li><p>打开app下的build.gradle文件</p>
+<ul>
+<li><p>添加aar文件引用到dependenciesr如下代码。如过编译器有警告信息，根据提示信息修改成imlementation。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile(name: 'lib.5plus.base-release', ext: 'aar')</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加aar文件搜索路径，与dependencies同级, 代码如下</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    flatDir &#123;</span><br><span class="line">        dirs 'libs'</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改工程的targetSdkVersion为21</p>
+</li>
+<li>multiDexEnabled设置成false</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://of73u2ed9.bkt.clouddn.com/hbuilder4.png" alt=""></p>
+<ul>
+<li><p>打开工程的Androidmanifest.xml文件,用以下内容替换原有application节点的内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">application</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">"io.dcloud.application.DCloudApplication"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:allowClearUserData</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:icon</span>=<span class="string">"@drawable/icon"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:largeHeap</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">activity</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:name</span>=<span class="string">"io.dcloud.PandoraEntry"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:configChanges</span>=<span class="string">"orientation|keyboardHidden|keyboard|navigation"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:launchMode</span>=<span class="string">"singleTask"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:hardwareAccelerated</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:theme</span>=<span class="string">"@style/TranslucentTheme"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:screenOrientation</span>=<span class="string">"user"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:windowSoftInputMode</span>=<span class="string">"adjustResize"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">application</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在app-&gt;src-&gt;res-&gt;drawble目录下放应用的图标文件文件命名为icon.png，如果没有可从5+SDK目录下的HBuilder-Hello目录下找。<br><img src="http://of73u2ed9.bkt.clouddn.com/hbuilder5.png" alt=""></p>
+</li>
+<li><p>创建assets目录（app-&gt;src-&gt;main-&gt;assets），将5+SDK目录下的SDK-&gt;assets-&gt;data目录复制到新创建的assets目录下<br><img src="http://of73u2ed9.bkt.clouddn.com/hbuilder6.png" alt=""></p>
+</li>
+<li><p>创建apps目录（app-&gt;src-&gt;main-&gt;assets-&gt;apps），将5+SDK目录下的HBuilder-Hello下的Apps(HBuilder-Hello-&gt;app-&gt;src-&gt;main-&gt;assets-&gt;apps)目录下内容复制到新创建的apps目录下。 注意： 应用资源的路径为[appid]-&gt;www, appid为应用资源manifest.json文件中id节点的值。<br><img src="http://of73u2ed9.bkt.clouddn.com/hbuilder7.png" alt=""></p>
+</li>
+<li><p>修改应用的assets-&gt;data-&gt;dcloud_control.xml文件的apps-&gt;app节点的appid属性的值改为manifest.json文件id节点的值，资源目录（app-&gt;[appid]）、manifest.json的id（id）和dcloud_control的appid，三者必须一致，否则应用无法正常启动。<br><img src="http://of73u2ed9.bkt.clouddn.com/hbuilder8.png" alt=""></p>
+</li>
+<li><p>编译运行。</p>
+</li>
+<li><h2 id="打包"><a href="/2018/08/09/android-1/#打包" class="headerlink" title="打包"></a>打包</h2><h3 id="配置应用的权限"><a href="/2018/08/09/android-1/#配置应用的权限" class="headerlink" title="配置应用的权限"></a>配置应用的权限</h3></li>
+</ul>
+<p>参考5+SDK目录下“Feature列表.xls”文档，确定应用中使用到的扩展API，在AndroidManifest.json文件中调整API的权限。<br><img src="http://of73u2ed9.bkt.clouddn.com/hbuilder11.png" alt=""></p>
+<h3 id="配置应用的包名及版本号"><a href="/2018/08/09/android-1/#配置应用的包名及版本号" class="headerlink" title="配置应用的包名及版本号"></a>配置应用的包名及版本号</h3><p>打开AndroidManifest.xml文件，在代码视图中修改根节点的package属性值，如下：<br><img src="http://of73u2ed9.bkt.clouddn.com/hbuilder9.png" alt=""><br>其中package为应用的包名，采用反向域名格式，为应用的标识；versionCode为应用的版本号（整数值），用于各应用市场的升级判断，建议与manifest.json中version -&gt; code值一致；versionName为应用的版本名称（字符串），在系统应用管理程序中显示的版本号，建议与manifest.json中version -&gt; name值一致。</p>
+<h3 id="配置应用名称"><a href="/2018/08/09/android-1/#配置应用名称" class="headerlink" title="配置应用名称"></a>配置应用名称</h3><p>打开res -&gt; values -&gt; strings.xml文件，修改“app_name”字段值，该值为安装到手机上桌面显示的应用名称：</p>
+<h3 id="配置应用图标和启动界面"><a href="/2018/08/09/android-1/#配置应用图标和启动界面" class="headerlink" title="配置应用图标和启动界面"></a>配置应用图标和启动界面</h3><p>将应用的图标（文件名为icon.png）和启动图片按照对应的尺寸拷贝到工程的res -&gt; drawable-XXX目录下：</p>
+<h4 id="应用图标"><a href="/2018/08/09/android-1/#应用图标" class="headerlink" title="应用图标"></a>应用图标</h4><p>指定各种分辨率设备上使用的应用图标（png格式）<br>节点名|    图标尺寸|说明<br>—|—|—|<br>mdpi    |48<em>48    |普通屏程序图标<br>ldpi    |48</em>48    |大屏程序图标<br>hdpi    |72<em>72    |高分屏程序图标<br>xhdpi    |96</em>96    |20P高分屏程序图标<br>xxhdpi    |144*144|1080P高分屏程序图标</p>
+<h4 id="启动图片"><a href="/2018/08/09/android-1/#启动图片" class="headerlink" title="启动图片"></a>启动图片</h4><p>指定各种分辨率设备上使用的启动图片（png格式）<br>节点名|    图标尺寸|说明<br>—|—|—|<br>mdpi    |240<em>282    |普通屏启动图片<br>ldpi    |320</em>442    |大屏启动图片<br>hdpi    |480<em>762    |高分屏启动图片<br>xhdpi    |720</em>1242    |720高分屏幕启动图片<br>xxhdpi    |1080*1882    |1080p高分屏启动图片</p>
+<h3 id="更新应用资源"><a href="/2018/08/09/android-1/#更新应用资源" class="headerlink" title="更新应用资源"></a>更新应用资源</h3><p>打开assets -&gt; apps 目录，将下面“HelloH5”目录名称修改为应用manifest.json中的id名称（这步非常重要，否则会导致应用无法正常启动），并将所有应用资源拷贝到其下的www目录。</p>
+<h3 id="配置应用信息"><a href="/2018/08/09/android-1/#配置应用信息" class="headerlink" title="配置应用信息"></a>配置应用信息</h3><p>打开assets -&gt; data下的dcloud_control.xml文件：<br><img src="http://of73u2ed9.bkt.clouddn.com/hbuilder11.png" alt=""><br>其中appid值为apps目录下的[appid]目录，appid决定运行哪个应用；appver为应用的版本号，用于应用资源的升级，必须保持与manifest.json中的version -&gt; name值完全一致；version值为应用基座版本号（plus.runtime.innerVersion返回的值），不要随意修改。</p>
+<h3 id="生成安装包"><a href="/2018/08/09/android-1/#生成安装包" class="headerlink" title="生成安装包"></a>生成安装包</h3><p>如果只是测试使用Build-&gt;build apks即可，如果用于正式环境，build-&gt;Generate Signed APK。按要求填写相关信息。<br><img src="http://of73u2ed9.bkt.clouddn.com/hbuilder10.png" alt=""></p>
+<link href="/css/prism.css" rel="stylesheet">
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="L4qiang 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag"># android</a>
+          
+            <a href="/tags/hbuilder/" rel="tag"># hbuilder</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/09/android-0/" rel="next" title="Android开发环境配置">
+                <i class="fa fa-chevron-left"></i> Android开发环境配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">L4qiang</p>
+              <p class="site-description motion-element" itemprop="description">记录点滴，注重积累。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/enderjo" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2018/08/09/android-1/#&#x51C6;&#x5907;" class="headerlink" title="&#x51C6;&#x5907;"></a>&#x51C6;&#x5907;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建Android工程"><span class="nav-number">2.</span> <span class="nav-text"><a href="/2018/08/09/android-1/#&#x65B0;&#x5EFA;Android&#x5DE5;&#x7A0B;" class="headerlink" title="&#x65B0;&#x5EFA;Android&#x5DE5;&#x7A0B;"></a>&#x65B0;&#x5EFA;Android&#x5DE5;&#x7A0B;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Hbuilder"><span class="nav-number">3.</span> <span class="nav-text"><a href="/2018/08/09/android-1/#&#x914D;&#x7F6E;Hbuilder" class="headerlink" title="&#x914D;&#x7F6E;Hbuilder"></a>&#x914D;&#x7F6E;Hbuilder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包"><span class="nav-number">4.</span> <span class="nav-text"><a href="/2018/08/09/android-1/#&#x6253;&#x5305;" class="headerlink" title="&#x6253;&#x5305;"></a>&#x6253;&#x5305;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置应用的权限"><span class="nav-number">4.1.</span> <span class="nav-text"><a href="/2018/08/09/android-1/#&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x7684;&#x6743;&#x9650;" class="headerlink" title="&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x7684;&#x6743;&#x9650;"></a>&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x7684;&#x6743;&#x9650;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置应用的包名及版本号"><span class="nav-number">4.2.</span> <span class="nav-text"><a href="/2018/08/09/android-1/#&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x7684;&#x5305;&#x540D;&#x53CA;&#x7248;&#x672C;&#x53F7;" class="headerlink" title="&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x7684;&#x5305;&#x540D;&#x53CA;&#x7248;&#x672C;&#x53F7;"></a>&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x7684;&#x5305;&#x540D;&#x53CA;&#x7248;&#x672C;&#x53F7;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置应用名称"><span class="nav-number">4.3.</span> <span class="nav-text"><a href="/2018/08/09/android-1/#&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x540D;&#x79F0;" class="headerlink" title="&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x540D;&#x79F0;"></a>&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x540D;&#x79F0;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置应用图标和启动界面"><span class="nav-number">4.4.</span> <span class="nav-text"><a href="/2018/08/09/android-1/#&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x56FE;&#x6807;&#x548C;&#x542F;&#x52A8;&#x754C;&#x9762;" class="headerlink" title="&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x56FE;&#x6807;&#x548C;&#x542F;&#x52A8;&#x754C;&#x9762;"></a>&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x56FE;&#x6807;&#x548C;&#x542F;&#x52A8;&#x754C;&#x9762;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#应用图标"><span class="nav-number">4.4.1.</span> <span class="nav-text"><a href="/2018/08/09/android-1/#&#x5E94;&#x7528;&#x56FE;&#x6807;" class="headerlink" title="&#x5E94;&#x7528;&#x56FE;&#x6807;"></a>&#x5E94;&#x7528;&#x56FE;&#x6807;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动图片"><span class="nav-number">4.4.2.</span> <span class="nav-text"><a href="/2018/08/09/android-1/#&#x542F;&#x52A8;&#x56FE;&#x7247;" class="headerlink" title="&#x542F;&#x52A8;&#x56FE;&#x7247;"></a>&#x542F;&#x52A8;&#x56FE;&#x7247;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新应用资源"><span class="nav-number">4.5.</span> <span class="nav-text"><a href="/2018/08/09/android-1/#&#x66F4;&#x65B0;&#x5E94;&#x7528;&#x8D44;&#x6E90;" class="headerlink" title="&#x66F4;&#x65B0;&#x5E94;&#x7528;&#x8D44;&#x6E90;"></a>&#x66F4;&#x65B0;&#x5E94;&#x7528;&#x8D44;&#x6E90;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置应用信息"><span class="nav-number">4.6.</span> <span class="nav-text"><a href="/2018/08/09/android-1/#&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x4FE1;&#x606F;" class="headerlink" title="&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x4FE1;&#x606F;"></a>&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x4FE1;&#x606F;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成安装包"><span class="nav-number">4.7.</span> <span class="nav-text"><a href="/2018/08/09/android-1/#&#x751F;&#x6210;&#x5B89;&#x88C5;&#x5305;" class="headerlink" title="&#x751F;&#x6210;&#x5B89;&#x88C5;&#x5305;"></a>&#x751F;&#x6210;&#x5B89;&#x88C5;&#x5305;</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">L4qiang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
