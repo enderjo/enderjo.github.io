@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="安装ZeroNet 下载ZeroNet安装包：Microsoft Windows,Apple macOS, Linux 64bit,Linux 32bit 解压 运行 ZeroNet.exe (win), ZeroNet(.app)(macOS), ZeroNet.sh(linux)Debian Linux手动安装 sudo apt-get update sudo apt-get install">
-<meta name="keywords" content="ZeroNet">
+  <meta name="description" content="背景公司IM项目采用个推进行消息推送，之前使用Hbuilder在线打包的方式集成。这次采用Hbuilder插件开发并离线打包的方式新增视频功能（视频使用WebRTC协议），其中的呼入消息需要使用到个推的推送（主要考量就是复用，减少开发量）。通过个推官网的文档Android Studio快速集成（推荐），能很快的将个推SDK集成进来。 实现及问题业务逻辑 视频发起者，发起视频邀请。 服务器接到请求后">
+<meta name="keywords" content="Android,个推,透传消息">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ZeroNet安装">
-<meta property="og:url" content="http://l4qiang.me/2017/10/26/zeronet-2/index.html">
+<meta property="og:title" content="个推透传消息打开指定页面">
+<meta property="og:url" content="http://l4qiang.me/2018/08/24/android-3/index.html">
 <meta property="og:site_name" content="CrazyAirhead">
-<meta property="og:description" content="安装ZeroNet 下载ZeroNet安装包：Microsoft Windows,Apple macOS, Linux 64bit,Linux 32bit 解压 运行 ZeroNet.exe (win), ZeroNet(.app)(macOS), ZeroNet.sh(linux)Debian Linux手动安装 sudo apt-get update sudo apt-get install">
+<meta property="og:description" content="背景公司IM项目采用个推进行消息推送，之前使用Hbuilder在线打包的方式集成。这次采用Hbuilder插件开发并离线打包的方式新增视频功能（视频使用WebRTC协议），其中的呼入消息需要使用到个推的推送（主要考量就是复用，减少开发量）。通过个推官网的文档Android Studio快速集成（推荐），能很快的将个推SDK集成进来。 实现及问题业务逻辑 视频发起者，发起视频邀请。 服务器接到请求后">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-10-29T06:50:16.004Z">
+<meta property="og:updated_time" content="2018-08-24T23:04:11.908Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZeroNet安装">
-<meta name="twitter:description" content="安装ZeroNet 下载ZeroNet安装包：Microsoft Windows,Apple macOS, Linux 64bit,Linux 32bit 解压 运行 ZeroNet.exe (win), ZeroNet(.app)(macOS), ZeroNet.sh(linux)Debian Linux手动安装 sudo apt-get update sudo apt-get install">
+<meta name="twitter:title" content="个推透传消息打开指定页面">
+<meta name="twitter:description" content="背景公司IM项目采用个推进行消息推送，之前使用Hbuilder在线打包的方式集成。这次采用Hbuilder插件开发并离线打包的方式新增视频功能（视频使用WebRTC协议），其中的呼入消息需要使用到个推的推送（主要考量就是复用，减少开发量）。通过个推官网的文档Android Studio快速集成（推荐），能很快的将个推SDK集成进来。 实现及问题业务逻辑 视频发起者，发起视频邀请。 服务器接到请求后">
 
 
 
 
 
 
-  <link rel="canonical" href="http://l4qiang.me/2017/10/26/zeronet-2/"/>
+  <link rel="canonical" href="http://l4qiang.me/2018/08/24/android-3/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>ZeroNet安装 | CrazyAirhead</title>
+  <title>个推透传消息打开指定页面 | CrazyAirhead</title>
   
 
 
@@ -295,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2017/10/26/zeronet-2/">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2018/08/24/android-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="L4qiang">
@@ -312,7 +312,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">ZeroNet安装
+          <h2 class="post-title" itemprop="name headline">个推透传消息打开指定页面
               
             
           </h2>
@@ -337,7 +337,7 @@
                 
               
 
-              <time title="创建时间：2017-10-26 08:23:47" itemprop="dateCreated datePublished" datetime="2017-10-26T08:23:47+08:00">2017-10-26</time>
+              <time title="创建时间：2018-08-24 06:40:18" itemprop="dateCreated datePublished" datetime="2018-08-24T06:40:18+08:00">2018-08-24</time>
             
 
             
@@ -354,7 +354,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2017-10-29 14:50:16" itemprop="dateModified" datetime="2017-10-29T14:50:16+08:00">2017-10-29</time>
+                <time title="修改时间：2018-08-25 07:04:11" itemprop="dateModified" datetime="2018-08-25T07:04:11+08:00">2018-08-25</time>
               
             
           </span>
@@ -387,37 +387,19 @@
       
 
       
-        <h2 id="安装ZeroNet"><a href="/2017/10/26/zeronet-2/#安装ZeroNet" class="headerlink" title="安装ZeroNet"></a>安装ZeroNet</h2><ul>
-<li>下载ZeroNet安装包：<a href="https://github.com/HelloZeroNet/ZeroNet-win/archive/dist/ZeroNet-win.zip" target="_blank" rel="noopener">Microsoft Windows</a>,<a href="https://github.com/HelloZeroNet/ZeroNet-mac/archive/dist/ZeroNet-mac.zip" target="_blank" rel="noopener">Apple macOS</a>, <a href="https://github.com/HelloZeroNet/ZeroBundle/raw/master/dist/ZeroBundle-linux64.tar.gz" target="_blank" rel="noopener">Linux 64bit</a>,<a href="https://github.com/HelloZeroNet/ZeroBundle/raw/master/dist/ZeroBundle-linux32.tar.gz" target="_blank" rel="noopener">Linux 32bit</a></li>
-<li>解压</li>
-<li>运行 <code>ZeroNet.exe</code> (win), <code>ZeroNet(.app)</code>(macOS), <code>ZeroNet.sh</code>(linux)<h2 id="Debian-Linux手动安装"><a href="/2017/10/26/zeronet-2/#Debian-Linux手动安装" class="headerlink" title="Debian Linux手动安装"></a>Debian Linux手动安装</h2></li>
-<li><code>sudo apt-get update</code></li>
-<li><code>sudo apt-get install msgpack-python python-gevent</code></li>
-<li><code>wget https://github.com/HelloZeroNet/ZeroNet/archive/master.tar.gz</code></li>
-<li><code>tar xvpfz master.tar.gz</code></li>
-<li><code>cd ZeroNet-Master</code></li>
-<li>运行<code>python zeronet.py</code></li>
-<li>浏览器中打开<code>http://127.0.0.1:43110</code></li>
-</ul>
-<h2 id="Vagrant"><a href="/2017/10/26/zeronet-2/#Vagrant" class="headerlink" title="Vagrant"></a>Vagrant</h2><ul>
-<li><code>vagrant up</code></li>
-<li>访问VM<code>vagrant sh</code></li>
-<li><code>cd /vagrant</code></li>
-<li>运行<code>python zeronet.py --ui_ip 0.0.0.0</code></li>
-<li>浏览器中打开<code>http://127.0.0.1:43110</code></li>
-</ul>
-<h2 id="Docker"><a href="/2017/10/26/zeronet-2/#Docker" class="headerlink" title="Docker"></a>Docker</h2><ul>
-<li><code>docker run -d -v &lt;local_data_folder&gt;:/root/data -p 15441:15441 -p 43110:43110 nofish/zeronet</code></li>
-<li>这个Docker镜像包含了Tor代理，默认是关闭的。注意有些节点不允许在你运行Tor。如果你需要开启，将环境变量<code>ENABLE_TOR</code>设置为<code>true</code>(默认是<code>false</code>)。比如：<br><code>docker run -d -e &quot;ENABLE_TOR=true&quot; -v &lt;local_data_folder&gt;:/root/data -p 15441:15441 -p 127.0.0.1:43110:43110 nofish/zeronet</code></li>
-<li>浏览器中打开<code>http://127.0.0.1:43110</code></li>
-</ul>
-<h2 id="Virtualenv"><a href="/2017/10/26/zeronet-2/#Virtualenv" class="headerlink" title="Virtualenv"></a>Virtualenv</h2><ul>
-<li><code>virtualenv env</code></li>
-<li><code>source env/bin/activate</code></li>
-<li><code>pip install msgpack-python gevent</code></li>
-<li><code>python zeronet.py</code></li>
-<li>浏览器中打开<code>http://127.0.0.1:43110</code></li>
-</ul>
+        <h2 id="背景"><a href="/2018/08/24/android-3/#背景" class="headerlink" title="背景"></a>背景</h2><p>公司IM项目采用个推进行消息推送，之前使用Hbuilder在线打包的方式集成。这次采用Hbuilder插件开发并离线打包的方式新增视频功能（视频使用WebRTC协议），其中的呼入消息需要使用到个推的推送（主要考量就是复用，减少开发量）。<br>通过个推官网的文档<a href="http://docs.getui.com/getui/mobile/android/androidstudio_maven/" target="_blank" rel="noopener">Android Studio快速集成（推荐）</a>，能很快的将个推SDK集成进来。</p>
+<h2 id="实现及问题"><a href="/2018/08/24/android-3/#实现及问题" class="headerlink" title="实现及问题"></a>实现及问题</h2><h3 id="业务逻辑"><a href="/2018/08/24/android-3/#业务逻辑" class="headerlink" title="业务逻辑"></a>业务逻辑</h3><ol>
+<li>视频发起者，发起视频邀请。</li>
+<li>服务器接到请求后，推送个推透传消息给视频接收者。</li>
+<li>视频接收者，弹出的呼入页面，点击接收开始视频会话，或拒绝视频邀请。<h3 id="实现"><a href="/2018/08/24/android-3/#实现" class="headerlink" title="实现"></a>实现</h3>需要继承自com.igexin.sdk.GTIntentService的类，用于接收CID、透传消息。以下为对应的事件回调方法：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoIntentService</span> <span class="keyword">extends</span> <span class="title">GTIntentService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceiveMessageData</span><span class="params">(Context context, GTTransmitMessage msg)</span> </span>&#123;</span><br><span class="line">         <span class="comment">//省略其他业务逻辑</span></span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent(getBaseContext(), XxxActivity.class);</span><br><span class="line">        getApplication().startActivity(intent);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceiveClientId</span><span class="params">(Context context, String clientid)</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">"onReceiveClientId -&gt; "</span> + <span class="string">"clientid = "</span> + clientid);</span><br><span class="line">        <span class="comment">//省略注册个推与用户信息</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="问题"><a href="/2018/08/24/android-3/#问题" class="headerlink" title="问题"></a>问题</h3><p>正常情况，此时应该能弹出指定的XxxActivity页面，然而并未弹出。经过一段资料查找和测试验证。需要增加<code>Intent.FLAG_ACTIVITY_NEW_TASK</code>的设置，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceiveMessageData</span><span class="params">(Context context, GTTransmitMessage msg)</span> </span>&#123;</span><br><span class="line">     <span class="comment">//省略其他业务逻辑</span></span><br><span class="line">    Intent intent = <span class="keyword">new</span> Intent(getBaseContext(), XxxActivity.class);</span><br><span class="line">    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">    getApplication().startActivity(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="FLAG-ACTIVITY-NEW-TASK"><a href="/2018/08/24/android-3/#FLAG-ACTIVITY-NEW-TASK" class="headerlink" title="FLAG_ACTIVITY_NEW_TASK"></a>FLAG_ACTIVITY_NEW_TASK</h3><blockquote>
+<p>int FLAG_ACTIVITY_NEW_TASK<br>If set, this activity will become the start of a new task on this history stack.</p>
+</blockquote>
+<p>如果设置了<code>FLAG_ACTIVITY_NEW_TASK</code>，页面会被置顶。从文档来看主要还是对Android开发的基础知识不够了解。</p>
+<h2 id="参考"><a href="/2018/08/24/android-3/#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/Monkey_King_Bar/article/details/78568582" target="_blank" rel="noopener">个推-点击推送跳转至指定页面（透传）</a><br><a href="https://developer.android.com/reference/android/content/Intent" target="_blank" rel="noopener">Intent</a></p>
 <link href="/css/prism.css" rel="stylesheet">
       
     </div>
@@ -462,7 +444,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ZeroNet/" rel="tag"># ZeroNet</a>
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/个推/" rel="tag"># 个推</a>
+          
+            <a href="/tags/透传消息/" rel="tag"># 透传消息</a>
           
         </div>
       
@@ -475,8 +461,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/26/zeronet-1/" rel="next" title="ZeroNet常见问题">
-                <i class="fa fa-chevron-left"></i> ZeroNet常见问题
+              <a href="/2018/08/10/android-2/" rel="next" title="Hbuilder Android平台第三方插件开发指导">
+                <i class="fa fa-chevron-left"></i> Hbuilder Android平台第三方插件开发指导
               </a>
             
           </div>
@@ -484,10 +470,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/11/zeronet-3/" rel="prev" title="简易ZeroNet站点">
-                简易ZeroNet站点 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -655,7 +637,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装ZeroNet"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2017/10/26/zeronet-2/#&#x5B89;&#x88C5;ZeroNet" class="headerlink" title="&#x5B89;&#x88C5;ZeroNet"></a>&#x5B89;&#x88C5;ZeroNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian-Linux手动安装"><span class="nav-number">2.</span> <span class="nav-text"><a href="/2017/10/26/zeronet-2/#Debian-Linux&#x624B;&#x52A8;&#x5B89;&#x88C5;" class="headerlink" title="Debian Linux&#x624B;&#x52A8;&#x5B89;&#x88C5;"></a>Debian Linux&#x624B;&#x52A8;&#x5B89;&#x88C5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vagrant"><span class="nav-number">3.</span> <span class="nav-text"><a href="/2017/10/26/zeronet-2/#Vagrant" class="headerlink" title="Vagrant"></a>Vagrant</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker"><span class="nav-number">4.</span> <span class="nav-text"><a href="/2017/10/26/zeronet-2/#Docker" class="headerlink" title="Docker"></a>Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Virtualenv"><span class="nav-number">5.</span> <span class="nav-text"><a href="/2017/10/26/zeronet-2/#Virtualenv" class="headerlink" title="Virtualenv"></a>Virtualenv</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x80CC;&#x666F;" class="headerlink" title="&#x80CC;&#x666F;"></a>&#x80CC;&#x666F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现及问题"><span class="nav-number">2.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x5B9E;&#x73B0;&#x53CA;&#x95EE;&#x9898;" class="headerlink" title="&#x5B9E;&#x73B0;&#x53CA;&#x95EE;&#x9898;"></a>&#x5B9E;&#x73B0;&#x53CA;&#x95EE;&#x9898;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#业务逻辑"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x4E1A;&#x52A1;&#x903B;&#x8F91;" class="headerlink" title="&#x4E1A;&#x52A1;&#x903B;&#x8F91;"></a>&#x4E1A;&#x52A1;&#x903B;&#x8F91;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x5B9E;&#x73B0;" class="headerlink" title="&#x5B9E;&#x73B0;"></a>&#x5B9E;&#x73B0;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x95EE;&#x9898;" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FLAG-ACTIVITY-NEW-TASK"><span class="nav-number">2.4.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#FLAG-ACTIVITY-NEW-TASK" class="headerlink" title="FLAG_ACTIVITY_NEW_TASK"></a>FLAG_ACTIVITY_NEW_TASK</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</span></a></li></ol></div>
             
 
           </div>
