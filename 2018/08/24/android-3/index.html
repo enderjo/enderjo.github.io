@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="CrazyAirhead">
 <meta property="og:description" content="背景公司IM项目采用个推进行消息推送，之前使用Hbuilder在线打包的方式集成。这次采用Hbuilder插件开发并离线打包的方式新增视频功能（视频使用WebRTC协议），其中的呼入消息需要使用到个推的推送（主要考量就是复用，减少开发量）。通过个推官网的文档Android Studio快速集成（推荐），能很快的将个推SDK集成进来。 实现及问题业务逻辑 视频发起者，发起视频邀请。 服务器接到请求后">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-24T23:04:11.908Z">
+<meta property="og:updated_time" content="2018-08-24T23:10:19.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="个推透传消息打开指定页面">
 <meta name="twitter:description" content="背景公司IM项目采用个推进行消息推送，之前使用Hbuilder在线打包的方式集成。这次采用Hbuilder插件开发并离线打包的方式新增视频功能（视频使用WebRTC协议），其中的呼入消息需要使用到个推的推送（主要考量就是复用，减少开发量）。通过个推官网的文档Android Studio快速集成（推荐），能很快的将个推SDK集成进来。 实现及问题业务逻辑 视频发起者，发起视频邀请。 服务器接到请求后">
@@ -354,7 +354,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-25 07:04:11" itemprop="dateModified" datetime="2018-08-25T07:04:11+08:00">2018-08-25</time>
+                <time title="修改时间：2018-08-25 07:10:19" itemprop="dateModified" datetime="2018-08-25T07:10:19+08:00">2018-08-25</time>
               
             
           </span>
@@ -399,6 +399,7 @@
 <p>int FLAG_ACTIVITY_NEW_TASK<br>If set, this activity will become the start of a new task on this history stack.</p>
 </blockquote>
 <p>如果设置了<code>FLAG_ACTIVITY_NEW_TASK</code>，页面会被置顶。从文档来看主要还是对Android开发的基础知识不够了解。</p>
+<h2 id="小结"><a href="/2018/08/24/android-3/#小结" class="headerlink" title="小结"></a>小结</h2><p>算是Android开发中的一个小坑吧，记录下来，方便日后查找。希望本文对采用类似方案的朋友有所帮助。</p>
 <h2 id="参考"><a href="/2018/08/24/android-3/#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/Monkey_King_Bar/article/details/78568582" target="_blank" rel="noopener">个推-点击推送跳转至指定页面（透传）</a><br><a href="https://developer.android.com/reference/android/content/Intent" target="_blank" rel="noopener">Intent</a></p>
 <link href="/css/prism.css" rel="stylesheet">
       
@@ -637,7 +638,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x80CC;&#x666F;" class="headerlink" title="&#x80CC;&#x666F;"></a>&#x80CC;&#x666F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现及问题"><span class="nav-number">2.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x5B9E;&#x73B0;&#x53CA;&#x95EE;&#x9898;" class="headerlink" title="&#x5B9E;&#x73B0;&#x53CA;&#x95EE;&#x9898;"></a>&#x5B9E;&#x73B0;&#x53CA;&#x95EE;&#x9898;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#业务逻辑"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x4E1A;&#x52A1;&#x903B;&#x8F91;" class="headerlink" title="&#x4E1A;&#x52A1;&#x903B;&#x8F91;"></a>&#x4E1A;&#x52A1;&#x903B;&#x8F91;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x5B9E;&#x73B0;" class="headerlink" title="&#x5B9E;&#x73B0;"></a>&#x5B9E;&#x73B0;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x95EE;&#x9898;" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FLAG-ACTIVITY-NEW-TASK"><span class="nav-number">2.4.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#FLAG-ACTIVITY-NEW-TASK" class="headerlink" title="FLAG_ACTIVITY_NEW_TASK"></a>FLAG_ACTIVITY_NEW_TASK</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x80CC;&#x666F;" class="headerlink" title="&#x80CC;&#x666F;"></a>&#x80CC;&#x666F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现及问题"><span class="nav-number">2.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x5B9E;&#x73B0;&#x53CA;&#x95EE;&#x9898;" class="headerlink" title="&#x5B9E;&#x73B0;&#x53CA;&#x95EE;&#x9898;"></a>&#x5B9E;&#x73B0;&#x53CA;&#x95EE;&#x9898;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#业务逻辑"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x4E1A;&#x52A1;&#x903B;&#x8F91;" class="headerlink" title="&#x4E1A;&#x52A1;&#x903B;&#x8F91;"></a>&#x4E1A;&#x52A1;&#x903B;&#x8F91;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x5B9E;&#x73B0;" class="headerlink" title="&#x5B9E;&#x73B0;"></a>&#x5B9E;&#x73B0;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x95EE;&#x9898;" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FLAG-ACTIVITY-NEW-TASK"><span class="nav-number">2.4.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#FLAG-ACTIVITY-NEW-TASK" class="headerlink" title="FLAG_ACTIVITY_NEW_TASK"></a>FLAG_ACTIVITY_NEW_TASK</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x5C0F;&#x7ED3;" class="headerlink" title="&#x5C0F;&#x7ED3;"></a>&#x5C0F;&#x7ED3;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</span></a></li></ol></div>
             
 
           </div>
