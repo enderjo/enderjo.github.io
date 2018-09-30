@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="CrazyAirhead">
 <meta property="og:description" content="因本人能力有限，理解不到位，翻译内容可能存在偏差。如果可能，请尽量读原文。  We have recently completed a milestone where we were able to drop jQuery as a dependency of the frontend code for GitHub.com. This marks the end of a gradual, y">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-17T01:58:40.635Z">
+<meta property="og:updated_time" content="2018-09-28T06:15:54.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(翻译)GitHub.com前端移除jQuery库">
 <meta name="twitter:description" content="因本人能力有限，理解不到位，翻译内容可能存在偏差。如果可能，请尽量读原文。  We have recently completed a milestone where we were able to drop jQuery as a dependency of the frontend code for GitHub.com. This marks the end of a gradual, y">
@@ -354,7 +354,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-17 09:58:40" itemprop="dateModified" datetime="2018-09-17T09:58:40+08:00">2018-09-17</time>
+                <time title="修改时间：2018-09-28 14:15:54" itemprop="dateModified" datetime="2018-09-28T14:15:54+08:00">2018-09-28</time>
               
             
           </span>
@@ -401,6 +401,7 @@
 <p>We will always be thankful to John Resig and the jQuery contributors for creating and maintaining such a useful and, for the time, essential library.</p>
 <p>我们将一直感激John Resig和jQuery的贡献者创建和维护了这样一个有用的，对于当时来说，必不可少的类库。</p>
 <h2 id="近年来的Web标准（Web-standards-in-the-later-years）"><a href="/2018/09/08/frontend-1/#近年来的Web标准（Web-standards-in-the-later-years）" class="headerlink" title="近年来的Web标准（Web standards in the later years）"></a>近年来的Web标准（Web standards in the later years）</h2><p>Over the years, GitHub grew into a company with hundreds of engineers and a dedicated team gradually formed to take responsibility for the size and quality of JavaScript code that we serve to web browsers. One of the things that we’re constantly on the lookout for is technical debt, and sometimes technical debt grows around dependenices that once provided value, but whose value dropped over time.</p>
+<p>这些年来，Github成长为一家拥有数百名工程师的公司，并逐渐形成了一只专门负责我们运行在Web浏览器上的JavaScript代码的大小和质量的团队。其中一件我们一直在做的事情就是找出技术债务，有时技术债务会随着曾经提供价值的附属物而增长，但其价值会随着时间的推移而下降。</p>
 <p>When it came to jQuery, we compared it against the rapid evolution of supported web standard in modern browsers and realized:</p>
 <p>The $(selector) pattern can easily be replaced with querySelectorAll();<br>CSS classname switching can now be achieved using Element.classList;<br>CSS now supports defining visual animations in stylesheets rather than in JavaScript;<br>$.ajax requests can be performed using the Fetch Standard;<br>The addEventListener() interface is stable enough for cross-platform use;<br>We could easily encapsulate the event delegation pattern with a lighweight library;<br>Some syntactic sugar that jQuery provides has become reduntant with the evolution of JavaScript language.<br>Furthermore, the chaining syntax didn’t satisfy how we wanted to write code going forward. For example:</p>
 <p>$(‘.js-widget’)<br>  .addClass(‘is-loading’)<br>  .show()<br>This syntax is simple to write, but to our standards, doesn’t communicate intent really well. Did the author expect one or more js-widget elements on this page? Also, if we update our page markup and accidentally leave out the js-widget classname, will an exception in the browser inform us that something went wrong? By default, jQuery silently skips the whole expresion when nothing matched the initial selector; but to us, such behavior was a bug rather than a feature.</p>
@@ -593,7 +594,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -650,7 +651,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
