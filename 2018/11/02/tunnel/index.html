@@ -108,25 +108,27 @@
 
 
 
-  <meta name="description" content="背景公司IM项目采用个推进行消息推送，之前使用Hbuilder在线打包的方式集成。这次采用Hbuilder插件开发并离线打包的方式新增视频功能（视频使用WebRTC协议），其中的呼入消息需要使用到个推的推送（主要考量就是复用，减少开发量）。通过个推官网的文档Android Studio快速集成（推荐），能很快的将个推SDK集成进来。 实现及问题业务逻辑 视频发起者，发起视频邀请。 服务器接到请求后">
-<meta name="keywords" content="Android,个推,透传消息">
+  <meta name="description" content="背景最近刚好在做小程序的开发，需要用到本地调试，刚开始时使用Natapp的免费遂道，勉强能开发（域免），后面买了付费遂道，域名不变开发顺畅起来。但要真机调试时还是不行，微信不认三级域名，需要购买他的二级域名服务。转念一想还不如自己搭建一个呢，成本可控，也只要折腾一次就好，反正也能学东西。于是也就有了本文。 准备 一台云主机，可在购买阿里云，开放对应端口。 一个已经备案的域名（备案过程真是个痛苦的过">
+<meta name="keywords" content="http tunnel,natapp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="个推透传消息打开指定页面">
-<meta property="og:url" content="http://l4qiang.me/2018/08/24/android-3/index.html">
+<meta property="og:title" content="打造自己的HTTPS安全遂道">
+<meta property="og:url" content="http://l4qiang.me/2018/11/02/tunnel/index.html">
 <meta property="og:site_name" content="CrazyAirhead">
-<meta property="og:description" content="背景公司IM项目采用个推进行消息推送，之前使用Hbuilder在线打包的方式集成。这次采用Hbuilder插件开发并离线打包的方式新增视频功能（视频使用WebRTC协议），其中的呼入消息需要使用到个推的推送（主要考量就是复用，减少开发量）。通过个推官网的文档Android Studio快速集成（推荐），能很快的将个推SDK集成进来。 实现及问题业务逻辑 视频发起者，发起视频邀请。 服务器接到请求后">
+<meta property="og:description" content="背景最近刚好在做小程序的开发，需要用到本地调试，刚开始时使用Natapp的免费遂道，勉强能开发（域免），后面买了付费遂道，域名不变开发顺畅起来。但要真机调试时还是不行，微信不认三级域名，需要购买他的二级域名服务。转念一想还不如自己搭建一个呢，成本可控，也只要折腾一次就好，反正也能学东西。于是也就有了本文。 准备 一台云主机，可在购买阿里云，开放对应端口。 一个已经备案的域名（备案过程真是个痛苦的过">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-24T23:10:19.932Z">
+<meta property="og:image" content="https://l4qiang.me/images/wechat.png">
+<meta property="og:updated_time" content="2018-11-02T01:52:09.906Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个推透传消息打开指定页面">
-<meta name="twitter:description" content="背景公司IM项目采用个推进行消息推送，之前使用Hbuilder在线打包的方式集成。这次采用Hbuilder插件开发并离线打包的方式新增视频功能（视频使用WebRTC协议），其中的呼入消息需要使用到个推的推送（主要考量就是复用，减少开发量）。通过个推官网的文档Android Studio快速集成（推荐），能很快的将个推SDK集成进来。 实现及问题业务逻辑 视频发起者，发起视频邀请。 服务器接到请求后">
+<meta name="twitter:title" content="打造自己的HTTPS安全遂道">
+<meta name="twitter:description" content="背景最近刚好在做小程序的开发，需要用到本地调试，刚开始时使用Natapp的免费遂道，勉强能开发（域免），后面买了付费遂道，域名不变开发顺畅起来。但要真机调试时还是不行，微信不认三级域名，需要购买他的二级域名服务。转念一想还不如自己搭建一个呢，成本可控，也只要折腾一次就好，反正也能学东西。于是也就有了本文。 准备 一台云主机，可在购买阿里云，开放对应端口。 一个已经备案的域名（备案过程真是个痛苦的过">
+<meta name="twitter:image" content="https://l4qiang.me/images/wechat.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://l4qiang.me/2018/08/24/android-3/"/>
+  <link rel="canonical" href="http://l4qiang.me/2018/11/02/tunnel/"/>
 
 
 
@@ -136,7 +138,7 @@
   };
 </script>
 
-  <title>个推透传消息打开指定页面 | CrazyAirhead</title>
+  <title>打造自己的HTTPS安全遂道 | CrazyAirhead</title>
   
 
 
@@ -295,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2018/08/24/android-3/">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2018/11/02/tunnel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="L4qiang">
@@ -312,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">个推透传消息打开指定页面
+          <h2 class="post-title" itemprop="name headline">打造自己的HTTPS安全遂道
               
             
           </h2>
@@ -337,24 +339,12 @@
                 
               
 
-              <time title="创建时间：2018-08-24 06:40:18" itemprop="dateCreated datePublished" datetime="2018-08-24T06:40:18+08:00">2018-08-24</time>
+              <time title="创建时间：2018-11-02 08:27:18 / 修改时间：09:52:09" itemprop="dateCreated datePublished" datetime="2018-11-02T08:27:18+08:00">2018-11-02</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-25 07:10:19" itemprop="dateModified" datetime="2018-08-25T07:10:19+08:00">2018-08-25</time>
               
             
           </span>
@@ -387,20 +377,40 @@
       
 
       
-        <h2 id="背景"><a href="/2018/08/24/android-3/#背景" class="headerlink" title="背景"></a>背景</h2><p>公司IM项目采用个推进行消息推送，之前使用Hbuilder在线打包的方式集成。这次采用Hbuilder插件开发并离线打包的方式新增视频功能（视频使用WebRTC协议），其中的呼入消息需要使用到个推的推送（主要考量就是复用，减少开发量）。<br>通过个推官网的文档<a href="http://docs.getui.com/getui/mobile/android/androidstudio_maven/" target="_blank" rel="noopener">Android Studio快速集成（推荐）</a>，能很快的将个推SDK集成进来。</p>
-<h2 id="实现及问题"><a href="/2018/08/24/android-3/#实现及问题" class="headerlink" title="实现及问题"></a>实现及问题</h2><h3 id="业务逻辑"><a href="/2018/08/24/android-3/#业务逻辑" class="headerlink" title="业务逻辑"></a>业务逻辑</h3><ol>
-<li>视频发起者，发起视频邀请。</li>
-<li>服务器接到请求后，推送个推透传消息给视频接收者。</li>
-<li>视频接收者，弹出的呼入页面，点击接收开始视频会话，或拒绝视频邀请。<h3 id="实现"><a href="/2018/08/24/android-3/#实现" class="headerlink" title="实现"></a>实现</h3>需要继承自com.igexin.sdk.GTIntentService的类，用于接收CID、透传消息。以下为对应的事件回调方法：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoIntentService</span> <span class="keyword">extends</span> <span class="title">GTIntentService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceiveMessageData</span><span class="params">(Context context, GTTransmitMessage msg)</span> </span>&#123;</span><br><span class="line">         <span class="comment">//省略其他业务逻辑</span></span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent(getBaseContext(), XxxActivity.class);</span><br><span class="line">        getApplication().startActivity(intent);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceiveClientId</span><span class="params">(Context context, String clientid)</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">"onReceiveClientId -&gt; "</span> + <span class="string">"clientid = "</span> + clientid);</span><br><span class="line">        <span class="comment">//省略注册个推与用户信息</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="背景"><a href="/2018/11/02/tunnel/#背景" class="headerlink" title="背景"></a>背景</h1><p>最近刚好在做小程序的开发，需要用到本地调试，刚开始时使用<code>Natapp</code>的免费遂道，勉强能开发（域免），后面买了付费遂道，域名不变开发顺畅起来。但要真机调试时还是不行，微信不认三级域名，需要购买他的二级域名服务。转念一想还不如自己搭建一个呢，成本可控，也只要折腾一次就好，反正也能学东西。于是也就有了本文。</p>
+<h1 id="准备"><a href="/2018/11/02/tunnel/#准备" class="headerlink" title="准备"></a>准备</h1><ul>
+<li>一台云主机，可在购买<a href="https://promotion.aliyun.com/ntms/act/qwbk.html#share_box?spm=5176.11533457.1089570.36.15da77e3g6I8CL&amp;aliyunapp_auto_login=true&amp;userCode=l7irb6oi" target="_blank" rel="noopener">阿里云</a>，开放对应端口。</li>
+<li>一个已经备案的域名（备案过程真是个痛苦的过程，各种资料，各种步骤，还可能审不过），并且做了二级域名泛解析。（本文假设你已经会域名解析配置）</li>
+<li><code>Go http tunnel</code>，可在这里下载(<a href="https://github.com/mmatczuk/go-http-tunnel/releases" target="_blank" rel="noopener">https://github.com/mmatczuk/go-http-tunnel/releases</a>)</li>
+<li>Let’s Encrypt工具。</li>
+</ul>
+<h1 id="配置"><a href="/2018/11/02/tunnel/#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="https证书"><a href="/2018/11/02/tunnel/#https证书" class="headerlink" title="https证书"></a>https证书</h2><p>可参看<a href="http://www.infoq.com/cn/news/2018/03/lets-encrypt-wildcard-https" target="_blank" rel="noopener">这里</a>或<a href="https://www.jianshu.com/p/c5c9d071e395" target="_blank" rel="noopener">这里</a><br>此处唯一要注意的就是有个域名解析的交互过程，这个在上述资料中也有说明。</p>
+<p>记录下证书的生成位置如上文是<code>/etc/letsencrypt/archive/newyingyong.cn</code>，自动的生成路径可能不现。</p>
+<h2 id="http-tunnel服务器"><a href="/2018/11/02/tunnel/#http-tunnel服务器" class="headerlink" title="http tunnel服务器"></a>http tunnel服务器</h2><ul>
+<li>服务器需要开放80,443,5223端口。</li>
+<li>根据自己的服务器系统下载对应版本。</li>
+<li>解压就可以了，进入目录。</li>
+<li>执行如下命令，以https证书参考资料证书地址为例。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tunneld -tlsCrt /etc/letsencrypt/archive/newyingyong.cn/fullchain.pem -tlsKey /etc/letsencrypt/archive/newyingyong.cn/privkey.pem</span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+<h2 id="http-tunnel客户端"><a href="/2018/11/02/tunnel/#http-tunnel客户端" class="headerlink" title="http tunnel客户端"></a>http tunnel客户端</h2><ul>
+<li>根据自己的服务器系统下载对应版本</li>
+<li>解压就可以了，进入目录。</li>
+<li>生成客户端证书<code>openssl req -x509 -nodes -newkey rsa:2048 -sha256 -keyout client.key -out client.crt</code>,并将证书放到解压目录</li>
+<li>创建<code>tunnel.yml</code>，默认读当前路径配置。</li>
+<li>参考样例：<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server_addr:</span> <span class="attr">SERVER_IP:5223</span></span><br><span class="line"><span class="attr">tunnels:</span></span><br><span class="line"><span class="attr">    webui:</span></span><br><span class="line"><span class="attr">        proto:</span> <span class="string">http</span></span><br><span class="line"><span class="attr">        addr:</span> <span class="attr">localhost:8080</span></span><br><span class="line"><span class="attr">        auth:</span> <span class="attr">user:password</span></span><br><span class="line"><span class="attr">        host:</span> <span class="string">webui.my-tunnel-host.com</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中,<code>server_addr</code>为服务器地址，<code>tunnels</code>为开启的遂道列表，<code>webui</code>为实际的遂道名，正常可去掉<code>auth</code>配置，<code>host</code>中的域名与遂道名无直接关系。更多配置信息参看<a href="https://github.com/mmatczuk/go-http-tunnel" target="_blank" rel="noopener">官网</a>。</p>
+<ul>
+<li>启动<code>tunnel start-all</code>。</li>
+</ul>
+<h2 id="验证"><a href="/2018/11/02/tunnel/#验证" class="headerlink" title="验证"></a>验证</h2><p>在客户端启动最简单http服务，使用客户端配置的域名进行访问，如果正常访问，恭喜你。如果还有问题，请核查服务器或客户端配置。</p>
+<h1 id="推广"><a href="/2018/11/02/tunnel/#推广" class="headerlink" title="推广"></a>推广</h1><p>如果你觉得以上配置过于复杂。有以下两种方式供你选择，当然你可能有更好的选择。</p>
+<ol>
+<li>可以使用<a href="https://natapp.cn/" target="_blank" rel="noopener">Natapp</a>，他提供免费的HTTPS的遂道，但提供的免费域名会一直变化。最好购买遂道和域名服务，付费时可以使用我的推广优惠码<code>ADBE2C5C</code>。</li>
+<li>如果你恰好刚起步，希望用于本地调试，可以加我微信号，也可提供相关服务支持。申请时请备注<code>https tunnel技术支持</code>。<img src="https://l4qiang.me/images/wechat.png" alt="微信"><span class="image-caption">微信</span></li>
 </ol>
-<h3 id="问题"><a href="/2018/08/24/android-3/#问题" class="headerlink" title="问题"></a>问题</h3><p>正常情况，此时应该能弹出指定的XxxActivity页面，然而并未弹出。经过一段资料查找和测试验证。需要增加<code>Intent.FLAG_ACTIVITY_NEW_TASK</code>的设置，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceiveMessageData</span><span class="params">(Context context, GTTransmitMessage msg)</span> </span>&#123;</span><br><span class="line">     <span class="comment">//省略其他业务逻辑</span></span><br><span class="line">    Intent intent = <span class="keyword">new</span> Intent(getBaseContext(), XxxActivity.class);</span><br><span class="line">    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">    getApplication().startActivity(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="FLAG-ACTIVITY-NEW-TASK"><a href="/2018/08/24/android-3/#FLAG-ACTIVITY-NEW-TASK" class="headerlink" title="FLAG_ACTIVITY_NEW_TASK"></a>FLAG_ACTIVITY_NEW_TASK</h3><blockquote>
-<p>int FLAG_ACTIVITY_NEW_TASK<br>If set, this activity will become the start of a new task on this history stack.</p>
-</blockquote>
-<p>如果设置了<code>FLAG_ACTIVITY_NEW_TASK</code>，页面会被置顶。从文档来看主要还是对Android开发的基础知识不够了解。</p>
-<h2 id="小结"><a href="/2018/08/24/android-3/#小结" class="headerlink" title="小结"></a>小结</h2><p>算是Android开发中的一个小坑吧，记录下来，方便日后查找。希望本文对采用类似方案的朋友有所帮助。</p>
-<h2 id="参考"><a href="/2018/08/24/android-3/#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/Monkey_King_Bar/article/details/78568582" target="_blank" rel="noopener">个推-点击推送跳转至指定页面（透传）</a><br><a href="https://developer.android.com/reference/android/content/Intent" target="_blank" rel="noopener">Intent</a></p>
 <link href="/css/prism.css" rel="stylesheet">
       
     </div>
@@ -445,11 +455,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag"># Android</a>
+            <a href="/tags/http-tunnel/" rel="tag"># http tunnel</a>
           
-            <a href="/tags/个推/" rel="tag"># 个推</a>
-          
-            <a href="/tags/透传消息/" rel="tag"># 透传消息</a>
+            <a href="/tags/natapp/" rel="tag"># natapp</a>
           
         </div>
       
@@ -462,8 +470,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/10/android-2/" rel="next" title="Hbuilder Android平台第三方插件开发指导">
-                <i class="fa fa-chevron-left"></i> Hbuilder Android平台第三方插件开发指导
+              <a href="/2018/09/28/olap-1/" rel="next" title="基于ElasticSearch的OLAP框架思路">
+                <i class="fa fa-chevron-left"></i> 基于ElasticSearch的OLAP框架思路
               </a>
             
           </div>
@@ -471,10 +479,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/08/frontend-1/" rel="prev" title="(翻译)GitHub.com前端移除jQuery库">
-                (翻译)GitHub.com前端移除jQuery库 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -657,7 +661,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x80CC;&#x666F;" class="headerlink" title="&#x80CC;&#x666F;"></a>&#x80CC;&#x666F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现及问题"><span class="nav-number">2.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x5B9E;&#x73B0;&#x53CA;&#x95EE;&#x9898;" class="headerlink" title="&#x5B9E;&#x73B0;&#x53CA;&#x95EE;&#x9898;"></a>&#x5B9E;&#x73B0;&#x53CA;&#x95EE;&#x9898;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#业务逻辑"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x4E1A;&#x52A1;&#x903B;&#x8F91;" class="headerlink" title="&#x4E1A;&#x52A1;&#x903B;&#x8F91;"></a>&#x4E1A;&#x52A1;&#x903B;&#x8F91;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x5B9E;&#x73B0;" class="headerlink" title="&#x5B9E;&#x73B0;"></a>&#x5B9E;&#x73B0;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x95EE;&#x9898;" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FLAG-ACTIVITY-NEW-TASK"><span class="nav-number">2.4.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#FLAG-ACTIVITY-NEW-TASK" class="headerlink" title="FLAG_ACTIVITY_NEW_TASK"></a>FLAG_ACTIVITY_NEW_TASK</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x5C0F;&#x7ED3;" class="headerlink" title="&#x5C0F;&#x7ED3;"></a>&#x5C0F;&#x7ED3;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text"><a href="/2018/08/24/android-3/#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2018/11/02/tunnel/#&#x80CC;&#x666F;" class="headerlink" title="&#x80CC;&#x666F;"></a>&#x80CC;&#x666F;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text"><a href="/2018/11/02/tunnel/#&#x51C6;&#x5907;" class="headerlink" title="&#x51C6;&#x5907;"></a>&#x51C6;&#x5907;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置"><span class="nav-number">3.</span> <span class="nav-text"><a href="/2018/11/02/tunnel/#&#x914D;&#x7F6E;" class="headerlink" title="&#x914D;&#x7F6E;"></a>&#x914D;&#x7F6E;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#https证书"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="/2018/11/02/tunnel/#https&#x8BC1;&#x4E66;" class="headerlink" title="https&#x8BC1;&#x4E66;"></a>https&#x8BC1;&#x4E66;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-tunnel服务器"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="/2018/11/02/tunnel/#http-tunnel&#x670D;&#x52A1;&#x5668;" class="headerlink" title="http tunnel&#x670D;&#x52A1;&#x5668;"></a>http tunnel&#x670D;&#x52A1;&#x5668;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-tunnel客户端"><span class="nav-number">3.3.</span> <span class="nav-text"><a href="/2018/11/02/tunnel/#http-tunnel&#x5BA2;&#x6237;&#x7AEF;" class="headerlink" title="http tunnel&#x5BA2;&#x6237;&#x7AEF;"></a>http tunnel&#x5BA2;&#x6237;&#x7AEF;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证"><span class="nav-number">3.4.</span> <span class="nav-text"><a href="/2018/11/02/tunnel/#&#x9A8C;&#x8BC1;" class="headerlink" title="&#x9A8C;&#x8BC1;"></a>&#x9A8C;&#x8BC1;</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推广"><span class="nav-number">4.</span> <span class="nav-text"><a href="/2018/11/02/tunnel/#&#x63A8;&#x5E7F;" class="headerlink" title="&#x63A8;&#x5E7F;"></a>&#x63A8;&#x5E7F;</span></a></li></ol></div>
             
 
           </div>
