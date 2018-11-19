@@ -117,7 +117,7 @@
 <meta property="og:description" content="OLAP基本概念联机分析处理（On-Line Analytical Processing，OLAP）联机分析处理的概念最早是由关系数据库之父爱德华·库德（E·F·Codd）博士于1993年提出的，是一种用于组织大型商务数据库和支持商务智能的技术。OLAP 数据库分为一个或多个多维数据集，每个多维数据集都由多维数据集管理员组织和设计以适应用户检索和分析数据的方式，从而更易于创建和使用所需的数据透视表">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://l4qiang.me/2018/09/28/olap-1/olap.png">
-<meta property="og:updated_time" content="2018-09-30T00:52:29.490Z">
+<meta property="og:updated_time" content="2018-11-19T06:52:58.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于ElasticSearch的OLAP框架思路">
 <meta name="twitter:description" content="OLAP基本概念联机分析处理（On-Line Analytical Processing，OLAP）联机分析处理的概念最早是由关系数据库之父爱德华·库德（E·F·Codd）博士于1993年提出的，是一种用于组织大型商务数据库和支持商务智能的技术。OLAP 数据库分为一个或多个多维数据集，每个多维数据集都由多维数据集管理员组织和设计以适应用户检索和分析数据的方式，从而更易于创建和使用所需的数据透视表">
@@ -356,7 +356,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-30 08:52:29" itemprop="dateModified" datetime="2018-09-30T08:52:29+08:00">2018-09-30</time>
+                <time title="修改时间：2018-11-19 14:52:58" itemprop="dateModified" datetime="2018-11-19T14:52:58+08:00">2018-11-19</time>
               
             
           </span>
@@ -412,8 +412,10 @@
 <li>Wikipedia 使用 Elasticsearch 提供带有高亮片段的全文搜索，还有 search-as-you-type 和 did-you-mean 的建议。</li>
 <li>卫报 使用 Elasticsearch 将网络社交数据结合到访客日志中，实时的给它的编辑们提供公众对于新文章的反馈。</li>
 <li>Stack Overflow 将地理位置查询融入全文检索中去，并且使用 more-like-this 接口去查找相关的问题与答案。</li>
-<li>GitHub 使用 Elasticsearch 对1300亿行代码进行查询。<h2 id="ES文档和多维数据集"><a href="/2018/09/28/olap-1/#ES文档和多维数据集" class="headerlink" title="ES文档和多维数据集"></a>ES文档和多维数据集</h2><h3 id="ES的存储结构"><a href="/2018/09/28/olap-1/#ES的存储结构" class="headerlink" title="ES的存储结构"></a>ES的存储结构</h3>ES文档通过JSON格式来表示。文档是可以被索引的基本单元，文档需要索引需要指定类型。ES能支持索引的数据类型有，其中的数组类型，对象类型和内嵌类型的支持，使得ES能更好的复杂的文档。<h3 id="多维联机分析处理（MOLAP）"><a href="/2018/09/28/olap-1/#多维联机分析处理（MOLAP）" class="headerlink" title="多维联机分析处理（MOLAP）"></a>多维联机分析处理（MOLAP）</h3>MOLAP将OLAP分析所用到的多维数据物理上存储为多维数组的形式，形成“立方体”的结构。维的属性值被映射成多维数组的下标值或下标的范围，而总结数据作为多维数组的值存储在数组的单元中。由于MOLAP采用了新的存储结构，从物理层实现起，因此又称为物理OLAP（PhysicalOLAP）；而 ROLAP主要通过一些软件工具或中间软件实现，物理层仍采用关系数据库的存储结构，因此称为虚拟OLAP（VirtualOLAP）。</li>
+<li>GitHub 使用 Elasticsearch 对1300亿行代码进行查询。</li>
 </ul>
+<h2 id="ES文档和多维数据集"><a href="/2018/09/28/olap-1/#ES文档和多维数据集" class="headerlink" title="ES文档和多维数据集"></a>ES文档和多维数据集</h2><h3 id="ES的存储结构"><a href="/2018/09/28/olap-1/#ES的存储结构" class="headerlink" title="ES的存储结构"></a>ES的存储结构</h3><p>ES文档通过JSON格式来表示。文档是可以被索引的基本单元，文档需要索引需要指定类型。ES能支持索引的数据类型有，其中的数组类型，对象类型和内嵌类型的支持，使得ES能更好的复杂的文档。</p>
+<h3 id="多维联机分析处理（MOLAP）"><a href="/2018/09/28/olap-1/#多维联机分析处理（MOLAP）" class="headerlink" title="多维联机分析处理（MOLAP）"></a>多维联机分析处理（MOLAP）</h3><p>MOLAP将OLAP分析所用到的多维数据物理上存储为多维数组的形式，形成“立方体”的结构。维的属性值被映射成多维数组的下标值或下标的范围，而总结数据作为多维数组的值存储在数组的单元中。由于MOLAP采用了新的存储结构，从物理层实现起，因此又称为物理OLAP（PhysicalOLAP）；而 ROLAP主要通过一些软件工具或中间软件实现，物理层仍采用关系数据库的存储结构，因此称为虚拟OLAP（VirtualOLAP）。</p>
 <p>我们可以看到基于复杂数据类型（Complex datatypes）构建的ES文档与MOLAP的概念是非常接近的，利用ElasticSearch的聚合的能力，我们能相对简单的实现OLAP框架。</p>
 <h1 id="方案"><a href="/2018/09/28/olap-1/#方案" class="headerlink" title="方案"></a>方案</h1><p>要实现整个OLAP框架主要需要处理以下几个环节</p>
 <ol>
