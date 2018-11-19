@@ -117,7 +117,7 @@
 <meta property="og:description" content="OLAP基本概念联机分析处理（On-Line Analytical Processing，OLAP）联机分析处理的概念最早是由关系数据库之父爱德华·库德（E·F·Codd）博士于1993年提出的，是一种用于组织大型商务数据库和支持商务智能的技术。OLAP 数据库分为一个或多个多维数据集，每个多维数据集都由多维数据集管理员组织和设计以适应用户检索和分析数据的方式，从而更易于创建和使用所需的数据透视表">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://l4qiang.me/2018/09/28/olap-1/olap.png">
-<meta property="og:updated_time" content="2018-11-19T06:52:58.769Z">
+<meta property="og:updated_time" content="2018-11-19T07:27:57.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于ElasticSearch的OLAP框架思路">
 <meta name="twitter:description" content="OLAP基本概念联机分析处理（On-Line Analytical Processing，OLAP）联机分析处理的概念最早是由关系数据库之父爱德华·库德（E·F·Codd）博士于1993年提出的，是一种用于组织大型商务数据库和支持商务智能的技术。OLAP 数据库分为一个或多个多维数据集，每个多维数据集都由多维数据集管理员组织和设计以适应用户检索和分析数据的方式，从而更易于创建和使用所需的数据透视表">
@@ -356,7 +356,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-19 14:52:58" itemprop="dateModified" datetime="2018-11-19T14:52:58+08:00">2018-11-19</time>
+                <time title="修改时间：2018-11-19 15:27:57" itemprop="dateModified" datetime="2018-11-19T15:27:57+08:00">2018-11-19</time>
               
             
           </span>
@@ -422,8 +422,10 @@
 <li>数据建模</li>
 <li>数据ETL</li>
 <li>数据分析</li>
-<li>数据展示<br>大致思路如下：<br><img src="/2018/09/28/olap-1/olap.png" alt="OLAP"><span class="image-caption">OLAP</span><h2 id="数据建模"><a href="/2018/09/28/olap-1/#数据建模" class="headerlink" title="数据建模"></a>数据建模</h2>数据建模就是建立多维数据集的过程，同时为了能更有效的利用ES的索引，不建议过深的JSON层次，所以对应到维度建模时采用的是星形模式。</li>
+<li>数据展示</li>
 </ol>
+<p>大致思路如下：<br><img src="/2018/09/28/olap-1/olap.png" alt="OLAP"><span class="image-caption">OLAP</span></p>
+<h2 id="数据建模"><a href="/2018/09/28/olap-1/#数据建模" class="headerlink" title="数据建模"></a>数据建模</h2><p>数据建模就是建立多维数据集的过程，同时为了能更有效的利用ES的索引，不建议过深的JSON层次，所以对应到维度建模时采用的是星形模式。</p>
 <p>正常情况，是先进行数据建模，之后才能进行数据ETL，首先需要知道抽取的源数据的结构，即数据元数据之后，才能进一步分析数据模型。对于ES来说，实际上就是建立Index/Type的过程。</p>
 <h3 id="维度管理"><a href="/2018/09/28/olap-1/#维度管理" class="headerlink" title="维度管理"></a>维度管理</h3><h3 id="元数据管理"><a href="/2018/09/28/olap-1/#元数据管理" class="headerlink" title="元数据管理"></a>元数据管理</h3><p>元数据管理维护了原始数据的元数据结构，简单来说就是原始数据有哪些库，哪些表，表之间有什么关系。</p>
 <h3 id="映射管理"><a href="/2018/09/28/olap-1/#映射管理" class="headerlink" title="映射管理"></a>映射管理</h3><p>映射管理是指定了需要抽取的数据范围及方法和确定了多维数据集的模型。</p>
