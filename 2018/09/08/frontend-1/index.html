@@ -15,10 +15,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -32,8 +32,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -56,9 +56,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://l4qiang.me/2018/09/08/frontend-1/"/>
+  <link rel="canonical" href="http://l4qiang.me/2018/09/08/frontend-1/">
 
 
 
@@ -186,7 +186,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -196,7 +196,7 @@
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -236,7 +236,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
   </li>
         
         
@@ -244,7 +244,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
   </li>
 
       
@@ -290,20 +290,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2018/09/08/frontend-1/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="L4qiang">
       <meta itemprop="description" content="记录点滴，注重积累。">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CrazyAirhead">
     </span>
 
@@ -392,7 +392,7 @@
 </blockquote>
 <p>We have recently completed a milestone where we were able to drop jQuery as a dependency of the frontend code for GitHub.com. This marks the end of a gradual, years-long transition of increasingly decoupling from jQuery until we were able to completely remove the library. In this post, we will explain a bit of history of how we started depending on jQuery in the first place, how we realized when it was no longer needed, and point out that—instead of replacing it with another library or framework—we were able to achieve everything that we needed using standard browser APIs.</p>
 <p>我们最近完成了一个里程碑，就是将jQuery从我们Github.com的前端依赖库中移了。直到完全移除了jQuery库才意味着一个逐步的、长达数年的去jQuery化的结束。在这篇文章中，我们会解释为一些历史，为什么我们一开始会引入jQuery，我们是何时意识到已经不再需要jQuery了，以及找出可替代它的类库或者框架，我需要使用浏览器的标准API来达到目的。</p>
-<h2 id="为什么jQuery之前是有用的（Why-jQuery-made-sense-early-on）"><a href="/2018/09/08/frontend-1/#为什么jQuery之前是有用的（Why-jQuery-made-sense-early-on）" class="headerlink" title="为什么jQuery之前是有用的（Why jQuery made sense early on）"></a>为什么jQuery之前是有用的（Why jQuery made sense early on）</h2><p>GitHub.com pulled in <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener">jQuery 1.2.1](https://blog.jquery.com/2007/09/16/jquery-1-2-1-released/) as a dependency in late 2007. For a bit of context, that was a year before Google released the first version of their Chrome browser. There was no standard way to query DOM elements by a CSS selector, no standard way to animate visual styles of an element, and the 【XMLHttpRequest interface</a> pioneered by Internet Explorer was, like many other APIs, inconsistent between browsers.</p>
+<h2 id="为什么jQuery之前是有用的（Why-jQuery-made-sense-early-on）"><a href="#为什么jQuery之前是有用的（Why-jQuery-made-sense-early-on）" class="headerlink" title="为什么jQuery之前是有用的（Why jQuery made sense early on）"></a>为什么jQuery之前是有用的（Why jQuery made sense early on）</h2><p>GitHub.com pulled in <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener">jQuery 1.2.1](https://blog.jquery.com/2007/09/16/jquery-1-2-1-released/) as a dependency in late 2007. For a bit of context, that was a year before Google released the first version of their Chrome browser. There was no standard way to query DOM elements by a CSS selector, no standard way to animate visual styles of an element, and the 【XMLHttpRequest interface</a> pioneered by Internet Explorer was, like many other APIs, inconsistent between browsers.</p>
 <p>GitHub.com在2007年底时引入了<a href="https://blog.jquery.com/2007/09/16/jquery-1-2-1-released/" target="_blank" rel="noopener">jQuery 1.2.1</a>。因为这样的一些背景，当时距Google发布第一个版本还有一年时间。通过CSS选择器来查询DOM元素没有标准的方式，将元素视觉动画化也没有标准的样式，IE提供<a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener">XMLHttpRequest接口</a>，和其他API一样，在不同的浏览器之间也是不同。</p>
 <p>jQuery made it simple to manipulate the DOM, define animations, and make “AJAX” requests— basically, it enabled web developers to create more modern, dynamic experiences that stood out from the rest. Most importantly of all, the JavaScript features built in one browser with jQuery would generally work in other browsers, too. In those early days of GitHub when most of its features were still getting fleshed out, this allowed the small development team to prototype rapidly and get new features out the door without having to adjust code specifically for each web browser.</p>
 <p>jQuery使得操作DOM，定义动画，发起“AJAX”请求变得简单——基本上，它使Web开发人员能够创建出更现代、更动态的体验，这些体验在其他方面都非常突出。更为重要的是，使用了jQuery的JavaScript特性在不同的浏览器都可正常工作。在GitHub早期，它的大部分功能还在不断充实，这使得小型开发团队能够快速地进行原型，而无需为每个Web浏览器专门调整代码来实现新的特性。</p>
@@ -400,7 +400,7 @@
 <p>jQuery的简单接口为设计扩展库提供了蓝图，GitHub.com扩展前端的基础模块： <a href="https://github.com/defunkt/jquery-pjax" target="_blank" rel="noopener">pjax</a>和<a href="https://github.com/defunkt/facebox" target="_blank" rel="noopener">facebox</a>。</p>
 <p>We will always be thankful to John Resig and the jQuery contributors for creating and maintaining such a useful and, for the time, essential library.</p>
 <p>我们将一直感激John Resig和jQuery的贡献者创建和维护了这样一个有用的，对于当时来说，必不可少的类库。</p>
-<h2 id="近年来的Web标准（Web-standards-in-the-later-years）"><a href="/2018/09/08/frontend-1/#近年来的Web标准（Web-standards-in-the-later-years）" class="headerlink" title="近年来的Web标准（Web standards in the later years）"></a>近年来的Web标准（Web standards in the later years）</h2><p>Over the years, GitHub grew into a company with hundreds of engineers and a dedicated team gradually formed to take responsibility for the size and quality of JavaScript code that we serve to web browsers. One of the things that we’re constantly on the lookout for is technical debt, and sometimes technical debt grows around dependenices that once provided value, but whose value dropped over time.</p>
+<h2 id="近年来的Web标准（Web-standards-in-the-later-years）"><a href="#近年来的Web标准（Web-standards-in-the-later-years）" class="headerlink" title="近年来的Web标准（Web standards in the later years）"></a>近年来的Web标准（Web standards in the later years）</h2><p>Over the years, GitHub grew into a company with hundreds of engineers and a dedicated team gradually formed to take responsibility for the size and quality of JavaScript code that we serve to web browsers. One of the things that we’re constantly on the lookout for is technical debt, and sometimes technical debt grows around dependenices that once provided value, but whose value dropped over time.</p>
 <p>这些年来，Github成长为一家拥有数百名工程师的公司，并逐渐形成了一只专门负责我们运行在Web浏览器上的JavaScript代码的大小和质量的团队。其中一件我们一直在做的事情就是找出技术债务，有时技术债务会随着曾经提供价值的附属物而增长，但其价值会随着时间的推移而下降。</p>
 <p>When it came to jQuery, we compared it against the rapid evolution of supported web standard in modern browsers and realized:</p>
 <p>The $(selector) pattern can easily be replaced with querySelectorAll();<br>CSS classname switching can now be achieved using Element.classList;<br>CSS now supports defining visual animations in stylesheets rather than in JavaScript;<br>$.ajax requests can be performed using the Fetch Standard;<br>The addEventListener() interface is stable enough for cross-platform use;<br>We could easily encapsulate the event delegation pattern with a lighweight library;<br>Some syntactic sugar that jQuery provides has become reduntant with the evolution of JavaScript language.<br>Furthermore, the chaining syntax didn’t satisfy how we wanted to write code going forward. For example:</p>
@@ -453,7 +453,7 @@
 <li><a href="https://github.com/WebReflection/url-search-params#readme" target="_blank" rel="noopener">WebReflection/url-search-params</a></li>
 <li><a href="https://github.com/yola/classlist-polyfill#readme" target="_blank" rel="noopener">yola/classlist-polyfill</a></li>
 </ul>
-<link href="/css/prism.css" rel="stylesheet">
+
       
     </div>
 
@@ -476,7 +476,7 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.png" alt="L4qiang 微信支付"/>
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="L4qiang 微信支付">
         <p>微信支付</p>
       </div>
     
@@ -581,7 +581,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">L4qiang</p>
               <p class="site-description motion-element" itemprop="description">记录点滴，注重积累。</p>
@@ -594,7 +594,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -659,7 +659,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">25</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -707,7 +711,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么jQuery之前是有用的（Why-jQuery-made-sense-early-on）"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2018/09/08/frontend-1/#&#x4E3A;&#x4EC0;&#x4E48;jQuery&#x4E4B;&#x524D;&#x662F;&#x6709;&#x7528;&#x7684;&#xFF08;Why-jQuery-made-sense-early-on&#xFF09;" class="headerlink" title="&#x4E3A;&#x4EC0;&#x4E48;jQuery&#x4E4B;&#x524D;&#x662F;&#x6709;&#x7528;&#x7684;&#xFF08;Why jQuery made sense early on&#xFF09;"></a>&#x4E3A;&#x4EC0;&#x4E48;jQuery&#x4E4B;&#x524D;&#x662F;&#x6709;&#x7528;&#x7684;&#xFF08;Why jQuery made sense early on&#xFF09;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#近年来的Web标准（Web-standards-in-the-later-years）"><span class="nav-number">2.</span> <span class="nav-text"><a href="/2018/09/08/frontend-1/#&#x8FD1;&#x5E74;&#x6765;&#x7684;Web&#x6807;&#x51C6;&#xFF08;Web-standards-in-the-later-years&#xFF09;" class="headerlink" title="&#x8FD1;&#x5E74;&#x6765;&#x7684;Web&#x6807;&#x51C6;&#xFF08;Web standards in the later years&#xFF09;"></a>&#x8FD1;&#x5E74;&#x6765;&#x7684;Web&#x6807;&#x51C6;&#xFF08;Web standards in the later years&#xFF09;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么jQuery之前是有用的（Why-jQuery-made-sense-early-on）"><span class="nav-number">1.</span> <span class="nav-text">为什么jQuery之前是有用的（Why jQuery made sense early on）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#近年来的Web标准（Web-standards-in-the-later-years）"><span class="nav-number">2.</span> <span class="nav-text">近年来的Web标准（Web standards in the later years）</span></a></li></ol></div>
             
 
           </div>
@@ -743,7 +747,7 @@
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.4.3</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.8.0</div>
 
 
 

@@ -15,10 +15,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -32,8 +32,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -56,9 +56,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
@@ -125,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="http://l4qiang.me/2018/07/05/springcloud-1-md/"/>
+  <link rel="canonical" href="http://l4qiang.me/2018/07/05/springcloud-1-md/">
 
 
 
@@ -185,7 +185,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -195,7 +195,7 @@
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -235,7 +235,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
   </li>
         
         
@@ -243,7 +243,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
   </li>
 
       
@@ -289,20 +289,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2018/07/05/springcloud-1-md/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="L4qiang">
       <meta itemprop="description" content="记录点滴，注重积累。">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CrazyAirhead">
     </span>
 
@@ -376,7 +376,7 @@
       
         <hr>
 <p>title: 授权认证服务<br>date: 2018-07-05 16:56:44</p>
-<h2 id="tags"><a href="/2018/07/05/springcloud-1-md/#tags" class="headerlink" title="tags:"></a>tags:</h2><p>OAuth 2 Developers Guide<br>Introduction<br>This is the user guide for the support for OAuth 2.0. For OAuth 1.0, everything is different, so see its user guide.</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>OAuth 2 Developers Guide<br>Introduction<br>This is the user guide for the support for OAuth 2.0. For OAuth 1.0, everything is different, so see its user guide.</p>
 <p>This user guide is divided into two parts, the first for the OAuth 2.0 provider, the second for the OAuth 2.0 client. For both the provider and the client, the best source of sample code is the integration tests and sample apps.</p>
 <p>OAuth 2.0 Provider<br>The OAuth 2.0 provider mechanism is responsible for exposing OAuth 2.0 protected resources. The configuration involves establishing the OAuth 2.0 clients that can access its protected resources independently or on behalf of a user. The provider does this by managing and verifying the OAuth 2.0 tokens used to access the protected resources. Where applicable, the provider must also supply an interface for the user to confirm that a client can be granted access to the protected resources (i.e. a confirmation page).</p>
 <p>OAuth 2.0 Provider Implementation<br>The provider role in OAuth 2.0 is actually split between Authorization Service and Resource Service, and while these sometimes reside in the same application, with Spring Security OAuth you have the option to split them across two applications, and also to have multiple Resource Services that share an Authorization Service. The requests for the tokens are handled by Spring MVC controller endpoints, and access to protected resources is handled by standard Spring Security request filters. The following endpoints are required in the Spring Security filter chain in order to implement OAuth 2.0 Authorization Server:</p>
@@ -435,13 +435,13 @@ public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws 
 <p>@Autowired<br>private OAuth2ClientContext oauth2Context;</p>
 <p>@Bean<br>public OAuth2RestTemplate sparklrRestTemplate() {<br>    return new OAuth2RestTemplate(sparklr(), oauth2Context);<br>}<br>The OAuth2ClientContext is placed (for you) in session scope to keep the state for different users separate. Without that you would have to manage the equivalent data structure yourself on the server, mapping incoming requests to users, and associating each user with a separate instance of the OAuth2ClientContext.</p>
 <p>In XML there is a <client> element with an id attribute - this is the bean id for a servlet Filter that must be mapped as in the @Configuration case to a DelegatingFilterProxy (with the same name).</client></p>
-<p>Accessing Protected Resources<br>Once you’ve supplied all the configuration for the resources, you can now access those resources. The suggested method for accessing those resources is by using the RestTemplate introduced in Spring 3. OAuth for Spring Security has provided an extension of RestTemplate that only needs to be supplied an instance of OAuth2ProtectedResourceDetails. To use it with user-tokens (authorization code grants) you should consider using the @EnableOAuth2Client configuration (or the XML equivalent <oauth:rest-template>) which creates some request and session scoped context objects so that requests for different users do not collide at runtime.</oauth:rest-template></p>
+<p>Accessing Protected Resources<br>Once you’ve supplied all the configuration for the resources, you can now access those resources. The suggested method for accessing those resources is by using the RestTemplate introduced in Spring 3. OAuth for Spring Security has provided an extension of RestTemplate that only needs to be supplied an instance of OAuth2ProtectedResourceDetails. To use it with user-tokens (authorization code grants) you should consider using the @EnableOAuth2Client configuration (or the XML equivalent <a href="oauth:rest-template/" target="_blank" rel="noopener">oauth:rest-template/</a>) which creates some request and session scoped context objects so that requests for different users do not collide at runtime.</p>
 <p>As a general rule, a web application should not use password grants, so avoid using ResourceOwnerPasswordResourceDetails if you can in favour of AuthorizationCodeResourceDetails. If you desparately need password grants to work from a Java client, then use the same mechanism to configure your OAuth2RestTemplate and add the credentials to the AccessTokenRequest (which is a Map and is ephemeral) not the ResourceOwnerPasswordResourceDetails (which is shared between all access tokens).</p>
 <p>Persisting Tokens in a Client<br>A client does not need to persist tokens, but it can be nice for users to not be required to approve a new token grant every time the client app is restarted. The ClientTokenServices interface defines the operations that are necessary to persist OAuth 2.0 tokens for specific users. There is a JDBC implementation provided, but you can if you prefer implement your own service for storing the access tokens and associated authentication instances in a persistent database. If you want to use this feature you need provide a specially configured TokenProvider to the OAuth2RestTemplate e.g.</p>
 <p>@Bean<br>@Scope(value = “session”, proxyMode = ScopedProxyMode.INTERFACES)<br>public OAuth2RestOperations restTemplate() {<br>    OAuth2RestTemplate template = new OAuth2RestTemplate(resource(), new DefaultOAuth2ClientContext(accessTokenRequest));<br>    AccessTokenProviderChain provider = new AccessTokenProviderChain(Arrays.asList(new AuthorizationCodeAccessTokenProvider()));<br>    provider.setClientTokenServices(clientTokenServices());<br>    return template;<br>}<br>Customizations for Clients of External OAuth2 Providers<br>Some external OAuth2 providers (e.g. Facebook) do not quite implement the specification correctly, or else they are just stuck on an older version of the spec than Spring Security OAuth. To use those providers in your client application you might need to adapt various parts of the client-side infrastructure.</p>
 <p>To use Facebook as an example, there is a Facebook feature in the tonr2 application (you need to change the configuration to add your own, valid, client id and secret - they are easy to generate on the Facebook website).</p>
 <p>Facebook token responses also contain a non-compliant JSON entry for the expiry time of the token (they use expires instead of expires_in), so if you want to use the expiry time in your application you will have to decode it manually using a custom OAuth2SerializationService.</p>
-<link href="/css/prism.css" rel="stylesheet">
+
       
     </div>
 
@@ -464,7 +464,7 @@ public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws 
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.png" alt="L4qiang 微信支付"/>
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="L4qiang 微信支付">
         <p>微信支付</p>
       </div>
     
@@ -561,7 +561,7 @@ public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws 
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">L4qiang</p>
               <p class="site-description motion-element" itemprop="description">记录点滴，注重积累。</p>
@@ -574,7 +574,7 @@ public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws 
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -639,7 +639,11 @@ public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws 
                     
                       
                     
-                    <span class="site-state-item-count">25</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -687,7 +691,7 @@ public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws 
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tags"><span class="nav-number">1.</span> <span class="nav-text"><a href="/2018/07/05/springcloud-1-md/#tags" class="headerlink" title="tags:"></a>tags:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tags"><span class="nav-number">1.</span> <span class="nav-text">tags:</span></a></li></ol></div>
             
 
           </div>
@@ -723,7 +727,7 @@ public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws 
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.4.3</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.8.0</div>
 
 
 
