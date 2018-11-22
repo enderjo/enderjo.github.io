@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="OLAP基本概念联机分析处理（On-Line Analytical Processing，OLAP）联机分析处理的概念最早是由关系数据库之父爱德华·库德（E·F·Codd）博士于1993年提出的，是一种用于组织大型商务数据库和支持商务智能的技术。OLAP 数据库分为一个或多个多维数据集，每个多维数据集都由多维数据集管理员组织和设计以适应用户检索和分析数据的方式，从而更易于创建和使用所需的数据透视表">
+<meta name="keywords" content="ElasticSearch,OLAP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于ElasticSearch的OLAP框架思路">
+<meta property="og:url" content="http://l4qiang.me/2018/09/28/es/olap-1/index.html">
+<meta property="og:site_name" content="CrazyAirhead">
+<meta property="og:description" content="OLAP基本概念联机分析处理（On-Line Analytical Processing，OLAP）联机分析处理的概念最早是由关系数据库之父爱德华·库德（E·F·Codd）博士于1993年提出的，是一种用于组织大型商务数据库和支持商务智能的技术。OLAP 数据库分为一个或多个多维数据集，每个多维数据集都由多维数据集管理员组织和设计以适应用户检索和分析数据的方式，从而更易于创建和使用所需的数据透视表">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://l4qiang.me/2018/09/28/es/olap-1/olap.png">
+<meta property="og:updated_time" content="2018-11-22T00:49:04.931Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于ElasticSearch的OLAP框架思路">
+<meta name="twitter:description" content="OLAP基本概念联机分析处理（On-Line Analytical Processing，OLAP）联机分析处理的概念最早是由关系数据库之父爱德华·库德（E·F·Codd）博士于1993年提出的，是一种用于组织大型商务数据库和支持商务智能的技术。OLAP 数据库分为一个或多个多维数据集，每个多维数据集都由多维数据集管理员组织和设计以适应用户检索和分析数据的方式，从而更易于创建和使用所需的数据透视表">
+<meta name="twitter:image" content="http://l4qiang.me/2018/09/28/es/olap-1/olap.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://l4qiang.me/2018/09/28/es/olap-1/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>基于ElasticSearch的OLAP框架思路 | CrazyAirhead</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c3ed9d534576a67e94ff8be03a704994";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CrazyAirhead</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">疯狂的傻瓜，傻瓜也疯狂————傻方能执著，疯狂才专注!</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2018/09/28/es/olap-1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="L4qiang">
+      <meta itemprop="description" content="记录点滴，注重积累。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CrazyAirhead">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">基于ElasticSearch的OLAP框架思路
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-28 11:22:43" itemprop="dateCreated datePublished" datetime="2018-09-28T11:22:43+08:00">2018-09-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-22 08:49:04" itemprop="dateModified" datetime="2018-11-22T08:49:04+08:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ElasticSearch/" itemprop="url" rel="index"><span itemprop="name">ElasticSearch</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ElasticSearch/OLAP/" itemprop="url" rel="index"><span itemprop="name">OLAP</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="OLAP基本概念"><a href="#OLAP基本概念" class="headerlink" title="OLAP基本概念"></a>OLAP基本概念</h1><h2 id="联机分析处理（On-Line-Analytical-Processing，OLAP）"><a href="#联机分析处理（On-Line-Analytical-Processing，OLAP）" class="headerlink" title="联机分析处理（On-Line Analytical Processing，OLAP）"></a>联机分析处理（On-Line Analytical Processing，OLAP）</h2><p>联机分析处理的概念最早是由关系数据库之父爱德华·库德（E·F·Codd）博士于1993年提出的，是一种用于组织大型商务数据库和支持商务智能的技术。OLAP 数据库分为一个或多个多维数据集，每个多维数据集都由多维数据集管理员组织和设计以适应用户检索和分析数据的方式，从而更易于创建和使用所需的数据透视表和数据透视图。</p>
+<h2 id="维（Dimension）"><a href="#维（Dimension）" class="headerlink" title="维（Dimension）"></a>维（Dimension）</h2><p>是人们观察数据的特定角度，是考虑问题时的一类属性，属性集合构成一个维（时间维、地理维等）。</p>
+<h2 id="维的层次（Level）"><a href="#维的层次（Level）" class="headerlink" title="维的层次（Level）"></a>维的层次（Level）</h2><p>人们观察数据的某个特定角度（即某个维）还可以存在细节程度不同的各个描述方面（时间维：日期、月份、季度、年）。</p>
+<h2 id="维的成员（Member）"><a href="#维的成员（Member）" class="headerlink" title="维的成员（Member）"></a>维的成员（Member）</h2><p>维的一个取值，是数据项在某维中位置的描述。（“某年某月某日”是在时间维上位置的描述）。</p>
+<h2 id="度量（Measure）"><a href="#度量（Measure）" class="headerlink" title="度量（Measure）"></a>度量（Measure）</h2><p>多维数组的取值。（2000年1月，上海，笔记本电脑，$100000）。</p>
+<h2 id="指标（Quota），补充"><a href="#指标（Quota），补充" class="headerlink" title="指标（Quota），补充"></a>指标（Quota），补充</h2><p>可度量的属性。一般为某种值，如费用，入院人次。</p>
+<h2 id="典型操作"><a href="#典型操作" class="headerlink" title="典型操作"></a>典型操作</h2><p>OLAP的基本多维分析操作有钻取（Drill-up和Drill-down）、切片（Slice）和切块（Dice）、以及旋转（Pivot）等。</p>
+<h3 id="钻取"><a href="#钻取" class="headerlink" title="钻取"></a>钻取</h3><p>是改变维的层次，变换分析的粒度。它包括向下钻取（Drill-down）和向上钻取（Drill-up）/上卷(Roll-up)。Drill- up是在某一维上将低层次的细节数据概括到高层次的汇总数据，或者减少维数；而Drill-down则相反，它从汇总数据深入到细节数据进行观察或增加新维。</p>
+<h3 id="切片和切块"><a href="#切片和切块" class="headerlink" title="切片和切块"></a>切片和切块</h3><p>是在一部分维上选定值后，关心度量数据在剩余维上的分布。如果剩余的维只有两个，则是切片；如果有三个或以上，则是切块。</p>
+<h3 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h3><p>是变换维的方向，即在表格中重新安排维的放置（例如行列互换）。</p>
+<h1 id="ElasticSearch"><a href="#ElasticSearch" class="headerlink" title="ElasticSearch"></a>ElasticSearch</h1><p>Apache Lucene™可能是目前存在的，不论开源还是私有的，拥有最先进，高性能和全功能搜索引擎功能的库。但Lucene是很复杂的。 Elasticsearch是一个使用Java编写的开源的搜索引擎，它的内部使用 Lucene 做索引与搜索，但是它的目标是使全文检索变得简单， 通过隐藏 Lucene 的复杂性，取而代之的提供一套简单一致的 RESTful API。</p>
+<p>然而，Elasticsearch不仅仅是 Lucene，并且也不仅仅只是一个全文搜索引擎。 它可以被下面这样准确的形容：</p>
+<ul>
+<li>一个分布式的实时文档存储，每个字段可以被索引与搜索</li>
+<li>一个分布式实时分析搜索引擎</li>
+<li>能胜任上百个服务节点的扩展，并支持PB级别的结构化或者非结构化数据</li>
+</ul>
+<p>Elasticsearch将所有的功能打包成一个单独的服务，这样你可以通过程序去访问它提供的简单的RESTful API服务， 不论你是使用自己喜欢的编程语言还是直接使用命令行。</p>
+<p>Elasticsearch是一个实时的分布式搜索分析引擎， 它能让你以一个之前从未有过的速度和规模，去探索你的数据。 它被用作全文检索、结构化搜索、分析以及这三个功能的组合：</p>
+<ul>
+<li>Wikipedia 使用 Elasticsearch 提供带有高亮片段的全文搜索，还有 search-as-you-type 和 did-you-mean 的建议。</li>
+<li>卫报 使用 Elasticsearch 将网络社交数据结合到访客日志中，实时的给它的编辑们提供公众对于新文章的反馈。</li>
+<li>Stack Overflow 将地理位置查询融入全文检索中去，并且使用 more-like-this 接口去查找相关的问题与答案。</li>
+<li>GitHub 使用 Elasticsearch 对1300亿行代码进行查询。</li>
+</ul>
+<h2 id="ES文档和多维数据集"><a href="#ES文档和多维数据集" class="headerlink" title="ES文档和多维数据集"></a>ES文档和多维数据集</h2><h3 id="ES的存储结构"><a href="#ES的存储结构" class="headerlink" title="ES的存储结构"></a>ES的存储结构</h3><p>ES文档通过JSON格式来表示。文档是可以被索引的基本单元，文档需要索引需要指定类型。ES能支持索引的数据类型有，其中的数组类型，对象类型和内嵌类型的支持，使得ES能更好的复杂的文档。</p>
+<h3 id="多维联机分析处理（MOLAP）"><a href="#多维联机分析处理（MOLAP）" class="headerlink" title="多维联机分析处理（MOLAP）"></a>多维联机分析处理（MOLAP）</h3><p>MOLAP将OLAP分析所用到的多维数据物理上存储为多维数组的形式，形成“立方体”的结构。维的属性值被映射成多维数组的下标值或下标的范围，而总结数据作为多维数组的值存储在数组的单元中。由于MOLAP采用了新的存储结构，从物理层实现起，因此又称为物理OLAP（PhysicalOLAP）；而 ROLAP主要通过一些软件工具或中间软件实现，物理层仍采用关系数据库的存储结构，因此称为虚拟OLAP（VirtualOLAP）。</p>
+<p>我们可以看到基于复杂数据类型（Complex datatypes）构建的ES文档与MOLAP的概念是非常接近的，利用ElasticSearch的聚合的能力，我们能相对简单的实现OLAP框架。</p>
+<h1 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h1><p>要实现整个OLAP框架主要需要处理以下几个环节</p>
+<ol>
+<li>数据建模</li>
+<li>数据ETL</li>
+<li>数据分析</li>
+<li>数据展示</li>
+</ol>
+<p>大致思路如下：<br><img src="olap.png" alt="OLAP"></p>
+<h2 id="数据建模"><a href="#数据建模" class="headerlink" title="数据建模"></a>数据建模</h2><p>数据建模就是建立多维数据集的过程，同时为了能更有效的利用ES的索引，不建议过深的JSON层次，所以对应到维度建模时采用的是星形模式。</p>
+<p>正常情况，是先进行数据建模，之后才能进行数据ETL，首先需要知道抽取的源数据的结构，即数据元数据之后，才能进一步分析数据模型。对于ES来说，实际上就是建立Index/Type的过程。</p>
+<h3 id="维度管理"><a href="#维度管理" class="headerlink" title="维度管理"></a>维度管理</h3><h3 id="元数据管理"><a href="#元数据管理" class="headerlink" title="元数据管理"></a>元数据管理</h3><p>元数据管理维护了原始数据的元数据结构，简单来说就是原始数据有哪些库，哪些表，表之间有什么关系。</p>
+<h3 id="映射管理"><a href="#映射管理" class="headerlink" title="映射管理"></a>映射管理</h3><p>映射管理是指定了需要抽取的数据范围及方法和确定了多维数据集的模型。</p>
+<h2 id="数据ETL"><a href="#数据ETL" class="headerlink" title="数据ETL"></a>数据ETL</h2><p>正常情况，是先进行数据建模，之后才能进行数据ETL，而实际过程中，是一般需要知道源数据的结构，即数据元数据之后，才能进一步分析数据模型。</p>
+<p>数据ETL，实质就是从各个数据源提取数据，对数据进行转换，并最终加载填充数据到数据仓库维度建模后的表中。只有当多维数据集被填充好，ETL工作才算完成。</p>
+<p>数据加载主要分为两种，一种是首次加载，一种是刷新加载（增量加载）。当前产品中主要涉及两种数据库，Mysql和Hbase。</p>
+<h3 id="首次加载"><a href="#首次加载" class="headerlink" title="首次加载"></a>首次加载</h3><p>通过Quartz Job或MapRedurce Job将数据转换为Kafka消息，由数据加载组件来进行数据处理。</p>
+<h3 id="刷新加载"><a href="#刷新加载" class="headerlink" title="刷新加载"></a>刷新加载</h3><p>通过扩展mysql-binlog-connector-java和HBase Side-Effect Processor，可以实现数据的实时增量更新。本方案中通过Kafka消息中间件来统一转发不同类型的数据更新，此处需要定义好Kafka的消息格式，以便数据加载组件能较简单的处理数据。</p>
+<h3 id="数据转换"><a href="#数据转换" class="headerlink" title="数据转换"></a>数据转换</h3><p>转换步骤主要是指对提取好了的数据的结构进行转换，以满足目标数据仓库模型的过程。此外，转换过程也负责数据质量工作，这部分也被称为数据清洗(data cleaning)。转换过程可以通过逐步实现转换算法，动态上线的方式进行。</p>
+<h2 id="统计分析"><a href="#统计分析" class="headerlink" title="统计分析"></a>统计分析</h2><p>统计分析其实就是从事实表中统计任意组合维度的指标，也就是过滤、分组、聚合，其中，聚合除了一般的SUM、COUNT、AVG、MAX、MIN等，还有一个重要的COUNT(DISTINCT)。ElasticSearch本来就是做实时搜索的，过滤自然不是问题，现在也支持各种聚合以及Pipeline aggregations（相当于SQL子查询的功能）。</p>
+<p>统计分析是根据模板配置和页面操作时的条件生成ES语法，执行语法，返回结果数据的过程。从表面看，该过程不难，然而为了生成的ES语法的准确性，ES语法的生成引擎是非常重要的一个环节，通过在模板管理来增加一些配置来辅助ES的语法生成，如行维度，列维度，维的层次等等。</p>
+<h2 id="数据展示"><a href="#数据展示" class="headerlink" title="数据展示"></a>数据展示</h2><p>通过模板的动态配置，利用Echart和Vue可以实现，动态布局和各种仪表盘的展示，这部分内容也可参看Kibana。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>ES的文档结构符合MOLAP的概念，它提供的聚合功能可以实现OLAP的各种操作，基于Lucene和分布式架构在性能上也能得到保障。通过定义一定的规则和开发一系列的辅助功能，可比较容易的实现一套通用的实时OLAP的框架。本文主要讲解的是基于ES构建OLAP框架的思路，而非完整的构建过</p>
+<h2 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h2><ul>
+<li>联机分析处理</li>
+<li>Elasticsearch Basic Concepts</li>
+<li><a href="https://www.elastic.co/products/hadoop" target="_blank" rel="noopener">https://www.elastic.co/products/hadoop</a></li>
+<li>Hbase Indexer SEP</li>
+<li>使用ElasticSearch作为大数据平台的实时OLAP框架</li>
+<li><a href="https://blog.csdn.net/fighting_one_piece/article/details/51765383" target="_blank" rel="noopener">https://blog.csdn.net/fighting_one_piece/article/details/51765383</a></li>
+<li><a href="https://yq.aliyun.com/articles/575991" target="_blank" rel="noopener">https://yq.aliyun.com/articles/575991</a></li>
+<li>Mapping Types</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="L4qiang 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ElasticSearch/" rel="tag"># ElasticSearch</a>
+          
+            <a href="/tags/OLAP/" rel="tag"># OLAP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/19/git/git-1/" rel="next" title="管理多个Github帐号">
+                <i class="fa fa-chevron-left"></i> 管理多个Github帐号
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/02/misc/tunnel/" rel="prev" title="打造自己的HTTPS安全遂道">
+                打造自己的HTTPS安全遂道 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">L4qiang</p>
+              <p class="site-description motion-element" itemprop="description">记录点滴，注重积累。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/enderjo" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          <section>
+<div>友情链接</div>
+<a href="http://tech.youxiangfang.shop/" target="_blank">ionlyleaf前端随笔</a>
+</section>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OLAP基本概念"><span class="nav-number">1.</span> <span class="nav-text">OLAP基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#联机分析处理（On-Line-Analytical-Processing，OLAP）"><span class="nav-number">1.1.</span> <span class="nav-text">联机分析处理（On-Line Analytical Processing，OLAP）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#维（Dimension）"><span class="nav-number">1.2.</span> <span class="nav-text">维（Dimension）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#维的层次（Level）"><span class="nav-number">1.3.</span> <span class="nav-text">维的层次（Level）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#维的成员（Member）"><span class="nav-number">1.4.</span> <span class="nav-text">维的成员（Member）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#度量（Measure）"><span class="nav-number">1.5.</span> <span class="nav-text">度量（Measure）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指标（Quota），补充"><span class="nav-number">1.6.</span> <span class="nav-text">指标（Quota），补充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#典型操作"><span class="nav-number">1.7.</span> <span class="nav-text">典型操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#钻取"><span class="nav-number">1.7.1.</span> <span class="nav-text">钻取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切片和切块"><span class="nav-number">1.7.2.</span> <span class="nav-text">切片和切块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#旋转"><span class="nav-number">1.7.3.</span> <span class="nav-text">旋转</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ElasticSearch"><span class="nav-number">2.</span> <span class="nav-text">ElasticSearch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES文档和多维数据集"><span class="nav-number">2.1.</span> <span class="nav-text">ES文档和多维数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ES的存储结构"><span class="nav-number">2.1.1.</span> <span class="nav-text">ES的存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多维联机分析处理（MOLAP）"><span class="nav-number">2.1.2.</span> <span class="nav-text">多维联机分析处理（MOLAP）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方案"><span class="nav-number">3.</span> <span class="nav-text">方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据建模"><span class="nav-number">3.1.</span> <span class="nav-text">数据建模</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#维度管理"><span class="nav-number">3.1.1.</span> <span class="nav-text">维度管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元数据管理"><span class="nav-number">3.1.2.</span> <span class="nav-text">元数据管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#映射管理"><span class="nav-number">3.1.3.</span> <span class="nav-text">映射管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据ETL"><span class="nav-number">3.2.</span> <span class="nav-text">数据ETL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首次加载"><span class="nav-number">3.2.1.</span> <span class="nav-text">首次加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#刷新加载"><span class="nav-number">3.2.2.</span> <span class="nav-text">刷新加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据转换"><span class="nav-number">3.2.3.</span> <span class="nav-text">数据转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计分析"><span class="nav-number">3.3.</span> <span class="nav-text">统计分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据展示"><span class="nav-number">3.4.</span> <span class="nav-text">数据展示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考连接"><span class="nav-number">4.1.</span> <span class="nav-text">参考连接</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">L4qiang</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

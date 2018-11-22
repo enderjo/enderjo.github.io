@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="因本人能力有限，理解不到位，翻译内容可能存在偏差。如果可能，请尽量读原文。  We have recently completed a milestone where we were able to drop jQuery as a dependency of the frontend code for GitHub.com. This marks the end of a gradual, y">
+<meta name="keywords" content="Github,jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(翻译)GitHub.com前端移除jQuery库">
+<meta property="og:url" content="http://l4qiang.me/2018/09/08/frontend/news/news-1/index.html">
+<meta property="og:site_name" content="CrazyAirhead">
+<meta property="og:description" content="因本人能力有限，理解不到位，翻译内容可能存在偏差。如果可能，请尽量读原文。  We have recently completed a milestone where we were able to drop jQuery as a dependency of the frontend code for GitHub.com. This marks the end of a gradual, y">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-22T00:49:30.833Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="(翻译)GitHub.com前端移除jQuery库">
+<meta name="twitter:description" content="因本人能力有限，理解不到位，翻译内容可能存在偏差。如果可能，请尽量读原文。  We have recently completed a milestone where we were able to drop jQuery as a dependency of the frontend code for GitHub.com. This marks the end of a gradual, y">
+
+
+
+
+
+
+  <link rel="canonical" href="http://l4qiang.me/2018/09/08/frontend/news/news-1/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>(翻译)GitHub.com前端移除jQuery库 | CrazyAirhead</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c3ed9d534576a67e94ff8be03a704994";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CrazyAirhead</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">疯狂的傻瓜，傻瓜也疯狂————傻方能执著，疯狂才专注!</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2018/09/08/frontend/news/news-1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="L4qiang">
+      <meta itemprop="description" content="记录点滴，注重积累。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CrazyAirhead">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">(翻译)GitHub.com前端移除jQuery库
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-08 06:42:30" itemprop="dateCreated datePublished" datetime="2018-09-08T06:42:30+08:00">2018-09-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-22 08:49:30" itemprop="dateModified" datetime="2018-11-22T08:49:30+08:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/frentend/" itemprop="url" rel="index"><span itemprop="name">frentend</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/frentend/news/" itemprop="url" rel="index"><span itemprop="name">news</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>因本人能力有限，理解不到位，翻译内容可能存在偏差。如果可能，请尽量读<a href="https://githubengineering.com/removing-jquery-from-github-frontend/?utm_source=wanqu.co&amp;utm_campaign=Wanqu+Daily&amp;utm_medium=website" target="_blank" rel="noopener">原文</a>。</p>
+</blockquote>
+<p>We have recently completed a milestone where we were able to drop jQuery as a dependency of the frontend code for GitHub.com. This marks the end of a gradual, years-long transition of increasingly decoupling from jQuery until we were able to completely remove the library. In this post, we will explain a bit of history of how we started depending on jQuery in the first place, how we realized when it was no longer needed, and point out that—instead of replacing it with another library or framework—we were able to achieve everything that we needed using standard browser APIs.</p>
+<p>我们最近完成了一个里程碑，就是将jQuery从我们Github.com的前端依赖库中移了。直到完全移除了jQuery库才意味着一个逐步的、长达数年的去jQuery化的结束。在这篇文章中，我们会解释为一些历史，为什么我们一开始会引入jQuery，我们是何时意识到已经不再需要jQuery了，以及找出可替代它的类库或者框架，我需要使用浏览器的标准API来达到目的。</p>
+<h2 id="为什么jQuery之前是有用的（Why-jQuery-made-sense-early-on）"><a href="#为什么jQuery之前是有用的（Why-jQuery-made-sense-early-on）" class="headerlink" title="为什么jQuery之前是有用的（Why jQuery made sense early on）"></a>为什么jQuery之前是有用的（Why jQuery made sense early on）</h2><p>GitHub.com pulled in <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener">jQuery 1.2.1](https://blog.jquery.com/2007/09/16/jquery-1-2-1-released/) as a dependency in late 2007. For a bit of context, that was a year before Google released the first version of their Chrome browser. There was no standard way to query DOM elements by a CSS selector, no standard way to animate visual styles of an element, and the 【XMLHttpRequest interface</a> pioneered by Internet Explorer was, like many other APIs, inconsistent between browsers.</p>
+<p>GitHub.com在2007年底时引入了<a href="https://blog.jquery.com/2007/09/16/jquery-1-2-1-released/" target="_blank" rel="noopener">jQuery 1.2.1</a>。因为这样的一些背景，当时距Google发布第一个版本还有一年时间。通过CSS选择器来查询DOM元素没有标准的方式，将元素视觉动画化也没有标准的样式，IE提供<a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener">XMLHttpRequest接口</a>，和其他API一样，在不同的浏览器之间也是不同。</p>
+<p>jQuery made it simple to manipulate the DOM, define animations, and make “AJAX” requests— basically, it enabled web developers to create more modern, dynamic experiences that stood out from the rest. Most importantly of all, the JavaScript features built in one browser with jQuery would generally work in other browsers, too. In those early days of GitHub when most of its features were still getting fleshed out, this allowed the small development team to prototype rapidly and get new features out the door without having to adjust code specifically for each web browser.</p>
+<p>jQuery使得操作DOM，定义动画，发起“AJAX”请求变得简单——基本上，它使Web开发人员能够创建出更现代、更动态的体验，这些体验在其他方面都非常突出。更为重要的是，使用了jQuery的JavaScript特性在不同的浏览器都可正常工作。在GitHub早期，它的大部分功能还在不断充实，这使得小型开发团队能够快速地进行原型，而无需为每个Web浏览器专门调整代码来实现新的特性。</p>
+<p>The simple interface of jQuery also served as a blueprint to craft extension libraries that would later serve as building blocks for the rest of GitHub.com frontend: <a href="https://github.com/defunkt/jquery-pjax" target="_blank" rel="noopener">pjax</a> and <a href="https://github.com/defunkt/facebox" target="_blank" rel="noopener">facebox</a>.</p>
+<p>jQuery的简单接口为设计扩展库提供了蓝图，GitHub.com扩展前端的基础模块： <a href="https://github.com/defunkt/jquery-pjax" target="_blank" rel="noopener">pjax</a>和<a href="https://github.com/defunkt/facebox" target="_blank" rel="noopener">facebox</a>。</p>
+<p>We will always be thankful to John Resig and the jQuery contributors for creating and maintaining such a useful and, for the time, essential library.</p>
+<p>我们将一直感激John Resig和jQuery的贡献者创建和维护了这样一个有用的，对于当时来说，必不可少的类库。</p>
+<h2 id="近年来的Web标准（Web-standards-in-the-later-years）"><a href="#近年来的Web标准（Web-standards-in-the-later-years）" class="headerlink" title="近年来的Web标准（Web standards in the later years）"></a>近年来的Web标准（Web standards in the later years）</h2><p>Over the years, GitHub grew into a company with hundreds of engineers and a dedicated team gradually formed to take responsibility for the size and quality of JavaScript code that we serve to web browsers. One of the things that we’re constantly on the lookout for is technical debt, and sometimes technical debt grows around dependenices that once provided value, but whose value dropped over time.</p>
+<p>这些年来，Github成长为一家拥有数百名工程师的公司，并逐渐形成了一只专门负责我们运行在Web浏览器上的JavaScript代码的大小和质量的团队。其中一件我们一直在做的事情就是找出技术债务，有时技术债务会随着曾经提供价值的附属物而增长，但其价值会随着时间的推移而下降。</p>
+<p>When it came to jQuery, we compared it against the rapid evolution of supported web standard in modern browsers and realized:</p>
+<p>The $(selector) pattern can easily be replaced with querySelectorAll();<br>CSS classname switching can now be achieved using Element.classList;<br>CSS now supports defining visual animations in stylesheets rather than in JavaScript;<br>$.ajax requests can be performed using the Fetch Standard;<br>The addEventListener() interface is stable enough for cross-platform use;<br>We could easily encapsulate the event delegation pattern with a lighweight library;<br>Some syntactic sugar that jQuery provides has become reduntant with the evolution of JavaScript language.<br>Furthermore, the chaining syntax didn’t satisfy how we wanted to write code going forward. For example:</p>
+<p>$(‘.js-widget’)<br>  .addClass(‘is-loading’)<br>  .show()<br>This syntax is simple to write, but to our standards, doesn’t communicate intent really well. Did the author expect one or more js-widget elements on this page? Also, if we update our page markup and accidentally leave out the js-widget classname, will an exception in the browser inform us that something went wrong? By default, jQuery silently skips the whole expresion when nothing matched the initial selector; but to us, such behavior was a bug rather than a feature.</p>
+<p>Finally, we wanted to start annotating types with Flow to perform static type checking at build time, and we concluded that the chaining syntax doesn’t lend itself well to static analysis, since almost every result of a jQuery method call is of the same type. We chose Flow over alternatives because, at the time, features such as @flow weak mode allowed us to progressively and efficiently start applying types to a codebase which was largely untyped.</p>
+<p>All in all, decoupling from jQuery would mean that we could rely on web standards more, have MDN web docs be de-facto default documentation for our frontend developers, maintain more resilient code in the future, and eventually drop a 30 kB dependency from our packaged bundles, speeding up page load times and JavaScript execution times.</p>
+<p>Incremental decoupling<br>Even with an end goal in sight, we knew that it wouldn’t be feasible to just allocate all resources we had to rewriting everything from jQuery to vanilla JS. If anything, such a rushed endeavor would likely lead to many regressions in site functionality that we would later have to weed out. Instead, we:</p>
+<p>Set up metrics that tracked ratio of jQuery calls used per overall line of code and monitored that graph over time to make sure that it’s either staying constant or going down, not up.</p>
+<p>Graph of jQuery usage going down over time.</p>
+<p>We discouraged importing jQuery in any new code. To facilitate that using automation, we created eslint-plugin-jquery which would fail CI checks if anyone tried to use jQuery features, for example $.ajax.</p>
+<p>There were now plenty of violations of eslint rules in old code, all of which we’ve annotated with specific eslint-disable rules in code comments. To the reader of that code, those comments would serve as a clear signal that this code doesn’t represent our current coding practices.</p>
+<p>We created a pull request bot that would leave a review comment on a pull request pinging our team whenever somebody tried to add a new eslint-disable rule. This way we would get involved in code review early and suggest alternatives.</p>
+<p>A lot of old code had explicit coupling to external interfaces of pjax and facebox jQuery plugins, so we’ve kept their interfaces relatively the same while we’ve internally replaced their implementation with vanilla JS. Having static type checking helped us have greater confidence around those refactorings.</p>
+<p>Plenty of old code interfaced with rails-behaviors, our adapter for the Ruby on Rails approach to “unobtrusive” JS, in a way that they would attach an AJAX lifecycle handler to certain forms:</p>
+<p>  // LEGACY APPROACH<br>  $(document).on(‘ajaxSuccess’, ‘form.js-widget’, function(event, xhr, settings, data) {<br>    // insert response data somewhere into the DOM<br>  })<br>Instead of having to rewrite all of those call sites at once to the new approach, we’ve opted to trigger fake ajax* lifecycle events and keep these forms submitting their contents asynchronously as before; only this time fetch() was used internally.</p>
+<p>We maintained a custom build of jQuery and whenever we’ve identified that we’re not using a certain module of jQuery anymore, we would remove it from the custom build and ship a slimmer version. For instance, after we have removed the final usage of jQuery-specific CSS pseudo-selectors such as :visible or :checkbox, we were able to remove the Sizzle module; and when the last $.ajax call was replaced with fetch(), we were able to remove the AJAX module. This served a dual purpose: speeding up JavaScript execution times while at the same time ensuring that no new code is created that would try using the removed functionality.</p>
+<p>We kept dropping support for old Internet Explorer versions as soon as it would be feasible to, as informed by our site analytics. Whenever use of a certain IE version dropped below a certain treshold, we would stop serving JavaScript to it and focus on testing against and supporting more modern browsers. Dropping support for IE 8–9 early on allowed us to adopt many native browser features that would otherwise be hard to polyfill.</p>
+<p>As part of our refined approach to building frontend features on GitHub.com, we focused on getting away with regular HTML foundation as much as we could, and only adding JavaScript behaviors as progressive enhancement. As a result, even those web forms and other UI elements that were enhanced using JS would usually also work with JavaScript disabled in the browser. In some cases, we were able to delete certain legacy behaviors altogether instead of having to rewrite them in vanilla JS.</p>
+<p>With these and similar efforts combined over the years, we were able gradually reduce our dependence on jQuery until there was not a single line of code referencing it anymore.</p>
+<p>Custom Elements<br>One technology that has been making waves in the recent years is Custom Elements: a component library native to the browser, which means that there are no additional bytes of a framework for the user to download, parse and compile.</p>
+<p>We had created a few Custom Elements based on the v0 specification since 2014. However, as standards were still in flux back then, we did not invest as much. It was not until 2017 when the Web Components v1 spec was released and implemented in both Chrome and Safari that we began to adopt Custom Elements on a wider scale.</p>
+<p>During the jQuery migration, we looked for patterns that would be suitable for extraction as custom elements. For example, we converted our facebox usage for displaying modal dialogs to the <details-dialog> element.</details-dialog></p>
+<p>Our general philosophy of striving for progressive enhancement extends to custom elements as well. This means that we keep as much of the content in markup as possible and only add behaviors on top of that. For example, <local-time> shows the raw timestamp by default and gets upgraded to translate the time to the local timezone, while <details-dialog>, when nested in the <details> element, is interactive even without JavaScript, but gets upgraded with accessibility enhancements.</details></details-dialog></local-time></p>
+<p>Here is an example of how a <local-time> custom element could be implemented:</local-time></p>
+<p>// The local-time element displays time in the user’s current timezone<br>// and locale.<br>//<br>// Example:<br>//   <local-time datetime="2018-09-06T08:22:49Z">Sep 6, 2018</local-time><br>//<br>class LocalTimeElement extends HTMLElement {<br>  static get observedAttributes() {<br>    return [‘datetime’]<br>  }</p>
+<p>  attributeChangedCallback(attrName, oldValue, newValue) {<br>    if (attrName === ‘datetime’) {<br>      const date = new Date(newValue)<br>      this.textContent = date.toLocaleString()<br>    }<br>  }<br>}</p>
+<p>if (!window.customElements.get(‘local-time’)) {<br>  window.LocalTimeElement = LocalTimeElement<br>  window.customElements.define(‘local-time’, LocalTimeElement)<br>}</p>
+<p>One aspect of Web Components that we’re looking forward to adopting is Shadow DOM. The powerful nature of Shadow DOM has the potential to unlock a lot of possibilities for the web, but that also makes it harder to polyfill. Because polyfilling it today incurs a performance penalty even for code that manipulates parts of the DOM unrelated to web components, it is unfeasible for us to start using it in production.</p>
+<p>Polyfills<br>These are the polyfills that helped us transition to using standard browser features. We try to serve most of these polyfills only when absolutely necessary, i.e. to outdated browsers as part of a separate “compatibility” JavaScript bundle.</p>
+<ul>
+<li><a href="https://github.com/github/eventlistener-polyfill#readme" target="_blank" rel="noopener">github/eventlistener-polyfill</a></li>
+<li><a href="https://github.com/github/fetch#readme" target="_blank" rel="noopener">github/fetch</a></li>
+<li><a href="https://github.com/github/form-data-entries#readme" target="_blank" rel="noopener">github/form-data-entries</a></li>
+<li><a href="https://github.com/iamdustan/smoothscroll#readme" target="_blank" rel="noopener">iamdustan/smoothscroll</a></li>
+<li><a href="https://github.com/javan/details-element-polyfill#readme" target="_blank" rel="noopener">javan/details-element-polyfill</a></li>
+<li><a href="https://github.com/jonathantneal/closest#readme" target="_blank" rel="noopener">jonathantneal/closest</a></li>
+<li><a href="https://github.com/kumarharsh/custom-event-polyfill#readme" target="_blank" rel="noopener">kumarharsh/custom-event-polyfill</a></li>
+<li><a href="https://github.com/marvinhagemeister/request-idle-polyfill#readme" target="_blank" rel="noopener">marvinhagemeister/request-idle-polyfill</a></li>
+<li><a href="https://github.com/mathiasbynens/Array.from#readme" target="_blank" rel="noopener">mathiasbynens/Array.from</a></li>
+<li><a href="https://github.com/mathiasbynens/String.prototype.codePointAt#readme" target="_blank" rel="noopener">mathiasbynens/String.prototype.codePointAt</a></li>
+<li><a href="https://github.com/mathiasbynens/String.prototype.endsWith#readme" target="_blank" rel="noopener">mathiasbynens/String.prototype.endsWith</a></li>
+<li><a href="https://github.com/mathiasbynens/String.prototype.startsWith#readme" target="_blank" rel="noopener">mathiasbynens/String.prototype.startsWith</a></li>
+<li><a href="https://github.com/medikoo/es6-symbol#readme" target="_blank" rel="noopener">medikoo/es6-symbol</a></li>
+<li><a href="https://github.com/nicjansma/usertiming.js#readme" target="_blank" rel="noopener">nicjansma/usertiming.js</a></li>
+<li><a href="https://github.com/rubennorte/es6-object-assign#readme" target="_blank" rel="noopener">rubennorte/es6-object-assign</a></li>
+<li><a href="https://github.com/stefanpenner/es6-promise#readme" target="_blank" rel="noopener">stefanpenner/es6-promise</a></li>
+<li><a href="https://github.com/webcomponents/template#template" target="_blank" rel="noopener">webcomponents/template</a></li>
+<li><a href="https://github.com/webcomponents/URL#readme" target="_blank" rel="noopener">webcomponents/URL</a></li>
+<li><a href="https://github.com/webcomponents/webcomponentsjs#readme" target="_blank" rel="noopener">webcomponents/webcomponentsjs</a></li>
+<li><a href="https://github.com/WebReflection/url-search-params#readme" target="_blank" rel="noopener">WebReflection/url-search-params</a></li>
+<li><a href="https://github.com/yola/classlist-polyfill#readme" target="_blank" rel="noopener">yola/classlist-polyfill</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="L4qiang 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Github/" rel="tag"># Github</a>
+          
+            <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/24/android/android-3/" rel="next" title="个推透传消息打开指定页面">
+                <i class="fa fa-chevron-left"></i> 个推透传消息打开指定页面
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/19/git/git-1/" rel="prev" title="管理多个Github帐号">
+                管理多个Github帐号 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">L4qiang</p>
+              <p class="site-description motion-element" itemprop="description">记录点滴，注重积累。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/enderjo" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          <section>
+<div>友情链接</div>
+<a href="http://tech.youxiangfang.shop/" target="_blank">ionlyleaf前端随笔</a>
+</section>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么jQuery之前是有用的（Why-jQuery-made-sense-early-on）"><span class="nav-number">1.</span> <span class="nav-text">为什么jQuery之前是有用的（Why jQuery made sense early on）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#近年来的Web标准（Web-standards-in-the-later-years）"><span class="nav-number">2.</span> <span class="nav-text">近年来的Web标准（Web standards in the later years）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">L4qiang</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
