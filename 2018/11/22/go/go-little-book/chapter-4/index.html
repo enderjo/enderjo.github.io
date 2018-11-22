@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="Chapter 4 - Code Organization and Interfaces第四章 - 代码组织和接口It’s now time to look at how to organize our code. 现在是时候来看看我们是怎么组织代码了。 Packages包To keep more complicated libraries and systems organized, we ne">
+  <meta name="description" content="第四章 - 代码组织和接口（Chapter 4 - Code Organization and Interfaces）It’s now time to look at how to organize our code. 现在是时候来看看我们是怎么组织代码了。 包（Packages）To keep more complicated libraries and systems organized, w">
 <meta name="keywords" content="go,go little book">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第四章 - 代码组织和接口">
 <meta property="og:url" content="http://l4qiang.me/2018/11/22/go/go-little-book/chapter-4/index.html">
 <meta property="og:site_name" content="CrazyAirhead">
-<meta property="og:description" content="Chapter 4 - Code Organization and Interfaces第四章 - 代码组织和接口It’s now time to look at how to organize our code. 现在是时候来看看我们是怎么组织代码了。 Packages包To keep more complicated libraries and systems organized, we ne">
+<meta property="og:description" content="第四章 - 代码组织和接口（Chapter 4 - Code Organization and Interfaces）It’s now time to look at how to organize our code. 现在是时候来看看我们是怎么组织代码了。 包（Packages）To keep more complicated libraries and systems organized, w">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-22T02:51:58.515Z">
+<meta property="og:updated_time" content="2018-11-22T03:14:24.663Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第四章 - 代码组织和接口">
-<meta name="twitter:description" content="Chapter 4 - Code Organization and Interfaces第四章 - 代码组织和接口It’s now time to look at how to organize our code. 现在是时候来看看我们是怎么组织代码了。 Packages包To keep more complicated libraries and systems organized, we ne">
+<meta name="twitter:description" content="第四章 - 代码组织和接口（Chapter 4 - Code Organization and Interfaces）It’s now time to look at how to organize our code. 现在是时候来看看我们是怎么组织代码了。 包（Packages）To keep more complicated libraries and systems organized, w">
 
 
 
@@ -353,7 +353,7 @@
                 
               
 
-              <time title="创建时间：2018-11-22 10:45:23 / 修改时间：10:51:58" itemprop="dateCreated datePublished" datetime="2018-11-22T10:45:23+08:00">2018-11-22</time>
+              <time title="创建时间：2018-11-22 10:45:23 / 修改时间：11:14:24" itemprop="dateCreated datePublished" datetime="2018-11-22T10:45:23+08:00">2018-11-22</time>
             
 
             
@@ -416,9 +416,9 @@
       
 
       
-        <h1 id="Chapter-4-Code-Organization-and-Interfaces"><a href="#Chapter-4-Code-Organization-and-Interfaces" class="headerlink" title="Chapter 4 - Code Organization and Interfaces"></a>Chapter 4 - Code Organization and Interfaces</h1><h1 id="第四章-代码组织和接口"><a href="#第四章-代码组织和接口" class="headerlink" title="第四章 - 代码组织和接口"></a>第四章 - 代码组织和接口</h1><p>It’s now time to look at how to organize our code.</p>
+        <h1 id="第四章-代码组织和接口（Chapter-4-Code-Organization-and-Interfaces）"><a href="#第四章-代码组织和接口（Chapter-4-Code-Organization-and-Interfaces）" class="headerlink" title="第四章 - 代码组织和接口（Chapter 4 - Code Organization and Interfaces）"></a>第四章 - 代码组织和接口（Chapter 4 - Code Organization and Interfaces）</h1><p>It’s now time to look at how to organize our code.</p>
 <p>现在是时候来看看我们是怎么组织代码了。</p>
-<h2 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h2><h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p>To keep more complicated libraries and systems organized, we need to learn about packages. In Go, package names follow the directory structure of your Go workspace. If we were building a shopping system, we’d probably start with a package name “shopping” and put our source files in <code>$GOPATH/src/shopping/</code>.</p>
+<h2 id="包（Packages）"><a href="#包（Packages）" class="headerlink" title="包（Packages）"></a>包（Packages）</h2><p>To keep more complicated libraries and systems organized, we need to learn about packages. In Go, package names follow the directory structure of your Go workspace. If we were building a shopping system, we’d probably start with a package name “shopping” and put our source files in <code>$GOPATH/src/shopping/</code>.</p>
 <p>为了组织更复杂的类库和系统，我们需要了解包。在Go中，包名紧跟在工作目录结构之下。如果我们构建一个电商系统，我们可能以”shopping”命名包和把源文件存在<code>$GOPATH/src/shopping/</code>下。</p>
 <p>We don’t want to put everything inside this folder though. For example, maybe we want to isolate some database logic inside its own folder. To achieve this, we create a subfolder at <code>$GOPATH/src/shopping/db</code>. The package name of the files within this subfolder is simply <code>db</code>, but to access it from another package, including the <code>shopping</code> package, we need to import <code>shopping/db</code>.</p>
 <p>显然我们不想反所有的东西都放在这个目录。例如，我们希望在数据库目录下关联一些数据库的逻辑。要达到这个目的，我们创建了一个子目录<code>$GOPATH/src/shopping/db</code>。这个目录下的包名可以是简单的<code>db</code>，但是其他包需要访问这个包时，就需要包含<code>shopping</code>，我们需要这样导入<code>shopping/db</code>。</p>
@@ -442,7 +442,7 @@
 <p>You can now run your code by going into your <code>shopping</code> project and typing:</p>
 <p>进入<code>shopping</code>目录输入如下内容可以运行代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go run main/main.go</span><br></pre></td></tr></table></figure>
-<h3 id="Cyclical-Imports"><a href="#Cyclical-Imports" class="headerlink" title="Cyclical Imports"></a>Cyclical Imports</h3><h3 id="循环导入"><a href="#循环导入" class="headerlink" title="循环导入"></a>循环导入</h3><p>As you start writing more complex systems, you’re bound to run into cyclical imports. This happens when package A imports package B but package B imports package A (either directly or indirectly through another package). This is something the compiler won’t allow.</p>
+<h3 id="循环导入（Cyclical-Imports）"><a href="#循环导入（Cyclical-Imports）" class="headerlink" title="循环导入（Cyclical Imports）"></a>循环导入（Cyclical Imports）</h3><p>As you start writing more complex systems, you’re bound to run into cyclical imports. This happens when package A imports package B but package B imports package A (either directly or indirectly through another package). This is something the compiler won’t allow.</p>
 <p>当你开始写一些更复杂的系统时，你不免会碰到循环导入的问题。当包A的导入了包B但是包B又导入了包A（无论是直接还是间接通过其他包导入）循环导入就发生了。这是编译器不允许的。</p>
 <p>Let’s change our shopping structure to cause the error.</p>
 <p>让我们来修改一下<code>shopping</code>的结构来引发这个错误。</p>
@@ -460,7 +460,7 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> db</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"shopping/models"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">LoadItem</span><span class="params">(id <span class="keyword">int</span>)</span> *<span class="title">models</span>.<span class="title">Item</span></span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &amp;models.Item&#123;</span><br><span class="line">    Price: <span class="number">9.001</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>You’ll often need to share more than just <code>models</code>, so you might have other similar folder named <code>utilities</code> and such. The important rule about these shared packages is that they shouldn’t import anything from the <code>shopping</code> package or any sub-packages. In a few sections, we’ll look at interfaces which can help us untangle these types of dependencies.</p>
 <p>你常常需要的共享结构不仅仅是<code>models</code>，所以你可能还有一些类似<code>utilities</code>这样的文件夹。最重要的原则是这些共享对象，不能导入<code>shopping</code>包或者它的子包。要不了几个章节，我们会看到接口是如何解开这些依赖的。</p>
-<h3 id="Visibility"><a href="#Visibility" class="headerlink" title="Visibility"></a>Visibility</h3><h3 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h3><p>Go uses a simple rule to define what types and functions are visible outside of a package. If the name of the type or function starts with an uppercase letter, it’s visible. If it starts with a lowercase letter, it isn’t.</p>
+<h3 id="可见性（Visibility）"><a href="#可见性（Visibility）" class="headerlink" title="可见性（Visibility）"></a>可见性（Visibility）</h3><p>Go uses a simple rule to define what types and functions are visible outside of a package. If the name of the type or function starts with an uppercase letter, it’s visible. If it starts with a lowercase letter, it isn’t.</p>
 <p>Go用一个非常简单的原则来决定一个包的类型和函数是否在包外可见。如果类型或者函数是以大写字母开头，就是可见的，如果是小写字母开头，就是不可见的。</p>
 <p>This also applies to structure fields. If a structure field name starts with a lowercase letter, only code within the same package will be able to access them.</p>
 <p>这对结构体的字段也是一样适用的。如果一个结构体的字段名是以小写字母开头，只有在同一个包里的代码可以访问它们。</p>
@@ -471,7 +471,7 @@
 <p>可以通过<code>models.NewItem()</code>来调用。但是如果这个函数被命名为<code>newItem</code>，我们就不能在其他包里面来调用它了。</p>
 <p>Go ahead and change the name of the various functions, types and fields from the <code>shopping</code> code. For example, if you rename the <code>Item&#39;s</code> <code>Price</code> field to <code>price</code>, you should get an error.</p>
 <p>继续修改在<code>shopping</code>中修改函数，类型和字段的名字。例如，如果你修改<code>Item</code>的<code>Price</code>为<code>price</code>,你会收到一个编译错误。</p>
-<h3 id="Package-Management"><a href="#Package-Management" class="headerlink" title="Package Management"></a>Package Management</h3><h3 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h3><p>The <code>go</code> command we’ve been using to <code>run</code> and <code>build</code> has a <code>get</code> subcommand which is used to fetch third-party libraries. <code>go get</code> supports various protocols but for this example, we’ll be getting a library from Github, meaning, you’ll need <code>git</code> installed on your computer.</p>
+<h3 id="包管理（Package-Management）"><a href="#包管理（Package-Management）" class="headerlink" title="包管理（Package Management）"></a>包管理（Package Management）</h3><p>The <code>go</code> command we’ve been using to <code>run</code> and <code>build</code> has a <code>get</code> subcommand which is used to fetch third-party libraries. <code>go get</code> supports various protocols but for this example, we’ll be getting a library from Github, meaning, you’ll need <code>git</code> installed on your computer.</p>
 <p>我们用来<code>run</code>和<code>build</code>的<code>go</code>命令，它还一个<code>get</code>的子命令用来获取第三方的类库。<code>go get</code>支持多种协议，但是这里，我们将从Github上获取一个类库。这是说，你要在你的电脑上安装好<code>git</code>。</p>
 <p>Assuming you already have git installed, from a shell/command prompt, enter:</p>
 <p>假设你已经安装好了git，打开一个shell/命令提示符，输入：</p>
@@ -483,7 +483,7 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"github.com/mattn/go-sqlite3"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>I know this looks like a URL but in reality, it’ll simply import the <code>go-sqlite3</code> package which it expects to find in <code>$GOPATH/src/github.com/mattn/go-sqlite3</code>.</p>
 <p>我知道这看起来像是一个URL，但实际上，如果知道是在<code>$GOPATH/src/github.com/mattn/go-sqlite3</code>目录，导入<code>go-sqlite3</code>包是很简单的。</p>
-<h3 id="Dependency-Management"><a href="#Dependency-Management" class="headerlink" title="Dependency Management"></a>Dependency Management</h3><h3 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h3><p><code>go get</code> has a couple of other tricks up its sleeve. If we <code>go get</code> within a project, it’ll scan all the files, looking for <code>imports</code> to third-party libraries and will download them. In a way, our own source code becomes a <code>Gemfile</code> or <code>package.json</code>.</p>
+<h3 id="依赖管理（Dependency-Management）"><a href="#依赖管理（Dependency-Management）" class="headerlink" title="依赖管理（Dependency Management）"></a>依赖管理（Dependency Management）</h3><p><code>go get</code> has a couple of other tricks up its sleeve. If we <code>go get</code> within a project, it’ll scan all the files, looking for <code>imports</code> to third-party libraries and will download them. In a way, our own source code becomes a <code>Gemfile</code> or <code>package.json</code>.</p>
 <p><code>go get</code>有一些其他的戏法。如果我们在一个项目中执行<code>go get</code>，它会扫描所有文件并查找所有导入的第三方库，然后下载这些第三方库。某种程度上说，我们自己的源代码变成一个<code>Gemfile</code>或者<code>package.json</code>。</p>
 <p>If you call <code>go get -u</code> it’ll update the packages (or you can update a specific package via <code>go get -u FULL_PACKAGE_NAME</code>).</p>
 <p>执行<code>go get -u</code>将更新你的包（或者你可以通过<code>go get -u FULL_PACKAGE_NAME</code>更新指定的包）</p>
@@ -491,7 +491,7 @@
 <p>最后，你可能发现了<code>go get</code>的一些不足。首先，它不能指定一个修订，它会一直指向<code>master/head/trunk/default</code>。这是一个严重的问题，尤其当你有2个项目需要同一个库的不同版本时。</p>
 <p>To solve this, you can use a third-party dependency management tool. They are still young, but two promising ones are <a href="https://github.com/nitrous-io/goop" target="_blank" rel="noopener">goop</a> and <a href="https://github.com/tools/godep" target="_blank" rel="noopener">godep</a>. A more complete list is available at the <a href="https://code.google.com/p/go-wiki/wiki/PackageManagementTools" target="_blank" rel="noopener">go-wiki</a>.</p>
 <p>为了解决这个问题，你可以使用一个第三方的依赖管理工具。虽然还不太成熟，但是有2个依赖管理工具比较有前景，即<a href="https://github.com/nitrous-io/goop" target="_blank" rel="noopener">goop</a>和<a href="https://github.com/tools/godep" target="_blank" rel="noopener">godep</a>。更完整的列表可以参考<a href="https://github.com/golang/go/wiki/PackageManagementTools" target="_blank" rel="noopener">go-wiki</a>。</p>
-<h2 id="Interfaces"><a href="#Interfaces" class="headerlink" title="Interfaces"></a>Interfaces</h2><h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>Interfaces are types that define a contract but not an implementation. Here’s an example:</p>
+<h2 id="接口（Interfaces）"><a href="#接口（Interfaces）" class="headerlink" title="接口（Interfaces）"></a>接口（Interfaces）</h2><p>Interfaces are types that define a contract but not an implementation. Here’s an example:</p>
 <p>接中是一种定义了协议但没有实现的类型。这是一个例子：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Logger <span class="keyword">interface</span> &#123;</span><br><span class="line">  Log(message <span class="keyword">string</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>You might be wondering what purpose this could possibly serve. Interfaces help decouple your code from specific implementations. For example, we might have various types of loggers:</p>
@@ -517,7 +517,7 @@
 <p>接口也可以组合。也就是说接口可以有其他接口组成。例如，<code>io.ReadCloser</code>就是由接口<code>io.Reader</code>和<code>io.Closer</code>接口组成。</p>
 <p>Finally, interfaces are commonly used to avoid cyclical imports. Since they don’t have implementations, they’ll have limited dependencies.</p>
 <p>最后，接口常用于避免循环导入。由于接口没有实现，他们的依赖关系有限。</p>
-<h2 id="Before-You-Continue"><a href="#Before-You-Continue" class="headerlink" title="Before You Continue"></a>Before You Continue</h2><h2 id="继续之前"><a href="#继续之前" class="headerlink" title="继续之前"></a>继续之前</h2><p>Ultimately, how you structure your code around Go’s workspace is something that you’ll only feel comfortable with after you’ve written a couple of non-trivial projects. What’s most important for you to remember is the tight relationship between package names and your directory structure (not just within a project, but within the entire workspace).</p>
+<h2 id="继续之前（Before-You-Continue）"><a href="#继续之前（Before-You-Continue）" class="headerlink" title="继续之前（Before You Continue）"></a>继续之前（Before You Continue）</h2><p>Ultimately, how you structure your code around Go’s workspace is something that you’ll only feel comfortable with after you’ve written a couple of non-trivial projects. What’s most important for you to remember is the tight relationship between package names and your directory structure (not just within a project, but within the entire workspace).</p>
 <p>最后，当你试着用go写一些简单的项目之后，你会习惯在go语言的工作区中组织代码的方式。最重要是的记住go语言中的包名和你的目录结构有密切关系（不仅仅在一个项目中，在整个工作空间都如此）。</p>
 <p>The way Go handles visibility of types is straightforward and effective. It’s also consistent. There are a few things we haven’t looked at, such as constants and global variables but rest assured, their visibility is determined by the same naming rule.</p>
 <p>go语言处理类型的可见性方法是简单有效的。也是一致的。还有一些内容我们没有介绍，例如常量和全局变量，但是不用担心，它们的可见性也是遵循同样的规则。</p>
@@ -592,8 +592,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/22/go/go-little-book/chapter-5/" rel="prev" title="第五章 - 花絮">
-                第五章 - 花絮 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/22/go/go-little-book/chapter-5/" rel="prev" title="第五章 - 珍品">
+                第五章 - 珍品 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -828,7 +828,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-4-Code-Organization-and-Interfaces"><span class="nav-number">1.</span> <span class="nav-text">Chapter 4 - Code Organization and Interfaces</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-代码组织和接口"><span class="nav-number">2.</span> <span class="nav-text">第四章 - 代码组织和接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Packages"><span class="nav-number">2.1.</span> <span class="nav-text">Packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包"><span class="nav-number">2.2.</span> <span class="nav-text">包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cyclical-Imports"><span class="nav-number">2.2.1.</span> <span class="nav-text">Cyclical Imports</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环导入"><span class="nav-number">2.2.2.</span> <span class="nav-text">循环导入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Visibility"><span class="nav-number">2.2.3.</span> <span class="nav-text">Visibility</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可见性"><span class="nav-number">2.2.4.</span> <span class="nav-text">可见性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Package-Management"><span class="nav-number">2.2.5.</span> <span class="nav-text">Package Management</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包管理"><span class="nav-number">2.2.6.</span> <span class="nav-text">包管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dependency-Management"><span class="nav-number">2.2.7.</span> <span class="nav-text">Dependency Management</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖管理"><span class="nav-number">2.2.8.</span> <span class="nav-text">依赖管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interfaces"><span class="nav-number">2.3.</span> <span class="nav-text">Interfaces</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">2.4.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Before-You-Continue"><span class="nav-number">2.5.</span> <span class="nav-text">Before You Continue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继续之前"><span class="nav-number">2.6.</span> <span class="nav-text">继续之前</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-代码组织和接口（Chapter-4-Code-Organization-and-Interfaces）"><span class="nav-number">1.</span> <span class="nav-text">第四章 - 代码组织和接口（Chapter 4 - Code Organization and Interfaces）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#包（Packages）"><span class="nav-number">1.1.</span> <span class="nav-text">包（Packages）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#循环导入（Cyclical-Imports）"><span class="nav-number">1.1.1.</span> <span class="nav-text">循环导入（Cyclical Imports）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可见性（Visibility）"><span class="nav-number">1.1.2.</span> <span class="nav-text">可见性（Visibility）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包管理（Package-Management）"><span class="nav-number">1.1.3.</span> <span class="nav-text">包管理（Package Management）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖管理（Dependency-Management）"><span class="nav-number">1.1.4.</span> <span class="nav-text">依赖管理（Dependency Management）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口（Interfaces）"><span class="nav-number">1.2.</span> <span class="nav-text">接口（Interfaces）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继续之前（Before-You-Continue）"><span class="nav-number">1.3.</span> <span class="nav-text">继续之前（Before You Continue）</span></a></li></ol></li></ol></div>
             
 
           </div>
