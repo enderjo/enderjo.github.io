@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Chapter 5 - Tidbits第五章 - 花絮In this chapter, we’ll talk about a miscellany of Go’s feature which didn’t quite fit anywhere else. 在这一章是，我们会来介绍一些Go的特性的杂烩，这些内容不太适合放在其他章节中。 Error Handling错误处理Go’s preferred">
+<meta name="keywords" content="go,go little book">
+<meta property="og:type" content="article">
+<meta property="og:title" content="chapter-5">
+<meta property="og:url" content="http://l4qiang.me/2018/11/22/go/go-little-book/chapter-5/index.html">
+<meta property="og:site_name" content="CrazyAirhead">
+<meta property="og:description" content="Chapter 5 - Tidbits第五章 - 花絮In this chapter, we’ll talk about a miscellany of Go’s feature which didn’t quite fit anywhere else. 在这一章是，我们会来介绍一些Go的特性的杂烩，这些内容不太适合放在其他章节中。 Error Handling错误处理Go’s preferred">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-22T02:46:59.645Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="chapter-5">
+<meta name="twitter:description" content="Chapter 5 - Tidbits第五章 - 花絮In this chapter, we’ll talk about a miscellany of Go’s feature which didn’t quite fit anywhere else. 在这一章是，我们会来介绍一些Go的特性的杂烩，这些内容不太适合放在其他章节中。 Error Handling错误处理Go’s preferred">
+
+
+
+
+
+
+  <link rel="canonical" href="http://l4qiang.me/2018/11/22/go/go-little-book/chapter-5/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>chapter-5 | CrazyAirhead</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c3ed9d534576a67e94ff8be03a704994";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CrazyAirhead</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">疯狂的傻瓜，傻瓜也疯狂————傻方能执著，疯狂才专注!</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2018/11/22/go/go-little-book/chapter-5/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="L4qiang">
+      <meta itemprop="description" content="记录点滴，注重积累。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CrazyAirhead">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">chapter-5
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-22 10:45:32 / 修改时间：10:46:59" itemprop="dateCreated datePublished" datetime="2018-11-22T10:45:32+08:00">2018-11-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/go/" itemprop="url" rel="index"><span itemprop="name">go</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/go/go-little-book/" itemprop="url" rel="index"><span itemprop="name">go little book</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Chapter-5-Tidbits"><a href="#Chapter-5-Tidbits" class="headerlink" title="Chapter 5 - Tidbits"></a>Chapter 5 - Tidbits</h1><h1 id="第五章-花絮"><a href="#第五章-花絮" class="headerlink" title="第五章 - 花絮"></a>第五章 - 花絮</h1><p>In this chapter, we’ll talk about a miscellany of Go’s feature which didn’t quite fit anywhere else.</p>
+<p>在这一章是，我们会来介绍一些Go的特性的杂烩，这些内容不太适合放在其他章节中。</p>
+<h2 id="Error-Handling"><a href="#Error-Handling" class="headerlink" title="Error Handling"></a>Error Handling</h2><h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p>Go’s preferred way to deal with errors is through return values, not exceptions. Consider the <code>strconv.Atoi</code> function which takes a string and tries to convert it to an integer:</p>
+<p>Go更喜欢用返回值而不是异常的方式来处理错误。例如<code>strconv.Atoi</code>函数将一个字符串转换成一个整数：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"fmt"</span></span><br><span class="line">  <span class="string">"os"</span></span><br><span class="line">  <span class="string">"strconv"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">if</span> <span class="built_in">len</span>(os.Args) != <span class="number">2</span> &#123;</span><br><span class="line">    os.Exit(<span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  n, err := strconv.Atoi(os.Args[<span class="number">1</span>])</span><br><span class="line">  <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">"not a valid number"</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    fmt.Println(n)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>You can create your own error type; the only requirement is that it fulfills the contract of the built-in <code>error</code> interface, which is:</p>
+<p>你可以创建你自己的错误类型；唯一的要求就是需要实现内置接口<code>error</code>:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> error <span class="keyword">interface</span> &#123;</span><br><span class="line">  Error() <span class="keyword">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>More commonly, we can create our own errors by importing the <code>errors</code> package and using it in the <code>New</code> function:</p>
+<p>更为常见的是，我们可以通过导入<code>errors</code>包，并通过它的<code>New</code>函数来创建自己的错误：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"errors"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">process</span><span class="params">(count <span class="keyword">int</span>)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">  <span class="keyword">if</span> count &lt; <span class="number">1</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> errors.New(<span class="string">"Invalid count"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>There’s a common pattern in Go’s standard library of using error variables. For example, the <code>io</code> package has an <code>EOF</code> variable which is defined as:</p>
+<p>在GO的标准库中，使用错误变量是一个常用的模式。例如， 在<code>io</code>包中有一个<code>EOF</code>变量是这样定义的：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> EOF = errors.New(<span class="string">"EOF"</span>)</span><br></pre></td></tr></table></figure>
+<p>This is a package variable (it’s defined outside of a function) which is publicly accessible (upper-case first letter). Various functions can return this error, say when we’re reading from a file or STDIN. If it makes contextual sense, you should use this error, too. As consumers, we can use this singleton:</p>
+<p>这是一个公共（大写字母开关）的包变量（它定义有函数之外）。如果我们从文件或者标准输入时失败时，我们可以返回这个错误。为了更容易理解，你也应该用这个错误。作为使用者，我们可以用这个单件：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"fmt"</span></span><br><span class="line">  <span class="string">"io"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">var</span> input <span class="keyword">int</span></span><br><span class="line">  _, err := fmt.Scan(&amp;input)</span><br><span class="line">  <span class="keyword">if</span> err == io.EOF &#123;</span><br><span class="line">    fmt.Println(<span class="string">"no more input!"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>As a final note, Go does have <code>panic</code> and <code>recover</code> functions. <code>panic</code> is like throwing an exception while <code>recover</code> is like <code>catch</code>; they are rarely used.</p>
+<p>最后要注意的是，Go有<code>panic</code>和<code>recover</code>函数。<code>panic</code>像是抛出异常，而<code>recover</code>是捕获异常；它们不常使用。</p>
+<h2 id="Defer"><a href="#Defer" class="headerlink" title="Defer"></a>Defer</h2><h2 id="Defer-1"><a href="#Defer-1" class="headerlink" title="Defer"></a>Defer</h2><p>Even though Go has a garbage collector, some resources require that we explicitly release them. For example, we need to <code>Close()</code> files after we’re done with them. This sort of code is always dangerous. For one thing, as we’re writing a function, it’s easy to forget to <code>Close</code> something that we declared 10 lines up. For another, a function might have multiple return points. Go’s solution is the <code>defer</code> keyword:</p>
+<p>虽然Go有垃圾回收机制，但是有些资源需要显示的释放它们。比如，当我们使用文件完了之后，需要调用<code>Close()</code>来关闭它们。这类代码总是很危险。其一，我们写一下函数的时候，如果申请一个资源超过10行，就很容易忘记<code>Close</code>。其二，一个函数可能会有多个返回点。Go的解决方案是使用<code>defer</code>关键字：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"fmt"</span></span><br><span class="line">  <span class="string">"os"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  file, err := os.Open(<span class="string">"a_file_to_read"</span>)</span><br><span class="line">  <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    fmt.Println(err)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">defer</span> file.Close()</span><br><span class="line">  <span class="comment">// read the file</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>If you try to run the above code, you’ll probably get an error (the file doesn’t exist). The point is to show how <code>defer</code> works. Whatever you <code>defer</code> will be executed after the method returns, even if it does so violently. This lets you release resources near where it’s initialized and takes care of multiple return points.</p>
+<p>如果你尝试运行上面的代码，你可能收到一个错误（文件不存在）。这里展示的是<code>defer</code>是如何工作的。无论如何在函数返回时<code>defer</code>都会被执行，虽然这样有点极端。但这可以让你在初始化附近释放资源和不要操心多个返回点的问题。</p>
+<h2 id="go-fmt"><a href="#go-fmt" class="headerlink" title="go fmt"></a>go fmt</h2><h2 id="go-fmt-1"><a href="#go-fmt-1" class="headerlink" title="go fmt"></a>go fmt</h2><p>Most programs written in Go follow the same formatting rules, namely, a tab is used to indent and braces go on the same line as their statement.</p>
+<p>绝大多数Go写的代码遵守有一个相同的格式化规则，也就是说，使用Tab来缩进和花括号与语句同一行。</p>
+<p>I know, you have your own style and you want to stick to it. That’s what I did for a long time, but I’m glad I eventually gave in. A big reason for this is the <code>go fmt</code> command. It’s easy to use and authoritative (so no one argues over meaningless preferences).</p>
+<p>我知道你有自己的代码风格并且严格遵守它。我一直以来也是这么做的，但是我最终还是放弃了。一个最在的原因就是<code>go fmt</code>命令。它很容用且权威（所以没有人会为了毫无意义的偏好而争论） </p>
+<p>When you’re inside a project, you can apply the formatting rule to it and all sub-projects via:</p>
+<p>当你在一个工程目录下，你可以通过下面的命令将工程下所有文件使用相同的格式化规则：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go fmt ./...</span><br></pre></td></tr></table></figure>
+<p>Give it a try. It does more than indent your code; it also aligns field declarations and alphabetically orders imports.</p>
+<p>尝试一下吧。除了缩进代码，它还会自动对齐你的声明语句并将包导入按字母顺序排序。</p>
+<h2 id="Initialized-If"><a href="#Initialized-If" class="headerlink" title="Initialized If"></a>Initialized If</h2><h2 id="If初始化"><a href="#If初始化" class="headerlink" title="If初始化"></a>If初始化</h2><p>Go supports a slightly modified if-statement, one where a value can be initiated prior to the condition being evaluated:<br>Go提供了一种稍有不同的if声明，一个可以在条件执行之前声明和初始化：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x := <span class="number">10</span>; count &gt; x &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>That’s a pretty silly example. More realistically, you might do something like:</p>
+<p>这是一个非常简单的例子。更实际的例子是，你可能是这样做的：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> err := process(); err != <span class="literal">nil</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> err</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Interestingly, while the values aren’t available outside the if-statement, they are available inside any <code>else if</code> or <code>else</code>.</p>
+<p>有趣的是，<code>if</code>语句中定义并初始化的值在<code>if</code>语句之外是不可用的，仅可以在<code>else if</code>和<code>else</code>语句中使用。</p>
+<h2 id="Empty-Interface-and-Conversions"><a href="#Empty-Interface-and-Conversions" class="headerlink" title="Empty Interface and Conversions"></a>Empty Interface and Conversions</h2><h2 id="空接口和转换"><a href="#空接口和转换" class="headerlink" title="空接口和转换"></a>空接口和转换</h2><p>In most object-oriented languages, a built-in base class, often named <code>object</code>, is the superclass for all other classes. Go, having no inheritance, doesn’t have such a superclass. What it does have is an empty interface with no methods: <code>interface{}</code>. Since every type implements all 0 of the empty interface’s methods, and since interfaces are implicitly implemented, every type fulfills the contract of the empty interface.</p>
+<p>在大多数面向对象语言中，都有一种内置的基类，叫<code>object</code>，它是所有其他类的超类。但是go语言不支持继承，所以没有类似的超类。Go确实有一个没有任何方法的空接口：<code>interface{}</code>。因为接口都是隐式实现，每种类型都实现了空接口的0个方法，所以每种类型都实现了空接口的协议。</p>
+<p> If we wanted to, we could write an <code>add</code> function with the following signature:</p>
+<p>如果我们愿意，我们可以通过下面声明方式写一个<code>add</code>函数：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(a <span class="keyword">interface</span>&#123;&#125;, b <span class="keyword">interface</span>&#123;&#125;)</span> <span class="title">interface</span></span>&#123;&#125; &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>To convert an interface variable to an explicit type, you use <code>.(TYPE)</code>:</p>
+<p>将一个空接口变量转换成一个指定的类型，你可以使用<code>.(TYPE)</code>:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> a.(<span class="keyword">int</span>) + b.(<span class="keyword">int</span>)</span><br></pre></td></tr></table></figure>
+<p>Note that if the underlying type is not <code>int</code>, the above will result in an error.</p>
+<p>需要注意如果底层类型示是一个<code>int</code>，上面的代码会导致一个错误。</p>
+<p>You also have access to a powerful type switch:</p>
+<p>你也可以通过switch使用强大的类型转换：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> a.(<span class="keyword">type</span>) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="keyword">int</span>:</span><br><span class="line">    fmt.Printf(<span class="string">"a is now an int and equals %d\n"</span>, a)</span><br><span class="line">  <span class="keyword">case</span> <span class="keyword">bool</span>, <span class="keyword">string</span>:</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>You’ll see and probably use the empty interface more than you might first expect. Admittedly, it won’t result in clean code. Converting values back and forth is ugly and dangerous but sometimes, in a static language, it’s the only choice.</p>
+<p>你会发现，空接口的使用会超出你的预期。诚然，这不会让代码变得简洁。来回转换值是丑陋和危险的，但有时候在静态类型语言中，这是唯一的选择。</p>
+<h2 id="Strings-and-Byte-Arrays"><a href="#Strings-and-Byte-Arrays" class="headerlink" title="Strings and Byte Arrays"></a>Strings and Byte Arrays</h2><h2 id="字符串和字节数组"><a href="#字符串和字节数组" class="headerlink" title="字符串和字节数组"></a>字符串和字节数组</h2><p>Strings and byte arrays are closely related. We can easily convert one to the other:</p>
+<p>字符串和字节数组有密切关系，我们可以轻易的将它们转换成对方：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stra := <span class="string">"the spice must flow"</span></span><br><span class="line">byts := []<span class="keyword">byte</span>(stra)</span><br><span class="line">strb := <span class="keyword">string</span>(byts)</span><br></pre></td></tr></table></figure>
+<p>In fact, this way of converting is common across various types as well. Some functions explicitly expect an <code>int32</code> or an <code>int64</code> or their unsigned counterparts. You might find yourself having to do things like:</p>
+<p>事实上，这也是大多数类型的转换方式。一些函数明确指定一个<code>int32</code>或者<code>int64</code>或者相应的无符号类型。你可能会发现你自己不得不像下面这样做：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int64</span>(count)</span><br></pre></td></tr></table></figure>
+<p>Still, when it comes to bytes and strings, it’s probably something you’ll end up doing often. Do note that when you use <code>[]byte(X)</code> or <code>string(X)</code>, you’re creating a copy of the data. This is necessary because strings are immutable.</p>
+<p>然而，当涉及到字节和字符串时，这可能是你会经常做的事。当你使用<code>[]byte(X)</code>或者<code>string(X)</code>时务必注意，你创建了数据的拷贝。这是因为字符串的不可变性。</p>
+<p>Strings are made of <code>runes</code> which are unicode code points. If you take the length of a string, you might not get what you expect. The following prints 3:</p>
+<p>当字符串有由<code>unicode</code>字符码<code>runes</code>组成时。如果你计算字符串的长度时，可能得到的结果和你期待的不同。下面结果是输出3：</p>
+<pre><code>fmt.Println(len(&quot;椒&quot;))
+</code></pre><p>If you iterate over a string using <code>range</code>, you’ll get runes, not bytes. Of course, when you turn a string into a <code>[]byte</code> you’ll get the correct data.</p>
+<p>如果你使用<code>range</code>迭代一个字符串，你得到的是<code>runes</code>,而不是<code>bytes</code>。当然，你将一个字符串转换为<code>[]byte</code>时，你得到的数据还是正确的。</p>
+<h2 id="Function-Type"><a href="#Function-Type" class="headerlink" title="Function Type"></a>Function Type</h2><h2 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h2><p>Functions are first-class types:<br>函数是第一类类型：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Add <span class="function"><span class="keyword">func</span><span class="params">(a <span class="keyword">int</span>, b <span class="keyword">int</span>)</span> <span class="title">int</span></span></span><br></pre></td></tr></table></figure>
+<p>which can then be used anywhere – as a field type, as a parameter, as a return value.</p>
+<p>可以在任何地方使用————可以做为一个字段，参数，返回值。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Add <span class="function"><span class="keyword">func</span><span class="params">(a <span class="keyword">int</span>, b <span class="keyword">int</span>)</span> <span class="title">int</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  fmt.Println(process(<span class="function"><span class="keyword">func</span><span class="params">(a <span class="keyword">int</span>, b <span class="keyword">int</span>)</span> <span class="title">int</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> a + b</span><br><span class="line">  &#125;))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">process</span><span class="params">(adder Add)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">  <span class="keyword">return</span> adder(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Using functions like this can help decouple code from specific implementations much like we achieve with interfaces.</p>
+<p>像这样使用函数可以使你在一些特定实现时减少代码的耦合性，就像使用接口实现那样。</p>
+<h2 id="Before-You-Continue"><a href="#Before-You-Continue" class="headerlink" title="Before You Continue"></a>Before You Continue</h2><h2 id="继续之前"><a href="#继续之前" class="headerlink" title="继续之前"></a>继续之前</h2><p>We looked at various aspects of programming with Go. Most notably, we saw how error handling behaves and how to release resources such as connections and open files. Many people dislike Go’s approach to error handling. It can feel like a step backwards. Sometimes, I agree. Yet, I also find that it results in code that’s easier to follow. <code>defer</code> is an unusual but practical approach to resource management. In fact, it isn’t tied to resource management only. You can use <code>defer</code> for any purpose, such as logging when a function exits.</p>
+<p>我们已经学习了Go编程的很多内容。显而易见，我们看见了错误处理的行为和资源释放如连接或者打开文件。很多人不喜欢Go的错误处理方式。它让人觉得这是一种退步。有些时候，我同意这种说法。然而，我也发现这会导致代码更易读。<code>defer</code>是一种不常见但很实用的资源管理手段。事实上，它不仅仅可以进行资源管理。你可以使用<code>defer</code>完成任何目的，例如当一个函数退出时打印日志记录。</p>
+<p>Certainly, we haven’t looked at all of the tidbits Go has to offer. But you should be feeling comfortable enough to tackle whatever you come across.</p>
+<p>当然，我们还没有学习Go提供的所有花絮。但是无论你遇到什么你应该可以轻松应对。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="L4qiang 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/go/" rel="tag"># go</a>
+          
+            <a href="/tags/go-little-book/" rel="tag"># go little book</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/22/go/go-little-book/chapter-4/" rel="next" title="chapter-4">
+                <i class="fa fa-chevron-left"></i> chapter-4
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/22/go/go-little-book/chapter-6/" rel="prev" title="chapter-6">
+                chapter-6 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">L4qiang</p>
+              <p class="site-description motion-element" itemprop="description">记录点滴，注重积累。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/enderjo" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          <section>
+<div>友情链接</div>
+<a href="http://tech.youxiangfang.shop/" target="_blank">ionlyleaf前端随笔</a>
+</section>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-5-Tidbits"><span class="nav-number">1.</span> <span class="nav-text">Chapter 5 - Tidbits</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章-花絮"><span class="nav-number">2.</span> <span class="nav-text">第五章 - 花絮</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-Handling"><span class="nav-number">2.1.</span> <span class="nav-text">Error Handling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误处理"><span class="nav-number">2.2.</span> <span class="nav-text">错误处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defer"><span class="nav-number">2.3.</span> <span class="nav-text">Defer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defer-1"><span class="nav-number">2.4.</span> <span class="nav-text">Defer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#go-fmt"><span class="nav-number">2.5.</span> <span class="nav-text">go fmt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#go-fmt-1"><span class="nav-number">2.6.</span> <span class="nav-text">go fmt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initialized-If"><span class="nav-number">2.7.</span> <span class="nav-text">Initialized If</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#If初始化"><span class="nav-number">2.8.</span> <span class="nav-text">If初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Empty-Interface-and-Conversions"><span class="nav-number">2.9.</span> <span class="nav-text">Empty Interface and Conversions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#空接口和转换"><span class="nav-number">2.10.</span> <span class="nav-text">空接口和转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Strings-and-Byte-Arrays"><span class="nav-number">2.11.</span> <span class="nav-text">Strings and Byte Arrays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串和字节数组"><span class="nav-number">2.12.</span> <span class="nav-text">字符串和字节数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function-Type"><span class="nav-number">2.13.</span> <span class="nav-text">Function Type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数类型"><span class="nav-number">2.14.</span> <span class="nav-text">函数类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Before-You-Continue"><span class="nav-number">2.15.</span> <span class="nav-text">Before You Continue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继续之前"><span class="nav-number">2.16.</span> <span class="nav-text">继续之前</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">L4qiang</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
