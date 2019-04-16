@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="背景公司IM项目采用个推进行消息推送，之前使用Hbuilder在线打包的方式集成。这次采用Hbuilder插件开发并离线打包的方式新增视频功能（视频使用WebRTC协议），其中的呼入消息需要使用到个推的推送（主要考量就是复用，减少开发量）。通过个推官网的文档Android Studio快速集成（推荐），能很快的将个推SDK集成进来。 实现及问题业务逻辑 视频发起者，发起视频邀请。 服务器接到请求后">
-<meta name="keywords" content="Android,个推,透传消息">
+  <meta name="description" content="The HBase Indexer includes a number of command line tools for adding, updating, listing, and deleting indexers. All of these tools are executed by supplying a command name to the hbase-indexer tool. F">
+<meta name="keywords" content="hbase,hbase indexer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="个推透传消息打开指定页面">
-<meta property="og:url" content="http://l4qiang.me/2018/08/24/android/android-3/index.html">
+<meta property="og:title" content="cli-tool">
+<meta property="og:url" content="http://l4qiang.me/2019/04/16/hbase/hbase-indexer/cli-tool/index.html">
 <meta property="og:site_name" content="CrazyAirhead">
-<meta property="og:description" content="背景公司IM项目采用个推进行消息推送，之前使用Hbuilder在线打包的方式集成。这次采用Hbuilder插件开发并离线打包的方式新增视频功能（视频使用WebRTC协议），其中的呼入消息需要使用到个推的推送（主要考量就是复用，减少开发量）。通过个推官网的文档Android Studio快速集成（推荐），能很快的将个推SDK集成进来。 实现及问题业务逻辑 视频发起者，发起视频邀请。 服务器接到请求后">
+<meta property="og:description" content="The HBase Indexer includes a number of command line tools for adding, updating, listing, and deleting indexers. All of these tools are executed by supplying a command name to the hbase-indexer tool. F">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-22T00:48:18.697Z">
+<meta property="og:updated_time" content="2019-04-16T08:18:32.208Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个推透传消息打开指定页面">
-<meta name="twitter:description" content="背景公司IM项目采用个推进行消息推送，之前使用Hbuilder在线打包的方式集成。这次采用Hbuilder插件开发并离线打包的方式新增视频功能（视频使用WebRTC协议），其中的呼入消息需要使用到个推的推送（主要考量就是复用，减少开发量）。通过个推官网的文档Android Studio快速集成（推荐），能很快的将个推SDK集成进来。 实现及问题业务逻辑 视频发起者，发起视频邀请。 服务器接到请求后">
+<meta name="twitter:title" content="cli-tool">
+<meta name="twitter:description" content="The HBase Indexer includes a number of command line tools for adding, updating, listing, and deleting indexers. All of these tools are executed by supplying a command name to the hbase-indexer tool. F">
 
 
 
 
 
 
-  <link rel="canonical" href="http://l4qiang.me/2018/08/24/android/android-3/">
+  <link rel="canonical" href="http://l4qiang.me/2019/04/16/hbase/hbase-indexer/cli-tool/">
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>个推透传消息打开指定页面 | CrazyAirhead</title>
+  <title>cli-tool | CrazyAirhead</title>
   
 
 
@@ -311,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2018/08/24/android/android-3/">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/04/16/hbase/hbase-indexer/cli-tool/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="L4qiang">
@@ -328,7 +328,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">个推透传消息打开指定页面
+          <h2 class="post-title" itemprop="name headline">cli-tool
               
             
           </h2>
@@ -353,24 +353,12 @@
                 
               
 
-              <time title="创建时间：2018-08-24 06:40:18" itemprop="dateCreated datePublished" datetime="2018-08-24T06:40:18+08:00">2018-08-24</time>
+              <time title="创建时间：2019-04-16 15:00:00 / 修改时间：16:18:32" itemprop="dateCreated datePublished" datetime="2019-04-16T15:00:00+08:00">2019-04-16</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-11-22 08:48:18" itemprop="dateModified" datetime="2018-11-22T08:48:18+08:00">2018-11-22</time>
               
             
           </span>
@@ -387,7 +375,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/hbase/" itemprop="url" rel="index"><span itemprop="name">hbase</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/hbase/hbase-indexer/" itemprop="url" rel="index"><span itemprop="name">hbase indexer</span></a></span>
 
                 
                 
@@ -421,20 +416,20 @@
       
 
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>公司IM项目采用个推进行消息推送，之前使用Hbuilder在线打包的方式集成。这次采用Hbuilder插件开发并离线打包的方式新增视频功能（视频使用WebRTC协议），其中的呼入消息需要使用到个推的推送（主要考量就是复用，减少开发量）。<br>通过个推官网的文档<a href="http://docs.getui.com/getui/mobile/android/androidstudio_maven/" target="_blank" rel="noopener">Android Studio快速集成（推荐）</a>，能很快的将个推SDK集成进来。</p>
-<h2 id="实现及问题"><a href="#实现及问题" class="headerlink" title="实现及问题"></a>实现及问题</h2><h3 id="业务逻辑"><a href="#业务逻辑" class="headerlink" title="业务逻辑"></a>业务逻辑</h3><ol>
-<li>视频发起者，发起视频邀请。</li>
-<li>服务器接到请求后，推送个推透传消息给视频接收者。</li>
-<li>视频接收者，弹出的呼入页面，点击接收开始视频会话，或拒绝视频邀请。<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3>需要继承自com.igexin.sdk.GTIntentService的类，用于接收CID、透传消息。以下为对应的事件回调方法：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoIntentService</span> <span class="keyword">extends</span> <span class="title">GTIntentService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceiveMessageData</span><span class="params">(Context context, GTTransmitMessage msg)</span> </span>&#123;</span><br><span class="line">         <span class="comment">//省略其他业务逻辑</span></span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent(getBaseContext(), XxxActivity.class);</span><br><span class="line">        getApplication().startActivity(intent);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceiveClientId</span><span class="params">(Context context, String clientid)</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">"onReceiveClientId -&gt; "</span> + <span class="string">"clientid = "</span> + clientid);</span><br><span class="line">        <span class="comment">//省略注册个推与用户信息</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>正常情况，此时应该能弹出指定的XxxActivity页面，然而并未弹出。经过一段资料查找和测试验证。需要增加<code>Intent.FLAG_ACTIVITY_NEW_TASK</code>的设置，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceiveMessageData</span><span class="params">(Context context, GTTransmitMessage msg)</span> </span>&#123;</span><br><span class="line">     <span class="comment">//省略其他业务逻辑</span></span><br><span class="line">    Intent intent = <span class="keyword">new</span> Intent(getBaseContext(), XxxActivity.class);</span><br><span class="line">    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">    getApplication().startActivity(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="FLAG-ACTIVITY-NEW-TASK"><a href="#FLAG-ACTIVITY-NEW-TASK" class="headerlink" title="FLAG_ACTIVITY_NEW_TASK"></a>FLAG_ACTIVITY_NEW_TASK</h3><blockquote>
-<p>int FLAG_ACTIVITY_NEW_TASK<br>If set, this activity will become the start of a new task on this history stack.</p>
-</blockquote>
-<p>如果设置了<code>FLAG_ACTIVITY_NEW_TASK</code>，页面会被置顶。从文档来看主要还是对Android开发的基础知识不够了解。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>算是Android开发中的一个小坑吧，记录下来，方便日后查找。希望本文对采用类似方案的朋友有所帮助。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/Monkey_King_Bar/article/details/78568582" target="_blank" rel="noopener">个推-点击推送跳转至指定页面（透传）</a><br><a href="https://developer.android.com/reference/android/content/Intent" target="_blank" rel="noopener">Intent</a></p>
+        <p>The HBase Indexer includes a number of command line tools for adding, updating, listing, and deleting indexers. All of these tools are executed by supplying a command name to the hbase-indexer tool. For example, to use the list-indexers command, you would enter the following:</p>
+<p>./bin/hbase-indexer list-indexers<br>Running any of the commands below with the –help parameter will show a listing of possible command parameters.</p>
+<p>add-indexer<br>The “add-indexer” command is used for configuring a new indexer.</p>
+<p>When adding an indexer, you need to supply at least the following:</p>
+<p>the name of the indexer<br>the indexer’s definition (in the form of an xml file)<br>connection information to the ZooKeeper used by Solr<br>In order to add a basic indexer named “myindexer” whose definition is saved in a file called myindexer.xml, with ZooKeeper running on a server named myzkhost:2181/solr and a Solr collection named mycollection, you would execute the following:</p>
+<p>./bin/hbase-indexer add-indexer \<br>                      –name myindexer \<br>                      –indexer-conf myindexer.xml \<br>                      –cp solr.zk=myzkhost:2181/solr \<br>                      –cp solr.collection=mycollection<br>update-indexer<br>The update-indexer command is used for updating the definition or the state of an indexer.</p>
+<p>This command is most typically used for updating the definition of an indexer – for example, changing the list of fields to be indexed.</p>
+<p>The parameters to the update-indexer tool are generally the same as those for the add-indexer tool, but none of them are mandatory except for the name field.</p>
+<p>To update the definition of the indexer that was created in the example for add-indexer, you would run the following:</p>
+<p>./bin/hbase-indexer update-indexer –name myindexer –indexer-conf myupdatedindexer.xml<br>Any parameters (other than the name parameter) that you supply to the update-indexer command will overwrite existing parameters for the indexer.</p>
+<p>list-indexers<br>The list-indexer command lists all currently configured indexers, including various status information about them.</p>
+<p>This command can be run without any additional parameters.</p>
+<p>delete-indexer<br>The delete-indexer command removes an indexer and stops all indexing processes for that indexer.</p>
+<p>The –name parameter is mandatory for this command.</p>
 
       
     </div>
@@ -479,11 +474,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag"># Android</a>
+            <a href="/tags/hbase/" rel="tag"># hbase</a>
           
-            <a href="/tags/个推/" rel="tag"># 个推</a>
-          
-            <a href="/tags/透传消息/" rel="tag"># 透传消息</a>
+            <a href="/tags/hbase-indexer/" rel="tag"># hbase indexer</a>
           
         </div>
       
@@ -496,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/10/android/android-2/" rel="next" title="Hbuilder Android平台第三方插件开发指导">
-                <i class="fa fa-chevron-left"></i> Hbuilder Android平台第三方插件开发指导
+              <a href="/2019/04/16/es/sniff/" rel="next" title="client.transport.sniff配置引起的问题">
+                <i class="fa fa-chevron-left"></i> client.transport.sniff配置引起的问题
               </a>
             
           </div>
@@ -506,8 +499,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/08/frontend/news/news-1/" rel="prev" title="(翻译)GitHub.com前端移除jQuery库">
-                (翻译)GitHub.com前端移除jQuery库 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/16/hbase/hbase-indexer/metrics/" rel="prev" title="metrics - 指标">
+                metrics - 指标 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -553,17 +546,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -784,22 +768,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现及问题"><span class="nav-number">2.</span> <span class="nav-text">实现及问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#业务逻辑"><span class="nav-number">2.1.</span> <span class="nav-text">业务逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">2.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">2.3.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FLAG-ACTIVITY-NEW-TASK"><span class="nav-number">2.4.</span> <span class="nav-text">FLAG_ACTIVITY_NEW_TASK</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
