@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="CrazyAirhead">
 <meta property="og:description" content="The HBase Indexer includes a number of command line tools for adding, updating, listing, and deleting indexers. All of these tools are executed by supplying a command name to the hbase-indexer tool. F">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-16T08:18:32.208Z">
+<meta property="og:updated_time" content="2019-04-16T08:24:34.557Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cli-tool">
 <meta name="twitter:description" content="The HBase Indexer includes a number of command line tools for adding, updating, listing, and deleting indexers. All of these tools are executed by supplying a command name to the hbase-indexer tool. F">
@@ -353,7 +353,7 @@
                 
               
 
-              <time title="创建时间：2019-04-16 15:00:00 / 修改时间：16:18:32" itemprop="dateCreated datePublished" datetime="2019-04-16T15:00:00+08:00">2019-04-16</time>
+              <time title="创建时间：2019-04-16 15:00:00 / 修改时间：16:24:34" itemprop="dateCreated datePublished" datetime="2019-04-16T15:00:00+08:00">2019-04-16</time>
             
 
             
@@ -417,18 +417,26 @@
 
       
         <p>The HBase Indexer includes a number of command line tools for adding, updating, listing, and deleting indexers. All of these tools are executed by supplying a command name to the hbase-indexer tool. For example, to use the list-indexers command, you would enter the following:</p>
-<p>./bin/hbase-indexer list-indexers<br>Running any of the commands below with the –help parameter will show a listing of possible command parameters.</p>
-<p>add-indexer<br>The “add-indexer” command is used for configuring a new indexer.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/hbase-indexer list-indexers</span><br></pre></td></tr></table></figure>
+<p>Running any of the commands below with the –help parameter will show a listing of possible command parameters.</p>
+<h2 id="add-indexer"><a href="#add-indexer" class="headerlink" title="add-indexer"></a>add-indexer</h2><p>The “add-indexer” command is used for configuring a new indexer.</p>
 <p>When adding an indexer, you need to supply at least the following:</p>
-<p>the name of the indexer<br>the indexer’s definition (in the form of an xml file)<br>connection information to the ZooKeeper used by Solr<br>In order to add a basic indexer named “myindexer” whose definition is saved in a file called myindexer.xml, with ZooKeeper running on a server named myzkhost:2181/solr and a Solr collection named mycollection, you would execute the following:</p>
-<p>./bin/hbase-indexer add-indexer \<br>                      –name myindexer \<br>                      –indexer-conf myindexer.xml \<br>                      –cp solr.zk=myzkhost:2181/solr \<br>                      –cp solr.collection=mycollection<br>update-indexer<br>The update-indexer command is used for updating the definition or the state of an indexer.</p>
+<ul>
+<li>the name of the indexer</li>
+<li>the indexer’s definition (in the form of an xml file)</li>
+<li>connection information to the ZooKeeper used by Solr</li>
+</ul>
+<p>In order to add a basic indexer named “myindexer” whose definition is saved in a file called myindexer.xml, with ZooKeeper running on a server named myzkhost:2181/solr and a Solr collection named mycollection, you would execute the following:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./bin/hbase-indexer add-indexer \</span><br><span class="line">                      --name myindexer \</span><br><span class="line">                      --indexer-conf myindexer.xml \</span><br><span class="line">                      --cp solr.zk=myzkhost:2181/solr \</span><br><span class="line">                      --cp solr.collection=mycollection</span><br></pre></td></tr></table></figure>
+<h2 id="update-indexer"><a href="#update-indexer" class="headerlink" title="update-indexer"></a>update-indexer</h2><p>The update-indexer command is used for updating the definition or the state of an indexer.</p>
 <p>This command is most typically used for updating the definition of an indexer – for example, changing the list of fields to be indexed.</p>
 <p>The parameters to the update-indexer tool are generally the same as those for the add-indexer tool, but none of them are mandatory except for the name field.</p>
 <p>To update the definition of the indexer that was created in the example for add-indexer, you would run the following:</p>
-<p>./bin/hbase-indexer update-indexer –name myindexer –indexer-conf myupdatedindexer.xml<br>Any parameters (other than the name parameter) that you supply to the update-indexer command will overwrite existing parameters for the indexer.</p>
-<p>list-indexers<br>The list-indexer command lists all currently configured indexers, including various status information about them.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/hbase-indexer update-indexer --name myindexer --indexer-conf myupdatedindexer.xml</span><br></pre></td></tr></table></figure>
+<p>Any parameters (other than the name parameter) that you supply to the update-indexer command will overwrite existing parameters for the indexer.</p>
+<h2 id="list-indexers"><a href="#list-indexers" class="headerlink" title="list-indexers"></a>list-indexers</h2><p>The list-indexer command lists all currently configured indexers, including various status information about them.</p>
 <p>This command can be run without any additional parameters.</p>
-<p>delete-indexer<br>The delete-indexer command removes an indexer and stops all indexing processes for that indexer.</p>
+<h2 id="delete-indexer"><a href="#delete-indexer" class="headerlink" title="delete-indexer"></a>delete-indexer</h2><p>The delete-indexer command removes an indexer and stops all indexing processes for that indexer.</p>
 <p>The –name parameter is mandatory for this command.</p>
 
       
@@ -546,8 +554,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -768,6 +785,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#add-indexer"><span class="nav-number">1.</span> <span class="nav-text">add-indexer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#update-indexer"><span class="nav-number">2.</span> <span class="nav-text">update-indexer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list-indexers"><span class="nav-number">3.</span> <span class="nav-text">list-indexers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#delete-indexer"><span class="nav-number">4.</span> <span class="nav-text">delete-indexer</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
