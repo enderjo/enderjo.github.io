@@ -111,14 +111,14 @@
   <meta name="description" content="In addition to indexing HBase updates in near-real-time, it’s also possible to run a batch indexing job that will index data already contained within an HBase table. The batch indexing tool operates w">
 <meta name="keywords" content="hbase,hbase indexer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="batch-indexing">
+<meta property="og:title" content="batch-indexing - 批量索引">
 <meta property="og:url" content="http://l4qiang.me/2019/04/16/hbase/hbase-indexer/batch-indexing/index.html">
 <meta property="og:site_name" content="CrazyAirhead">
 <meta property="og:description" content="In addition to indexing HBase updates in near-real-time, it’s also possible to run a batch indexing job that will index data already contained within an HBase table. The batch indexing tool operates w">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-16T08:19:32.981Z">
+<meta property="og:updated_time" content="2019-04-16T08:27:22.391Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="batch-indexing">
+<meta name="twitter:title" content="batch-indexing - 批量索引">
 <meta name="twitter:description" content="In addition to indexing HBase updates in near-real-time, it’s also possible to run a batch indexing job that will index data already contained within an HBase table. The batch indexing tool operates w">
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>batch-indexing | CrazyAirhead</title>
+  <title>batch-indexing - 批量索引 | CrazyAirhead</title>
   
 
 
@@ -328,7 +328,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">batch-indexing
+          <h2 class="post-title" itemprop="name headline">batch-indexing - 批量索引
               
             
           </h2>
@@ -353,7 +353,7 @@
                 
               
 
-              <time title="创建时间：2019-04-16 16:00:00 / 修改时间：16:19:32" itemprop="dateCreated datePublished" datetime="2019-04-16T16:00:00+08:00">2019-04-16</time>
+              <time title="创建时间：2019-04-16 16:00:00 / 修改时间：16:27:22" itemprop="dateCreated datePublished" datetime="2019-04-16T16:00:00+08:00">2019-04-16</time>
             
 
             
@@ -418,10 +418,11 @@
       
         <p>In addition to indexing HBase updates in near-real-time, it’s also possible to run a batch indexing job that will index data already contained within an HBase table. The batch indexing tool operates with the same indexing semantics as the near-real-time indexer, and it is run as a MapReduce job.</p>
 <p>In its most basic running mode, the batch indexing can be run as multiple indexers that run over HBase regions and write data directly to Solr, as follows:</p>
-<p>hadoop jar hbase-indexer-mr-*-job.jar \<br>    –hbase-indexer-zk zk01 \<br>    –hbase-indexer-name docindexer<br>    –reducers 0<br>It is also possible to generate offline index shards in HDFS by supplying -1 or a positive integer for the –reducers argument, as shown below:</p>
-<p>hadoop jar hbase-indexer-mr-*-job.jar \<br>    –hbase-indexer-zk zk01 \<br>    –hbase-indexer-name docindexer \<br>    –reducers -1 \<br>    –output-dir hdfs://namenode/solroutput<br>Finally, indexing shards can be generated offline and then merged into a running SolrCloud cluster using the –go-live flag as follows:</p>
-<p>hadoop jar hbase-indexer-mr-*-job.jar \<br>    –hbase-indexer-zk zk01 \<br>    –hbase-indexer-name docindexer \<br>    –go-live</p>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hadoop jar hbase-indexer-mr-*-job.jar \ </span><br><span class="line">    --hbase-indexer-zk zk01 \</span><br><span class="line">    --hbase-indexer-name docindexer</span><br><span class="line">    --reducers 0</span><br></pre></td></tr></table></figure>
+<p>It is also possible to generate offline index shards in HDFS by supplying -1 or a positive integer for the –reducers argument, as shown below:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hadoop jar hbase-indexer-mr-*-job.jar \ </span><br><span class="line">    --hbase-indexer-zk zk01 \</span><br><span class="line">    --hbase-indexer-name docindexer \</span><br><span class="line">    --reducers -1 \</span><br><span class="line">    --output-dir hdfs://namenode/solroutput</span><br></pre></td></tr></table></figure>
+<p>Finally, indexing shards can be generated offline and then merged into a running SolrCloud cluster using the –go-live flag as follows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hadoop jar hbase-indexer-mr-*-job.jar \</span><br><span class="line">    --hbase-indexer-zk zk01 \</span><br><span class="line">    --hbase-indexer-name docindexer \</span><br><span class="line">    --go-live</span><br></pre></td></tr></table></figure>
       
     </div>
 
