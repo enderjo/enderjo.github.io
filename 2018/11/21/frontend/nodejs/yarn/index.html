@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="说明用Hexo来做博客而用到了npm。但npm生成的node-modules层次过深，时常打开文件夹时会很慢。后面发现其实yarn也挺好用的，为了不要每次搜索命令，自己做个备份。 命令 安装 1npm install yarn -g  更换安装源 1yarn config set registry &amp;apos;https://registry.npm.taobao.org&amp;apos;  初始化新项">
+  <meta name="description" content="为什么自己用Hexo来做博客而用到了nodejs和npm。但npm生成的node-modules层次过深，时常打开文件夹时会很慢。 后来了解到了yarn，在yarn发布之前，所有Nodejs开发者用的都是npm包管理工具，而npm工具存在挺多难以忍受的诟病，包括安装速度慢、每次都要在线重新安装等问题，而yarn也是为了解决npm当前所存在的问题而出现的。 为了方便自己使用，整理了下安装和基本操作。">
 <meta name="keywords" content="nodejs,yarn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YARN命令">
 <meta property="og:url" content="http://l4qiang.me/2018/11/21/frontend/nodejs/yarn/index.html">
 <meta property="og:site_name" content="CrazyAirhead">
-<meta property="og:description" content="说明用Hexo来做博客而用到了npm。但npm生成的node-modules层次过深，时常打开文件夹时会很慢。后面发现其实yarn也挺好用的，为了不要每次搜索命令，自己做个备份。 命令 安装 1npm install yarn -g  更换安装源 1yarn config set registry &amp;apos;https://registry.npm.taobao.org&amp;apos;  初始化新项">
+<meta property="og:description" content="为什么自己用Hexo来做博客而用到了nodejs和npm。但npm生成的node-modules层次过深，时常打开文件夹时会很慢。 后来了解到了yarn，在yarn发布之前，所有Nodejs开发者用的都是npm包管理工具，而npm工具存在挺多难以忍受的诟病，包括安装速度慢、每次都要在线重新安装等问题，而yarn也是为了解决npm当前所存在的问题而出现的。 为了方便自己使用，整理了下安装和基本操作。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-22T00:55:13.003Z">
+<meta property="og:updated_time" content="2019-04-26T03:51:13.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YARN命令">
-<meta name="twitter:description" content="说明用Hexo来做博客而用到了npm。但npm生成的node-modules层次过深，时常打开文件夹时会很慢。后面发现其实yarn也挺好用的，为了不要每次搜索命令，自己做个备份。 命令 安装 1npm install yarn -g  更换安装源 1yarn config set registry &amp;apos;https://registry.npm.taobao.org&amp;apos;  初始化新项">
+<meta name="twitter:description" content="为什么自己用Hexo来做博客而用到了nodejs和npm。但npm生成的node-modules层次过深，时常打开文件夹时会很慢。 后来了解到了yarn，在yarn发布之前，所有Nodejs开发者用的都是npm包管理工具，而npm工具存在挺多难以忍受的诟病，包括安装速度慢、每次都要在线重新安装等问题，而yarn也是为了解决npm当前所存在的问题而出现的。 为了方便自己使用，整理了下安装和基本操作。">
 
 
 
@@ -370,7 +370,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-22 08:55:13" itemprop="dateModified" datetime="2018-11-22T08:55:13+08:00">2018-11-22</time>
+                <time title="修改时间：2019-04-26 11:51:13" itemprop="dateModified" datetime="2019-04-26T11:51:13+08:00">2019-04-26</time>
               
             
           </span>
@@ -428,34 +428,86 @@
       
 
       
-        <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>用Hexo来做博客而用到了npm。但npm生成的<code>node-modules</code>层次过深，时常打开文件夹时会很慢。<br>后面发现其实yarn也挺好用的，为了不要每次搜索命令，自己做个备份。</p>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ul>
-<li><p>安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install yarn -g</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更换安装源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn config set registry &apos;https://registry.npm.taobao.org&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>初始化新项目</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn init</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加依赖包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add [package]</span><br><span class="line">yarn add [package]@[version]</span><br><span class="line">yarn add [package]@[tag]</span><br></pre></td></tr></table></figure>
-</li>
+        <h2 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h2><p>自己用Hexo来做博客而用到了nodejs和npm。但npm生成的<code>node-modules</code>层次过深，时常打开文件夹时会很慢。</p>
+<p>后来了解到了yarn，在yarn发布之前，所有Nodejs开发者用的都是npm包管理工具，而npm工具存在挺多难以忍受的诟病，包括安装速度慢、每次都要在线重新安装等问题，而yarn也是为了解决npm当前所存在的问题而出现的。</p>
+<p>为了方便自己使用，整理了下安装和基本操作。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li>如果原先有npm工具的话，安装yarn很简单，只需要一行命令即可：</li>
 </ul>
-<p>将依赖项添加到不同依赖项类别<br>分别添加到 devDependencies、peerDependencies 和 optionalDependencies：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add [package] --dev</span><br><span class="line">yarn add [package] --peer</span><br><span class="line">yarn add [package] --optional</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yarn</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>升级依赖包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn upgrade [package]</span><br><span class="line">yarn upgrade [package]@[version]</span><br><span class="line">yarn upgrade [package]@[tag]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>移除依赖包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn remove [package]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装项目的全部依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn</span><br></pre></td></tr></table></figure>
-</li>
+<li>如果没有npm工具，安装yarn可参照<a href="https://yarnpkg.com/en/docs/install" target="_blank" rel="noopener">各平台下yarn工具安装方式</a>。</li>
 </ul>
-<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn install</span><br></pre></td></tr></table></figure></p>
+<h2 id="更换安装源"><a href="#更换安装源" class="headerlink" title="更换安装源"></a>更换安装源</h2><p>安装yarn之后默认的包安装源是<a href="https://registry.yarnpkg.com，可用查看命令" target="_blank" rel="noopener">https://registry.yarnpkg.com，可用查看命令</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn config get registry</span><br></pre></td></tr></table></figure>
+<p>若想提高yarn安装的速度，可将包安装源修改为cnpm的安装源，执行以下命令即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn config set registry 'https://registry.npm.taobao.org'</span><br></pre></td></tr></table></figure>
+<h2 id="操作及对比"><a href="#操作及对比" class="headerlink" title="操作及对比"></a>操作及对比</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>npm</th>
+<th>yarn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>初始化项目</td>
+<td>npm init</td>
+<td>yarn init</td>
+</tr>
+<tr>
+<td>安装依赖操作</td>
+<td>npm install/link</td>
+<td>yarn install/link</td>
+</tr>
+<tr>
+<td>安装某个依赖，并且默认保存到package</td>
+<td>npm install xxx —save</td>
+<td>yarn add xxx</td>
+</tr>
+<tr>
+<td>移除某个依赖项目</td>
+<td>npm uninstall xxx   —save</td>
+<td>yarn remove xxx</td>
+</tr>
+<tr>
+<td>安装某个开发时依赖项目</td>
+<td>npm install –save   -dev xxx</td>
+<td>yarn add xxx —dev</td>
+</tr>
+<tr>
+<td>更新某个依赖项目</td>
+<td>npm update –save xxx</td>
+<td>yarn upgrade xxx</td>
+</tr>
+<tr>
+<td>安装某个全局依赖项目</td>
+<td>npm install -g xxx</td>
+<td>yarn global add xxx</td>
+</tr>
+<tr>
+<td>发布/登录/登出，一系列NPM   Registry操作</td>
+<td>npm   publish/login/logout</td>
+<td>yarn   publish/login/logout</td>
+</tr>
+<tr>
+<td>运行某个命令</td>
+<td>npm run/test</td>
+<td>yarn run/test</td>
+</tr>
+<tr>
+<td>查看帮助</td>
+<td>npm -h</td>
+<td>yarn -h</td>
+</tr>
+</tbody>
+</table>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><h3 id="yarn-global"><a href="#yarn-global" class="headerlink" title="yarn global"></a>yarn global</h3><p>yarn 的全局安装并不是加 -g 或者 –global 这样的参数，它使用 <a href="https://yarnpkg.com/en/docs/cli/global" target="_blank" rel="noopener">yarn global</a> 命令。用 yarn global –help 可以看到子命令列表</p>
+<p>这些子命令的用法和非 global 的同名命令用法差不多。</p>
+<h3 id="指定bin目录"><a href="#指定bin目录" class="headerlink" title="指定bin目录"></a>指定bin目录</h3><p>对于一些带 CLI 的模块，通过 yarn global add 可能会出问题，yarn global bin查看目录，并把该目录添加到Path中。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://segmentfault.com/a/1190000007189426" target="_blank" rel="noopener">yarn —— Nodejs包新管理工具</a></p>
+<p><a href="https://segmentfault.com/a/1190000008489881" target="_blank" rel="noopener">使用 yarn global 代替 npm -g</a></p>
 
       
     </div>
@@ -597,7 +649,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">63</span>
+                    <span class="site-state-item-count">64</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -819,7 +871,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令"><span class="nav-number">2.</span> <span class="nav-text">命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么"><span class="nav-number">1.</span> <span class="nav-text">为什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更换安装源"><span class="nav-number">3.</span> <span class="nav-text">更换安装源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作及对比"><span class="nav-number">4.</span> <span class="nav-text">操作及对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">5.</span> <span class="nav-text">注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#yarn-global"><span class="nav-number">5.1.</span> <span class="nav-text">yarn global</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定bin目录"><span class="nav-number">5.2.</span> <span class="nav-text">指定bin目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
