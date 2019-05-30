@@ -429,8 +429,8 @@
 <h2 id="初步方案"><a href="#初步方案" class="headerlink" title="初步方案"></a>初步方案</h2><p>将用户名和密码配置在Hexo的<code>_config.yml</code>的配置项中，形如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://enderjo:xyz@github.com/enderjo/enderjo.github.io</span><br></pre></td></tr></table></figure></p>
 <p>虽然这样配置是解决了发布问题，但密码安全问题就暴露出来了，想想之前有了解到Github有ssh功能，但也没用过，初步试了下一样发现两个帐号配置的问题，github不支持同一个公钥用于不同的帐号，会提示公钥已经被使用了，请教了下前同事事了解到ssh有个config的配置。</p>
 <h2 id="最终方案"><a href="#最终方案" class="headerlink" title="最终方案"></a>最终方案</h2><p>基于同事的提示刚开始创建的config如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host github:enderjo</span><br><span class="line"> Hostname github.com</span><br><span class="line"> User git</span><br><span class="line"> PreferredAuthentications publickey</span><br><span class="line"> IdentityFile ~/.ssh/github-enderjo/id_rsa</span><br></pre></td></tr></table></figure></p>
-<p>Window中在用户目录<code>%USERPROFILE%</code>下。之后使用ssh测试也是通的。<br>如下：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh -T github.com:enderjo</span></span><br><span class="line">Hi enderjo! You've successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure></p>
-<p>但测试Git Clone的时候提示无法<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> git@github.com:enderjo/enderjo.github.io.git</span></span><br><span class="line">Cloning into 'enderjo.github.io'...</span><br><span class="line">git@github.com: Permission denied (publickey).</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure></p>
+<p>Window中在用户目录<code>%USERPROFILE%</code>下。之后使用ssh测试也是通的。<br>如下：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ssh -T github.com:enderjo</span><br><span class="line">Hi enderjo! You've successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure></p>
+<p>但测试Git Clone的时候提示无法<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git clone git@github.com:enderjo/enderjo.github.io.git</span><br><span class="line">Cloning into 'enderjo.github.io'...</span><br><span class="line">git@github.com: Permission denied (publickey).</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure></p>
 <p>参考<a href="https://help.github.com/articles/error-permission-denied-publickey/" target="_blank" rel="noopener">Error: Permission denied (publickey)</a>通过ssh-add证书的方式，能正常git clone。此时已可初步判断，git clone没有正常取到config的配置。<br>接着同事发来这篇文章<br><a href="https://gitlab.com/gitlab-org/gitlab-ce/issues/45593" target="_blank" rel="noopener">https://gitlab.com/gitlab-org/gitlab-ce/issues/45593</a><br>其中提到，可通过如下命令查看git clone的实际执行过程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GIT_TRACE=1 GIT_SSH_COMMAND=&quot;ssh -vvv&quot; git clone git@gitlab.example.com:my-group/my-project.git</span><br></pre></td></tr></table></figure></p>
 <p>测试后的部分代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ GIT_TRACE=1 GIT_SSH_COMMAND=&quot;ssh -vvv&quot; git clone git@github.com:enderjo/enderjo.github.io.git</span><br><span class="line">14:03:51.164492 exec-cmd.c:236          trace: resolved executable dir: C:/Program Files/Git/mingw64/bin</span><br><span class="line">14:03:51.165492 git.c:415               trace: built-in: git clone git@github.com:enderjo/enderjo.github.io.git</span><br><span class="line">Cloning into &apos;enderjo.github.io&apos;...</span><br><span class="line">14:03:51.225463 run-command.c:637       trace: run_command: unset GIT_DIR; &apos;ssh -vvv&apos; git@github.com &apos;git-upload-pack &apos;\&apos;&apos;enderjo/enderjo.github.io.git&apos;\&apos;&apos;&apos;</span><br></pre></td></tr></table></figure></p>
 <p>此时我们可以看到，实际执行的地址和测试的地址是不一样的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com:enderjo</span><br><span class="line">$ ssh -vvv git@github.com</span><br></pre></td></tr></table></figure></p>
@@ -587,7 +587,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">68</span>
+                    <span class="site-state-item-count">69</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -660,7 +660,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -763,7 +765,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">45</span>
+                      
+                    
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
