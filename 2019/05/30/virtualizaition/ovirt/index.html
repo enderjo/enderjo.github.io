@@ -123,7 +123,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4042820-8cbf0d888fd7b900?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4042820-2f5bf6fa419aa9e3?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
 <meta property="og:image" content="https://img-blog.csdn.net/20180420192509414?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xwd21t/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2019-05-30T07:42:32.508Z">
+<meta property="og:updated_time" content="2019-07-01T13:56:32.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS安装oVirt4.3">
 <meta name="twitter:description" content="本文描述最新版本CentOS(CentOS-7-x86_64-DVD-1810)单机安装oVirt及创建虚拟机的过程。本文主要为自己做记录，以便下次重装时有参考。本文主要参考oVirt官网的安装指南  准备系统采用最小安装方式安装好CentOS7。 基础工具包此步骤非必需，只是为方便后面的一些操作。1# yum install epel-release net-tools vim unzip z">
@@ -361,12 +361,24 @@
                 
               
 
-              <time title="创建时间：2019-05-30 14:08:31 / 修改时间：15:42:32" itemprop="dateCreated datePublished" datetime="2019-05-30T14:08:31+08:00">2019-05-30</time>
+              <time title="创建时间：2019-05-30 14:08:31" itemprop="dateCreated datePublished" datetime="2019-05-30T14:08:31+08:00">2019-05-30</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-01 21:56:32" itemprop="dateModified" datetime="2019-07-01T21:56:32+08:00">2019-07-01</time>
               
             
           </span>
@@ -479,9 +491,9 @@
 <p><img src="https://img-blog.csdn.net/20180420192509414?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xwd21t/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p>
 <p>日志中有如下错误：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2019-05-30 09:21:43,252+08 ERROR [org.ovirt.engine.ui.frontend.server.gwt.OvirtRemoteLoggingService] (default task-20) [] Uncaught exception: com.google.gwt.core.client.JavaScriptException: (TypeError) : 对象不支持“addEventListener”属性或方法</span><br></pre></td></tr></table></figure>
-<h2 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h2><ol>
-<li>无法使用noVNC。</li>
-<li>宿主机无法正常关机，电源灯一直亮。</li>
+<h2 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h2><ol>
+<li>engine-cleanup</li>
+<li>yum remove ovirt-engine</li>
 </ol>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>以上就是oVirt的单机安装和配置使用过程，更多的内容需要不断的使用才会发现。之前对于CentOS和oVirt都不是太了解参考网上资料能基本完成，另感谢同事王的帮助，加深我对CentOS分区和oVirt的域等概念的理解。</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.ovirt.org/documentation/install-guide/chap-Installing_oVirt.html" target="_blank" rel="noopener">https://www.ovirt.org/documentation/install-guide/chap-Installing_oVirt.html</a></p>
@@ -630,7 +642,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-count">74</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -713,7 +725,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">35</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -828,7 +844,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">50</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">52</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -876,7 +896,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统"><span class="nav-number">1.1.</span> <span class="nav-text">系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基础工具包"><span class="nav-number">1.2.</span> <span class="nav-text">基础工具包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置静态IP"><span class="nav-number">1.3.</span> <span class="nav-text">设置静态IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改HostName"><span class="nav-number">1.4.</span> <span class="nav-text">修改HostName</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭防火墙"><span class="nav-number">1.5.</span> <span class="nav-text">关闭防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭SELinux"><span class="nav-number">1.6.</span> <span class="nav-text">关闭SELinux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清理iptables"><span class="nav-number">1.7.</span> <span class="nav-text">清理iptables</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装oVirt包"><span class="nav-number">2.</span> <span class="nav-text">安装oVirt包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置oVirt-Engine"><span class="nav-number">3.</span> <span class="nav-text">配置oVirt Engine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理oVirt"><span class="nav-number">4.</span> <span class="nav-text">管理oVirt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加主机"><span class="nav-number">4.1.</span> <span class="nav-text">添加主机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加存储"><span class="nav-number">4.2.</span> <span class="nav-text">添加存储</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#宿主机配置nfs"><span class="nav-number">4.2.1.</span> <span class="nav-text">宿主机配置nfs</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建目录及设置权限"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">创建目录及设置权限</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#导出"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">导出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启动服务"><span class="nav-number">4.2.1.3.</span> <span class="nav-text">启动服务</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加NFS存储域"><span class="nav-number">4.2.2.</span> <span class="nav-text">添加NFS存储域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加ISO存储域"><span class="nav-number">4.2.3.</span> <span class="nav-text">添加ISO存储域</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建虚拟机"><span class="nav-number">4.3.</span> <span class="nav-text">创建虚拟机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遗留问题"><span class="nav-number">5.</span> <span class="nav-text">遗留问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">7.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统"><span class="nav-number">1.1.</span> <span class="nav-text">系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基础工具包"><span class="nav-number">1.2.</span> <span class="nav-text">基础工具包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置静态IP"><span class="nav-number">1.3.</span> <span class="nav-text">设置静态IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改HostName"><span class="nav-number">1.4.</span> <span class="nav-text">修改HostName</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭防火墙"><span class="nav-number">1.5.</span> <span class="nav-text">关闭防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭SELinux"><span class="nav-number">1.6.</span> <span class="nav-text">关闭SELinux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清理iptables"><span class="nav-number">1.7.</span> <span class="nav-text">清理iptables</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装oVirt包"><span class="nav-number">2.</span> <span class="nav-text">安装oVirt包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置oVirt-Engine"><span class="nav-number">3.</span> <span class="nav-text">配置oVirt Engine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理oVirt"><span class="nav-number">4.</span> <span class="nav-text">管理oVirt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加主机"><span class="nav-number">4.1.</span> <span class="nav-text">添加主机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加存储"><span class="nav-number">4.2.</span> <span class="nav-text">添加存储</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#宿主机配置nfs"><span class="nav-number">4.2.1.</span> <span class="nav-text">宿主机配置nfs</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建目录及设置权限"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">创建目录及设置权限</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#导出"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">导出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启动服务"><span class="nav-number">4.2.1.3.</span> <span class="nav-text">启动服务</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加NFS存储域"><span class="nav-number">4.2.2.</span> <span class="nav-text">添加NFS存储域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加ISO存储域"><span class="nav-number">4.2.3.</span> <span class="nav-text">添加ISO存储域</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建虚拟机"><span class="nav-number">4.3.</span> <span class="nav-text">创建虚拟机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清理"><span class="nav-number">5.</span> <span class="nav-text">清理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">7.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>
