@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="说明最近项目迁移，顺便将Mysql数据库从5.7升级到8.0，记录下升级中的碰到的问题和一些处理。采用SpringBoot集成Jfinal，使用Druid进行数据库连接管理，同样适用于只使用Jfinal的用户。 准备Mysql使用Docker来完成Mysql8的环境准备（这里假设你已安装好Docker CE），可以到DockerHub上看是否有最新版本。1docker run --name m">
+  <meta name="description" content="说明最近项目迁移，顺便将Mysql数据库从5.7升级到8.0，记录下升级中的碰到的问题和一些处理。采用SpringBoot集成Jfinal，使用Druid管理数据库连接，同样适用于只使用Jfinal的用户。 准备Mysql使用Docker来完成Mysql8的环境准备（这里假设你已安装好Docker CE），可以到DockerHub上看是否有最新版本。1docker run --name mys">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="升级Mysql8">
 <meta property="og:url" content="http://l4qiang.me/2019/09/11/mysql/upgrade/index.html">
 <meta property="og:site_name" content="CrazyAirhead">
-<meta property="og:description" content="说明最近项目迁移，顺便将Mysql数据库从5.7升级到8.0，记录下升级中的碰到的问题和一些处理。采用SpringBoot集成Jfinal，使用Druid进行数据库连接管理，同样适用于只使用Jfinal的用户。 准备Mysql使用Docker来完成Mysql8的环境准备（这里假设你已安装好Docker CE），可以到DockerHub上看是否有最新版本。1docker run --name m">
+<meta property="og:description" content="说明最近项目迁移，顺便将Mysql数据库从5.7升级到8.0，记录下升级中的碰到的问题和一些处理。采用SpringBoot集成Jfinal，使用Druid管理数据库连接，同样适用于只使用Jfinal的用户。 准备Mysql使用Docker来完成Mysql8的环境准备（这里假设你已安装好Docker CE），可以到DockerHub上看是否有最新版本。1docker run --name mys">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-11T03:06:23.980Z">
+<meta property="og:updated_time" content="2019-09-11T03:27:48.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="升级Mysql8">
-<meta name="twitter:description" content="说明最近项目迁移，顺便将Mysql数据库从5.7升级到8.0，记录下升级中的碰到的问题和一些处理。采用SpringBoot集成Jfinal，使用Druid进行数据库连接管理，同样适用于只使用Jfinal的用户。 准备Mysql使用Docker来完成Mysql8的环境准备（这里假设你已安装好Docker CE），可以到DockerHub上看是否有最新版本。1docker run --name m">
+<meta name="twitter:description" content="说明最近项目迁移，顺便将Mysql数据库从5.7升级到8.0，记录下升级中的碰到的问题和一些处理。采用SpringBoot集成Jfinal，使用Druid管理数据库连接，同样适用于只使用Jfinal的用户。 准备Mysql使用Docker来完成Mysql8的环境准备（这里假设你已安装好Docker CE），可以到DockerHub上看是否有最新版本。1docker run --name mys">
 
 
 
@@ -353,7 +353,7 @@
                 
               
 
-              <time title="创建时间：2019-09-11 10:18:30 / 修改时间：11:06:23" itemprop="dateCreated datePublished" datetime="2019-09-11T10:18:30+08:00">2019-09-11</time>
+              <time title="创建时间：2019-09-11 10:18:30 / 修改时间：11:27:48" itemprop="dateCreated datePublished" datetime="2019-09-11T10:18:30+08:00">2019-09-11</time>
             
 
             
@@ -409,7 +409,7 @@
       
 
       
-        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>最近项目迁移，顺便将Mysql数据库从5.7升级到8.0，记录下升级中的碰到的问题和一些处理。采用SpringBoot集成Jfinal，使用Druid进行数据库连接管理，同样适用于只使用Jfinal的用户。</p>
+        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>最近项目迁移，顺便将Mysql数据库从5.7升级到8.0，记录下升级中的碰到的问题和一些处理。采用SpringBoot集成Jfinal，使用Druid管理数据库连接，同样适用于只使用Jfinal的用户。</p>
 <h1 id="准备Mysql"><a href="#准备Mysql" class="headerlink" title="准备Mysql"></a>准备Mysql</h1><p>使用Docker来完成Mysql8的环境准备（这里假设你已安装好Docker CE），可以到DockerHub上看是否有最新版本。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql8 -p 3306:3306 MYSQL_ROOT_PASSWORD=123456 -d mysql:8.0</span><br></pre></td></tr></table></figure></p>
 <h1 id="修改pom-xml"><a href="#修改pom-xml" class="headerlink" title="修改pom.xml"></a>修改pom.xml</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h1 id="修改DruidPlugin配置"><a href="#修改DruidPlugin配置" class="headerlink" title="修改DruidPlugin配置"></a>修改DruidPlugin配置</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DruidPlugin druidPlugin = <span class="keyword">new</span> DruidPlugin(<span class="string">"jdbcUrl"</span>, <span class="string">"user"</span>, <span class="string">"password"</span>, <span class="string">"com.mysql.cj.jdbc.Driver"</span>);</span><br></pre></td></tr></table></figure>
