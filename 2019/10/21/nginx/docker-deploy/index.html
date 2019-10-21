@@ -117,7 +117,7 @@
 <meta property="og:description" content="背景我们采用开发直接上线署的方式来快速开发，但因客户已经开始正式使用我司开发的小程序了，为了减少对客户的影响，现在需要额外部署一套开发环境。这个时候首先想到的就是通过Nginx来进行反向代理，开发环境使用二级域名，（如https://dev.zai500.com），方便开发小程序时候使用。因为中间有一些部署前没有碰过的问题，记录下来，以便后期项目时注意。 证书转换公司项目是从SpringBoot转">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://l4qiang.me/images/geek-time-ads/深入理解Nginx.jpeg">
-<meta property="og:updated_time" content="2019-10-21T03:27:37.931Z">
+<meta property="og:updated_time" content="2019-10-21T03:29:57.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Docker部署Nginx并进行反向代理">
 <meta name="twitter:description" content="背景我们采用开发直接上线署的方式来快速开发，但因客户已经开始正式使用我司开发的小程序了，为了减少对客户的影响，现在需要额外部署一套开发环境。这个时候首先想到的就是通过Nginx来进行反向代理，开发环境使用二级域名，（如https://dev.zai500.com），方便开发小程序时候使用。因为中间有一些部署前没有碰过的问题，记录下来，以便后期项目时注意。 证书转换公司项目是从SpringBoot转">
@@ -355,7 +355,7 @@
                 
               
 
-              <time title="创建时间：2019-10-21 10:21:48 / 修改时间：11:27:37" itemprop="dateCreated datePublished" datetime="2019-10-21T10:21:48+08:00">2019-10-21</time>
+              <time title="创建时间：2019-10-21 10:21:48 / 修改时间：11:29:57" itemprop="dateCreated datePublished" datetime="2019-10-21T10:21:48+08:00">2019-10-21</time>
             
 
             
@@ -419,7 +419,7 @@
 
       
         <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>我们采用开发直接上线署的方式来快速开发，但因客户已经开始正式使用我司开发的小程序了，为了减少对客户的影响，现在需要额外部署一套开发环境。这个时候首先想到的就是通过Nginx来进行反向代理，开发环境使用二级域名，（如<a href="https://dev.zai500.com），方便开发小程序时候使用。因为中间有一些部署前没有碰过的问题，记录下来，以便后期项目时注意。" target="_blank" rel="noopener">https://dev.zai500.com），方便开发小程序时候使用。因为中间有一些部署前没有碰过的问题，记录下来，以便后期项目时注意。</a></p>
-<h2 id="证书转换"><a href="#证书转换" class="headerlink" title="证书转换"></a>证书转换</h2><p>公司项目是从SpringBoot转换到jfinal的，所以之前使用的是JKS格式的证书，。</p>
+<h2 id="证书转换"><a href="#证书转换" class="headerlink" title="证书转换"></a>证书转换</h2><p>公司项目是从SpringBoot转换到jfinal的，所以之前使用的是JKS格式的证书，需要进行转换，当然如果可以重新申请也能获得不同格式的证书。</p>
 <h3 id="jks格式转pkcs12"><a href="#jks格式转pkcs12" class="headerlink" title="jks格式转pkcs12"></a>jks格式转pkcs12</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -importkeystore -srckeystore server.keystore -destkeystore server.p12 -srcalias serverkey -destalias serverkey -srcstoretype jks -deststoretype pkcs12 -srcstorepass 111111 -deststorepass 111111 -noprompt</span><br></pre></td></tr></table></figure>
 <h4 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h4><ul>
 <li>importkeystore 指示导入导出keystore文件，可用于同类型或不同类型的导入导出</li>
