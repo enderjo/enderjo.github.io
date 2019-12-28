@@ -15,7 +15,7 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -108,25 +108,23 @@
 
 
 
-  <meta name="description" content="基于对微服务架构的理解，整理出来以下几下微服务相关的基础概念。  授权认证服务 服务注册和发现 配置服务 服务网关 调用链监控 限流熔断 指标监控 健康检查与告警 日志监控 其他  参考(一个可供中小团队参考的微服务架构技术栈)[https://www.infoq.cn/article/china-microservice-technique](微服务基础架构的 5 个关键问题)[https://">
-<meta name="keywords" content="SpringCloud,微服务">
-<meta property="og:type" content="article">
-<meta property="og:title" content="SpringCloud-基础概念">
-<meta property="og:url" content="http://l4qiang.me/2017/12/12/spring/springcloud-0/index.html">
+  <meta name="description" content="记录点滴，注重积累。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CrazyAirhead">
+<meta property="og:url" content="http://l4qiang.me/categories/魔方/软件开发/index.html">
 <meta property="og:site_name" content="CrazyAirhead">
-<meta property="og:description" content="基于对微服务架构的理解，整理出来以下几下微服务相关的基础概念。  授权认证服务 服务注册和发现 配置服务 服务网关 调用链监控 限流熔断 指标监控 健康检查与告警 日志监控 其他  参考(一个可供中小团队参考的微服务架构技术栈)[https://www.infoq.cn/article/china-microservice-technique](微服务基础架构的 5 个关键问题)[https://">
+<meta property="og:description" content="记录点滴，注重积累。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T15:12:17.019Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringCloud-基础概念">
-<meta name="twitter:description" content="基于对微服务架构的理解，整理出来以下几下微服务相关的基础概念。  授权认证服务 服务注册和发现 配置服务 服务网关 调用链监控 限流熔断 指标监控 健康检查与告警 日志监控 其他  参考(一个可供中小团队参考的微服务架构技术栈)[https://www.infoq.cn/article/china-microservice-technique](微服务基础架构的 5 个关键问题)[https://">
+<meta name="twitter:title" content="CrazyAirhead">
+<meta name="twitter:description" content="记录点滴，注重积累。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://l4qiang.me/2017/12/12/spring/springcloud-0/">
+  <link rel="canonical" href="http://l4qiang.me/categories/魔方/软件开发/">
 
 
 
@@ -136,7 +134,7 @@
   };
 </script>
 
-  <title>SpringCloud-基础概念 | CrazyAirhead</title>
+  <title>分类: 软件开发 | CrazyAirhead</title>
   
 
 
@@ -186,17 +184,17 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container sidebar-position-right page-post-detail">
+  <div class="container sidebar-position-right ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -250,7 +248,7 @@
         
         
           
-          <li class="menu-item menu-item-categories">
+          <li class="menu-item menu-item-categories menu-item-active">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
   </li>
@@ -291,247 +289,80 @@
           
             
 
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
           
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
   
   
   
+  <div class="post-block category">
 
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2017/12/12/spring/springcloud-0/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="L4qiang">
-      <meta itemprop="description" content="记录点滴，注重积累。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CrazyAirhead">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">SpringCloud-基础概念
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-12-12 21:06:10" itemprop="dateCreated datePublished" datetime="2017-12-12T21:06:10+08:00">2017-12-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-13 23:12:17" itemprop="dateModified" datetime="2019-03-13T23:12:17+08:00">2019-03-13</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/SpringCloud/" itemprop="url" rel="index"><span itemprop="name">SpringCloud</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h2>软件开发<small>分类</small>
+        </h2>
+      </div>
 
       
-      
+        
 
-      
-        <p>基于对微服务架构的理解，整理出来以下几下微服务相关的基础概念。</p>
-<ul>
-<li>授权认证服务</li>
-<li>服务注册和发现</li>
-<li>配置服务</li>
-<li>服务网关</li>
-<li>调用链监控</li>
-<li>限流熔断</li>
-<li>指标监控</li>
-<li>健康检查与告警</li>
-<li>日志监控</li>
-<li>其他</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>(一个可供中小团队参考的微服务架构技术栈)[<a href="https://www.infoq.cn/article/china-microservice-technique]" target="_blank" rel="noopener">https://www.infoq.cn/article/china-microservice-technique]</a><br>(微服务基础架构的 5 个关键问题)[<a href="https://www.infoq.cn/article/btx6geZA_qwmyr07LbOb]" target="_blank" rel="noopener">https://www.infoq.cn/article/btx6geZA_qwmyr07LbOb]</a></p>
-<h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>(JSkillCloud)[<a href="http://jskillcloud.com/]" target="_blank" rel="noopener">http://jskillcloud.com/]</a></p>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/2019/12/28/misc/RubiksCube/" itemprop="url">
+              
+                <span itemprop="name">关于学习魔方的一些思考</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-12-28T20:51:11+08:00" content="2019-12-28">
+          12-28
+        </time>
+      </div>
+
+    </header>
+  </article>
+
 
       
     </div>
 
-    
-
-    
-    
-    
-
-    
-
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div></div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>打赏</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.png" alt="L4qiang 微信支付">
-        <p>微信支付</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-
-      </div>
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/SpringCloud/" rel="tag"># SpringCloud</a>
-          
-            <a href="/tags/微服务/" rel="tag"># 微服务</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/12/11/zeronet/zeronet-4/" rel="next" title="创建ZeroNet站点">
-                <i class="fa fa-chevron-left"></i> 创建ZeroNet站点
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/26/zeronet/zeronet-5/" rel="prev" title="站点开发入门">
-                站点开发入门 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
   </div>
   
   
   
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
 
   
 
 
+
+          </div>
+          
 
         </div>
         
@@ -552,19 +383,10 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">L4qiang</p>
               <p class="site-description motion-element" itemprop="description">记录点滴，注重积累。</p>
@@ -577,7 +399,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">66</span>
+                    <span class="site-state-item-count">80</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -650,7 +472,35 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -751,7 +601,37 @@
                     
                       
                     
-                    <span class="site-state-item-count">44</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">58</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -790,22 +670,6 @@
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">1.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推荐"><span class="nav-number">2.</span> <span class="nav-text">推荐</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -835,7 +699,7 @@
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.8.0</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.9.0</div>
 
 
 
@@ -944,10 +808,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
-
-
 
   
 

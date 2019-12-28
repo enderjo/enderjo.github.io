@@ -15,7 +15,7 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="背景之前采用Sping Config Server做为配置中心，使用Git做为数据存储和版本控制。整体来说问题不太，可用，便不够商用，或者要做很多拓展。比如更新参数时，需要推送Git，重启服务。如果需要动态更新，需要配置Git服务器的WebHook，设置服务的RefreshScope，同时为了减少WebHook的配置，需要加上Spring Cloud Bus（同时引及RabbitMQ或者Kafka">
-<meta name="keywords" content="SpringCloud,微服务,配置中心">
+  <meta name="description" content="说明事情大致是这样的，在此之前我基本算是零基础，有那么一两次玩是刚好看到同事在玩，顺手玩玩，甚至没完成过一个面。这次呢，因为儿子买了个魔方，玩了会就没玩了，自己就拾起来玩玩，找了视频教程来看，完成整个魔方的复原，现在处于教小孩玩魔方的阶段。在这个学习的过程中呢，有了一些杂七杂八的思考，主要和软件开发有关，于是记录了下来。  如果你和我一样是魔方初学者，本文可能对你有点用，但这篇不是教程，建议看网上">
+<meta name="keywords" content="魔方,软件开发,管理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringCloud-配置中心">
-<meta property="og:url" content="http://l4qiang.me/2019/03/02/spring/springcloud-3/index.html">
+<meta property="og:title" content="关于学习魔方的一些思考">
+<meta property="og:url" content="http://l4qiang.me/2019/12/28/misc/RubiksCube/index.html">
 <meta property="og:site_name" content="CrazyAirhead">
-<meta property="og:description" content="背景之前采用Sping Config Server做为配置中心，使用Git做为数据存储和版本控制。整体来说问题不太，可用，便不够商用，或者要做很多拓展。比如更新参数时，需要推送Git，重启服务。如果需要动态更新，需要配置Git服务器的WebHook，设置服务的RefreshScope，同时为了减少WebHook的配置，需要加上Spring Cloud Bus（同时引及RabbitMQ或者Kafka">
+<meta property="og:description" content="说明事情大致是这样的，在此之前我基本算是零基础，有那么一两次玩是刚好看到同事在玩，顺手玩玩，甚至没完成过一个面。这次呢，因为儿子买了个魔方，玩了会就没玩了，自己就拾起来玩玩，找了视频教程来看，完成整个魔方的复原，现在处于教小孩玩魔方的阶段。在这个学习的过程中呢，有了一些杂七杂八的思考，主要和软件开发有关，于是记录了下来。  如果你和我一样是魔方初学者，本文可能对你有点用，但这篇不是教程，建议看网上">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T15:17:29.862Z">
+<meta property="og:updated_time" content="2019-12-28T14:34:41.012Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringCloud-配置中心">
-<meta name="twitter:description" content="背景之前采用Sping Config Server做为配置中心，使用Git做为数据存储和版本控制。整体来说问题不太，可用，便不够商用，或者要做很多拓展。比如更新参数时，需要推送Git，重启服务。如果需要动态更新，需要配置Git服务器的WebHook，设置服务的RefreshScope，同时为了减少WebHook的配置，需要加上Spring Cloud Bus（同时引及RabbitMQ或者Kafka">
+<meta name="twitter:title" content="关于学习魔方的一些思考">
+<meta name="twitter:description" content="说明事情大致是这样的，在此之前我基本算是零基础，有那么一两次玩是刚好看到同事在玩，顺手玩玩，甚至没完成过一个面。这次呢，因为儿子买了个魔方，玩了会就没玩了，自己就拾起来玩玩，找了视频教程来看，完成整个魔方的复原，现在处于教小孩玩魔方的阶段。在这个学习的过程中呢，有了一些杂七杂八的思考，主要和软件开发有关，于是记录了下来。  如果你和我一样是魔方初学者，本文可能对你有点用，但这篇不是教程，建议看网上">
 
 
 
 
 
 
-  <link rel="canonical" href="http://l4qiang.me/2019/03/02/spring/springcloud-3/">
+  <link rel="canonical" href="http://l4qiang.me/2019/12/28/misc/RubiksCube/">
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>SpringCloud-配置中心 | CrazyAirhead</title>
+  <title>关于学习魔方的一些思考 | CrazyAirhead</title>
   
 
 
@@ -186,7 +186,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -196,7 +196,7 @@
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -306,20 +306,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/03/02/spring/springcloud-3/">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/12/28/misc/RubiksCube/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="L4qiang">
       <meta itemprop="description" content="记录点滴，注重积累。">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CrazyAirhead">
     </span>
 
@@ -328,7 +328,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">SpringCloud-配置中心
+          <h2 class="post-title" itemprop="name headline">关于学习魔方的一些思考
               
             
           </h2>
@@ -353,24 +353,12 @@
                 
               
 
-              <time title="创建时间：2019-03-02 14:24:45" itemprop="dateCreated datePublished" datetime="2019-03-02T14:24:45+08:00">2019-03-02</time>
+              <time title="创建时间：2019-12-28 20:51:11 / 修改时间：22:34:41" itemprop="dateCreated datePublished" datetime="2019-12-28T20:51:11+08:00">2019-12-28</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-13 23:17:29" itemprop="dateModified" datetime="2019-03-13T23:17:29+08:00">2019-03-13</time>
               
             
           </span>
@@ -387,7 +375,21 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/SpringCloud/" itemprop="url" rel="index"><span itemprop="name">SpringCloud</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/魔方/" itemprop="url" rel="index"><span itemprop="name">魔方</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/魔方/软件开发/" itemprop="url" rel="index"><span itemprop="name">软件开发</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/魔方/软件开发/管理/" itemprop="url" rel="index"><span itemprop="name">管理</span></a></span>
 
                 
                 
@@ -421,56 +423,15 @@
       
 
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>之前采用Sping Config Server做为配置中心，使用Git做为数据存储和版本控制。整体来说问题不太，可用，便不够商用，或者要做很多拓展。比如更新参数时，需要推送Git，重启服务。如果需要动态更新，需要配置Git服务器的WebHook，设置服务的RefreshScope，同时为了减少WebHook的配置，需要加上Spring Cloud Bus（同时引及RabbitMQ或者Kafka）。另外对不同环境的配置不友好，能过Profile来配置，但配置杂乱，虽然后面通过Git分支加环境变量解决，但管理还是不方便。带着这样的一些问题，碰到了Apollo配置中心，Apollo的很多功能直接就解开了我之前的一些疑惑，那还说什么呢？拿来用就好了。</p>
-<h2 id="Apollo配置中心"><a href="#Apollo配置中心" class="headerlink" title="Apollo配置中心"></a>Apollo配置中心</h2><p>Apollo配置中心文档丰富，直接看官方文档就好，看了之后你也会喜欢上他。以下是官网的功能说明：</p>
-<ul>
-<li>统一管理不同环境、不同集群的配置<ul>
-<li>Apollo提供了一个统一界面集中式管理不同环境（environment）、不同集群（cluster）、不同命名空间（namespace）的配置。</li>
-<li>同一份代码部署在不同的集群，可以有不同的配置，比如zk的地址等</li>
-<li>通过命名空间（namespace）可以很方便的支持多个不同应用共享同一份配置，同时还允许应用对共享的配置进行覆盖</li>
-</ul>
-</li>
-<li>配置修改实时生效（热发布）<ul>
-<li>用户在Apollo修改完配置并发布后，客户端能实时（1秒）接收到最新的配置，并通知到应用程序。</li>
-</ul>
-</li>
-<li>版本发布管理<ul>
-<li>所有的配置发布都有版本概念，从而可以方便的支持配置的回滚。</li>
-</ul>
-</li>
-<li>灰度发布<ul>
-<li>支持配置的灰度发布，比如点了发布后，只对部分应用实例生效，等观察一段时间没问题后再推给所有应用实例。</li>
-</ul>
-</li>
-<li>权限管理、发布审核、操作审计<ul>
-<li>应用和配置的管理都有完善的权限管理机制，对配置的管理还分为了编辑和发布两个环节，从而减少人为的错误。</li>
-<li>所有的操作都有审计日志，可以方便的追踪问题。</li>
-</ul>
-</li>
-<li>客户端配置信息监控<ul>
-<li>可以方便的看到配置在被哪些实例使用</li>
-</ul>
-</li>
-<li>提供Java和.Net原生客户端<ul>
-<li>提供了Java和.Net的原生客户端，方便应用集成</li>
-<li>支持Spring Placeholder, Annotation和Spring Boot的ConfigurationProperties，方便应用使用（需要Spring 3.1.1+）</li>
-<li>同时提供了Http接口，非Java和.Net应用也可以方便的使用</li>
-</ul>
-</li>
-<li>提供开放平台API<ul>
-<li>Apollo自身提供了比较完善的统一配置管理界面，支持多环境、多数据中心配置管理、权限、流程治理等特性。</li>
-<li>不过Apollo出于通用性考虑，对配置的修改不会做过多限制，只要符合基本的格式就能够保存。</li>
-<li>在我们的调研中发现，对于有些使用方，它们的配置可能会有比较复杂的格式，如xml, json，需要对格式做校验。</li>
-<li>还有一些使用方如DAL，不仅有特定的格式，而且对输入的值也需要进行校验后方可保存，如检查数据库、用户名和密码是否匹配。</li>
-<li>对于这类应用，Apollo支持应用方通过开放接口在Apollo进行配置的修改和发布，并且具备完善的授权和权限控制</li>
-</ul>
-</li>
-<li>部署简单<ul>
-<li>配置中心作为基础服务，可用性要求非常高，这就要求Apollo对外部依赖尽可能地少</li>
-<li>目前唯一的外部依赖是MySQL，所以部署非常简单，只要安装好Java和MySQL就可以让Apollo跑起来</li>
-<li>Apollo还提供了打包脚本，一键就可以生成所有需要的安装包，并且支持自定义运行时参数<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2>通过Apollo配置中心改进了原有Spring Config Server的使用不便。同时如果你的团队使用灰度发布的话，会加深开关驱动开发的了解。</li>
-</ul>
-</li>
+        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>事情大致是这样的，在此之前我基本算是零基础，有那么一两次玩是刚好看到同事在玩，顺手玩玩，甚至没完成过一个面。这次呢，因为儿子买了个魔方，玩了会就没玩了，自己就拾起来玩玩，找了视频教程来看，完成整个魔方的复原，现在处于教小孩玩魔方的阶段。在这个学习的过程中呢，有了一些杂七杂八的思考，主要和软件开发有关，于是记录了下来。</p>
+<blockquote>
+<p>如果你和我一样是魔方初学者，本文可能对你有点用，但这篇不是教程，建议看网上的视频教程。</p>
+</blockquote>
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><ul>
+<li>在看视频教程的时候呢，作者先把魔方的特点和动作（上，拨，下，回）的这些定义讲清楚。其实和在软件开发过程中，先把需求，把业务场景讲清楚是一样的，只有首先将概念弄清楚并且是大家理解一致的之后才有讨论和分析的前提。然而事实上，我们在沟通需求时，时常没有讲清楚，以为对方象自己一样本来就知道，少做了一些补充说明（或是限定范围），导致整个沟通过程鸡同鸭讲，收效甚微。</li>
+<li>在复原的过程中是有固定套路的，比如黄色小白花，白十字，比如上拨下回，上拨下拨上拨拨下，右拨上左拨上右拨下左拨下等等，这其实和软件开发中的设计模式是很像的，对于一个模式解决一个特定场景的问题，而不同的模式的结合则能应对处理更加复杂的应用场景需求。另外我们可以把一些基础动作理解成我们常用的一些组件。</li>
+<li>整个魔方的复原，大致分为先底层、再二层、最后顶层的过程。你可以体会到从无序，到有序，再次混乱最终有序的过程。其实这里我最想说的是关于再次混乱的问题，对于一个软件来说，从概念到有产品再不断运营的生命周期似极了这个过程，在概念阶段各种天马行空，之后从小处着手，有了原型，有了初版，不断加功能，接着各种问题开始暴露出来，在不断的修复与重构的过程中，产品逐步完善。而这里还有一个“差点就成功”，几次在最后复原的时候因为公式没有做完整，恢复就失败了，需要重新开始。在混乱的时候，对于身处其中的人可能只看到问题，或是对产品进行了新的定位，反正是没能坚持，然后就没有然后了，这是可惜，还是可怜？如果对于这个混乱的过程仔细观察，我们会发一些核心方块，位置基本是没有变化的。这也引起我的一些兴趣，对于软件架构时我们常说核心模块和边界，如果核心把握了，边界清晰了，拓展（或插件）的修改对核心的伤害就比较小。如果你往公司看是不是也有这个规律呢？有个术语叫“熵”，理解熵地过程可能更能接受变化吧。</li>
+<li>其实刚学的时候就有点担心学不来，做总比看容易，就是别怕，做了总能出点东西。另一个就是，说总比做容易，真正自己做的才有体会，要有敬畏之心。</li>
 </ul>
 
       
@@ -516,11 +477,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/SpringCloud/" rel="tag"># SpringCloud</a>
+            <a href="/tags/魔方/" rel="tag"># 魔方</a>
           
-            <a href="/tags/微服务/" rel="tag"># 微服务</a>
+            <a href="/tags/软件开发/" rel="tag"># 软件开发</a>
           
-            <a href="/tags/配置中心/" rel="tag"># 配置中心</a>
+            <a href="/tags/管理/" rel="tag"># 管理</a>
           
         </div>
       
@@ -533,8 +494,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/28/misc/three-factors-of-manage/" rel="next" title="管理三要素">
-                <i class="fa fa-chevron-left"></i> 管理三要素
+              <a href="/2019/12/12/es/olap-2/" rel="next" title="Elasticsearch数据建模">
+                <i class="fa fa-chevron-left"></i> Elasticsearch数据建模
               </a>
             
           </div>
@@ -542,10 +503,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/12/spring/springboot-1/" rel="prev" title="SpringBoot-自动配置">
-                SpringBoot-自动配置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -602,7 +559,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">L4qiang</p>
               <p class="site-description motion-element" itemprop="description">记录点滴，注重积累。</p>
@@ -615,7 +572,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">66</span>
+                    <span class="site-state-item-count">80</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -688,7 +645,35 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -789,7 +774,37 @@
                     
                       
                     
-                    <span class="site-state-item-count">44</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">58</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -837,7 +852,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apollo配置中心"><span class="nav-number">2.</span> <span class="nav-text">Apollo配置中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思考"><span class="nav-number">2.</span> <span class="nav-text">思考</span></a></li></ol></div>
             
 
           </div>
@@ -873,7 +888,7 @@
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.8.0</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.9.0</div>
 
 
 
