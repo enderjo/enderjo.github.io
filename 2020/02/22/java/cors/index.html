@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="CrazyAirhead">
 <meta property="og:description" content="概要对于前后端分离的项目，无论是开发还是部署，可能都会碰到CORS问题。采用Jfinal-undertow方式发布的应用来说，通常是不需要考虑CORS的，因为前端与后端是一起发布的，但在开发时或采用分离部署时，还是会碰到的这个问题，因此在这里按开发和部署两部分讲解如何解决CORS问题。 首先我们简单的了解下什么是CORS，完整的资料可以自己查看wikipedia。 CORS跨域资源共享（CORS，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-22T07:19:36.912Z">
+<meta property="og:updated_time" content="2020-02-22T07:50:27.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jfinal前后端分离项目CORS问题处理">
 <meta name="twitter:description" content="概要对于前后端分离的项目，无论是开发还是部署，可能都会碰到CORS问题。采用Jfinal-undertow方式发布的应用来说，通常是不需要考虑CORS的，因为前端与后端是一起发布的，但在开发时或采用分离部署时，还是会碰到的这个问题，因此在这里按开发和部署两部分讲解如何解决CORS问题。 首先我们简单的了解下什么是CORS，完整的资料可以自己查看wikipedia。 CORS跨域资源共享（CORS，">
@@ -353,7 +353,7 @@
                 
               
 
-              <time title="创建时间：2020-02-22 10:11:09 / 修改时间：15:19:36" itemprop="dateCreated datePublished" datetime="2020-02-22T10:11:09+08:00">2020-02-22</time>
+              <time title="创建时间：2020-02-22 10:11:09 / 修改时间：15:50:27" itemprop="dateCreated datePublished" datetime="2020-02-22T10:11:09+08:00">2020-02-22</time>
             
 
             
@@ -425,7 +425,7 @@
       
         <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>对于前后端分离的项目，无论是开发还是部署，可能都会碰到CORS问题。采用Jfinal-undertow方式发布的应用来说，通常是不需要考虑CORS的，因为前端与后端是一起发布的，但在开发时或采用分离部署时，还是会碰到的这个问题，因此在这里按开发和部署两部分讲解如何解决CORS问题。</p>
 <p>首先我们简单的了解下什么是CORS，完整的资料可以自己查看<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing" target="_blank" rel="noopener">wikipedia</a>。</p>
-<h2 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h2><p>跨域资源共享（<strong>CORS，Cross-origin resource sharing</strong>），它是一种允许<strong><em>受限的**</em></strong>访问第一个访问资源域**以外的资源（如字体）的机制。一张网页通常包含了很多跨域的图片，样式，脚本，iframes，或者视频，但一些跨域请求，尤其是Ajax请求，会因为默认的<a href="https://en.wikipedia.org/wiki/Same-origin_policy" target="_blank" rel="noopener">同源安全策略</a>（简单来说就是绝对路径，需要是协议，域名，端口号三者与第一个访问的资源（浏览器中输入的URL）相同，才被认为是同源）而被禁止访问。</p>
+<h2 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h2><p>跨域资源共享（<strong>CORS，Cross-origin resource sharing</strong>），它是一种允许<strong>受限的访问第一个访问资源域</strong>以外的资源（如字体）的机制。一张网页通常包含了很多跨域的图片，样式，脚本，iframes，或者视频，但一些跨域请求，尤其是Ajax请求，会因为默认的<a href="https://en.wikipedia.org/wiki/Same-origin_policy" target="_blank" rel="noopener">同源安全策略</a>（简单来说就是绝对路径，需要是协议，域名，端口号三者与第一个访问的资源（浏览器中输入的URL）相同，才被认为是同源）而被禁止访问。</p>
 <p>CORS定义了浏览器和服务器如何来决定一个跨域请求是安全的。它比完全同源请求有更多的自由和功能，但不要只是简单地允许所有跨源请求。CORS规范最初是作为W3C推荐标准发布的，但该文档已经过时。 <a href="https://fetch.spec.whatwg.org/" target="_blank" rel="noopener">Fetch Living Standard</a>是当前维护活跃的规范。</p>
 <p>对于程序开发来说，可能知道与CORS相关的请求头与响应头，已经够用了。如果需要更细的控制，可以进一步的阅读文档。</p>
 <h3 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h3><ul>
@@ -537,6 +537,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2020/03/01/java/auth/" rel="prev" title="Jfinal如何为不同的应用提供不同的认证与授权">
+                Jfinal如何为不同的应用提供不同的认证与授权 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -605,7 +609,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">78</span>
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -714,7 +718,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -849,7 +857,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">58</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">60</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
