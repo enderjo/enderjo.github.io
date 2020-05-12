@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="CrazyAirhead">
 <meta property="og:description" content="问题Jfinal已经集成了EhCache缓存，只要简单配置就可以使用EhCache。最近的一个字典表数据量比较大，于是开启了EhCache，页面加载速度明显变快。昨日服务突然无法正常启动，错误如下（非法完整错误日志）： 1net.sf.ehcache.CacheException: java.io.InvalidClassException: com.xxx.model.Concept; loca">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-08T08:27:36.700Z">
+<meta property="og:updated_time" content="2020-05-12T14:55:33.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一次Jfinal使用ehcache的错误记录">
 <meta name="twitter:description" content="问题Jfinal已经集成了EhCache缓存，只要简单配置就可以使用EhCache。最近的一个字典表数据量比较大，于是开启了EhCache，页面加载速度明显变快。昨日服务突然无法正常启动，错误如下（非法完整错误日志）： 1net.sf.ehcache.CacheException: java.io.InvalidClassException: com.xxx.model.Concept; loca">
@@ -370,7 +370,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-08 16:27:36" itemprop="dateModified" datetime="2020-03-08T16:27:36+08:00">2020-03-08</time>
+                <time title="修改时间：2020-05-12 22:55:33" itemprop="dateModified" datetime="2020-05-12T22:55:33+08:00">2020-05-12</time>
               
             
           </span>
@@ -437,6 +437,7 @@
 <p>删除临时文件，需要根据自己的实际路径进行删除。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/folders</span><br><span class="line">rm -rf d0</span><br></pre></td></tr></table></figure>
 <p>重新启动服务，正常启动。</p>
+<h3 id="更好的方式"><a href="#更好的方式" class="headerlink" title="更好的方式"></a>更好的方式</h3><p>因为系统是可以正常使用的，可以编写个清理的接口，这样可以在数据结构调整时及时清理缓存。</p>
 
       
     </div>
@@ -878,7 +879,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">2.</span> <span class="nav-text">解决</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">2.</span> <span class="nav-text">解决</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更好的方式"><span class="nav-number">2.1.</span> <span class="nav-text">更好的方式</span></a></li></ol></li></ol></div>
             
 
           </div>
