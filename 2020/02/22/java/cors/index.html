@@ -15,10 +15,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
 
 
@@ -32,8 +32,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -56,9 +56,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
@@ -109,24 +109,26 @@
 
 
   <meta name="description" content="概要对于前后端分离的项目，无论是开发还是部署，可能都会碰到CORS问题。采用Jfinal-undertow方式发布的应用来说，通常是不需要考虑CORS的，因为前端与后端是一起发布的，但在开发时或采用分离部署时，还是会碰到的这个问题，因此在这里按开发和部署两部分讲解如何解决CORS问题。 首先我们简单的了解下什么是CORS，完整的资料可以自己查看wikipedia。 CORS跨域资源共享（CORS，">
-<meta name="keywords" content="jfinal,vue,cors">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jfinal前后端分离项目CORS问题处理">
 <meta property="og:url" content="http://l4qiang.me/2020/02/22/java/cors/index.html">
 <meta property="og:site_name" content="CrazyAirhead">
 <meta property="og:description" content="概要对于前后端分离的项目，无论是开发还是部署，可能都会碰到CORS问题。采用Jfinal-undertow方式发布的应用来说，通常是不需要考虑CORS的，因为前端与后端是一起发布的，但在开发时或采用分离部署时，还是会碰到的这个问题，因此在这里按开发和部署两部分讲解如何解决CORS问题。 首先我们简单的了解下什么是CORS，完整的资料可以自己查看wikipedia。 CORS跨域资源共享（CORS，">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-07T03:12:57.521Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-22T02:11:09.000Z">
+<meta property="article:modified_time" content="2020-03-07T03:12:57.521Z">
+<meta property="article:author" content="L4qiang">
+<meta property="article:tag" content="jfinal">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="cors">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jfinal前后端分离项目CORS问题处理">
-<meta name="twitter:description" content="概要对于前后端分离的项目，无论是开发还是部署，可能都会碰到CORS问题。采用Jfinal-undertow方式发布的应用来说，通常是不需要考虑CORS的，因为前端与后端是一起发布的，但在开发时或采用分离部署时，还是会碰到的这个问题，因此在这里按开发和部署两部分讲解如何解决CORS问题。 首先我们简单的了解下什么是CORS，完整的资料可以自己查看wikipedia。 CORS跨域资源共享（CORS，">
 
 
 
 
 
 
-  <link rel="canonical" href="http://l4qiang.me/2020/02/22/java/cors/">
+  <link rel="canonical" href="http://l4qiang.me/2020/02/22/java/cors/"/>
 
 
 
@@ -184,7 +186,7 @@
   </style>
 </noscript>
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
@@ -236,7 +238,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -244,7 +246,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
         
@@ -252,7 +254,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -260,7 +262,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
 
       
@@ -376,7 +378,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -501,7 +503,7 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.png" alt="L4qiang 微信支付">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="L4qiang 微信支付"/>
         <p>微信支付</p>
       </div>
     
@@ -619,9 +621,9 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/archives/">
+                  <a href="/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">81</span>
+                    <span class="site-state-item-count">82</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -738,7 +740,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">50</span>
+                      
+                    
+                    <span class="site-state-item-count">53</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -879,7 +883,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-count">64</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -963,7 +967,7 @@
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.9.0</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v4.2.1</div>
 
 
 

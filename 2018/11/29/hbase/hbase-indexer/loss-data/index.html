@@ -15,10 +15,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
 
 
@@ -32,8 +32,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -56,9 +56,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
@@ -108,25 +108,26 @@
 
 
 
-  <meta name="description" content="背景公司使用Hbase indexer做二级索引，最近在做数据统计时发现，数据存在有缺失的情况。在网上查找时发现可能是Hbase Indexer的一个BUG，详情看这里。大意是说修改read-row=”never”或者修改源码。我们使用的组件不是完全开源的Hbase Indexer，有被提供商做了部分调整，为了保险起见，自己还是做了一次测试。同时也是进一步了解Hbase和Habse Indexer">
-<meta name="keywords" content="hbase,hbase indexer">
+  <meta name="description" content="背景公司使用Hbase indexer做二级索引，最近在做数据统计时发现，数据存在有缺失的情况。在网上查找时发现可能是Hbase Indexer的一个BUG，详情看这里。大意是说修改read-row&#x3D;”never”或者修改源码。我们使用的组件不是完全开源的Hbase Indexer，有被提供商做了部分调整，为了保险起见，自己还是做了一次测试。同时也是进一步了解Hbase和Habse Indexer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hbase同步Solr数据缺失问题验证">
 <meta property="og:url" content="http://l4qiang.me/2018/11/29/hbase/hbase-indexer/loss-data/index.html">
 <meta property="og:site_name" content="CrazyAirhead">
-<meta property="og:description" content="背景公司使用Hbase indexer做二级索引，最近在做数据统计时发现，数据存在有缺失的情况。在网上查找时发现可能是Hbase Indexer的一个BUG，详情看这里。大意是说修改read-row=”never”或者修改源码。我们使用的组件不是完全开源的Hbase Indexer，有被提供商做了部分调整，为了保险起见，自己还是做了一次测试。同时也是进一步了解Hbase和Habse Indexer">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-29T05:57:47.000Z">
+<meta property="og:description" content="背景公司使用Hbase indexer做二级索引，最近在做数据统计时发现，数据存在有缺失的情况。在网上查找时发现可能是Hbase Indexer的一个BUG，详情看这里。大意是说修改read-row&#x3D;”never”或者修改源码。我们使用的组件不是完全开源的Hbase Indexer，有被提供商做了部分调整，为了保险起见，自己还是做了一次测试。同时也是进一步了解Hbase和Habse Indexer">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-11-29T05:30:00.000Z">
+<meta property="article:modified_time" content="2018-11-29T05:57:47.000Z">
+<meta property="article:author" content="L4qiang">
+<meta property="article:tag" content="hbase">
+<meta property="article:tag" content="hbase indexer">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hbase同步Solr数据缺失问题验证">
-<meta name="twitter:description" content="背景公司使用Hbase indexer做二级索引，最近在做数据统计时发现，数据存在有缺失的情况。在网上查找时发现可能是Hbase Indexer的一个BUG，详情看这里。大意是说修改read-row=”never”或者修改源码。我们使用的组件不是完全开源的Hbase Indexer，有被提供商做了部分调整，为了保险起见，自己还是做了一次测试。同时也是进一步了解Hbase和Habse Indexer">
 
 
 
 
 
 
-  <link rel="canonical" href="http://l4qiang.me/2018/11/29/hbase/hbase-indexer/loss-data/">
+  <link rel="canonical" href="http://l4qiang.me/2018/11/29/hbase/hbase-indexer/loss-data/"/>
 
 
 
@@ -184,7 +185,7 @@
   </style>
 </noscript>
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
@@ -236,7 +237,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -244,7 +245,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
         
@@ -252,7 +253,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -260,7 +261,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
 
       
@@ -364,7 +365,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -480,7 +481,7 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.png" alt="L4qiang 微信支付">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="L4qiang 微信支付"/>
         <p>微信支付</p>
       </div>
     
@@ -596,9 +597,9 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/archives/">
+                  <a href="/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">81</span>
+                    <span class="site-state-item-count">82</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -715,7 +716,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">50</span>
+                      
+                    
+                    <span class="site-state-item-count">53</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -856,7 +859,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-count">64</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -940,7 +943,7 @@
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.9.0</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v4.2.1</div>
 
 
 
