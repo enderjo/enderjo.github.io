@@ -197,7 +197,7 @@
 
       <div class="post-title">
           <a class="post-title-link" href="/2020/05/19/php/env/" itemprop="url">
-            <span itemprop="name">使用VSCode+Docker搭建PHP远程开发环境搭建</span>
+            <span itemprop="name">使用VSCode+Docker搭建PHP远程开发环境</span>
           </a>
       </div>
 
@@ -410,55 +410,6 @@ document.addEventListener('pjax:success', () => {
       script.async = false;
     }
     if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-  
-
-  
-
-
-    </div>
-</body>
-</html>
-{
       script.dataset.pjax = '';
     }
     if (code !== '') {
