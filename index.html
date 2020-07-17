@@ -196,7 +196,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-17 17:11:17 / 修改时间：17:56:03" itemprop="dateCreated datePublished" datetime="2020-07-17T17:11:17+08:00">2020-07-17</time>
+              <time title="创建时间：2020-07-17 17:11:17 / 修改时间：18:15:05" itemprop="dateCreated datePublished" datetime="2020-07-17T17:11:17+08:00">2020-07-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -214,14 +214,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -234,26 +234,14 @@
 
       
           <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>Maven用得好好的，为什么要换Gradle呢？因为Maven不够灵活，就如Ant过于复杂一样。随着持续集成与交付的流行，构建脚步的能力会变得越来越重要，而Maven的在这方面做得比较薄弱。而我们团队呢，一方面也在积极准备推进持续集成，另一方面也为保持团队内开发工具的一致（部分线上项目已经采用了Gradle了），减少学习成本。其实呢，早在 2012 年，ThoughtWorks技术雷达就将Maven放到了暂缓（HOLD）里面，也就是说，能不用就不用。在看看SpringBoot在2.3.0之后也改用Gradle编译了，而且还提到编译速度提升了。何乐而不为呢？</p>
-<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><ul>
-<li>IntelliJ IDEA Community Edition 2020.1.3</li>
-<li>JDK：1.8</li>
-<li>SpringBoot： 2.3.1.RELEASE<h2 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h2>其实转换的过程是非常简单的：一条命令搞定，之后使用IDEA打开build.gradle打开就可以了。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle init --type pom</span><br></pre></td></tr></table></figure>
-但是，我们打开项目之后发现，Maven的parent pom，没有起作用，各个功能模块的版本是独立管理的。</li>
-</ul>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>基于SpringBoot开发，有什么不懂就看SpringBoot他是如何做的就好。我们会发现其实SpringBoot提供了<code>io.spring.dependency-management</code>插件，让我们可以像在Maven中的方式统一管理第三方包。官网说明在<a href="https://docs.spring.io/dependency-management-plugin/docs/current-SNAPSHOT/reference/html/" target="_blank" rel="noopener">这里</a>。</p>
-<p>主要的思路是</p>
-<ul>
-<li>维护统一的parent pom，依然使用maven管理。</li>
-<li>使用subprojects及mavenBom的方式引入依赖包。</li>
-<li>子项目就不需要编写增加版本号了。<br>以下为部分Gradle代码<h3 id="父级build-gradle的配置"><a href="#父级build-gradle的配置" class="headerlink" title="父级build.gradle的配置"></a>父级build.gradle的配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">#变量定义</span><br><span class="line">    ext &#123;</span><br><span class="line">        springBootVersion &#x3D; &#39;2.3.1.RELEASE&#39;</span><br><span class="line">        dependencyVersion &#x3D; &#39;1.0.9.RELEASE&#39;</span><br><span class="line">        tangoParentBomVersion &#x3D; &#39;1.0.1&#39;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">#插件库</span><br><span class="line">    repositories &#123;</span><br><span class="line">        gradlePluginPortal()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">#引入插件</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath &quot;io.spring.gradle:dependency-management-plugin:$dependencyVersion&quot;</span><br><span class="line">        classpath &quot;org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"># 子项目需要的配置</span><br><span class="line">subprojects &#123;</span><br><span class="line">#子项目引用插件</span><br><span class="line">    apply plugin: &#39;java&#39;</span><br><span class="line">    apply plugin: &#39;maven-publish&#39;</span><br><span class="line">    apply plugin: &#39;io.spring.dependency-management&#39;</span><br><span class="line">#子项目仓库指定</span><br><span class="line">    repositories &#123;</span><br><span class="line">        mavenLocal()</span><br><span class="line">        maven &#123;</span><br><span class="line">            url &#x3D; &#39;https:&#x2F;&#x2F;maven.aliyun.com&#x2F;repository&#x2F;public&#x2F;&#39;</span><br><span class="line">        &#125;</span><br><span class="line">        maven &#123;</span><br><span class="line">            url &#x3D; &#39;http:&#x2F;&#x2F;repo.maven.apache.org&#x2F;maven2&#39;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">#我们生成的自定义 maven-bom</span><br><span class="line">    dependencyManagement &#123;</span><br><span class="line">        imports &#123;</span><br><span class="line">            mavenBom &quot;com.tango:parent-starter-bom:$tangoParentBomVersion&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="子项目build-gradle的配置"><a href="#子项目build-gradle的配置" class="headerlink" title="子项目build.gradle的配置"></a>子项目build.gradle的配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile &#39;org.springframework.boot:spring-boot-starter-web&#39;</span><br><span class="line">    compile &#39;org.springframework.boot:spring-boot-starter-actuator&#39;</span><br><span class="line">    compile &#39;org.springframework.boot:spring-boot-starter-aop&#39;</span><br><span class="line">    compile &#39;org.projectlombok:lombok&#39;</span><br><span class="line">    annotationProcessor &#39;org.projectlombok:lombok&#39;</span><br><span class="line">    compile &#39;org.apache.commons:commons-lang3&#39;</span><br><span class="line">    compile &#39;org.springframework.boot:spring-boot-starter-validation&#39;</span><br><span class="line">    testCompile &#39;org.springframework.boot:spring-boot-starter-test&#39;</span><br><span class="line">    testCompile &#39;junit:junit&#39;</span><br><span class="line">&#125;</span><br><span class="line">description &#x3D; &#39;service-api&#39;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><h3 id="Gradle的编译路径"><a href="#Gradle的编译路径" class="headerlink" title="Gradle的编译路径"></a>Gradle的编译路径</h3><h3 id="SpringBoot项目打包"><a href="#SpringBoot项目打包" class="headerlink" title="SpringBoot项目打包"></a>SpringBoot项目打包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jar.enabled &#x3D; true</span><br><span class="line">apply plugin: &#39;org.springframework.boot&#39;</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在Gradle统一管理方面，网上一般使用settings.gradle的方式，对于我们来说不够合理，当前Spring的方式不仅减少了转换成本，还比较优雅。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.jianshu.com/p/cecc1e8da33b" target="_blank" rel="noopener">【采坑记录】maven项目转gradle</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/17/java/gradle/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
