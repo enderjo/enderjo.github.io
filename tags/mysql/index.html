@@ -352,7 +352,7 @@
 
 
       </div>
-      <div class="footer-inner">
+      <div>
         <a href="https://ri.cms.firesbox.com" target="_blank" rel="noopener">践行群官方情报站</a>
       </div>
     </footer>
@@ -415,53 +415,6 @@ document.addEventListener('pjax:success', () => {
     if (element.dataset.pjax !== undefined) {
       script.dataset.pjax = '';
     }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-  
-
-  
-
-
-    </div>
-</body>
-</html>
-   }
     if (code !== '') {
       script.appendChild(document.createTextNode(code));
     }
