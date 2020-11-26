@@ -171,7 +171,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/05/14/spring/springboot-4/">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2020/08/11/homework/020/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -185,7 +185,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/05/14/spring/springboot-4/" class="post-title-link" itemprop="url">代码自动生成的注意事项</a>
+            <a href="/2020/08/11/homework/020/" class="post-title-link" itemprop="url">写作课作业-020</a>
         </h2>
 
         <div class="post-meta">
@@ -194,21 +194,27 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-05-14 11:06:14 / 修改时间：11:49:42" itemprop="dateCreated datePublished" datetime="2019-05-14T11:06:14+08:00">2019-05-14</time>
+              <time title="创建时间：2020-08-11 20:10:00" itemprop="dateCreated datePublished" datetime="2020-08-11T20:10:00+08:00">2020-08-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-07 09:18:31" itemprop="dateModified" datetime="2020-09-07T09:18:31+08:00">2020-09-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+                  <a href="/categories/%E5%86%99%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">写作</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SpringBoot/Jfinal/" itemprop="url" rel="index"><span itemprop="name">Jfinal</span></a>
+                  <a href="/categories/%E5%86%99%E4%BD%9C/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
                 </span>
             </span>
 
@@ -218,7 +224,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>654</span>
+              <span>589</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -237,19 +243,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>在“SpringBoot与Jfinal合体”中说到，使用代码生成技术，大大简化了编码量。但在爽的时候也要时刻注意，自动生成的代码是可能存在问题的，排查问题时不要忽略。</p>
-<h2 id="记一次排查过程"><a href="#记一次排查过程" class="headerlink" title="记一次排查过程"></a>记一次排查过程</h2><p>在整合好了自动代码生成基础框架后，交给同事处理，具体业务需求。一开始一切正常，后面新增加了表，自动生成后，测试对应接口也是正常。</p>
-<p>中间因为有其他任务安排，这部分任务先停了一段时间，这两天回来重新实现业务时，发现接口调用不了，提示空指针。</p>
-<p>在排除了Maven依赖等问题之后，基本能判断是ActiveRecordPlugin的配置没有读到引起的，但查看ActivePlugin的注入的代码（包括SQL文件）都是正常的。</p>
-<p>感觉有点无解的时候，想到要不重新生成试试，因为主要是Model的问题，于是重新生成了Model。之后运行代码，一切正常了。<br>重新核对，发现是<code>_MappingKit</code>，是表和类的映射关系只有一张表。</p>
-<p>最后确认，当时看只要增加一张表，于是把之前的表屏蔽了，同时因为测试了新的接口是正常的，也就没有注意到生成的映射关系有问题。<br>而我自己呢因为是自动生成的代码没有注意排查。</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>代码自动生成有好的一面，也有不足的一面（代码覆盖问题），而一个架构好用就在于能使用少犯错。在架构没有起来之前也就是靠人治，如规范，培训及惩罚等。</p>
-<ol>
-<li>代码自动生成，最好使用在新项目中。</li>
-<li>代码自动生成，应该区分可变不可变内容，让覆盖更合理，让编码更放心。</li>
-<li>代码自动生成，代码可能被覆盖或修改，排查问题时不要忽略。</li>
-<li>修改代码生成器配置时，一定在注意影响范围并测试。</li>
-</ol>
+          <blockquote>
+<p>你最喜欢的电影是哪一部？传达一下这部电影值得一看的感知。</p>
+</blockquote>
+<p> 卡尔参加潜水考试时候，将军说：“我是不会让黑人通过考试的，这种是不可能在我这里发生。”当时美国不允许黑人担任潜水官也还没有黑人担任潜水官。所以，他命令教官把考试用的工具袋划破，零件散落在海里。卡尔一件一件的捡，慢慢的拼，在海里用了9个多小时，险些丧命。当他颤抖着组装好最后一个零件的时候，我欢呼，我感动，我就这么记住了。</p>
+<p>军事法庭上，装着假肢的卡尔被要求穿上290磅重的潜水衣当众走12步。森迪铿锵有力的数着步数，说着潜水员的荣誉，卡尔痛苦的艰难的走完这12步，军事法庭上全场欢呼。我再次欢呼，我再次感动，我就这么记住了。</p>
+<p> 这是《怒海潜将》里的两个片段。当我遇上困难时，脑子里时常会放映这两段，有时不过瘾就会把电影翻出来，整部看完，心里的困惑与就打开了。</p>
+<p> 今天没时间看电影，但重新看遍字幕，影像在脑海中快速的闪过。因为知道了心理建设的重要性，有一段也是不得不说的，卡尔去参加海军和父亲道别时，卡尔说，我会回来的，回来帮忙割草。父亲说，别，千万别回来。你现在加入海军了就要在那奋斗。别守着（家里的）老规矩，该打破就打破。如果难熬的话，一定会很难熬，不要放弃，绝不放弃。临了，父亲送给卡尔一部自己作的收音机，上面刻着“ASNF”（A SON NEVER FORGETS）。后来卡尔能不断成长，不断的遇上贵人相助，少不了父亲心理建设的影响。</p>
 
       
     </div>
@@ -269,7 +269,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/05/13/frontend/vue/vue-error-2/">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2020/08/11/homework/019/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -283,7 +283,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/05/13/frontend/vue/vue-error-2/" class="post-title-link" itemprop="url">VUE踩坑记-02</a>
+            <a href="/2020/08/11/homework/019/" class="post-title-link" itemprop="url">写作课作业-019</a>
         </h2>
 
         <div class="post-meta">
@@ -293,14 +293,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-05-13 15:42:18" itemprop="dateCreated datePublished" datetime="2019-05-13T15:42:18+08:00">2019-05-13</time>
+              <time title="创建时间：2020-08-11 20:09:55" itemprop="dateCreated datePublished" datetime="2020-08-11T20:09:55+08:00">2020-08-11</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-07-21 21:51:56" itemprop="dateModified" datetime="2019-07-21T21:51:56+08:00">2019-07-21</time>
+                <time title="修改时间：2020-09-21 09:41:26" itemprop="dateModified" datetime="2020-09-21T09:41:26+08:00">2020-09-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -308,148 +308,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
+                  <a href="/categories/%E5%86%99%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">写作</span></a>
                 </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>上一篇说到使用vue-element-admin来做后端管理，经同事的介绍可以使用Muse-ui来做前端应用。查看了Muse的官网后，准备踩坑下。</p>
-<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p>在Github上看到MuseUI的模板<a href="https://github.com/museui/nuxt-template" target="_blank" rel="noopener">nuxt-template</a>。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vue init museui/nuxt-tempalte myproject</span><br><span class="line"><span class="built_in">cd</span> my-project</span><br><span class="line">yarn instll</span><br><span class="line">yarn run dev</span><br></pre></td></tr></table></figure>
-<p>一切看起来很美好，<a href="http://localhost:3000可直接看页面了。">http://localhost:3000可直接看页面了。</a></p>
-<h2 id="Nuxt-js"><a href="#Nuxt-js" class="headerlink" title="Nuxt.js"></a>Nuxt.js</h2><p>一看源码，连App.vue都没有，刚有点基础的我慌了。赶紧查查是什么？</p>
-<p>简单点说<a href="https://github.com/nuxt/nuxt.js" target="_blank" rel="noopener">Nuxt.js</a>是一个基于Vue.js的通用应用框架，重点关注应用的UI渲染（支持客户端和服务端渲染），另外它像Maven一样规定了项目的目录结构，对于初学者来说，看懂文档，还是相对容易创建一个新的项目的。这里有它的<a href="https://zh.nuxtjs.org/" target="_blank" rel="noopener">文档</a>，可以自行了解。</p>
-<h2 id="将项目转成TypeScript"><a href="#将项目转成TypeScript" class="headerlink" title="将项目转成TypeScript"></a>将项目转成TypeScript</h2><p>之前说过，ts更接近java，为了统一，我准备将项目转换成ts的，顺便多熟悉下Nuxt。</p>
-<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir myproject2</span><br></pre></td></tr></table></figure>
-<p>用VSCode打开空目录，<code>myproject2</code></p>
-<h3 id="新建package-json文件"><a href="#新建package-json文件" class="headerlink" title="新建package.json文件"></a>新建package.json文件</h3><p>package.json 文件用来设定如何运行 nuxt：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"myproject2"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"dev"</span>: <span class="string">"nuxt"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装Nux"><a href="#安装Nux" class="headerlink" title="安装Nux"></a>安装Nux</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add nuxt</span><br></pre></td></tr></table></figure>
-
-<h3 id="pages目录"><a href="#pages目录" class="headerlink" title="pages目录"></a>pages目录</h3><p>Nuxt.js 会依据 <code>pages</code> 目录中的所有 <code>*.vue</code> 文件生成应用的路由配置。</p>
-<p>创建 <code>pages</code> 目录：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir pages</span><br></pre></td></tr></table></figure>
-
-<p>创建我们的第一个页面 <code>pages/index.vue</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;Hello world!&lt;&#x2F;h1&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn run dev</span><br></pre></td></tr></table></figure>
-
-<p>此时我们的应用运行在 <a href="http://localhost:3000/" target="_blank" rel="noopener">http://localhost:3000</a> 上运行。</p>
-<h3 id="支持TypeScript"><a href="#支持TypeScript" class="headerlink" title="支持TypeScript"></a>支持TypeScript</h3><p>为了能够在项目中使用TypeScript，您需要将<code>@nuxt/typescript</code>和<code>ts-node</code>作为开发依赖项安装：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn add -D @nuxt/typescript</span><br><span class="line">yarn add ts-node</span><br></pre></td></tr></table></figure>
-
-<p>需要创建一个空的<code>tsconfig.json</code>文件，<code>tsconfig.json</code>文件将在您第一次运行<code>nuxt</code>命令时使用默认值自动更新。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch tsconfig.json</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>为了能够在配置文件中使用TypeScript，您只需要将<code>nuxt.config.js</code>重命名为<code>nuxt.config.ts</code>。</p>
-<h3 id="使用ESLint"><a href="#使用ESLint" class="headerlink" title="使用ESLint"></a>使用ESLint</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add -D @typescript-eslint&#x2F;eslint-plugin</span><br></pre></td></tr></table></figure>
-
-<p>然后，通过添加<code>@typescript-eslint</code>插件并使<code>@typescript-eslint/parser</code>作为默认解析器来编辑ESLint配置(<code>.eslintrc.js</code>)。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: [<span class="string">'@typescript-eslint'</span>],</span><br><span class="line">  parserOptions: &#123;</span><br><span class="line">    parser: <span class="string">'@typescript-eslint/parser'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  extends: [</span><br><span class="line">    <span class="string">'@nuxtjs'</span></span><br><span class="line">  ],</span><br><span class="line">  rules: &#123;</span><br><span class="line">    <span class="string">'@typescript-eslint/no-unused-vars'</span>: <span class="string">'error'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>最后，添加或编辑<code>package.json</code>的<code>lint</code>脚本：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore ."</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用MuseUI"><a href="#使用MuseUI" class="headerlink" title="使用MuseUI"></a>使用MuseUI</h3><h4 id="拷贝pages文件"><a href="#拷贝pages文件" class="headerlink" title="拷贝pages文件"></a>拷贝pages文件</h4><p>将myproject下的about.vue和index.vue拷到pages下</p>
-<h4 id="拷贝plugins文件"><a href="#拷贝plugins文件" class="headerlink" title="拷贝plugins文件"></a>拷贝plugins文件</h4><p>将myproject下的muse-ui.js拷贝过来并重命名为muse-ui.ts</p>
-<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p>将<code>nuxt.config.js</code>拷贝过来重命名为<code>nuxt.config.ts</code>。其中去掉eslint的相关配置。修改vendor为</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vendor: [</span><br><span class="line">  <span class="string">'~/plugins/muse-ui'</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>此时通过<code>yarn run dev</code>已经可正常编译，但运行时会页面会提示错误。大致错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SyntaxError</span><br><span class="line">Invalid or unexpected token</span><br><span class="line"></span><br><span class="line">vm.js</span><br><span class="line">Missing stack framesJS </span><br><span class="line">new Script@80:7</span><br></pre></td></tr></table></figure>
-
-<p>查官网<a href="https://github.com/museui/muse-ui/issues/1347" target="_blank" rel="noopener">issues</a>，说是还不支持ssr，调整plugins配置就可以了。</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  &#123;</span><br><span class="line">    src: <span class="string">'~plugins/muse-ui'</span>,</span><br><span class="line">    ssr: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p>最终的<code>nuxt.config.ts</code>文件</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  ** Headers of the page</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  head: &#123;</span><br><span class="line">    title: <span class="string">'myproject2'</span>,</span><br><span class="line">    meta: [</span><br><span class="line">      &#123; charset: <span class="string">'utf-8'</span> &#125;,</span><br><span class="line">      &#123; name: <span class="string">'viewport'</span>, content: <span class="string">'width=device-width, initial-scale=1'</span> &#125;,</span><br><span class="line">      &#123; hid: <span class="string">'description'</span>, name: <span class="string">'description'</span>, content: <span class="string">'Nuxt.js Muse-UI project'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    link: [</span><br><span class="line">      &#123; rel: <span class="string">'icon'</span>, <span class="keyword">type</span>: <span class="string">'image/x-icon'</span>, href: <span class="string">'/favicon.ico'</span> &#125;,</span><br><span class="line">      &#123; rel: <span class="string">'stylesheet'</span>, href: <span class="string">'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  ** Customize the progress bar color</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  loading: &#123; color: <span class="string">'#3B8070'</span> &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    &#123;</span><br><span class="line">      src: <span class="string">'~plugins/muse-ui'</span>,</span><br><span class="line">      ssr: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  ** Build configuration</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  build: &#123;</span><br><span class="line">    babel: &#123;</span><br><span class="line">      plugins: [</span><br><span class="line">        [<span class="string">'import'</span>, &#123;</span><br><span class="line">          libraryName: <span class="string">'muse-ui'</span>,</span><br><span class="line">          libraryDirectory: <span class="string">'lib'</span>,</span><br><span class="line">          camel2DashComponentName: <span class="literal">false</span></span><br><span class="line">        &#125;]</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    vendor: [</span><br><span class="line">      <span class="string">'~/plugins/muse-ui'</span></span><br><span class="line">    ],</span><br><span class="line">    extractCSS: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>经过以上的修改已经可以通过nuxt来管理vue项目，并能过ts来写代码了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/05/09/frontend/vue/vue-error-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="L4qiang">
-      <meta itemprop="description" content="记录点滴，注重积累。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CrazyAirhead">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/05/09/frontend/vue/vue-error-1/" class="post-title-link" itemprop="url">VUE踩坑记-01</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-05-09 13:36:47" itemprop="dateCreated datePublished" datetime="2019-05-09T13:36:47+08:00">2019-05-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-12 23:30:46" itemprop="dateModified" datetime="2019-12-12T23:30:46+08:00">2019-12-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
+                  ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
+                  <a href="/categories/%E5%86%99%E4%BD%9C/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
                 </span>
             </span>
 
@@ -459,107 +322,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>因为公司目前暂时没的前端，于是准备自己用Vue和TypeScript入手公司项目的管理后台。因为Vue已经有很多UI框架了（比如Element），而TypeScript呢，引入了类等概念，对于Java开发人员来说是比较容易入手的。而后端开发人员可能最头疼的是CSS布局吧，于是找了vue-element-admin来抄，当然有人改了个TypeScript版本<a href="https://github.com/Armour/vue-typescript-admin-template" target="_blank" rel="noopener">vue-typescript-admin-template</a>。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>经过一段时间的熟悉yarn和代码结构，我们开始了服务端的调用。</p>
-<h3 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h3><p>本地服务开发我们是可以设置Chrome的跨域的（–disable-web-security<br>–user-data-dir=），但为了后面更好的开发和及时发现问题，我们还是使用了Proxy方式，按vue-cli的文档，增加<code>vue.config.js</code>的devServer配置就要可以，如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * vue-cli3跨域的全配置！</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  devServer: &#123;</span><br><span class="line">     proxy:  <span class="string">'http://172.26.0.252:8881'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但我们还是出现了问题，原来在<code>request.ts</code>中也设置了服务器地址</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> service = axios.create(&#123;</span><br><span class="line">  baseURL: <span class="string">'http://172.26.0.252:8881'</span>,</span><br><span class="line">  timeout: <span class="number">5000</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>其实呢这个值应该设置在<code>.env</code>中，设置VUE_APP_BASE_API</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">VUE_APP_BASE_API</span>=<span class="string">http://172.26.0.252:8881</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="远程调用"><a href="#远程调用" class="headerlink" title="远程调用"></a>远程调用</h3><p>解决了跨域之后，开始了实际的接口调用，修改的是登录页面，一测试，报这样的错。</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">login error:<span class="built_in">Error</span>: ERR_ACTION_ACCESS_UNDEFINED: Are you trying to access <span class="keyword">this</span>.someMutation() or <span class="keyword">this</span>.someGetter inside an <span class="meta">@Action</span>? </span><br><span class="line">That works only <span class="keyword">in</span> dynamic modules. </span><br><span class="line">If not dynamic use <span class="keyword">this</span>.context.commit(<span class="string">"mutationName"</span>, payload) and <span class="keyword">this</span>.context.getters[<span class="string">"getterName"</span>]</span><br><span class="line"><span class="built_in">Error</span>: Could not perform action Login</span><br><span class="line">    at Store.eval (webpack-internal:<span class="comment">///./node_modules/vuex-module-decorators/dist/esm/index.js:333:37)</span></span><br><span class="line">    at step (webpack-internal:<span class="comment">///./node_modules/vuex-module-decorators/dist/esm/index.js:114:23)</span></span><br><span class="line">    at <span class="built_in">Object</span>.eval [<span class="keyword">as</span> <span class="keyword">throw</span>] (webpack-internal:<span class="comment">///./node_modules/vuex-module-decorators/dist/esm/index.js:95:53)</span></span><br><span class="line">    at rejected (webpack-internal:<span class="comment">///./node_modules/vuex-module-decorators/dist/esm/index.js:86:65)</span></span><br><span class="line"><span class="built_in">Error</span>: error <span class="keyword">with</span> code: <span class="literal">undefined</span></span><br><span class="line">    at __webpack_exports__.default (webpack-internal:<span class="comment">///./src/utils/request.ts:48:133)</span></span><br></pre></td></tr></table></figure>
-
-<p>嗯，完全没在头绪，查了下呢看到这篇<a href="https://github.com/championswimmer/vuex-module-decorators/issues/26" target="_blank" rel="noopener">Rejected action throws ERR_ACTION_ACCESS_UNDEFINED</a>，说是增加rawError，因为对Vuex不熟悉，也还是不知道怎么加。</p>
-<p>之后查看了<a href="https://championswimmer.in/vuex-module-decorators/pages/installation.html" target="_blank" rel="noopener"><a href="https://championswimmer.in/vuex-module-decorators/" target="_blank" rel="noopener">vuex-module-decorators</a></a>的基本文档。</p>
-<p>回头重新看<a href="https://github.com/championswimmer/vuex-module-decorators/issues" target="_blank" rel="noopener">issues</a>，搜索<code>ERR_ACTION_ACCESS_UNDEFINED</code>，记录还是不少的，一条条的看，终于看到rawError如何设置。</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Action</span>(&#123; rawError: <span class="literal">true</span> &#125;)</span><br></pre></td></tr></table></figure>
-
-<p>修改代码，测试这个时候报错</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code undifined</span><br></pre></td></tr></table></figure>
-
-<p>问题于是又定位到了<code>request.ts</code>上。</p>
-<p>查看代码，如下：</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">service.interceptors.response.use(</span><br><span class="line">  (response) =&gt; &#123;</span><br><span class="line">    <span class="comment">// Some example codes here:</span></span><br><span class="line">    <span class="comment">// code == 20000: valid</span></span><br><span class="line">    <span class="comment">// code == 50008: invalid token</span></span><br><span class="line">    <span class="comment">// code == 50012: already login in other place</span></span><br><span class="line">    <span class="comment">// code == 50014: token expired</span></span><br><span class="line">    <span class="comment">// code == 60204: account or password is incorrect</span></span><br><span class="line">    <span class="comment">// You can change this part for your own usage.</span></span><br><span class="line">    <span class="keyword">const</span> res = response.data</span><br><span class="line">    <span class="keyword">if</span> (res.code !== <span class="number">20000</span>) &#123;</span><br><span class="line">      Message(&#123;</span><br><span class="line">        message: res.message,</span><br><span class="line">        <span class="keyword">type</span>: <span class="string">'error'</span>,</span><br><span class="line">        duration: <span class="number">5</span> * <span class="number">1000</span></span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">if</span> (res.code === <span class="number">50008</span> || res.code === <span class="number">50012</span> || res.code === <span class="number">50014</span>) &#123;</span><br><span class="line">        MessageBox.confirm(</span><br><span class="line">          <span class="string">'你已被登出，可以取消继续留在该页面，或者重新登录'</span>,</span><br><span class="line">          <span class="string">'确定登出'</span>,</span><br><span class="line">          &#123;</span><br><span class="line">            confirmButtonText: <span class="string">'重新登录'</span>,</span><br><span class="line">            cancelButtonText: <span class="string">'取消'</span>,</span><br><span class="line">            <span class="keyword">type</span>: <span class="string">'warning'</span></span><br><span class="line">          &#125;</span><br><span class="line">        ).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          UserModule.FedLogOut().then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            location.reload() <span class="comment">// To prevent bugs from vue-router</span></span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'error with code: '</span> + res.code))</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> response.data</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line">    Message(&#123;</span><br><span class="line">      message: error.message,</span><br><span class="line">      <span class="keyword">type</span>: <span class="string">'error'</span>,</span><br><span class="line">      duration: <span class="number">5</span> * <span class="number">1000</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>是的，我们的返回值没有返回code，错误被上一层的Module给捕获了，接下来改代码就好了。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>实操才会碰到问题，才能解决问题，看文档时你是不会之后有多少坑的，你以为你会了实际上你还不会。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/04/26/misc/handwriting/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="L4qiang">
-      <meta itemprop="description" content="记录点滴，注重积累。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CrazyAirhead">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/26/misc/handwriting/" class="post-title-link" itemprop="url">硬笔字-笔画</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-04-26 09:25:51 / 修改时间：12:45:24" itemprop="dateCreated datePublished" datetime="2019-04-26T09:25:51+08:00">2019-04-26</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>382</span>
+              <span>709</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -578,15 +341,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="点：如高峰坠石"><a href="#点：如高峰坠石" class="headerlink" title="点：如高峰坠石"></a>点：如高峰坠石</h3><p>右点是写好点的基础，空中落笔，不可太长。垂点像露珠，仰点是自左上到右下落笔顿笔后往左路上挑。</p>
-<h3 id="横：如千里阵云"><a href="#横：如千里阵云" class="headerlink" title="横：如千里阵云"></a>横：如千里阵云</h3><p>起笔要稳，略顿，收笔要顿笔回锋。长横要舒展，行笔速度稍快，中间微微上凸。短横顶着斜向上。</p>
-<h3 id="竖：如万岁枯藤"><a href="#竖：如万岁枯藤" class="headerlink" title="竖：如万岁枯藤"></a>竖：如万岁枯藤</h3><p>垂露竖起笔向左上方伸出，顿笔下行，轻顿收笔。悬针竖运笔沉着形如银针，中锋行笔。</p>
-<h3 id="撇：如陆断犀象"><a href="#撇：如陆断犀象" class="headerlink" title="撇：如陆断犀象"></a>撇：如陆断犀象</h3><p>长撇要舒展而飘逸，短撇要迅速而有力。写好撇，是关键的是要撑握好角度和弧度。</p>
-<h3 id="捺：如崩浪雷奔"><a href="#捺：如崩浪雷奔" class="headerlink" title="捺：如崩浪雷奔"></a>捺：如崩浪雷奔</h3><p>捺的出锋要重顿快收，力量要用得沉稳。斜捺是轻入笔，右下行笔出书锋，不要太直，忌生硬。</p>
-<h3 id="折：如劲弩筋节"><a href="#折：如劲弩筋节" class="headerlink" title="折：如劲弩筋节"></a>折：如劲弩筋节</h3><p>折在书写时候，要有一个明显的停顿，然后转笔和力量的变化，方圆兼备。</p>
-<h3 id="提：如策马扬鞭"><a href="#提：如策马扬鞭" class="headerlink" title="提：如策马扬鞭"></a>提：如策马扬鞭</h3><p>顿笔斜向上，形状像匕首，速度要快，有力量，有策马扬鞭的气势，但不要甩。</p>
-<h3 id="勾：如百钧弩发"><a href="#勾：如百钧弩发" class="headerlink" title="勾：如百钧弩发"></a>勾：如百钧弩发</h3><p>横勾出钩迅速，钩身宜短，出锋方向指向字心。卧钩像一口锅，向上环抱。斜钩像一张弓，行笔迅疾，力拔山河。</p>
-<p><img src="handwriting.jpg" alt="图"></p>
+          <blockquote>
+<p>8.7写作是一件非常重要的技能，值得一辈子去打磨。如果有一天自己放弃了写作训练，有哪些原因？有怎样的解决方案避免自己把写作半途而废？</p>
+</blockquote>
+<p>编程水平的提高除了编程实践外，还需要不断的阅读。写程序很多时候是通过查文档，搜Google才能完成的。自己是从别人的写作中获益的人，也更容易认识到写作的作用，但自己还没能很好的掌握写作这项技能，说来也是惭愧。</p>
+<p>自己认为会放弃最可能的原因是投入时间大，但收效甚微。</p>
+<p>自己解决完问题，是有表达的欲望的，但提前笔来却不知道怎么写，或是要补充资料，需要投入不少时间精力，好不容易写出点东西，但左看右看，连自己不满意。几次写下来，不仅没有觉得进步，反而越写越挫败，于是放弃了。</p>
+<p>针对自己的这个问题，首先要像笑来老师说的“威逼利诱”自己的大脑，做好心理建设，重视写作问题。教是最好的学，写得出来就是能教的一种表现。写作是一种技能，那和编程是一样的多写，就不会手生，不要害怕写作。如果因为嫌麻烦而不写，自己会麻烦一辈子，困在”永恒的当下“。</p>
+<p>然后给自己准备一套模版，比如问题处理记录，教程。有了模板就有结构，填空题比简答题容易，这样能降低写作难度，减少时间投入。</p>
+<p>其次，要时常看自己之前写过的文章，感知自己的变化。我们做为新手，写的文章可能是很少有人看的，更别说反馈了，而感知自己的变化就变得尤为重要了。很多程序员都有这种体验，就是因为Bug回看自己几个月前的代码都是会说垃圾代码，其中的一个原因是自己的编程水平提高了。但自己不太有信心的时候，过段时间看自己之前写的文章，看看自己写得不好的地方。</p>
+<p>最后也是最重要的点，要不停的输入，积累素材，而这个也是我目前做得最不够的地方，自己可以先从归类整理自己的素材开始。</p>
 
       
     </div>
@@ -606,7 +370,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/04/23/spring/start-error/">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2020/08/11/homework/018/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -620,7 +384,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/04/23/spring/start-error/" class="post-title-link" itemprop="url">Spring boot无法启动</a>
+            <a href="/2020/08/11/homework/018/" class="post-title-link" itemprop="url">写作课作业-018</a>
         </h2>
 
         <div class="post-meta">
@@ -629,17 +393,342 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-04-23 14:37:37 / 修改时间：14:48:59" itemprop="dateCreated datePublished" datetime="2019-04-23T14:37:37+08:00">2019-04-23</time>
+              <time title="创建时间：2020-08-11 20:09:50" itemprop="dateCreated datePublished" datetime="2020-08-11T20:09:50+08:00">2020-08-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-07 09:18:12" itemprop="dateModified" datetime="2020-09-07T09:18:12+08:00">2020-09-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+                  <a href="/categories/%E5%86%99%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">写作</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%86%99%E4%BD%9C/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>550</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>写一两件“从众效应”的小事情，来传达知道“从众效应”的利与弊重要性的感知。如何避免受侵害？如何使其为我所用？</p>
+</blockquote>
+<p>厦门高峰期是很堵的，堵车的时候就想走走得快的那条车道。一次回家路上又堵车了，这次开在辅道上，车堵好一会也没动。突然前面的车动了，一看啊，是几辆车往旁边的岔路开去了，我前面的好几辆都往那开，自己印象中好像也是有条路，于是就跟上去了，后视镜里也能看到后面的车也跟上来了。那条路不大，也七拐八拐的，不过也算顺畅。开了好长一段路，看到有车出来了，还开着窗喊着说，前面的路封了。</p>
+<p> 有次不知道什么节日，看着媳妇儿买了很多东西，我说买这么多东西干嘛呢？她说，超市打折啊，说错过今日，再等一年，很多人排队买，累死老娘了。没过多久，有是什么节，一样的配方，这次媳妇没动了，还一个劲的说，说好的一年呢，上次买亏了，这次打折更多。</p>
+<p> 那时在公司上班已经一两年了，部门的人也多起来，招了些新人，新人都比较害羞。我们小领导在下班的时候发动我们打游戏，新人也不怎么会拒绝。不出几天，新人和我们就混得熟络了。</p>
+<p>以上几个算是我的“从众”经历，那“从众”好还是不好呢？我觉得，如果是个人，要警惕发生“从众”，先思考后行动，减少损失。而对于一个组织或者一个团体来说，就要好好分析“从众效应”，利用客户或者引导员工的从众心理，使自己受益。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2020/08/11/homework/017/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="L4qiang">
+      <meta itemprop="description" content="记录点滴，注重积累。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CrazyAirhead">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/11/homework/017/" class="post-title-link" itemprop="url">写作课作业-017</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-11 20:09:40" itemprop="dateCreated datePublished" datetime="2020-08-11T20:09:40+08:00">2020-08-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-07 09:18:02" itemprop="dateModified" datetime="2020-09-07T09:18:02+08:00">2020-09-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%86%99%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">写作</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%86%99%E4%BD%9C/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>以前你是怎么推荐践行群的，有效果吗？现在写一篇文章来有效地推荐践行群，你会怎么写？[呲牙]（思路参考：可以讲自己在践行群的成长和改变；或你跟笑来的故事；或你跟践行群成员相遇相知的故事……）</p>
+</blockquote>
+<p>极客时间算是技术圈的得到，2018年上线的时候，很多课程对自己来说都很有用。极客时间推出了分享有赏的功能，也就是推荐其他人买课是会有返利的。于是大家为了少花点钱，就开始返现买课。自己还拉了个返9的群，公众号还写了些文章来推广。</p>
+<p>以上算是背景。</p>
+<p>践行群什么时候开始可以推广的，我已经不记得了。我自己比较慢热，着实也不懂比较贵的东西自己没卖过，所以一直也没想推广。但我的第一次推广，是因为听了笑来老师的“2019.07.30 2019.07.30 不要急着”推销“——不要把好事变成坏事”里的一句话“对于销售是凭产品赚钱，不要不好意思。”</p>
+<p>于是在极客时间的课程群里，改了下公告。而我的第一次推广居然是公告。</p>
+<p>“听了李笑来老师的BOX定投课，本人CrazyAirhead从今天开始销售课程将不返推广费，请知悉。群成员仍可按自己的方式定返现。</p>
+<p>本人有BOX定投课邀请码，除了邀请码仍需缴2019.73元门票费方可入群。有需要的可以私聊。因为虚拟商品，售出不退，请慎重考虑。</p>
+<p>谢谢大家配合。”</p>
+<p>可想而知的完全没有效果。</p>
+<p>看着Mixin群大家花式的推广，就连抢笑来老师的红包都更大，要说自己没心动过推广门票那是假的。在践行群不断的听课过程中，我是意识到的信任和成为能说那话的人是关键。对于投资来说勇气指数和盈利让你成为能说那话的人，而我投的钱不多，BOX也还没盈利，现在只是人微言轻的阶段。而信任最容易达成的应该是身边的朋友们了，于是也就只有一些比较好的朋友聊天时会说BOX投资，也不会主动推广践行群。于是只是按着自己的方式慢慢的定投着，认真听课把门票钱真的赚回来。</p>
+<p>今天我写BOX定投践行群推广，我只能写或者整理出来BOX是什么，BOX入群指南，BOX践行群学习指南，增加用户故事，先写自己的用户故事。</p>
+<p>区块链投资</p>
+<p>2017.07.12，一块听听上听了Press.One设计理念，买了EOS来众筹Press.One。</p>
+<p>2017.09.04，众筹Press.One退款回EOS。而后通过OTCBTC，BigOne购买和持有EOS。</p>
+<p>2019.07.03，支付19.9元和持有200BOX进入BOX定投践行群，开始定投和持有BOX。</p>
+<p>2020.06.19， 一次性购买5年门票，继续定投和持有BOX。</p>
+<p>健身</p>
+<p>从加入践行群开始相对规律的健身，一周跑个2次，一次3～5公里，从Keep数据看跑步191公里。行走313公里。和儿子晚上走健康步栈道4次，每次4～5公里。</p>
+<p>故事</p>
+<p>最早听到李笑来老师，是大学的一个同学去了北京的新东方参加英语培训，回来时一直给我们讲笑来老师的故事，其中两个我印象特别深：一是利用上厕所的时候学会了一门编程语言，另一个是早上去游泳馆游泳感觉整个游泳馆都是自己的。因为这位同学也很幽默的，刚好也姓李，于是我们把他叫成“李笑来”。学校期间还关注过李笑来老师的Blog一段时间，但Blog的地址换了几次也就断了关注。</p>
+<p>2015年刷微博时，无意中看到了笑来老师的《把时间当作朋友》，读过之后，从干了7年的公司离职，从C++转换到Java。离职前给团队成员送了《把时间当作朋友》，而他们送了本《从你的全世界路过》给我。</p>
+<p>之后一路关注了笑来老师的微博，微信，Github。订阅了得到《通往财富自由之路》，买了《通往财富自由之路》纸质版、看了《Beyond feelings》、《批判性思维》、《清晰思考的艺术》，《韭菜的自我修养》、《自学是门手艺》、《让时间陪你慢慢变富》。</p>
+<p>2019年辞职和一老同事合伙创业，加入BOX定投践行群。</p>
+<p>2020年创业失败，重新找工作。</p>
+<p>自己就是个差生，不仅没有在牛人的指导下快速的成长，而且险些掉队，但有一点我变了——更敢于去面对不确定的未来。而且我一直相信，选择比努力重要，只要路是对的，就不怕路远。《秘密》中有一段话是这么说的“一辆行驶在夜里的车，车灯只能照亮前面的100-200英尺，但你却可以从加利福尼亚一直开到纽约，因为你只需要看到前面的200英尺。”就如我们选择定投，虽然投得不多，但终将从一个世界走向另一个世界。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2020/08/11/homework/016/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="L4qiang">
+      <meta itemprop="description" content="记录点滴，注重积累。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CrazyAirhead">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/11/homework/016/" class="post-title-link" itemprop="url">写作课作业-016</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-11 20:09:35" itemprop="dateCreated datePublished" datetime="2020-08-11T20:09:35+08:00">2020-08-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-07 09:17:53" itemprop="dateModified" datetime="2020-09-07T09:17:53+08:00">2020-09-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%86%99%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">写作</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%86%99%E4%BD%9C/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>411</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>描写一两次自己追涨杀跌的经历，把详尽的思考过程呈现出来，传达不战而胜的重要性的感知。（用一个递进关系）</p>
+</blockquote>
+<p> 今天的我感觉没法写，没有追涨杀跌过，穷限制了我追涨杀跌。发一篇自己2017年记录的一篇笔记。</p>
+<p>前面对股票的认识是基于大众的说法和对新闻的片面理解，比如炒股，赔钱，庄家。此时认为股票这东西就是一个零和游戏，散户钱终究是要被庄家收割的。于是就产生了这样一个想法，业余选手是玩不过专业选手的。所以认为在股市中自己是不能赚到钱的。</p>
+<p>在听了肖星的《财务分析与决策》之后，回归到公司的本质上来，公司就是为股东创造价值，也就从股票的价格中体现出来。随着价值的不断被创造，那这就不是零和游戏了，也就是说散户和专家之间没有任何关系了(为什么这么说呢？关注价值时关注的是一个趋势，而不是关于价格的短期波动。)你按你的方式赚，我按我的方式赚。</p>
+<p>有一件事情就明朗起来——我也能的股市中赚到钱。</p>
+<p>接下的事情就变得简单了，执行定投策略。完善自己的投资知识。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2020/08/11/homework/015/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="L4qiang">
+      <meta itemprop="description" content="记录点滴，注重积累。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CrazyAirhead">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/11/homework/015/" class="post-title-link" itemprop="url">写作课作业-015</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-11 20:09:30" itemprop="dateCreated datePublished" datetime="2020-08-11T20:09:30+08:00">2020-08-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-07 09:17:40" itemprop="dateModified" datetime="2020-09-07T09:17:40+08:00">2020-09-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%86%99%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">写作</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%86%99%E4%BD%9C/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
                 </span>
             </span>
 
@@ -668,10 +757,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>今天启动Spring boot的一个项目时，提示“Process finished with exit code 1”，项目无法启动。<br>初步分析可能是没有配置环境变了，检查了下是有的，加了debug=true，也没出提示日志。</p>
-<p>于是上网查了下，确实说的是环境变量<code>spring.profiles.active</code>没在配置，重新检查配置时发现，之前的环境变量居然是<code>spring.active.profiles</code>。因为换电脑，没有在这台机器运行不同环境，没有发现错误。</p>
-<p>提醒下自己，检查配置内容还是要认真些。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.xttblog.com/?p=2992" target="_blank" rel="noopener">解决 Spring boot 启动报 Process finished with exit code 1 问题</a></p>
+          <blockquote>
+<p>写一两件事情，来传达享受孤独的感知（不是孤单、寂寞或无聊）。要有至少一个排比句子。</p>
+</blockquote>
+<p> 在工作后才有一人独处的时光。当时租的屋子两面窗，太阳早早的就会照进来，自己还保留着学校早起的习惯，于是快速的爬起来，把被子叠成豆腐块。在床边做一组俯卧撑，坐在窗前看一会书，到楼小店喝一碗热粥，走一小段路去上班。自己就像吸水的海绵一切都是那么新鲜。</p>
+<p>后来结婚生子，属于自己的时间少了，被烦的时候总想让我静静，于是找了机会把娘俩送回了娘家。没了早起的习惯，只想睡到自然醒；没了看书的习惯，只想刷会手机，没了喝粥的习惯，只想别饿着就行。但就是这样，自己像挤干净水的海绵一身轻松，编码的一天又开始了。</p>
 
       
     </div>
@@ -691,7 +781,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/04/19/finance/mm-theory/">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2020/08/11/homework/014/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -705,7 +795,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/04/19/finance/mm-theory/" class="post-title-link" itemprop="url">MM理论</a>
+            <a href="/2020/08/11/homework/014/" class="post-title-link" itemprop="url">写作课作业-014</a>
         </h2>
 
         <div class="post-meta">
@@ -714,17 +804,27 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-04-19 09:38:53 / 修改时间：10:18:28" itemprop="dateCreated datePublished" datetime="2019-04-19T09:38:53+08:00">2019-04-19</time>
+              <time title="创建时间：2020-08-11 20:09:24" itemprop="dateCreated datePublished" datetime="2020-08-11T20:09:24+08:00">2020-08-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-07 09:17:28" itemprop="dateModified" datetime="2020-09-07T09:17:28+08:00">2020-09-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%87%91%E8%9E%8D/" itemprop="url" rel="index"><span itemprop="name">金融</span></a>
+                  <a href="/categories/%E5%86%99%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">写作</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%86%99%E4%BD%9C/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
                 </span>
             </span>
 
@@ -734,7 +834,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>872</span>
+              <span>489</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -753,19 +853,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>MM理论被称为是“公司金融学奠基石的理论”，这个理论是关于融资决策的。香帅把这个理论称为企业融资的地平线理论。</p>
-<p>两个M分别是两位作者名字的首个字母，米勒Miller和莫迪利亚尼Modiogian。米勒也因为他在MM理论中的贡献，在1990年和马科维茨、夏普分享了诺贝尔奖。莫迪利亚尼是因为在之前过世了，所以没有拿到诺奖。</p>
-<h2 id="推论"><a href="#推论" class="headerlink" title="推论"></a>推论</h2><ul>
-<li>一个企业的市场价格决定于它未来能创造的价值。</li>
-<li>在有税收存在的情况下，一个企业的价值会随着债务比例的上升而上升。而增加的那部分价值，就恰好等于利息乘以公司的税率。</li>
-<li>当债务存在着破产风险的时候，一个企业的价值会随着债务比例的上升而下降，而下降的价值就等于公司总价值乘以破产的概率。</li>
-</ul>
-<h2 id="为什么是地平线理论"><a href="#为什么是地平线理论" class="headerlink" title="为什么是地平线理论"></a>为什么是地平线理论</h2><p>这个理论看起来挺简单的，为什么这么一个听上去很简单的理论，就拿了诺奖，而且还被誉为“公司金融的奠基性的理论呢”？</p>
-<p>一个好理论的评价标准就是能否用一个最简洁（parsimonious）的框架模型解释最多（rich）的现象。</p>
-<p>MM定理很明显，完美地做到了这点，它先假设一个没有摩擦的世界，然后一步步地加入这个摩擦，让你可以估算这个摩擦对公司价值的影响。然后从里作为起点，你就可以动态地思考下去，用这个理论作为标尺（benchmark），去度量和评估不同条件下的融资决策。从一个最简洁，最干净的设定，得到最丰富的现实解释。这是理论的力量，也是MM定理做得特别好的地方。</p>
-<p>那更牛的地方在哪里呢？就是在MM定理动态演化发展的过程中，学界慢慢形成了一套企业投融资角度的体系化思想。比如说在股东价值最大化的目标下，我们该如何投资项目，该如何选择融资结构，该怎么考虑分红政策，分司的内部治理，哪种选择会更加提升公司的价值。这也是为什么香帅会说MM定理就像公司的地平线理论。</p>
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>金融学思维和架构设计的思维有时是相关的，比如KISS，Less Is More。基于一个好理论的评价标准，我们能否用来定义一个好技术架构呢？用一个最简单的框架服务最多的应用场景。</p>
-<h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p>本文为我对《香帅的北大金融学课》的摘抄和整理，更多详细内容请在得到订阅的《香帅的北大金融学课》。</p>
+          <blockquote>
+<p>我们都听过0.618法则，这个法则一般用在什么地方？还可以用在什么地方？传达一个概念要多个角度思考的重要性的感知。</p>
+</blockquote>
+<p> 二八法则大家可能耳熟能详，0.618黄金分割点或许也不陌生，常在数学和美学中被提及，但0.618和法则结合，可能就要打问号了。维基百科上是这么介绍的，0.618法，又叫黄金分割法，是<a href="https://zh.wikipedia.org/w/index.php?title=优选法&action=edit&redlink=1" target="_blank" rel="noopener">优选法</a>的一种。它在试验时，把试点安排在<a href="https://zh.wikipedia.org/wiki/黄金分割" target="_blank" rel="noopener">黄金分割</a>点上来寻找最佳点。而生产生活中，我们常常取其近似值0.618，因此得名。0.618法是最常用的单因素单峰目标函数优选法之一。</p>
+<p>李永乐老师讲了一期《<a href="https://www.youtube.com/watch?v=pelPCK22W7k" target="_blank" rel="noopener">什么是爱情？怎么谈恋爱，才能有效的找到自己的真命天子？李永乐老师讲爱情数学</a>》，提到1/e约为0.368，如何有100个候选人，选第37位可能选中真命天子的概率比较大。类似的，0.618法也可以用于有限条件下的决策。比如只把笔试成绩排名前37%的人叫来面试，节省公司资源。比如把产品价格按市场最高，最低的黄金分割点，保证收益。</p>
+<p> 那0.618法与二八法则怎么选呢，我的理解是：</p>
+<p>0.2*0.8=0.16</p>
+<p>0.4*0.6=0.24</p>
+<p>在有限成本的前提下，二八法能快速出效益，0.618法则更平衡和效益更大化。</p>
 
       
     </div>
@@ -785,7 +881,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/04/16/hbase/hbase-indexer/batch-indexing/">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2020/08/11/homework/013/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -799,7 +895,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/04/16/hbase/hbase-indexer/batch-indexing/" class="post-title-link" itemprop="url">batch-indexing - 批量索引</a>
+            <a href="/2020/08/11/homework/013/" class="post-title-link" itemprop="url">写作课作业-013</a>
         </h2>
 
         <div class="post-meta">
@@ -808,21 +904,27 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-04-16 16:00:00 / 修改时间：16:27:22" itemprop="dateCreated datePublished" datetime="2019-04-16T16:00:00+08:00">2019-04-16</time>
+              <time title="创建时间：2020-08-11 20:06:43" itemprop="dateCreated datePublished" datetime="2020-08-11T20:06:43+08:00">2020-08-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-07 09:17:18" itemprop="dateModified" datetime="2020-09-07T09:17:18+08:00">2020-09-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hbase/" itemprop="url" rel="index"><span itemprop="name">hbase</span></a>
+                  <a href="/categories/%E5%86%99%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">写作</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hbase/hbase-indexer/" itemprop="url" rel="index"><span itemprop="name">hbase indexer</span></a>
+                  <a href="/categories/%E5%86%99%E4%BD%9C/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
                 </span>
             </span>
 
@@ -832,7 +934,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>976</span>
+              <span>555</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -851,13 +953,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>In addition to indexing HBase updates in near-real-time, it’s also possible to run a batch indexing job that will index data already contained within an HBase table. The batch indexing tool operates with the same indexing semantics as the near-real-time indexer, and it is run as a MapReduce job.</p>
-<p>In its most basic running mode, the batch indexing can be run as multiple indexers that run over HBase regions and write data directly to Solr, as follows:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hadoop jar hbase-indexer-mr-*-job.jar \ </span><br><span class="line">    --hbase-indexer-zk zk01 \</span><br><span class="line">    --hbase-indexer-name docindexer</span><br><span class="line">    --reducers 0</span><br></pre></td></tr></table></figure>
-<p>It is also possible to generate offline index shards in HDFS by supplying -1 or a positive integer for the –reducers argument, as shown below:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hadoop jar hbase-indexer-mr-*-job.jar \ </span><br><span class="line">    --hbase-indexer-zk zk01 \</span><br><span class="line">    --hbase-indexer-name docindexer \</span><br><span class="line">    --reducers -1 \</span><br><span class="line">    --output-dir hdfs:&#x2F;&#x2F;namenode&#x2F;solroutput</span><br></pre></td></tr></table></figure>
-<p>Finally, indexing shards can be generated offline and then merged into a running SolrCloud cluster using the –go-live flag as follows:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hadoop jar hbase-indexer-mr-*-job.jar \</span><br><span class="line">    --hbase-indexer-zk zk01 \</span><br><span class="line">    --hbase-indexer-name docindexer \</span><br><span class="line">    --go-live</span><br></pre></td></tr></table></figure>
+          <blockquote>
+<p>写一次吃货经历。调动各个感官，传达这个菜或东西很好吃的感知。勾起读者想要去吃的欲望。</p>
+</blockquote>
+<p> 今天看到作业，想来自己不是吃货，除了好吃不懂还有什么，想着想着，小学班主任说的一次经历浮现出来，他说刚工作的时候，从一个镇到另一个镇的学校去上班，是骑自行车去，到学校时已经过了吃饭的点，饥肠辘辘的问食堂还有什么，只剩一些白米饭，于是他白米饭就着白开水吃了他的第一顿饭，他说后面再也没吃过那么香那么甜的米饭，说话时像是吧唧着嘴，眼里透着光，满是回忆。</p>
+<p> 其实自己每次回老家的时候，也是要来碗勾汤的，有些人爱说兜汤，我觉得勾汤更有味。刚到店门口就用土话朝老板喊说来碗牛肉勾汤，自己选个位置坐下，这种汤店一般门面不大，能摆个三四桌的样子，基本就是拼桌的。一会老板就端着满满一碗牛肉和一杯汤上来了，满满一碗牛肉不是说没汤，只是汤比较少。大小不规则的牛肉块被透亮的带着酱色的淀粉裹着，滑滑的，能看到牛肉的纹路。咬上一口，顺滑柔嫩，有些肉会有些筋于是就Q弹起来，吃上了几口肉，和上几口汤，算是原味，然后加些辣椒和醋，搅拌时也不会洒出来，我只爱吃醋，一会囫囵下肚了，不过瘾，拿起杯子往碗里倒汤，那汤粘而不稠，勾汤的汤是老汤，店家每天要留下小半桶明天用，看着混，打到汤勺里清着呢，吃上一口就是那味了，小时候总是不停地喊老板加汤，还盼着汤里多块肉。</p>
+
       
     </div>
 
@@ -876,7 +977,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/04/16/hbase/hbase-indexer/metrics/">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2020/08/11/homework/012/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -890,7 +991,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/04/16/hbase/hbase-indexer/metrics/" class="post-title-link" itemprop="url">metrics - 指标</a>
+            <a href="/2020/08/11/homework/012/" class="post-title-link" itemprop="url">写作课作业-012</a>
         </h2>
 
         <div class="post-meta">
@@ -899,21 +1000,27 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-04-16 15:41:00 / 修改时间：16:17:43" itemprop="dateCreated datePublished" datetime="2019-04-16T15:41:00+08:00">2019-04-16</time>
+              <time title="创建时间：2020-08-11 20:06:35" itemprop="dateCreated datePublished" datetime="2020-08-11T20:06:35+08:00">2020-08-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-07 09:17:06" itemprop="dateModified" datetime="2020-09-07T09:17:06+08:00">2020-09-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hbase/" itemprop="url" rel="index"><span itemprop="name">hbase</span></a>
+                  <a href="/categories/%E5%86%99%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">写作</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hbase/hbase-indexer/" itemprop="url" rel="index"><span itemprop="name">hbase indexer</span></a>
+                  <a href="/categories/%E5%86%99%E4%BD%9C/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
                 </span>
             </span>
 
@@ -923,14 +1030,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
+              <span>452</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -942,38 +1049,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>The HBase Indexer publishes a number of metrics for each of its indexer processes. These metrics can be useful for getting an idea of how much data is being indexed, keeping track of the health of indexing processes, and troubleshooting problems.</p>
-<p>Hbase Indexer发布了一些索引生成时的指标数据。些指标可用于了解索引了多少数据、跟踪索引进程的运行状况和故障排除问题。</p>
-<p>By default, all metrics are published via <a href="http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html" target="_blank" rel="noopener">JMX</a>. The indexer can also be configured to publish metrics to <a href="http://ganglia.sourceforge.net/" target="_blank" rel="noopener">Ganglia</a> (see below).</p>
-<p>默认情况下，所有的指标是通过JMX发布的。也可以通过配置将指标发布到Ganglia中（配置看下文）。</p>
-<p>Besides these metrics, you can monitor the replication status using the <a href="https://github.com/NGDATA/hbase-indexer/tree/master/hbase-sep/hbase-sep-tools" target="_blank" rel="noopener">SEP tools</a>.</p>
-<p>除了这些指标，还可以通过SEP tools来监控复制集的状态。</p>
-<h2 id="可用指标一览（Overview-of-available-metrics）"><a href="#可用指标一览（Overview-of-available-metrics）" class="headerlink" title="可用指标一览（Overview of available metrics）"></a>可用指标一览（Overview of available metrics）</h2><h3 id="HBase-to-Solr-mapping"><a href="#HBase-to-Solr-mapping" class="headerlink" title="HBase to Solr mapping"></a>HBase to Solr mapping</h3><p>Each indexer has a metric under <code>hbaseindexer/DefaultResultToSolrMapper/&lt;indexer_name&gt;/HBase Result to Solr Mapping time</code>.</p>
-<p>每个索引在<code>hbaseindexer/DefaultResultToSolrMapper/&lt;indexer_name&gt;/HBase Result to Solr Mapping time</code>下用一个指标。</p>
-<p>This metric lists information about the amount of time taken (in milliseconds) for converting an HBase update event into a Solr document, as well as a rate (in documents/second) for the general throughput of the process.</p>
-<p>这个指标列出了将Hbase转换成Solr文档的总耗费时间（毫秒），以及文档吐吞率（文档数/秒）。</p>
-<h3 id="Incoming-and-applicable-Events"><a href="#Incoming-and-applicable-Events" class="headerlink" title="Incoming and applicable Events"></a>Incoming and applicable Events</h3><p>Under <code>hbaseindexer/(Row|Column)BasedIndexer/&lt;indexer_name&gt;</code>, there are a pair of metrics about incoming events and applicable events. These metrics list the rate of incoming HBase update events, as well as the rate of incoming HBase events that are considered applicable for indexing.</p>
-<p>在<code>hbaseindexer/(Row|Column)BasedIndexer/&lt;indexer_name&gt;</code>下， 是一对关于输入事件和可用事件的指标。这些指标列出了输入HBASE更新事件的速率，以及被认为可用索引的输入HBASE事件的速率。</p>
-<h3 id="Solr-writing"><a href="#Solr-writing" class="headerlink" title="Solr writing"></a>Solr writing</h3><p>Under <code>hbaseindexer/SolrWriter/&lt;indexer_name&gt;</code>, there are a number of metrics around the rate of adds and delete to Solr.</p>
-<p>在<code>hbaseindexer/SolrWriter/&lt;indexer_name&gt;</code>下，是一些关于数据添加和删除到Solr速率的指标。</p>
-<p>There are also metrics about “document add/delete errors” and “Solr add/delete errors”. Document-based errors are errors that have occurred where the problem has been determined to be in the Solr document itself. Solr-based errors are errors that have occurred within Solr.</p>
-<p>也包含了“文档添加/删除错误”和“Solr添加/删除错误”。基于文档发错误是指发生在Solr文档本身中的错误。基于Solr的错误是在Solr中发生的错误。</p>
-<h2 id="Ganglia配置（Ganglia）"><a href="#Ganglia配置（Ganglia）" class="headerlink" title="Ganglia配置（Ganglia）"></a>Ganglia配置（Ganglia）</h2><p>Reporting of metrics to Ganglia can be configured in the <code>hbase-indexer-site.xml</code> file (in the conf directory).</p>
-<p>通过配置<code>hbase-indexer-site.xml</code>文件（在conf目录下）可以把指标生成到Ganglia中。</p>
-<p>In order to configure reporting in Ganglia, the following three configuration keys must be supplied:</p>
-<ul>
-<li>hbaseindexer.metrics.ganglia.server - Ganglia server to report to</li>
-<li>hbaseindexer.metrics.ganglia.port - port on the Ganglia server</li>
-<li>hbaseindexer.metrics.ganglia.interval - interval for reporting, in seconds</li>
-</ul>
-<p>为了配置Ganglia，下面三个配置需要被指定：</p>
-<ul>
-<li>hbaseindexer.metrics.ganglia.server - Ganglia服务器地址</li>
-<li>hbaseindexer.metrics.ganglia.port - Ganglia服务器端口</li>
-<li>hbaseindexer.metrics.ganglia.interval - 生成报告时间间隔</li>
-</ul>
-<p>An example Ganglia reporting configuration would look like this<br>以下是一个生成Ganglia报告的配置：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbaseindexer.metrics.ganglia.server<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>mygangliaserver<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbaseindexer.metrics.ganglia.port<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>8649<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbaseindexer.metrics.ganglia.interval<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>60<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+          <blockquote>
+<p>写一两个自证预言的例子，传达自证预言的重要性的感知。说一说如何使用自证预言来帮助自己成长。</p>
+</blockquote>
+<p> 刚工作的时候呢，学校的东西要用在工作上是很难的，写的程序不能用，经常出错，受打击呀，记得当时是这么对自己说的，你看某某是化学专业的，现在做c++这么厉害呀，我自己是计算机专业的，我也可以啊，于是就没那么担心出错了，慢慢自己也能独立开发。而后对于当前自己做得不好的事情，但必须做的事情，我就会用某人某个点不如我（不管这个点与这件事有关无关），他做成了某事，所以我也能做这件事的方式跟自己对话。其实也不知道这样比对不对，反正有用，能建立自己的信心，自己学车，学Java都是这么给自己打气的。</p>
+<p>说了正面的，说个反面的，工作那会Javascript的开发还没现在这么便利，调试是件很麻烦的事情，而公司的产品通过动态加载JavaScript的方式来做数据检验，更是增加了调试难度，于是就想JavaScript是人用的么？但这些年环境已经发生很大的变化，自己做个小demo，但要真用JavaScript做项目的时候就会打退堂鼓。</p>
+
       
     </div>
 
@@ -992,7 +1073,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/04/16/hbase/hbase-indexer/cli-tool/">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2020/08/11/homework/011/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1006,7 +1087,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/04/16/hbase/hbase-indexer/cli-tool/" class="post-title-link" itemprop="url">cli-tool - 命令行工具</a>
+            <a href="/2020/08/11/homework/011/" class="post-title-link" itemprop="url">写作课作业-011</a>
         </h2>
 
         <div class="post-meta">
@@ -1015,21 +1096,27 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-04-16 15:00:00 / 修改时间：16:26:31" itemprop="dateCreated datePublished" datetime="2019-04-16T15:00:00+08:00">2019-04-16</time>
+              <time title="创建时间：2020-08-11 20:06:30" itemprop="dateCreated datePublished" datetime="2020-08-11T20:06:30+08:00">2020-08-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-07 09:16:55" itemprop="dateModified" datetime="2020-09-07T09:16:55+08:00">2020-09-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hbase/" itemprop="url" rel="index"><span itemprop="name">hbase</span></a>
+                  <a href="/categories/%E5%86%99%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">写作</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hbase/hbase-indexer/" itemprop="url" rel="index"><span itemprop="name">hbase indexer</span></a>
+                  <a href="/categories/%E5%86%99%E4%BD%9C/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
                 </span>
             </span>
 
@@ -1039,14 +1126,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>498</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -1058,128 +1145,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>The HBase Indexer includes a number of command line tools for adding, updating, listing, and deleting indexers. All of these tools are executed by supplying a command name to the hbase-indexer tool. For example, to use the list-indexers command, you would enter the following:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;bin&#x2F;hbase-indexer list-indexers</span><br></pre></td></tr></table></figure>
-<p>Running any of the commands below with the –help parameter will show a listing of possible command parameters.</p>
-<h2 id="add-indexer"><a href="#add-indexer" class="headerlink" title="add-indexer"></a>add-indexer</h2><p>The “add-indexer” command is used for configuring a new indexer.</p>
-<p>When adding an indexer, you need to supply at least the following:</p>
-<ul>
-<li>the name of the indexer</li>
-<li>the indexer’s definition (in the form of an xml file)</li>
-<li>connection information to the ZooKeeper used by Solr</li>
-</ul>
-<p>In order to add a basic indexer named “myindexer” whose definition is saved in a file called myindexer.xml, with ZooKeeper running on a server named myzkhost:2181/solr and a Solr collection named mycollection, you would execute the following:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;bin&#x2F;hbase-indexer add-indexer \</span><br><span class="line">                      --name myindexer \</span><br><span class="line">                      --indexer-conf myindexer.xml \</span><br><span class="line">                      --cp solr.zk&#x3D;myzkhost:2181&#x2F;solr \</span><br><span class="line">                      --cp solr.collection&#x3D;mycollection</span><br></pre></td></tr></table></figure>
-<h2 id="update-indexer"><a href="#update-indexer" class="headerlink" title="update-indexer"></a>update-indexer</h2><p>The update-indexer command is used for updating the definition or the state of an indexer.</p>
-<p>This command is most typically used for updating the definition of an indexer – for example, changing the list of fields to be indexed.</p>
-<p>The parameters to the update-indexer tool are generally the same as those for the add-indexer tool, but none of them are mandatory except for the name field.</p>
-<p>To update the definition of the indexer that was created in the example for add-indexer, you would run the following:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;bin&#x2F;hbase-indexer update-indexer --name myindexer --indexer-conf myupdatedindexer.xml</span><br></pre></td></tr></table></figure>
-<p>Any parameters (other than the name parameter) that you supply to the update-indexer command will overwrite existing parameters for the indexer.</p>
-<h2 id="list-indexers"><a href="#list-indexers" class="headerlink" title="list-indexers"></a>list-indexers</h2><p>The list-indexer command lists all currently configured indexers, including various status information about them.</p>
-<p>This command can be run without any additional parameters.</p>
-<h2 id="delete-indexer"><a href="#delete-indexer" class="headerlink" title="delete-indexer"></a>delete-indexer</h2><p>The delete-indexer command removes an indexer and stops all indexing processes for that indexer.</p>
-<p>The –name parameter is mandatory for this command.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/04/16/es/sniff/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="L4qiang">
-      <meta itemprop="description" content="记录点滴，注重积累。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CrazyAirhead">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/16/es/sniff/" class="post-title-link" itemprop="url">client.transport.sniff配置引起的问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-04-16 11:38:18 / 修改时间：14:27:30" itemprop="dateCreated datePublished" datetime="2019-04-16T11:38:18+08:00">2019-04-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ElasticSearch/" itemprop="url" rel="index"><span itemprop="name">ElasticSearch</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>之前基于Docker搭建了ES环境，也能正常使用，这周突然程序能正常启动，但实际发生ES调用时出错，错误如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: [&#123;#transport#-1&#125;&#123;zYhliWDFSRGpbaB371OV-g&#125;&#123;172.26.0.251&#125;&#123;172.26.0.251:9300&#125;]</span><br><span class="line">	at org.elasticsearch.client.transport.TransportClientNodesService.ensureNodesAreAvailable(TransportClientNodesService.java:<span class="number">349</span>)</span><br><span class="line">	at org.elasticsearch.client.transport.TransportClientNodesService.execute(TransportClientNodesService.java:<span class="number">247</span>)</span><br><span class="line">	at org.elasticsearch.client.transport.TransportProxyClient.execute(TransportProxyClient.java:<span class="number">60</span>)</span><br><span class="line">	at org.elasticsearch.client.transport.TransportClient.doExecute(TransportClient.java:<span class="number">381</span>)</span><br><span class="line">	at org.elasticsearch.client.support.AbstractClient.execute(AbstractClient.java:<span class="number">407</span>)</span><br><span class="line">	at org.elasticsearch.client.support.AbstractClient.execute(AbstractClient.java:<span class="number">396</span>)</span><br><span class="line">	at org.elasticsearch.action.ActionRequestBuilder.execute(ActionRequestBuilder.java:<span class="number">46</span>)</span><br><span class="line">	at org.elasticsearch.action.ActionRequestBuilder.get(ActionRequestBuilder.java:<span class="number">53</span>)</span><br><span class="line">	...</span><br></pre></td></tr></table></figure>
-<p>现在将问题做下记录，主要是<code>client.transport.sniff</code>的使用问题。</p>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>基于Docker的ES，<a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.1/docker.html#docker-cli-run-prod-mode?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">官网</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e &quot;discovery.type&#x3D;single-node&quot; elasticsearch:6.5.4</span><br></pre></td></tr></table></figure>
-<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><p>客户端代码基本参照了ES<a href="https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/transport-client.html" target="_blank" rel="noopener">官网</a>。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span>(destroyMethod = <span class="string">"close"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> TransportClient <span class="title">client</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">	TransportClient client = <span class="keyword">new</span> PreBuiltTransportClient(settings());</span><br><span class="line"></span><br><span class="line">	String clusterNodes = elasticsearchProperties.getClusterNodes();</span><br><span class="line">	Assert.hasText(clusterNodes, <span class="string">"[Assertion failed] clusterNodes settings missing."</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (String clusterNode : split(clusterNodes, ElasticsearchProperties.COMMA)) &#123;</span><br><span class="line">		String hostName = substringBeforeLast(clusterNode, ElasticsearchProperties.COLON);</span><br><span class="line">		String port = substringAfterLast(clusterNode, ElasticsearchProperties.COLON);</span><br><span class="line">		Assert.hasText(hostName, <span class="string">"[Assertion failed] missing host name in 'clusterNodes'"</span>);</span><br><span class="line">		Assert.hasText(port, <span class="string">"[Assertion failed] missing port in 'clusterNodes'"</span>);</span><br><span class="line">		logger.info(<span class="string">"adding transport node : "</span> + clusterNode);</span><br><span class="line">		client.addTransportAddress(<span class="keyword">new</span> TransportAddress(InetAddress.getByName</span><br><span class="line">				(hostName), Integer.valueOf(port)));</span><br><span class="line">	&#125;</span><br><span class="line">	client.connectedNodes();</span><br><span class="line">	<span class="keyword">return</span> client;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> Settings <span class="title">settings</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> Settings.builder()</span><br><span class="line">			.put(<span class="string">"cluster.name"</span>, elasticsearchProperties.getClusterName())</span><br><span class="line">			.put(<span class="string">"client.transport.sniff"</span>, elasticsearchProperties.getClientTransportSniff())</span><br><span class="line">			.put(<span class="string">"client.transport.ignore_cluster_name"</span>, elasticsearchProperties</span><br><span class="line">					.getClientIgnoreClusterName())</span><br><span class="line">			.put(<span class="string">"client.transport.ping_timeout"</span>, elasticsearchProperties</span><br><span class="line">					.getClientPingTimeout())</span><br><span class="line">			.put(<span class="string">"client.transport.nodes_sampler_interval"</span>, elasticsearchProperties</span><br><span class="line">					.getClientNodesSamplerInterval())</span><br><span class="line">			.build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h2><p>因为之前可以访问，例常的检查了cluster.name和配置的服务器和端口，一切正常。</p>
-<p>经过一些搜索后发现这篇文章，<a href="https://discuss.elastic.co/t/transport-client-nonodeavailableexception-none-of-the-configured-nodes-are-available/92000/2" target="_blank" rel="noopener">NoNodeAvailableException</a>，其中提到了配置了<code>client.transport.sniff</code>为<code>true</code>。</p>
-<p>检查代码，自己默认配置也是<code>true</code>。调整<code>client.transport.sniff</code>为<code>false</code>，一切正常了。</p>
-<h2 id="分析及处理"><a href="#分析及处理" class="headerlink" title="分析及处理"></a>分析及处理</h2><p><code>client.transport.sniff</code>的作用是：使客户端去嗅探整个集群的状态，把集群中其它机器的ip地址加到客户端中。这样做的好处是，一般你不用手动设置集群里所有集群的ip到连接客户端，它会自动帮你添加，并且自动发现新加入集群的机器。</p>
-<p>但使用该参数时有个注意事项。当ES服务器监听（publish_address ）使用内网服务器IP，而访问（bound_addresses ）使用外网IP时，不要设置client.transport.sniff为true。不设置client.transport.sniff时，默认为false(关闭客户端去嗅探整个集群的状态)。因为在自动发现时会使用内网IP进行通信，导致无法连接到ES服务器。因此此时需要直接使用addTransportAddress方法把集群中其它机器的ip地址加到客户端中。<br>然后检查了下Docker的启动日志：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[2019-04-16T05:45:56,427][INFO ][o.e.n.Node               ] [ehrCloud] starting ...</span><br><span class="line">[2019-04-16T05:45:56,648][INFO ][o.e.t.TransportService   ] [ehrCloud] publish_address &#123;172.17.0.3:9300&#125;, bound_addresses &#123;0.0.0.0:9300&#125;</span><br><span class="line">[2019-04-16T05:45:56,796][INFO ][o.e.x.s.t.n.SecurityNetty4HttpServerTransport] [ehrCloud] publish_address &#123;172.17.0.3:9200&#125;, bound_addresses &#123;0.0.0.0:9200&#125;</span><br><span class="line">[2019-04-16T05:45:56,797][INFO ][o.e.n.Node               ] [ehrCloud] started</span><br></pre></td></tr></table></figure>
-<p>之后做了如下尝试，修改配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">network.public_host: 172.26.0.251</span><br></pre></td></tr></table></figure>
-<p>重新运行程序，此时无论<code>client.transport.sniff</code>的配置为何，都可正常使用。</p>
-<p>不过为什么之前可以，现在不行这个问题还是不清楚。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://wenchao.ren/2019/01/org-elasticsearch-client-transport-NoNodeAvailableException-None-of-the-configured-nodes-are-available/" target="_blank" rel="noopener">ES版本问题</a></p>
-<p><a href="https://blog.csdn.net/J_bean/article/details/79507559?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">elasticsearch中client.transport.sniff的使用方法和注意事项</a></p>
+          <blockquote>
+<p>塑造一个你喜欢的老师形象。传达这个老师值得喜欢和尊敬的感知。</p>
+</blockquote>
+<p> 我最喜欢的老师是我大学的C++老师，黄涛老师。</p>
+<p>我在桂林一个三流的军校的地方生院上的计算机专业，平时上课的都是教官，穿着军装，我们也穿着军装。第二学期开始有专业课， 来了个穿便装的老师，个子高高的，有点胖，一脸笑容。刚要上课，他就说，“在我的课上，第一不要睡觉，睡了你就没法学新东西。第二不要讲话，讲话会影响其他人学习。其他的你们自己选。“。刚开始上课就这么约定的还是头一次碰到，就这么记住了，于是上黄老师的课，自己从没睡过，其他课也少睡了，而是看当时流行的奇幻小说。</p>
+<p>黄老师每周会安排一两个晚上，来我们的自习室，或是答疑，或是聊天。印象中教导员会来晚自习，了解下大家的去向。嗯，是没有其他老师的。</p>
+<p>一次下课的时候，他说：“桂林有个好，就是老外多，想跟我去找老外聊天的，周末我们就可以去”。我也跟去了几次，在象鼻山公园，他带着头，截着老外就聊，口语可好了。他也鼓励我们自己开口聊。还建议我们去阳朔打暑期工。带着我们去市图书馆办卡看书，推荐英语杂志和计算机专业的课程。</p>
+<p>英语方面我掉队下来了，几个认真的同学，考研换了英语专业。而我做了C++程序员。</p>
 
       
     </div>
@@ -1198,7 +1171,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1264,20 +1237,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">152</span>
+          <span class="site-state-item-count">198</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-count">61</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">70</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1321,12 +1294,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">360k</span>
+    <span title="站点总字数">384k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:27</span>
+    <span title="站点阅读时长">5:49</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -1340,6 +1313,9 @@
 
 
 
+      </div>
+      <div class="footer-inner">
+        <a href="https://ri.cms.firesbox.com" target="_blank" rel="noopener">践行群官方情报站</a>
       </div>
     </footer>
   </div>
