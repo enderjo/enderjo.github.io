@@ -171,6 +171,347 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/09/30/java/relpacing-class/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="L4qiang">
+      <meta itemprop="description" content="记录点滴，注重积累。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CrazyAirhead">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/30/java/relpacing-class/" class="post-title-link" itemprop="url">替换jar包类实现</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-09-30 15:33:22 / 修改时间：16:17:15" itemprop="dateCreated datePublished" datetime="2019-09-30T15:33:22+08:00">2019-09-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/jfinal/" itemprop="url" rel="index"><span itemprop="name">jfinal</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>471</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>因为开发中使用到了jfinal-weixin，但jfinal-weixin对多公众号（或者小程序）的支持还不是太好，需要自己增加一些处理来更好的使用。如果你使用Java有些时日了，一定会想到重写jar包的类方法。</p>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li>确定需要重写类的包路径</li>
+<li>在项目的src目录下创建同名包</li>
+<li>将需要重写的类拷贝到刚创建的目录，有源码使用源码，无源码可采用反编译的代码(IDEA一般会帮你反编译)</li>
+<li>重写或者增加自己需要的方法</li>
+</ol>
+<h1 id="问题及处理"><a href="#问题及处理" class="headerlink" title="问题及处理"></a>问题及处理</h1><p>当你一套组合拳打完，准备部署收工的时候，却报错了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.NoSuchMethodError:com....</span><br></pre></td></tr></table></figure>
+
+<p>教科书里总是骗人的。这个时候你需要看看下面的文档。</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html</a></p>
+<p><a href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/classpath.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/technotes/tools/windows/classpath.html</a></p>
+<p>只是自己读书不够多而已，此时可能过指定-cp的方式来确定加载顺序。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/09/30/java/jdk8-apline/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="L4qiang">
+      <meta itemprop="description" content="记录点滴，注重积累。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CrazyAirhead">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/30/java/jdk8-apline/" class="post-title-link" itemprop="url">jdk8-apline需要注意的问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-30 15:02:13" itemprop="dateCreated datePublished" datetime="2019-09-30T15:02:13+08:00">2019-09-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-10 17:37:20" itemprop="dateModified" datetime="2020-08-10T17:37:20+08:00">2020-08-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>因为需要部署一台新的测试机，之前知道apline比较小巧，于是选用了java:jdk8-apline的基础镜像。但我们在部署Jfinal项目(采用undertow文件夹方式部署，通过start.sh启动并后台运行)的过程碰到一些问题。小巧注定很多组件需要自己安装。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
+<li><p>编写好Dockerfile后，无法启动容器</p>
+<blockquote>
+<ol>
+<li>apline未完装bash，需要安装<code>apk add bash</code></li>
+<li>start.sh为后台运行，需要改为直接运行，去掉启动命令中的<code>&amp;</code></li>
+</ol>
+</blockquote>
+</li>
+<li><p>时间为UTC，而不是北京时间</p>
+<blockquote>
+<p>这个问题实际是Docker镜像问题，和apline无关。因为编写Dockerfile时做了处理，所以一并列出。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apk add tzdata</span><br><span class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Asia/shanghai"</span> &gt;&gt; /etc/timezone</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>验证码无法使用，提示如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.NullPointerException</span><br><span class="line">	at sun.awt.FontConfiguration.getVersion(FontConfiguration.java:1264)</span><br><span class="line">	at sun.awt.FontConfiguration.readFontConfigFile(FontConfiguration.java:219)</span><br><span class="line">	at sun.awt.FontConfiguration.init(FontConfiguration.java:107)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>网上搜索发现为apline缺少字库导致</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apk add font-adobe-100dpi ttf-dejavu fontconfig</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>下载源速度慢</p>
+<blockquote>
+<p>使用阿里云镜像加速</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo http://mirrors.aliyun.com/alpine/v3.7/main/ &gt;&gt; /etc/apk/repositories</span><br><span class="line">apk update</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><p>最后的Dockerfile，需要增加的处理如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">FROM daocloud.io/library/java:8-jdk-alpine</span><br><span class="line">LABEL maintainer=<span class="string">"L4qiang@gmail.com"</span></span><br><span class="line"></span><br><span class="line">RUN <span class="built_in">echo</span> http://mirrors.aliyun.com/alpine/v3.7/main/ &gt;&gt; /etc/apk/repositories</span><br><span class="line">RUN apk update</span><br><span class="line">RUN apk add bash tzdata font-adobe-100dpi ttf-dejavu fontconfig</span><br><span class="line">RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line">RUN <span class="built_in">echo</span> <span class="string">"Asia/shanghai"</span> &gt;&gt; /etc/timezone</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/09/11/mysql/upgrade/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="L4qiang">
+      <meta itemprop="description" content="记录点滴，注重积累。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CrazyAirhead">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/11/mysql/upgrade/" class="post-title-link" itemprop="url">升级Mysql8</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-09-11 10:18:30 / 修改时间：11:27:48" itemprop="dateCreated datePublished" datetime="2019-09-11T10:18:30+08:00">2019-09-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>最近项目迁移，顺便将Mysql数据库从5.7升级到8.0，记录下升级中的碰到的问题和一些处理。采用SpringBoot集成Jfinal，使用Druid管理数据库连接，同样适用于只使用Jfinal的用户。</p>
+<h1 id="准备Mysql"><a href="#准备Mysql" class="headerlink" title="准备Mysql"></a>准备Mysql</h1><p>使用Docker来完成Mysql8的环境准备（这里假设你已安装好Docker CE），可以到DockerHub上看是否有最新版本。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql8 -p 3306:3306 MYSQL_ROOT_PASSWORD=123456 -d mysql:8.0</span><br></pre></td></tr></table></figure>
+<h1 id="修改pom-xml"><a href="#修改pom-xml" class="headerlink" title="修改pom.xml"></a>修改pom.xml</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="修改DruidPlugin配置"><a href="#修改DruidPlugin配置" class="headerlink" title="修改DruidPlugin配置"></a>修改DruidPlugin配置</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DruidPlugin druidPlugin = <span class="keyword">new</span> DruidPlugin(<span class="string">"jdbcUrl"</span>, <span class="string">"user"</span>, <span class="string">"password"</span>, <span class="string">"com.mysql.cj.jdbc.Driver"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>此处一定要增加驱动名<code>com.mysql.cj.jdbc.Driver</code>，否则会报<code>Cannot resolve com.mysq.jdbc.Connection.ping method. Will use &#39;SELECT 1&#39; instead</code>错。</p>
+<h1 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">activerecord:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://ip:port/db?characterEncoding=utf8&amp;useSSL=false&amp;zeroDateTimeBehavior=CONVERT_TO_NULL&amp;serverTimezone=GMT</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">user</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">password</span></span><br></pre></td></tr></table></figure>
+<h2 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h2><ul>
+<li>5.7版本时使用<code>zeroDateTimeBehavior=convertToNull</code>，需要调整为<code>zeroDateTimeBehavior=CONVERT_TO_NULL</code>。</li>
+<li>如果提示<code>MySQLNonTransientConnectionException: Public Key Retrieval is not allowed</code>，增加<code>allowPublicKeyRetrieval=true</code>或者增加Timezone设置，如<code>serverTimezone=GMT</code>。具体原因可能参看<a href="https://mysqlconnector.net/connection-options/" target="_blank" rel="noopener">https://mysqlconnector.net/connection-options/</a>。</li>
+<li>如果使用了asText()，需要修改成ST_asText()。</li>
+</ul>
+<p>暂未发现其他问题，如遇到会进一步更新本文档。</p>
+<h1 id="Mysql8新特性"><a href="#Mysql8新特性" class="headerlink" title="Mysql8新特性"></a>Mysql8新特性</h1><p>以下简要列出Mysql8.0的一些新特性，主要参考<a href="https://www.jianshu.com/p/be29467c2b0c" target="_blank" rel="noopener">这里</a>,建议直接看Mysql官网说明。</p>
+<ul>
+<li>默认字符集由latin1变为utf8mb4</li>
+<li>MyISAM系统表全部换成InnoDB表</li>
+<li>自增变量持久化</li>
+<li>DDL原子化</li>
+<li>参数修改持久化</li>
+<li>新增降序索引</li>
+<li>group by 不再隐式排序</li>
+<li>JSON特性增强</li>
+<li>redo &amp; undo 日志加密</li>
+<li>innodb select for update跳过锁等待</li>
+<li>增加SET_VAR语法</li>
+<li>支持不可见索引</li>
+<li>支持直方图</li>
+<li>新增innodb_dedicated_server参数</li>
+<li>日志分类更详细</li>
+<li>undo空间自动回收</li>
+<li>增加资源组</li>
+<li>增加角色管理</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/07/24/mysql/jsontype/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -981,347 +1322,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/05/13/frontend/vue/vue-error-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="L4qiang">
-      <meta itemprop="description" content="记录点滴，注重积累。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CrazyAirhead">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/05/13/frontend/vue/vue-error-2/" class="post-title-link" itemprop="url">VUE踩坑记-02</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-05-13 15:42:18" itemprop="dateCreated datePublished" datetime="2019-05-13T15:42:18+08:00">2019-05-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-07-21 21:51:56" itemprop="dateModified" datetime="2019-07-21T21:51:56+08:00">2019-07-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>上一篇说到使用vue-element-admin来做后端管理，经同事的介绍可以使用Muse-ui来做前端应用。查看了Muse的官网后，准备踩坑下。</p>
-<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p>在Github上看到MuseUI的模板<a href="https://github.com/museui/nuxt-template" target="_blank" rel="noopener">nuxt-template</a>。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vue init museui/nuxt-tempalte myproject</span><br><span class="line"><span class="built_in">cd</span> my-project</span><br><span class="line">yarn instll</span><br><span class="line">yarn run dev</span><br></pre></td></tr></table></figure>
-<p>一切看起来很美好，<a href="http://localhost:3000可直接看页面了。">http://localhost:3000可直接看页面了。</a></p>
-<h2 id="Nuxt-js"><a href="#Nuxt-js" class="headerlink" title="Nuxt.js"></a>Nuxt.js</h2><p>一看源码，连App.vue都没有，刚有点基础的我慌了。赶紧查查是什么？</p>
-<p>简单点说<a href="https://github.com/nuxt/nuxt.js" target="_blank" rel="noopener">Nuxt.js</a>是一个基于Vue.js的通用应用框架，重点关注应用的UI渲染（支持客户端和服务端渲染），另外它像Maven一样规定了项目的目录结构，对于初学者来说，看懂文档，还是相对容易创建一个新的项目的。这里有它的<a href="https://zh.nuxtjs.org/" target="_blank" rel="noopener">文档</a>，可以自行了解。</p>
-<h2 id="将项目转成TypeScript"><a href="#将项目转成TypeScript" class="headerlink" title="将项目转成TypeScript"></a>将项目转成TypeScript</h2><p>之前说过，ts更接近java，为了统一，我准备将项目转换成ts的，顺便多熟悉下Nuxt。</p>
-<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir myproject2</span><br></pre></td></tr></table></figure>
-<p>用VSCode打开空目录，<code>myproject2</code></p>
-<h3 id="新建package-json文件"><a href="#新建package-json文件" class="headerlink" title="新建package.json文件"></a>新建package.json文件</h3><p>package.json 文件用来设定如何运行 nuxt：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"myproject2"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"dev"</span>: <span class="string">"nuxt"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装Nux"><a href="#安装Nux" class="headerlink" title="安装Nux"></a>安装Nux</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add nuxt</span><br></pre></td></tr></table></figure>
-
-<h3 id="pages目录"><a href="#pages目录" class="headerlink" title="pages目录"></a>pages目录</h3><p>Nuxt.js 会依据 <code>pages</code> 目录中的所有 <code>*.vue</code> 文件生成应用的路由配置。</p>
-<p>创建 <code>pages</code> 目录：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir pages</span><br></pre></td></tr></table></figure>
-
-<p>创建我们的第一个页面 <code>pages/index.vue</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;Hello world!&lt;&#x2F;h1&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn run dev</span><br></pre></td></tr></table></figure>
-
-<p>此时我们的应用运行在 <a href="http://localhost:3000/" target="_blank" rel="noopener">http://localhost:3000</a> 上运行。</p>
-<h3 id="支持TypeScript"><a href="#支持TypeScript" class="headerlink" title="支持TypeScript"></a>支持TypeScript</h3><p>为了能够在项目中使用TypeScript，您需要将<code>@nuxt/typescript</code>和<code>ts-node</code>作为开发依赖项安装：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn add -D @nuxt/typescript</span><br><span class="line">yarn add ts-node</span><br></pre></td></tr></table></figure>
-
-<p>需要创建一个空的<code>tsconfig.json</code>文件，<code>tsconfig.json</code>文件将在您第一次运行<code>nuxt</code>命令时使用默认值自动更新。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch tsconfig.json</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>为了能够在配置文件中使用TypeScript，您只需要将<code>nuxt.config.js</code>重命名为<code>nuxt.config.ts</code>。</p>
-<h3 id="使用ESLint"><a href="#使用ESLint" class="headerlink" title="使用ESLint"></a>使用ESLint</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add -D @typescript-eslint&#x2F;eslint-plugin</span><br></pre></td></tr></table></figure>
-
-<p>然后，通过添加<code>@typescript-eslint</code>插件并使<code>@typescript-eslint/parser</code>作为默认解析器来编辑ESLint配置(<code>.eslintrc.js</code>)。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: [<span class="string">'@typescript-eslint'</span>],</span><br><span class="line">  parserOptions: &#123;</span><br><span class="line">    parser: <span class="string">'@typescript-eslint/parser'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  extends: [</span><br><span class="line">    <span class="string">'@nuxtjs'</span></span><br><span class="line">  ],</span><br><span class="line">  rules: &#123;</span><br><span class="line">    <span class="string">'@typescript-eslint/no-unused-vars'</span>: <span class="string">'error'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>最后，添加或编辑<code>package.json</code>的<code>lint</code>脚本：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore ."</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用MuseUI"><a href="#使用MuseUI" class="headerlink" title="使用MuseUI"></a>使用MuseUI</h3><h4 id="拷贝pages文件"><a href="#拷贝pages文件" class="headerlink" title="拷贝pages文件"></a>拷贝pages文件</h4><p>将myproject下的about.vue和index.vue拷到pages下</p>
-<h4 id="拷贝plugins文件"><a href="#拷贝plugins文件" class="headerlink" title="拷贝plugins文件"></a>拷贝plugins文件</h4><p>将myproject下的muse-ui.js拷贝过来并重命名为muse-ui.ts</p>
-<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p>将<code>nuxt.config.js</code>拷贝过来重命名为<code>nuxt.config.ts</code>。其中去掉eslint的相关配置。修改vendor为</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vendor: [</span><br><span class="line">  <span class="string">'~/plugins/muse-ui'</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>此时通过<code>yarn run dev</code>已经可正常编译，但运行时会页面会提示错误。大致错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SyntaxError</span><br><span class="line">Invalid or unexpected token</span><br><span class="line"></span><br><span class="line">vm.js</span><br><span class="line">Missing stack framesJS </span><br><span class="line">new Script@80:7</span><br></pre></td></tr></table></figure>
-
-<p>查官网<a href="https://github.com/museui/muse-ui/issues/1347" target="_blank" rel="noopener">issues</a>，说是还不支持ssr，调整plugins配置就可以了。</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  &#123;</span><br><span class="line">    src: <span class="string">'~plugins/muse-ui'</span>,</span><br><span class="line">    ssr: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p>最终的<code>nuxt.config.ts</code>文件</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  ** Headers of the page</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  head: &#123;</span><br><span class="line">    title: <span class="string">'myproject2'</span>,</span><br><span class="line">    meta: [</span><br><span class="line">      &#123; charset: <span class="string">'utf-8'</span> &#125;,</span><br><span class="line">      &#123; name: <span class="string">'viewport'</span>, content: <span class="string">'width=device-width, initial-scale=1'</span> &#125;,</span><br><span class="line">      &#123; hid: <span class="string">'description'</span>, name: <span class="string">'description'</span>, content: <span class="string">'Nuxt.js Muse-UI project'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    link: [</span><br><span class="line">      &#123; rel: <span class="string">'icon'</span>, <span class="keyword">type</span>: <span class="string">'image/x-icon'</span>, href: <span class="string">'/favicon.ico'</span> &#125;,</span><br><span class="line">      &#123; rel: <span class="string">'stylesheet'</span>, href: <span class="string">'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  ** Customize the progress bar color</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  loading: &#123; color: <span class="string">'#3B8070'</span> &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    &#123;</span><br><span class="line">      src: <span class="string">'~plugins/muse-ui'</span>,</span><br><span class="line">      ssr: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  ** Build configuration</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  build: &#123;</span><br><span class="line">    babel: &#123;</span><br><span class="line">      plugins: [</span><br><span class="line">        [<span class="string">'import'</span>, &#123;</span><br><span class="line">          libraryName: <span class="string">'muse-ui'</span>,</span><br><span class="line">          libraryDirectory: <span class="string">'lib'</span>,</span><br><span class="line">          camel2DashComponentName: <span class="literal">false</span></span><br><span class="line">        &#125;]</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    vendor: [</span><br><span class="line">      <span class="string">'~/plugins/muse-ui'</span></span><br><span class="line">    ],</span><br><span class="line">    extractCSS: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>经过以上的修改已经可以通过nuxt来管理vue项目，并能过ts来写代码了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/05/09/frontend/vue/vue-error-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="L4qiang">
-      <meta itemprop="description" content="记录点滴，注重积累。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CrazyAirhead">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/05/09/frontend/vue/vue-error-1/" class="post-title-link" itemprop="url">VUE踩坑记-01</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-05-09 13:36:47" itemprop="dateCreated datePublished" datetime="2019-05-09T13:36:47+08:00">2019-05-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-19 14:44:16" itemprop="dateModified" datetime="2020-10-19T14:44:16+08:00">2020-10-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>因为公司目前暂时没的前端，于是准备自己用Vue和TypeScript入手公司项目的管理后台。因为Vue已经有很多UI框架了（比如Element），而TypeScript呢，引入了类等概念，对于Java开发人员来说是比较容易入手的。而后端开发人员可能最头疼的是CSS布局吧，于是找了vue-element-admin来抄，当然有人改了个TypeScript版本<a href="https://github.com/Armour/vue-typescript-admin-template" target="_blank" rel="noopener">vue-typescript-admin-template</a>。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>经过一段时间的熟悉yarn和代码结构，我们开始了服务端的调用。</p>
-<h3 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h3><p>本地服务开发我们是可以设置Chrome的跨域的（–disable-web-security<br>–user-data-dir=），但为了后面更好的开发和及时发现问题，我们还是使用了Proxy方式，按vue-cli的文档，增加<code>vue.config.js</code>的devServer配置就要可以，如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * vue-cli3跨域的全配置！</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  devServer: &#123;</span><br><span class="line">     proxy:  <span class="string">'http://172.26.0.252:8881'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但我们还是出现了问题，原来在<code>request.ts</code>中也设置了服务器地址</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> service = axios.create(&#123;</span><br><span class="line">  baseURL: <span class="string">'http://172.26.0.252:8881'</span>,</span><br><span class="line">  timeout: <span class="number">5000</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>其实呢这个值应该设置在<code>.env</code>中，设置VUE_APP_BASE_API</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">VUE_APP_BASE_API</span>=<span class="string">http://172.26.0.252:8881</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="远程调用"><a href="#远程调用" class="headerlink" title="远程调用"></a>远程调用</h3><p>解决了跨域之后，开始了实际的接口调用，修改的是登录页面，一测试，报这样的错。</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">login error:<span class="built_in">Error</span>: ERR_ACTION_ACCESS_UNDEFINED: Are you trying to access <span class="keyword">this</span>.someMutation() or <span class="keyword">this</span>.someGetter inside an <span class="meta">@Action</span>? </span><br><span class="line">That works only <span class="keyword">in</span> dynamic modules. </span><br><span class="line">If not dynamic use <span class="keyword">this</span>.context.commit(<span class="string">"mutationName"</span>, payload) and <span class="keyword">this</span>.context.getters[<span class="string">"getterName"</span>]</span><br><span class="line"><span class="built_in">Error</span>: Could not perform action Login</span><br><span class="line">    at Store.eval (webpack-internal:<span class="comment">///./node_modules/vuex-module-decorators/dist/esm/index.js:333:37)</span></span><br><span class="line">    at step (webpack-internal:<span class="comment">///./node_modules/vuex-module-decorators/dist/esm/index.js:114:23)</span></span><br><span class="line">    at <span class="built_in">Object</span>.eval [<span class="keyword">as</span> <span class="keyword">throw</span>] (webpack-internal:<span class="comment">///./node_modules/vuex-module-decorators/dist/esm/index.js:95:53)</span></span><br><span class="line">    at rejected (webpack-internal:<span class="comment">///./node_modules/vuex-module-decorators/dist/esm/index.js:86:65)</span></span><br><span class="line"><span class="built_in">Error</span>: error <span class="keyword">with</span> code: <span class="literal">undefined</span></span><br><span class="line">    at __webpack_exports__.default (webpack-internal:<span class="comment">///./src/utils/request.ts:48:133)</span></span><br></pre></td></tr></table></figure>
-
-<p>嗯，完全没在头绪，查了下呢看到这篇<a href="https://github.com/championswimmer/vuex-module-decorators/issues/26" target="_blank" rel="noopener">Rejected action throws ERR_ACTION_ACCESS_UNDEFINED</a>，说是增加rawError，因为对Vuex不熟悉，也还是不知道怎么加。</p>
-<p>之后查看了<a href="https://championswimmer.in/vuex-module-decorators/pages/installation.html" target="_blank" rel="noopener"><a href="https://championswimmer.in/vuex-module-decorators/" target="_blank" rel="noopener">vuex-module-decorators</a></a>的基本文档。</p>
-<p>回头重新看<a href="https://github.com/championswimmer/vuex-module-decorators/issues" target="_blank" rel="noopener">issues</a>，搜索<code>ERR_ACTION_ACCESS_UNDEFINED</code>，记录还是不少的，一条条的看，终于看到rawError如何设置。</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Action</span>(&#123; rawError: <span class="literal">true</span> &#125;)</span><br></pre></td></tr></table></figure>
-
-<p>修改代码，测试这个时候报错</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code undifined</span><br></pre></td></tr></table></figure>
-
-<p>问题于是又定位到了<code>request.ts</code>上。</p>
-<p>查看代码，如下：</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">service.interceptors.response.use(</span><br><span class="line">  (response) =&gt; &#123;</span><br><span class="line">    <span class="comment">// Some example codes here:</span></span><br><span class="line">    <span class="comment">// code == 20000: valid</span></span><br><span class="line">    <span class="comment">// code == 50008: invalid token</span></span><br><span class="line">    <span class="comment">// code == 50012: already login in other place</span></span><br><span class="line">    <span class="comment">// code == 50014: token expired</span></span><br><span class="line">    <span class="comment">// code == 60204: account or password is incorrect</span></span><br><span class="line">    <span class="comment">// You can change this part for your own usage.</span></span><br><span class="line">    <span class="keyword">const</span> res = response.data</span><br><span class="line">    <span class="keyword">if</span> (res.code !== <span class="number">20000</span>) &#123;</span><br><span class="line">      Message(&#123;</span><br><span class="line">        message: res.message,</span><br><span class="line">        <span class="keyword">type</span>: <span class="string">'error'</span>,</span><br><span class="line">        duration: <span class="number">5</span> * <span class="number">1000</span></span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">if</span> (res.code === <span class="number">50008</span> || res.code === <span class="number">50012</span> || res.code === <span class="number">50014</span>) &#123;</span><br><span class="line">        MessageBox.confirm(</span><br><span class="line">          <span class="string">'你已被登出，可以取消继续留在该页面，或者重新登录'</span>,</span><br><span class="line">          <span class="string">'确定登出'</span>,</span><br><span class="line">          &#123;</span><br><span class="line">            confirmButtonText: <span class="string">'重新登录'</span>,</span><br><span class="line">            cancelButtonText: <span class="string">'取消'</span>,</span><br><span class="line">            <span class="keyword">type</span>: <span class="string">'warning'</span></span><br><span class="line">          &#125;</span><br><span class="line">        ).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          UserModule.FedLogOut().then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            location.reload() <span class="comment">// To prevent bugs from vue-router</span></span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'error with code: '</span> + res.code))</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> response.data</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line">    Message(&#123;</span><br><span class="line">      message: error.message,</span><br><span class="line">      <span class="keyword">type</span>: <span class="string">'error'</span>,</span><br><span class="line">      duration: <span class="number">5</span> * <span class="number">1000</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>是的，我们的返回值没有返回code，错误被上一层的Module给捕获了，接下来改代码就好了。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>实操才会碰到问题，才能解决问题，看文档时你是不会知道有多少坑的，你以为你会了实际上你还不会。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://l4qiang.me/2019/04/26/misc/handwriting/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="L4qiang">
-      <meta itemprop="description" content="记录点滴，注重积累。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CrazyAirhead">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/26/misc/handwriting/" class="post-title-link" itemprop="url">硬笔字-笔画</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-04-26 09:25:51 / 修改时间：12:45:24" itemprop="dateCreated datePublished" datetime="2019-04-26T09:25:51+08:00">2019-04-26</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>382</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="点：如高峰坠石"><a href="#点：如高峰坠石" class="headerlink" title="点：如高峰坠石"></a>点：如高峰坠石</h3><p>右点是写好点的基础，空中落笔，不可太长。垂点像露珠，仰点是自左上到右下落笔顿笔后往左路上挑。</p>
-<h3 id="横：如千里阵云"><a href="#横：如千里阵云" class="headerlink" title="横：如千里阵云"></a>横：如千里阵云</h3><p>起笔要稳，略顿，收笔要顿笔回锋。长横要舒展，行笔速度稍快，中间微微上凸。短横顶着斜向上。</p>
-<h3 id="竖：如万岁枯藤"><a href="#竖：如万岁枯藤" class="headerlink" title="竖：如万岁枯藤"></a>竖：如万岁枯藤</h3><p>垂露竖起笔向左上方伸出，顿笔下行，轻顿收笔。悬针竖运笔沉着形如银针，中锋行笔。</p>
-<h3 id="撇：如陆断犀象"><a href="#撇：如陆断犀象" class="headerlink" title="撇：如陆断犀象"></a>撇：如陆断犀象</h3><p>长撇要舒展而飘逸，短撇要迅速而有力。写好撇，是关键的是要撑握好角度和弧度。</p>
-<h3 id="捺：如崩浪雷奔"><a href="#捺：如崩浪雷奔" class="headerlink" title="捺：如崩浪雷奔"></a>捺：如崩浪雷奔</h3><p>捺的出锋要重顿快收，力量要用得沉稳。斜捺是轻入笔，右下行笔出书锋，不要太直，忌生硬。</p>
-<h3 id="折：如劲弩筋节"><a href="#折：如劲弩筋节" class="headerlink" title="折：如劲弩筋节"></a>折：如劲弩筋节</h3><p>折在书写时候，要有一个明显的停顿，然后转笔和力量的变化，方圆兼备。</p>
-<h3 id="提：如策马扬鞭"><a href="#提：如策马扬鞭" class="headerlink" title="提：如策马扬鞭"></a>提：如策马扬鞭</h3><p>顿笔斜向上，形状像匕首，速度要快，有力量，有策马扬鞭的气势，但不要甩。</p>
-<h3 id="勾：如百钧弩发"><a href="#勾：如百钧弩发" class="headerlink" title="勾：如百钧弩发"></a>勾：如百钧弩发</h3><p>横勾出钩迅速，钩身宜短，出锋方向指向字心。卧钩像一口锅，向上环抱。斜钩像一张弓，行笔迅疾，力拔山河。</p>
-<p><img src="handwriting.jpg" alt="图"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1387,20 +1391,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-count">201</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-count">72</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">70</span>
+        <span class="site-state-item-count">74</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1444,12 +1448,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">384k</span>
+    <span title="站点总字数">388k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:49</span>
+    <span title="站点阅读时长">5:53</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
